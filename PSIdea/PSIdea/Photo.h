@@ -18,4 +18,6 @@
 @property (nonatomic, retain) User *owner;
 @property (nonatomic, retain) Event *event;
 
+
+
 @end
