@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5128ECA1146596D60039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECA0146596D50039E2E4 /* User.m */; };
+		5128ECA4146596D60039E2E4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECA3146596D60039E2E4 /* Event.m */; };
+		5128ECAB146597380039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECAA146597380039E2E4 /* Photo.m */; };
 		516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D10FE1464B0D000CF95D2 /* UIKit.framework */; };
 		516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11001464B0D000CF95D2 /* Foundation.framework */; };
 		516D11031464B0D000CF95D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11021464B0D000CF95D2 /* CoreGraphics.framework */; };
@@ -16,13 +19,16 @@
 		516D11111464B0D000CF95D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D11101464B0D000CF95D2 /* AppDelegate.m */; };
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
-		516D11571464C43100CF95D2 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D11561464C43100CF95D2 /* Photo.m */; };
-		516D115A1464C43200CF95D2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D11591464C43200CF95D2 /* Event.m */; };
-		516D115D1464C43200CF95D2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115C1464C43200CF95D2 /* User.m */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5128EC9F146596D50039E2E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PSIdea/User.h; sourceTree = "<group>"; };
+		5128ECA0146596D50039E2E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
+		5128ECA2146596D60039E2E4 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = PSIdea/Event.h; sourceTree = "<group>"; };
+		5128ECA3146596D60039E2E4 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = PSIdea/Event.m; sourceTree = "<group>"; };
+		5128ECA9146597380039E2E4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		5128ECAA146597380039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		516D10FA1464B0D000CF95D2 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516D10FE1464B0D000CF95D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		516D11001464B0D000CF95D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,12 +43,6 @@
 		516D11131464B0D000CF95D2 /* PSIdea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea.xcdatamodel; sourceTree = "<group>"; };
 		516D111B1464B0D100CF95D2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
-		516D11551464C43100CF95D2 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = PSIdea/Photo.h; sourceTree = "<group>"; };
-		516D11561464C43100CF95D2 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSIdea/Photo.m; sourceTree = "<group>"; };
-		516D11581464C43200CF95D2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = PSIdea/Event.h; sourceTree = "<group>"; };
-		516D11591464C43200CF95D2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = PSIdea/Event.m; sourceTree = "<group>"; };
-		516D115B1464C43200CF95D2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PSIdea/User.h; sourceTree = "<group>"; };
-		516D115C1464C43200CF95D2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,12 +129,12 @@
 		516D113C1464B44C00CF95D2 /* CoreData Classes */ = {
 			isa = PBXGroup;
 			children = (
-				516D115B1464C43200CF95D2 /* User.h */,
-				516D115C1464C43200CF95D2 /* User.m */,
-				516D11581464C43200CF95D2 /* Event.h */,
-				516D11591464C43200CF95D2 /* Event.m */,
-				516D11551464C43100CF95D2 /* Photo.h */,
-				516D11561464C43100CF95D2 /* Photo.m */,
+				5128ECA9146597380039E2E4 /* Photo.h */,
+				5128ECAA146597380039E2E4 /* Photo.m */,
+				5128ECA2146596D60039E2E4 /* Event.h */,
+				5128ECA3146596D60039E2E4 /* Event.m */,
+				5128EC9F146596D50039E2E4 /* User.h */,
+				5128ECA0146596D50039E2E4 /* User.m */,
 			);
 			name = "CoreData Classes";
 			sourceTree = "<group>";
@@ -204,10 +204,10 @@
 				516D110D1464B0D000CF95D2 /* main.m in Sources */,
 				516D11111464B0D000CF95D2 /* AppDelegate.m in Sources */,
 				516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */,
-				516D11571464C43100CF95D2 /* Photo.m in Sources */,
-				516D115A1464C43200CF95D2 /* Event.m in Sources */,
-				516D115D1464C43200CF95D2 /* User.m in Sources */,
 				516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */,
+				5128ECA1146596D60039E2E4 /* User.m in Sources */,
+				5128ECA4146596D60039E2E4 /* Event.m in Sources */,
+				5128ECAB146597380039E2E4 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
