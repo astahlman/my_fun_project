@@ -2,7 +2,7 @@
 //  Photo.m
 //  PSIdea
 //
-//  Created by William Patty on 11/4/11.
+//  Created by William Patty on 11/5/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @implementation Photo
 
+@dynamic idNumber;
 @dynamic url;
-@dynamic id;
-@dynamic owner;
 @dynamic event;
+@dynamic owner;
 
 @end
