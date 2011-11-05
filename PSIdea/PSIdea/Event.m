@@ -2,7 +2,7 @@
 //  Event.m
 //  PSIdea
 //
-//  Created by William Patty on 11/4/11.
+//  Created by William Patty on 11/5/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @implementation Event
 
-@dynamic id;
-@dynamic title;
-@dynamic rating;
 @dynamic details;
+@dynamic idNumber;
 @dynamic location;
 @dynamic public;
-@dynamic photo;
+@dynamic rating;
+@dynamic title;
 @dynamic creator;
+@dynamic photo;
 
 @end

@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface CoreDataCreator : NSObject
+-(void) createCoreData;
 
 @end

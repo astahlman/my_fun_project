@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>Root</key>
+	<dict>
+		<key>Users</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<integer>1</integer>
+				<key>name</key>
+				<string>William Patty</string>
+				<key>location</key>
+				<string>null</string>
+				<key>events</key>
+				<array>
+					<integer>1</integer>
+				</array>
+				<key>friends</key>
+				<array>
+					<integer>2</integer>
+				</array>
+				<key>photo</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>2</integer>
+				<key>name</key>
+				<string>Andrew Stahlman</string>
+				<key>location</key>
+				<string>null</string>
+				<key>events</key>
+				<array>
+					<integer>2</integer>
+				</array>
+				<key>friends</key>
+				<array>
+					<integer>1</integer>
+				</array>
+				<key>photo</key>
+				<integer>0</integer>
+			</dict>
+		</array>
+		<key>Events</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<integer>1</integer>
+				<key>title</key>
+				<string>My First Event</string>
+				<key>details</key>
+				<string>Wow, you need to check this place out!</string>
+				<key>location</key>
+				<string>null</string>
+				<key>photo</key>
+				<string>null</string>
+				<key>public</key>
+				<true/>
+				<key>rating</key>
+				<integer>10</integer>
+				<key>creator</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>id</key>
+				<integer>2</integer>
+				<key>title</key>
+				<string>My Second Event</string>
+				<key>details</key>
+				<string>Please check this place out!</string>
+				<key>location</key>
+				<string>null</string>
+				<key>photo</key>
+				<string>null</string>
+				<key>public</key>
+				<true/>
+				<key>rating</key>
+				<integer>15</integer>
+				<key>creator</key>
+				<integer>2</integer>
+			</dict>
+		</array>
+	</dict>
+</dict>
 </plist>
