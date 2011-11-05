@@ -3,7 +3,8 @@
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="public" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,15 +19,16 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="idNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="creator" inverseEntity="Event" syncable="YES"/>
         <relationship name="friend" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friend" inverseEntity="User" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="owner" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="286" positionY="111" width="128" height="165"/>
+        <element name="Event" positionX="286" positionY="111" width="128" height="180"/>
         <element name="Photo" positionX="-144" positionY="246" width="128" height="105"/>
-        <element name="User" positionX="-63" positionY="-90" width="128" height="135"/>
+        <element name="User" positionX="-63" positionY="-90" width="128" height="150"/>
     </elements>
 </model>

@@ -15,14 +15,15 @@
 @implementation User
 
 @dynamic idNumber;
-@dynamic location;
 @dynamic name;
+@dynamic longitude;
+@dynamic latitude;
 @dynamic event;
 @dynamic friend;
 @dynamic photo;
 
 //creates new user managed object (if it doesn't already exist)
-+(User*) createUserWithID: (NSNumber*)idNumber andName: (NSString*) name andLocation: (NSString*) location andEvents: (NSArray*) event andFriends: (NSArray*) friends andPhoto: (NSNumber*) photoID inManagedObjectContext: (NSManagedObjectContext*) context{
++(User*) createUserWithID: (NSNumber*)idNumber andName: (NSString*) name andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andEvents: (NSArray*) event andFriends: (NSArray*) friends andPhoto: (NSNumber*) photoID inManagedObjectContext: (NSManagedObjectContext*) context{
     
     User *user = nil;
     
@@ -36,23 +37,25 @@
     user = [[context executeFetchRequest:request error:&error] lastObject];
     
     if(!user && !error){
-        user = [NSEntityDescription insertNewObjectForEntityForName:@"Course" inManagedObjectContext:context];
+        user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
         user.idNumber = idNumber;
         user.name = name;
-        user.location =location;
+        user.latitude =latitude;
+        user.longitude = longitude;
         //user.photo = call createphoto method
         
         for(int i=0; i<event.count; i++){
             //here call event creation
         }
-    
+        
     }
     //Need to fill in empty information (This is needed because of way friends are setup in data)
     else if(user &&!error){
         if (user.name == @"null") {
             
             user.name = name;
-            user.location =location;
+            user.latitude =latitude;
+            user.longitude = longitude;
             //user.photo = call createphoto method
             
             for(int i=0; i<event.count; i++){
@@ -64,5 +67,8 @@
     
     return user;
 }
+
+
+
 
 @end

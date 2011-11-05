@@ -14,8 +14,9 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * idNumber;
-@property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSSet *event;
 @property (nonatomic, retain) NSSet *friend;
 @property (nonatomic, retain) Photo *photo;

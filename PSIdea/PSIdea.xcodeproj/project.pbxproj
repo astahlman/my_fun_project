@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5128ECA1146596D60039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECA0146596D50039E2E4 /* User.m */; };
-		5128ECA4146596D60039E2E4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECA3146596D60039E2E4 /* Event.m */; };
-		5128ECAB146597380039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECAA146597380039E2E4 /* Photo.m */; };
+		5128ECB71465DEE90039E2E4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECB61465DEE90039E2E4 /* Event.m */; };
+		5128ECBC1465DEE90039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBB1465DEE90039E2E4 /* User.m */; };
+		5128ECBF1465DF220039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBE1465DF220039E2E4 /* Photo.m */; };
 		516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D10FE1464B0D000CF95D2 /* UIKit.framework */; };
 		516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11001464B0D000CF95D2 /* Foundation.framework */; };
 		516D11031464B0D000CF95D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11021464B0D000CF95D2 /* CoreGraphics.framework */; };
@@ -23,12 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5128EC9F146596D50039E2E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PSIdea/User.h; sourceTree = "<group>"; };
-		5128ECA0146596D50039E2E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
-		5128ECA2146596D60039E2E4 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = PSIdea/Event.h; sourceTree = "<group>"; };
-		5128ECA3146596D60039E2E4 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = PSIdea/Event.m; sourceTree = "<group>"; };
-		5128ECA9146597380039E2E4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		5128ECAA146597380039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		5128ECB51465DEE90039E2E4 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = PSIdea/Event.h; sourceTree = "<group>"; };
+		5128ECB61465DEE90039E2E4 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = PSIdea/Event.m; sourceTree = "<group>"; };
+		5128ECBA1465DEE90039E2E4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PSIdea/User.h; sourceTree = "<group>"; };
+		5128ECBB1465DEE90039E2E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
+		5128ECBD1465DF220039E2E4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = PSIdea/Photo.h; sourceTree = "<group>"; };
+		5128ECBE1465DF220039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSIdea/Photo.m; sourceTree = "<group>"; };
 		516D10FA1464B0D000CF95D2 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516D10FE1464B0D000CF95D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		516D11001464B0D000CF95D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,12 +129,12 @@
 		516D113C1464B44C00CF95D2 /* CoreData Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5128ECA9146597380039E2E4 /* Photo.h */,
-				5128ECAA146597380039E2E4 /* Photo.m */,
-				5128ECA2146596D60039E2E4 /* Event.h */,
-				5128ECA3146596D60039E2E4 /* Event.m */,
-				5128EC9F146596D50039E2E4 /* User.h */,
-				5128ECA0146596D50039E2E4 /* User.m */,
+				5128ECBD1465DF220039E2E4 /* Photo.h */,
+				5128ECBE1465DF220039E2E4 /* Photo.m */,
+				5128ECBA1465DEE90039E2E4 /* User.h */,
+				5128ECBB1465DEE90039E2E4 /* User.m */,
+				5128ECB51465DEE90039E2E4 /* Event.h */,
+				5128ECB61465DEE90039E2E4 /* Event.m */,
 			);
 			name = "CoreData Classes";
 			sourceTree = "<group>";
@@ -205,9 +205,9 @@
 				516D11111464B0D000CF95D2 /* AppDelegate.m in Sources */,
 				516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */,
 				516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */,
-				5128ECA1146596D60039E2E4 /* User.m in Sources */,
-				5128ECA4146596D60039E2E4 /* Event.m in Sources */,
-				5128ECAB146597380039E2E4 /* Photo.m in Sources */,
+				5128ECB71465DEE90039E2E4 /* Event.m in Sources */,
+				5128ECBC1465DEE90039E2E4 /* User.m in Sources */,
+				5128ECBF1465DF220039E2E4 /* Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
