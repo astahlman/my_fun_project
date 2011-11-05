@@ -1,21 +1,24 @@
 //
-//  Photo.m
+//  User.m
 //  PSIdea
 //
 //  Created by William Patty on 11/4/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Photo.h"
+#import "User.h"
 #import "Event.h"
+#import "Photo.h"
 #import "User.h"
 
 
-@implementation Photo
+@implementation User
 
-@dynamic url;
 @dynamic id;
-@dynamic owner;
+@dynamic name;
+@dynamic location;
+@dynamic photo;
+@dynamic friend;
 @dynamic event;
 
 @end
