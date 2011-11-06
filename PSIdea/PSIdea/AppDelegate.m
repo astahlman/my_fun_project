@@ -20,7 +20,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    CoreDataCreator *creator = [[CoreDataCreator new]init];
+    CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
     
     self.window.backgroundColor = [UIColor whiteColor];
