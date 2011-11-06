@@ -11,8 +11,10 @@
 				<integer>1</integer>
 				<key>name</key>
 				<string>William Patty</string>
-				<key>location</key>
-				<string>null</string>
+				<key>latitude</key>
+				<integer>0</integer>
+				<key>longitude</key>
+				<integer>0</integer>
 				<key>events</key>
 				<array>
 					<integer>1</integer>
@@ -29,8 +31,10 @@
 				<integer>2</integer>
 				<key>name</key>
 				<string>Andrew Stahlman</string>
-				<key>location</key>
-				<string>null</string>
+				<key>latitude</key>
+				<integer>0</integer>
+				<key>longitude</key>
+				<integer>0</integer>
 				<key>events</key>
 				<array>
 					<integer>2</integer>
@@ -52,8 +56,10 @@
 				<string>My First Event</string>
 				<key>details</key>
 				<string>Wow, you need to check this place out!</string>
-				<key>location</key>
-				<string>null</string>
+				<key>latitude</key>
+				<integer>0</integer>
+				<key>longitude</key>
+				<integer>0</integer>
 				<key>photo</key>
 				<string>null</string>
 				<key>public</key>
@@ -70,8 +76,10 @@
 				<string>My Second Event</string>
 				<key>details</key>
 				<string>Please check this place out!</string>
-				<key>location</key>
-				<string>null</string>
+				<key>latitude</key>
+				<integer>0</integer>
+				<key>longitude</key>
+				<integer>0</integer>
 				<key>photo</key>
 				<string>null</string>
 				<key>public</key>

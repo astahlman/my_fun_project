@@ -7,7 +7,9 @@
 //
 
 #import "CoreDataCreator.h"
-
+#import "User.h"
+#import "Event.h"
+#import "Photo.h"
 @implementation CoreDataCreator
 
 -(id) init{
@@ -20,7 +22,7 @@
     return self;
 }
 
--(void) createCoreData{
+-(void) createCoreDataIn:(NSManagedObjectContext*) context{
     
     //Parses SampleData.plist created for app
     
@@ -46,6 +48,15 @@
     }
     
     //TO DO: Need to implement core data parsing and set up.
+    
+    NSDictionary *root = [temp objectForKey:@"Root"];
+    NSArray *users = [root objectForKey:@"Users"];
+    NSDictionary *user = nil;
+    for (int i=0; i<users.count; i++){
+        user = [users objectAtIndex:i];
+        [User createUserWithID:[user objectForKey:@"id"] andName:[user objectForKey:@"name"] andLatitude:[user objectForKey:@"latitude"] andLongitude:[user objectForKey:@"longitude"] andEvents:[user objectForKey:@"events"] andFriends:[user objectForKey:@"friends"] andPhoto:[user objectForKey:@"photo"] inManagedObjectContext:context];
+        
+    }
     
 }
 @end

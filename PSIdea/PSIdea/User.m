@@ -30,7 +30,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     request.entity =[NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-    request.predicate = [NSPredicate predicateWithFormat:@"id = %@", idNumber];
+    request.predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", idNumber];
     
     NSError *error = nil;
     
@@ -43,7 +43,10 @@
         user.latitude =latitude;
         user.longitude = longitude;
         //user.photo = call createphoto method
-        
+        for(int t=0; t<friends.count; t++){
+            [User createUserWithID:[friends objectAtIndex:t] andName:nil andLatitude:nil andLongitude:nil andEvents:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
+            
+        }
         for(int i=0; i<event.count; i++){
             //here call event creation
         }
@@ -51,13 +54,17 @@
     }
     //Need to fill in empty information (This is needed because of way friends are setup in data)
     else if(user &&!error){
-        if (user.name == @"null") {
+        if (user.name == nil) {
             
             user.name = name;
             user.latitude =latitude;
             user.longitude = longitude;
             //user.photo = call createphoto method
-            
+            for(int t=0; t<friends.count; t++){
+                [User createUserWithID:[friends objectAtIndex:t] andName:nil andLatitude:nil andLongitude:nil andEvents:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
+                
+            }
+
             for(int i=0; i<event.count; i++){
                 //here call event creation
             }

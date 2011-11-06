@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface CoreDataCreator : NSObject
--(void) createCoreData;
+-(void) createCoreDataIn:(NSManagedObjectContext*) context;
 
 @end

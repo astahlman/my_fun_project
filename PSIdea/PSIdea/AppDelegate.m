@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "CoreDataCreator.h"
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -19,6 +19,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    CoreDataCreator *creator = [[CoreDataCreator new]init];
+    [creator createCoreDataIn:[self managedObjectContext]];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
