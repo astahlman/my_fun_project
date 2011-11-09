@@ -23,7 +23,7 @@
 @dynamic photo;
 
 //creates new user managed object (if it doesn't already exist)
-+(User*) createUserWithID: (NSNumber*)idNumber andName: (NSString*) name andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andEvents: (NSArray*) event andFriends: (NSArray*) friends andPhoto: (NSNumber*) photoID inManagedObjectContext: (NSManagedObjectContext*) context{
++(User*) createUserWithID: (NSNumber*)idNumber andName: (NSString*) name andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andEvents: (NSArray*) events andFriends: (NSArray*) friends andPhoto: (NSNumber*) photoID inManagedObjectContext: (NSManagedObjectContext*) context{
     
     User *user = nil;
     
@@ -47,8 +47,8 @@
             [User createUserWithID:[friends objectAtIndex:t] andName:nil andLatitude:nil andLongitude:nil andEvents:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
             
         }
-        for(int i=0; i<event.count; i++){
-            //here call event creation
+        for(int i=0; i<events.count; i++){
+            [Event createEventWithID:[events objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil inManagedObjectContext:context];        
         }
         
     }
@@ -65,8 +65,8 @@
                 
             }
 
-            for(int i=0; i<event.count; i++){
-                //here call event creation
+            for(int i=0; i<events.count; i++){
+                [Event createEventWithID:[events objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil inManagedObjectContext:context];
             }
             
         }

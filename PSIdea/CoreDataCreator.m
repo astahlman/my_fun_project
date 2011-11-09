@@ -55,8 +55,18 @@
     for (int i=0; i<users.count; i++){
         user = [users objectAtIndex:i];
         [User createUserWithID:[user objectForKey:@"id"] andName:[user objectForKey:@"name"] andLatitude:[user objectForKey:@"latitude"] andLongitude:[user objectForKey:@"longitude"] andEvents:[user objectForKey:@"events"] andFriends:[user objectForKey:@"friends"] andPhoto:[user objectForKey:@"photo"] inManagedObjectContext:context];
-        
+     
     }
+    
+    NSArray *events = [root objectForKey:@"Events"];
+    NSDictionary *event = nil;
+    
+    for(int i=0; i<events.count; i++){
+        event = [events objectAtIndex:i];
+        
+        [Event createEventWithID:[event objectForKey:@"id"] andTitle:[event objectForKey:@"title"] andDetails:[event objectForKey:@"details"] andLatitude:[event objectForKey:@"latitude"] andLongitude:[event objectForKey:@"longitude"] andPhoto:[event objectForKey:@"photo"] andPublic:[event objectForKey:@"public"] andRating:[event objectForKey:@"rating"] andCreator:[event objectForKey:@"creator"] inManagedObjectContext:context];
+    }
+    
     
 }
 @end
