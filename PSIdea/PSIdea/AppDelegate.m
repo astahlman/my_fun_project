@@ -25,7 +25,7 @@
     [creator createCoreDataIn:[self managedObjectContext]];
     
     //[self.window setBackgroundColor:[UIColor whiteColor]];
-    tabBarController.managedObjectContext = __managedObjectContext;
+    tabBarController.managedObjectContext = [self managedObjectContext];
     [window addSubview: [tabBarController view]];
     [self.window makeKeyAndVisible];
     return YES;

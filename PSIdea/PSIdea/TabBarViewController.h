@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventTableViewController.h"
 
-@interface TabBarViewController : UIViewController 
+@interface TabBarViewController : UITabBarController 
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet EventTableViewController *eventTableViewController;

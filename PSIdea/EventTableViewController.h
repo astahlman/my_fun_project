@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event.h"
 
 @interface EventTableViewController : UITableViewController
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSMutableArray *eventsArray;
+
+- (void)loadEventsFromContext:(NSManagedObjectContext *)moc;
+
 @end
