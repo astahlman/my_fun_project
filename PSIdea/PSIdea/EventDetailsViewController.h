@@ -10,4 +10,9 @@
 
 @interface EventDetailsViewController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UILabel* titleLabel;
+@property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
+
+- (void) setWithDetails:(NSString*)details withTitle:(NSString*)title;
+
 @end

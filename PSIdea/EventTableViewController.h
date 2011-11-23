@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "EventDetailsViewController.h"
 
 @interface EventTableViewController : UITableViewController
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

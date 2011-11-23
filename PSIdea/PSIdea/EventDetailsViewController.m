@@ -10,6 +10,9 @@
 
 @implementation EventDetailsViewController
 
+@synthesize titleLabel = __titleLabel;
+@synthesize detailsTextView = __detailsTextView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -17,6 +20,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)setWithDetails:(NSString *)details withTitle:(NSString *)title {
+    __detailsTextView.text = details;
+    __titleLabel.text = title;
 }
 
 - (void)didReceiveMemoryWarning

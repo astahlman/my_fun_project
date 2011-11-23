@@ -57,7 +57,8 @@
     if (mutableFetchResults == nil) {
         // Handle the error.
     }
-    [self setEventsArray:mutableFetchResults];}
+    [self setEventsArray:mutableFetchResults];
+}
 
 - (void)viewDidUnload
 {
@@ -167,12 +168,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+     EventDetailsViewController *detailViewController = [[EventDetailsViewController alloc] initWithNibName:@"EventDetailsView" bundle:nil];
+
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSString* details = [[__eventsArray objectAtIndex:indexPath.row] details];
+    NSString* title = [[__eventsArray objectAtIndex:indexPath.row] title];
+    [detailViewController setWithDetails:details withTitle:title];     
 }
 
 @end
