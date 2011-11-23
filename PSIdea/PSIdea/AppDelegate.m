@@ -10,20 +10,22 @@
 #import "CoreDataCreator.h"
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
     
-    self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window setBackgroundColor:[UIColor whiteColor]];
+    [window addSubview: [tabBarController view]];
     [self.window makeKeyAndVisible];
     return YES;
 }

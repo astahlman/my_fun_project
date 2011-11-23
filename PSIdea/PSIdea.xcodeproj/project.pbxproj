@@ -20,6 +20,9 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
+		6617E408147C6B1E00F1E018 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* EventTableViewController.m */; };
+		6617E40C147C6CC500F1E018 /* EventTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* EventTableView.xib */; };
+		667EF944147C4544004BA5FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667EF943147C4544004BA5FE /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,10 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
+		6617E405147C6B1E00F1E018 /* EventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventTableViewController.h; path = ../EventTableViewController.h; sourceTree = "<group>"; };
+		6617E406147C6B1E00F1E018 /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTableViewController.m; path = ../EventTableViewController.m; sourceTree = "<group>"; };
+		6617E40B147C6CC500F1E018 /* EventTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableView.xib; sourceTree = "<group>"; };
+		667EF943147C4544004BA5FE /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +101,7 @@
 		516D11061464B0D000CF95D2 /* PSIdea */ = {
 			isa = PBXGroup;
 			children = (
+				6617E40A147C6B5000F1E018 /* View Controllers */,
 				516D113B1464B43F00CF95D2 /* Classes */,
 				516D110F1464B0D000CF95D2 /* AppDelegate.h */,
 				516D11101464B0D000CF95D2 /* AppDelegate.m */,
@@ -106,6 +114,8 @@
 		516D11071464B0D000CF95D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				667EF943147C4544004BA5FE /* MainWindow.xib */,
+				6617E40B147C6CC500F1E018 /* EventTableView.xib */,
 				516D11081464B0D000CF95D2 /* PSIdea-Info.plist */,
 				516D11431464B6C400CF95D2 /* SampleData.plist */,
 				516D11091464B0D000CF95D2 /* InfoPlist.strings */,
@@ -137,6 +147,15 @@
 				5128ECB61465DEE90039E2E4 /* Event.m */,
 			);
 			name = "CoreData Classes";
+			sourceTree = "<group>";
+		};
+		6617E40A147C6B5000F1E018 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6617E405147C6B1E00F1E018 /* EventTableViewController.h */,
+				6617E406147C6B1E00F1E018 /* EventTableViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +210,8 @@
 			files = (
 				516D110B1464B0D000CF95D2 /* InfoPlist.strings in Resources */,
 				516D11441464B6C400CF95D2 /* SampleData.plist in Resources */,
+				667EF944147C4544004BA5FE /* MainWindow.xib in Resources */,
+				6617E40C147C6CC500F1E018 /* EventTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +229,7 @@
 				5128ECB71465DEE90039E2E4 /* Event.m in Sources */,
 				5128ECBC1465DEE90039E2E4 /* User.m in Sources */,
 				5128ECBF1465DF220039E2E4 /* Photo.m in Sources */,
+				6617E408147C6B1E00F1E018 /* EventTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
