@@ -1,5 +1,5 @@
 //
-//  EventTableViewController.h
+//  TabBarViewController.h
 //  PSIdea
 //
 //  Created by Andrew Stahlman on 11/22/11.
@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventTableViewController.h"
 
-@interface EventTableViewController : UITableViewController
+@interface TabBarViewController : UIViewController 
+
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) IBOutlet EventTableViewController *eventTableViewController;
+
 @end
