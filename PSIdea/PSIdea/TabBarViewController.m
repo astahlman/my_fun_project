@@ -12,6 +12,7 @@
 
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize eventTableViewController = __eventTableViewController;
+@synthesize eventMapViewController = __eventMapViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,8 +45,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     __eventTableViewController.managedObjectContext = __managedObjectContext;
     [__eventTableViewController loadEventsFromContext:__managedObjectContext];
+    
+    __eventMapViewController.managedObjectContext = __managedObjectContext;
+    [__eventMapViewController loadEventsFromContext:__managedObjectContext];
+    
+    
 }
 
 - (void)viewDidUnload

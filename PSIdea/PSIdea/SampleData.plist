@@ -57,9 +57,9 @@
 				<key>details</key>
 				<string>Wow, you need to check this place out!</string>
 				<key>latitude</key>
-				<integer>0</integer>
+				<real>34.677035</real>
 				<key>longitude</key>
-				<integer>0</integer>
+				<real>-86.452324</real>
 				<key>photo</key>
 				<string>null</string>
 				<key>public</key>
@@ -77,9 +77,9 @@
 				<key>details</key>
 				<string>Please check this place out!</string>
 				<key>latitude</key>
-				<integer>0</integer>
+				<real>34.675</real>
 				<key>longitude</key>
-				<integer>0</integer>
+				<real>-86.452</real>
 				<key>photo</key>
 				<string>null</string>
 				<key>public</key>

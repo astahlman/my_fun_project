@@ -101,12 +101,13 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="827100746">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="681909825">
-						<string key="IBUITitle">Events</string>
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="884235480">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="312102436">
+						<string key="IBUITitle">Map</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 					<reference key="IBUIParentViewController" ref="903258240"/>
+					<string key="IBUINibName">EventMapView</string>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 					<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 						<int key="IBUIInterfaceOrientation">1</int>
@@ -114,39 +115,11 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="930297016">
-						<nil key="NSNextResponder"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{0, 0}</string>
-						<string key="NSReuseIdentifierKey">_NS:451</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-					</object>
-					<array key="IBUIViewControllers">
-						<object class="IBUITableViewController" id="200343953">
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="398479750">
-								<string key="IBUITitle">Item</string>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							</object>
-							<reference key="IBUIParentViewController" ref="827100746"/>
-							<string key="IBUINibName">EventTableView</string>
-							<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-								<int key="IBUIInterfaceOrientation">1</int>
-								<int key="interfaceOrientation">1</int>
-							</object>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<bool key="IBUIHorizontal">NO</bool>
-						</object>
-					</array>
 				</object>
 				<array class="NSMutableArray" key="IBUIViewControllers">
-					<reference ref="827100746"/>
-					<object class="IBUIViewController" id="884235480">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="312102436">
-							<string key="IBUITitle">Map</string>
+					<object class="IBUINavigationController" id="827100746">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="681909825">
+							<string key="IBUITitle">Events</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="903258240"/>
@@ -157,7 +130,35 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="930297016">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrameSize">{0, 0}</string>
+							<string key="NSReuseIdentifierKey">_NS:451</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIMultipleTouchEnabled">YES</bool>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<array class="NSMutableArray" key="IBUIViewControllers">
+							<object class="IBUITableViewController" id="200343953">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="398479750">
+									<string key="IBUITitle">Item</string>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								</object>
+								<reference key="IBUIParentViewController" ref="827100746"/>
+								<string key="IBUINibName">EventTableView</string>
+								<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+									<int key="IBUIInterfaceOrientation">1</int>
+									<int key="interfaceOrientation">1</int>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHorizontal">NO</bool>
+							</object>
+						</array>
 					</object>
+					<reference ref="884235480"/>
 				</array>
 				<object class="IBUITabBar" key="IBUITabBar" id="866977060">
 					<reference key="NSNextResponder"/>
@@ -207,6 +208,14 @@
 						<reference key="destination" ref="200343953"/>
 					</object>
 					<int key="connectionID">49</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">eventMapViewController</string>
+						<reference key="source" ref="903258240"/>
+						<reference key="destination" ref="884235480"/>
+					</object>
+					<int key="connectionID">50</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -320,6 +329,7 @@
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="41.CustomClassName">EventMapViewController</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="43.CustomClassName">EventTableViewController</string>
@@ -335,7 +345,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">49</int>
+			<int key="maxID">50</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
