@@ -23,5 +23,5 @@
 @property (nonatomic, retain) NSMutableArray *visibleEvents;
 
 -(void)plotEvents;
-
+-(id)initWithContext:(NSManagedObjectContext *)context;
 @end

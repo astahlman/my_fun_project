@@ -21,5 +21,6 @@
 @property (nonatomic, retain) NSMutableArray *visibleEvents;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
+-(id)initWithContext:(NSManagedObjectContext *)context;
 
 @end

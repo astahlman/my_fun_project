@@ -24,14 +24,19 @@
     return self;
 }
 
--(void)initWithContext:(NSManagedObjectContext *)context
+-(id)initWithContext:(NSManagedObjectContext *)context
 {
+    self = [super initWithNibName:@"EventMapView" bundle:[NSBundle mainBundle]];
+    if (self) {
     __managedObjectContext = context;
     // set visibleEvents here...
     //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"All"];
     __eventsArray = [CoreDataManager fetchEntity:@"Event" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
     __visibleEvents = [[NSMutableArray alloc] init];
     [__visibleEvents addObjectsFromArray:__eventsArray];
+        self.title = @"Map View";
+    }
+    return self;
 }
 
 - (void) plotEvents {
