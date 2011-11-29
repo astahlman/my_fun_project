@@ -1,6 +1,5 @@
 Idea: User Lists
 Added by Andrew, 11/29/2011
-
 Description: Allow user's to create custom lists full of Events/Points of Interest. This list
 is itself #tagged and the #tag(s) is applied to every Event/POI added to the list. A list 
 can be configured as public or private and can be set as open or read-only, which determines 
@@ -13,7 +12,8 @@ itself a title and #tag(s).
 - If the user #tags a custom list with "#favorite", any POI/Event added to that list
 will also be added to the Favorites list automatically.
 - There will be a button/drag-drop mechanism of some kind that will allow users to add
-Events/POI's to their custom lists.
+Events/POI's to their custom lists //Look to photos app as an example. An action button allows you to select multiple photos
+	to add to a new album. We can apply this same mechanism to reorganize / move POIs to new lists. 
 - Anytime an Event/POI is added to a list, that Event/POI is automatically #tagged with whatever 
 #tags belong to the list itself.
 - There will also be a special button/drag-drop mechanism of some kind that allows user's
@@ -46,6 +46,18 @@ for the fact that we should slow down when we pass one driving. None of these pl
 favorites, but we can always access them if we need to by checking the Places Cops Hide in Auburn list.
 Anyone can add to this list, so that through crowd-sourcing, a fluid and constantly up-to-date list
 of cop's hiding spots is maintained for anyone who wants it. 
+
+// One concern is the ability to destroy public lists / add irrelevant locations.
+   I might want to have an ongoing list of cop hideouts but if others add a location
+   that is completely irrelevant such as the middle of the ocean I don't care about this. How do we prevent this from happening? 
+   We need a mechanism to keep public lists but have the ability to prevent changes from a user's perspective.
+   One possibility is to implement MyCopHiding places, which is specific to the user, and they can view a public list of
+   cop hiding places and have the ability to add to their own list. In other words there is a large bank of locations that everyone contributes
+   to, but only I have the ability to add to my list, i.e. Pinterest. This could be reorganized / quickly browsed through using tags / locations / searches. We could
+   organize the list to show POI within a current range, making the list more relevant to the user and also eliminates unnecessary locations. Obviously, the reverse process
+   of contributing from private list to public list would be possible as well. (You had these same ideas I just wanted to refine / add own input to better understand our
+   objective). 
+ - Will
 
 This idea incorporates the basic principles of a "vote-up" system for determining what people like,
 as well as bringing in a social aspect of sharing. In this respect, this system is similar to the Pinterest 
