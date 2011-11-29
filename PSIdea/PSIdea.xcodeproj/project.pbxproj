@@ -30,6 +30,7 @@
 		66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1754C147EF0FF001A2E27 /* MapKit.framework */; };
 		66A17550147EF5BF001A2E27 /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A1754F147EF5BF001A2E27 /* EventMapViewController.m */; };
 		66A17553147F669E001A2E27 /* EventAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A17552147F669E001A2E27 /* EventAnnotation.m */; };
+		66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E28650148463F5009EFCF2 /* CoreDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,9 @@
 		66A17551147F669E001A2E27 /* EventAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventAnnotation.h; sourceTree = "<group>"; };
 		66A17552147F669E001A2E27 /* EventAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventAnnotation.m; sourceTree = "<group>"; };
 		66A17554147F7139001A2E27 /* EventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapViewController.h; sourceTree = "<group>"; };
+		66E2864F148463F5009EFCF2 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		66E28650148463F5009EFCF2 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		66E2865314846746009EFCF2 /* ViewWithCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWithCoreData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 		516D11061464B0D000CF95D2 /* PSIdea */ = {
 			isa = PBXGroup;
 			children = (
+				66E28652148466F9009EFCF2 /* Protocols */,
 				6617E40E147C6F2F00F1E018 /* Views */,
 				6617E40A147C6B5000F1E018 /* View Controllers */,
 				516D113B1464B43F00CF95D2 /* Classes */,
@@ -152,6 +157,8 @@
 				516D113C1464B44C00CF95D2 /* CoreData Classes */,
 				66A17551147F669E001A2E27 /* EventAnnotation.h */,
 				66A17552147F669E001A2E27 /* EventAnnotation.m */,
+				66E2864F148463F5009EFCF2 /* CoreDataManager.h */,
+				66E28650148463F5009EFCF2 /* CoreDataManager.m */,
 			);
 			name = Classes;
 			path = ..;
@@ -194,6 +201,14 @@
 				6617E40F147C72C700F1E018 /* EventDetailsView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		66E28652148466F9009EFCF2 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				66E2865314846746009EFCF2 /* ViewWithCoreData.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +289,7 @@
 				6617E416147C849700F1E018 /* TabBarViewController.m in Sources */,
 				66A17550147EF5BF001A2E27 /* EventMapViewController.m in Sources */,
 				66A17553147F669E001A2E27 /* EventAnnotation.m in Sources */,
+				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +359,7 @@
 				GCC_PREFIX_HEADER = "PSIdea/PSIdea-Prefix.pch";
 				INFOPLIST_FILE = "PSIdea/PSIdea-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -354,6 +371,7 @@
 				GCC_PREFIX_HEADER = "PSIdea/PSIdea-Prefix.pch";
 				INFOPLIST_FILE = "PSIdea/PSIdea-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

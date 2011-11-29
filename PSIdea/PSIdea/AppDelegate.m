@@ -18,16 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
     
-    //[self.window setBackgroundColor:[UIColor whiteColor]];
-    tabBarController.managedObjectContext = [self managedObjectContext];
+    [tabBarController initWithContext:__managedObjectContext];
+    
     [window addSubview: [tabBarController view]];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

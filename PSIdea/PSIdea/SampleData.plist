@@ -55,7 +55,7 @@
 				<key>title</key>
 				<string>My First Event</string>
 				<key>details</key>
-				<string>Wow, you need to check this place out!</string>
+				<string>Wow, you need to check this place out! #awesome</string>
 				<key>latitude</key>
 				<real>34.677035</real>
 				<key>longitude</key>
@@ -75,7 +75,7 @@
 				<key>title</key>
 				<string>My Second Event</string>
 				<key>details</key>
-				<string>Please check this place out!</string>
+				<string>Please check this place out! #hashtag</string>
 				<key>latitude</key>
 				<real>34.675</real>
 				<key>longitude</key>

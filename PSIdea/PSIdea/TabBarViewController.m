@@ -23,6 +23,14 @@
     return self;
 }
 
+-(void)initWithContext:(NSManagedObjectContext *)context
+{
+    __managedObjectContext = context;
+
+    [__eventTableViewController initWithContext:context];
+    [__eventMapViewController initWithContext:context];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -45,14 +53,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    __eventTableViewController.managedObjectContext = __managedObjectContext;
-    [__eventTableViewController loadEventsFromContext:__managedObjectContext];
-    
-    __eventMapViewController.managedObjectContext = __managedObjectContext;
-    [__eventMapViewController loadEventsFromContext:__managedObjectContext];
-    
-    
 }
 
 - (void)viewDidUnload

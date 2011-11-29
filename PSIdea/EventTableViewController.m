@@ -11,7 +11,10 @@
 @implementation EventTableViewController
 
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize eventTableView = __eventTableView;
 @synthesize eventsArray = __eventsArray;
+@synthesize visibleEvents = __visibleEvents;
+@synthesize searchBar = __searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,6 +23,17 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)initWithContext:(NSManagedObjectContext *)context
+{
+    __managedObjectContext = context;
+    // perform load of view here
+    //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ALL"];
+    __eventsArray = [CoreDataManager fetchEntity:@"Event" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
+    
+    __visibleEvents = [[NSMutableArray alloc] init];
+    [__visibleEvents addObjectsFromArray:__eventsArray];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +58,10 @@
 
 }
 
-- (void)loadEventsFromContext:(NSManagedObjectContext *)moc
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:moc];
-    [request setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[moc executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResults == nil) {
-        // Handle the error.
-    }
-    [self setEventsArray:mutableFetchResults];
-}
-
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
+    [self setEventTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -104,7 +104,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [__eventsArray count];
+    return [__visibleEvents count];
 
 }
 
@@ -118,7 +118,7 @@
     }
 
     // Configure the cell...
-    Event *event = (Event *)[__eventsArray objectAtIndex:indexPath.row];
+    Event *event = (Event *)[__visibleEvents objectAtIndex:indexPath.row];
     cell.textLabel.text = event.title;
     
     return cell;
@@ -177,6 +177,57 @@
     NSString* details = [[__eventsArray objectAtIndex:indexPath.row] details];
     NSString* title = [[__eventsArray objectAtIndex:indexPath.row] title];
     [detailViewController setWithDetails:details withTitle:title];     
+}
+
+#pragma mark UISearchBarDelegate
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    // only show the status bar's cancel button while in edit mode
+    searchBar.showsCancelButton = YES;
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    // flush the previous search content
+    [__visibleEvents removeAllObjects];
+    [__eventTableView reloadData];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    // if a valid search was entered but the user wanted to cancel, bring back the main list content
+    [__visibleEvents removeAllObjects];
+    [__visibleEvents addObjectsFromArray:__eventsArray];
+    [__eventTableView reloadData];
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+}
+
+// called when Search (in our case "Done") button pressed
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString *)searchText 
+{
+    NSPredicate *predicate;
+    
+    if (self.searchBar.text != nil)
+    {
+        // TODO: search tags, not details
+        predicate = [NSPredicate predicateWithFormat:@"(title contains[cd] %@) OR (details contains[cd] %@)", self.searchBar.text, self.searchBar.text];
+    }
+    else {
+        predicate = nil;
+    }
+    
+    __visibleEvents = [CoreDataManager fetchEntity:@"Event" fromContext:__managedObjectContext withPredicate:predicate withSortKey:@"title" ascending:YES];
+    [__eventTableView reloadData];
+    
 }
 
 @end

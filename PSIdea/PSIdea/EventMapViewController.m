@@ -12,6 +12,7 @@
 @synthesize eventMapView = __eventMapView;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize eventsArray = __eventsArray;
+@synthesize visibleEvents = __visibleEvents;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -23,21 +24,14 @@
     return self;
 }
 
-- (void)loadEventsFromContext:(NSManagedObjectContext *)moc
+-(void)initWithContext:(NSManagedObjectContext *)context
 {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:moc];
-    [request setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-    [request setSortDescriptors:sortDescriptors];
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[moc executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResults == nil) {
-        // Handle the error.
-    }
-    [self setEventsArray:mutableFetchResults];
-    
+    __managedObjectContext = context;
+    // set visibleEvents here...
+    //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"All"];
+    __eventsArray = [CoreDataManager fetchEntity:@"Event" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
+    __visibleEvents = [[NSMutableArray alloc] init];
+    [__visibleEvents addObjectsFromArray:__eventsArray];
 }
 
 - (void) plotEvents {
@@ -46,7 +40,7 @@
         [__eventMapView removeAnnotation:annotation];
     }
     
-    for (Event *event in __eventsArray) {
+    for (Event *event in __visibleEvents) {
         
         CLLocationCoordinate2D location;
         location.latitude = event.latitude.doubleValue;

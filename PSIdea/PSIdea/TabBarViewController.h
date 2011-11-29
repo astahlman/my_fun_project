@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EventTableViewController.h"
 #import "EventMapViewController.h"
+#import "ViewWithCoreData.h"
 
-@interface TabBarViewController : UITabBarController 
+@interface TabBarViewController : UITabBarController <ViewWithCoreData>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet EventTableViewController *eventTableViewController;
