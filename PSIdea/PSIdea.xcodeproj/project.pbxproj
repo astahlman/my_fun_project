@@ -20,11 +20,12 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
+		51DBE0BD14858A4F000FCF12 /* POICreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DBE0BB14858A4E000FCF12 /* POICreationView.m */; };
+		51DBE0BE14858A4F000FCF12 /* POICreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DBE0BC14858A4E000FCF12 /* POICreationView.xib */; };
 		6617E408147C6B1E00F1E018 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* EventTableViewController.m */; };
 		6617E40C147C6CC500F1E018 /* EventTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* EventTableView.xib */; };
 		6617E410147C72C700F1E018 /* EventDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* EventDetailsView.xib */; };
 		6617E413147C735600F1E018 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E412147C735600F1E018 /* EventDetailsViewController.m */; };
-		6617E416147C849700F1E018 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E415147C849700F1E018 /* TabBarViewController.m */; };
 		6617E41D147EED9300F1E018 /* EventMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E41C147EED9300F1E018 /* EventMapView.xib */; };
 		667EF944147C4544004BA5FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667EF943147C4544004BA5FE /* MainWindow.xib */; };
 		66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1754C147EF0FF001A2E27 /* MapKit.framework */; };
@@ -56,14 +57,15 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
+		51DBE0BA14858A4E000FCF12 /* POICreationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationView.h; sourceTree = "<group>"; };
+		51DBE0BB14858A4E000FCF12 /* POICreationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationView.m; sourceTree = "<group>"; };
+		51DBE0BC14858A4E000FCF12 /* POICreationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationView.xib; sourceTree = "<group>"; };
 		6617E405147C6B1E00F1E018 /* EventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventTableViewController.h; path = ../EventTableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventTableViewController.m; path = ../EventTableViewController.m; sourceTree = "<group>"; };
 		6617E40B147C6CC500F1E018 /* EventTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableView.xib; sourceTree = "<group>"; };
 		6617E40F147C72C700F1E018 /* EventDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailsView.xib; sourceTree = "<group>"; };
 		6617E411147C735600F1E018 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		6617E412147C735600F1E018 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
-		6617E414147C849700F1E018 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		6617E415147C849700F1E018 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		6617E41C147EED9300F1E018 /* EventMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventMapView.xib; path = ../EventMapView.xib; sourceTree = "<group>"; };
 		667EF943147C4544004BA5FE /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 		66A1754C147EF0FF001A2E27 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -184,10 +186,10 @@
 				6617E406147C6B1E00F1E018 /* EventTableViewController.m */,
 				6617E411147C735600F1E018 /* EventDetailsViewController.h */,
 				6617E412147C735600F1E018 /* EventDetailsViewController.m */,
-				6617E414147C849700F1E018 /* TabBarViewController.h */,
-				6617E415147C849700F1E018 /* TabBarViewController.m */,
 				66A17554147F7139001A2E27 /* EventMapViewController.h */,
 				66A1754F147EF5BF001A2E27 /* EventMapViewController.m */,
+				51DBE0BA14858A4E000FCF12 /* POICreationView.h */,
+				51DBE0BB14858A4E000FCF12 /* POICreationView.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -199,6 +201,7 @@
 				6617E41C147EED9300F1E018 /* EventMapView.xib */,
 				6617E40B147C6CC500F1E018 /* EventTableView.xib */,
 				6617E40F147C72C700F1E018 /* EventDetailsView.xib */,
+				51DBE0BC14858A4E000FCF12 /* POICreationView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				6617E40C147C6CC500F1E018 /* EventTableView.xib in Resources */,
 				6617E410147C72C700F1E018 /* EventDetailsView.xib in Resources */,
 				6617E41D147EED9300F1E018 /* EventMapView.xib in Resources */,
+				51DBE0BE14858A4F000FCF12 /* POICreationView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,10 +290,10 @@
 				5128ECBF1465DF220039E2E4 /* Photo.m in Sources */,
 				6617E408147C6B1E00F1E018 /* EventTableViewController.m in Sources */,
 				6617E413147C735600F1E018 /* EventDetailsViewController.m in Sources */,
-				6617E416147C849700F1E018 /* TabBarViewController.m in Sources */,
 				66A17550147EF5BF001A2E27 /* EventMapViewController.m in Sources */,
 				66A17553147F669E001A2E27 /* EventAnnotation.m in Sources */,
 				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
+				51DBE0BD14858A4F000FCF12 /* POICreationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,17 +1,17 @@
 //
-//  EventDetailsViewController.m
+//  POICreationView.m
 //  PSIdea
 //
-//  Created by Andrew Stahlman on 11/22/11.
-//  Copyright (c) 2011 Auburn University. All rights reserved.
+//  Created by William Patty on 11/29/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "EventDetailsViewController.h"
+#import "POICreationView.h"
 
-@implementation EventDetailsViewController
-
-@synthesize titleLabel = __titleLabel;
-@synthesize detailsTextView = __detailsTextView;
+@implementation POICreationView
+@synthesize mapView;
+@synthesize titleLabel;
+@synthesize detailsView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,12 +20,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)setWithDetails:(NSString *)details withTitle:(NSString *)title {
-    __detailsTextView.text = details;
-    __titleLabel.text = title;
-    self.title = title;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,23 +32,17 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
-*/
 
 - (void)viewDidUnload
 {
+    [self setMapView:nil];
+    [self setTitleLabel:nil];
+    [self setDetailsView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

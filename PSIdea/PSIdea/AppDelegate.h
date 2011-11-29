@@ -7,17 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TabBarViewController.h"
+#import "EventTableViewController.h"
+#import "EventMapViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    
+    EventTableViewController *eventTableViewController;
+    EventMapViewController *eventMapViewController;
+    UITabBarController *tabBarController;
+}
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
-@property (strong, nonatomic) IBOutlet TabBarViewController *tabBarController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
