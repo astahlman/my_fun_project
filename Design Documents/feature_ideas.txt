@@ -4,9 +4,55 @@ Added by Andrew, 11/29/2011
 Description: Allow user's to create custom lists full of Events/Points of Interest. This list
 is itself #tagged and the #tag(s) is applied to every Event/POI added to the list. A list 
 can be configured as public or private and can be set as open or read-only, which determines 
-whether other users can add Events/POI to the list.
+whether other users can add Events/POI to the list. This could supplant the entire system of 
+upvoting. The system could be laid out as follows:
 
-Example Usage: I create a list called "Andrew's Favorite Sushi Spots" #-tagged with "#sushi, #japanese".
-Then any Event/Point of Interest that I add to that list will automatically get the #sushi and #japanese
-tags as well as an upvote from me. If I set the list as public and open, anyone else could add their 
-favorite sushi spots to the list as well, automatically tagging that Event/POI with #sushi #japanese.
+- Every user, by default, has a list called "Favorite Places" and "Attended Events"
+- A user can also create custom lists. When a list is created, the user gives the list
+itself a title and #tag(s).
+- If the user #tags a custom list with "#favorite", any POI/Event added to that list
+will also be added to the Favorites list automatically.
+- There will be a button/drag-drop mechanism of some kind that will allow users to add
+Events/POI's to their custom lists.
+- Anytime an Event/POI is added to a list, that Event/POI is automatically #tagged with whatever 
+#tags belong to the list itself.
+- There will also be a special button/drag-drop mechanism of some kind that allows user's
+to add POI's to their Favorite Places list. Similarly, Events will go to the Attended Events list.
+- The concept of the Favorites list would supplant the vote-up system. Any POI in a user's 
+Favorites list would get a +1 boost in rating. 
+
+Example Usage: 
+I create a list called "Andrew's Favorite Sushi Spots" #-tagged with "#sushi, #japanese". 
+
+(TODO: there should be some way to configure a custom list so that any events added to the custom list
+are also added to the Favorites list. One possiblity would be simply to add "#favorite" to the
+custom list's #tags.)
+
+Then any POI that I add to "Andrew's Favorite Sushi Spots" will automatically be tagged with #sushi and 
+#japanese. If I set the list as public and open, anyone else could add their favorite sushi spots to 
+the list as well, automatically tagging that Event/POI with #sushi #japanese, as well as any additional 
+#tags added by the user. 
+
+For any given POI on the list, it's rating would be equal to the number of lists that it is included in.
+The rating of each individual #tag is simply a function of the number of POI's with the given #tag (This
+rating can be used to determine which topics are trending.)
+
+Example Usage:
+I create a list called "Places Cops Hide in Auburn" (public and open, #tagged: "#cops #speedtrap").
+
+Because I haven't added the #favorite #tag, these POI's won't be getting an increase in rating.
+However, this is probably what we want - places where cops hide are not generally very interesting except
+for the fact that we should slow down when we pass one driving. None of these places will show up as our 
+favorites, but we can always access them if we need to by checking the Places Cops Hide in Auburn list.
+Anyone can add to this list, so that through crowd-sourcing, a fluid and constantly up-to-date list
+of cop's hiding spots is maintained for anyone who wants it. 
+
+This idea incorporates the basic principles of a "vote-up" system for determining what people like,
+as well as bringing in a social aspect of sharing. In this respect, this system is similar to the Pinterest 
+model of allowing people to share their personal interests with their friends. The act of maintaining a list
+of "My Favorites" is much more personal than simply casting an anonymous up-vote to bump up an events
+rating. If Twitter and Facebook say anything about people, its that they really like telling everyone else
+about themselves. This system caters to that urge.
+
+There are lots of other ideas to be explored, such as the idea of creating Lists of lists (i.e., a list
+titled, "My Favorite Lists"), calculating ratings and trending #tags, etc.
