@@ -1,0 +1,12 @@
+Idea: User Lists
+Added by Andrew, 11/29/2011
+
+Description: Allow user's to create custom lists full of Events/Points of Interest. This list
+is itself #tagged and the #tag(s) is applied to every Event/POI added to the list. A list 
+can be configured as public or private and can be set as open or read-only, which determines 
+whether other users can add Events/POI to the list.
+
+Example Usage: I create a list called "Andrew's Favorite Sushi Spots" #-tagged with "#sushi, #japanese".
+Then any Event/Point of Interest that I add to that list will automatically get the #sushi and #japanese
+tags as well as an upvote from me. If I set the list as public and open, anyone else could add their 
+favorite sushi spots to the list as well, automatically tagging that Event/POI with #sushi #japanese.
