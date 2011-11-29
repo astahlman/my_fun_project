@@ -14,7 +14,6 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +22,20 @@
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
     
-    [tabBarController initWithContext:__managedObjectContext];
+    //Allocate TabBarController and Views
     
+    tabBarController = [[UITabBarController alloc] init];
+    eventTableViewController = [[EventTableViewController alloc] initWithContext:__managedObjectContext];
+    eventMapViewController = [[EventMapViewController alloc] initWithContext:__managedObjectContext];
+    
+    UINavigationController *firstNavCon = [[UINavigationController alloc] init];
+    [firstNavCon pushViewController:eventTableViewController animated:NO];
+    UINavigationController *secondNavCon = [[UINavigationController alloc] init];
+    [secondNavCon pushViewController:eventMapViewController animated:NO];
+    
+    //Array of ViewControllers (tabs on the view controller)
+    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
+    tabBarController.viewControllers = viewControllers;
     [window addSubview: [tabBarController view]];
     [self.window makeKeyAndVisible];
     

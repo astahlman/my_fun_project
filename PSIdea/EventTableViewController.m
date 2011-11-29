@@ -25,8 +25,11 @@
     return self;
 }
 
--(void)initWithContext:(NSManagedObjectContext *)context
+-(id)initWithContext:(NSManagedObjectContext *)context
 {
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        
     __managedObjectContext = context;
     // perform load of view here
     //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ALL"];
@@ -34,6 +37,9 @@
     
     __visibleEvents = [[NSMutableArray alloc] init];
     [__visibleEvents addObjectsFromArray:__eventsArray];
+        self.title = @"Events";
+    }
+    return self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,10 +179,11 @@
 
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+
     NSString* details = [[__eventsArray objectAtIndex:indexPath.row] details];
     NSString* title = [[__eventsArray objectAtIndex:indexPath.row] title];
-    [detailViewController setWithDetails:details withTitle:title];     
+    [detailViewController setWithDetails:details withTitle:title];
+         [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark UISearchBarDelegate
