@@ -28,7 +28,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "28"
          endingLineNumber = "28"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -42,7 +42,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "27"
          endingLineNumber = "27"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -56,7 +56,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "37"
          endingLineNumber = "37"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -70,11 +70,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "63"
          endingLineNumber = "63"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -98,7 +98,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "50"
          endingLineNumber = "50"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -112,7 +112,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "51"
          endingLineNumber = "51"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -140,11 +140,11 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "49"
          endingLineNumber = "49"
-         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andEvents:andFriends:andPhoto:inManagedObjectContext:"
+         landmarkName = "+createUserWithID:andName:andLatitude:andLongitude:andPOIs:andFriends:andPhoto:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -169,6 +169,34 @@
          startingLineNumber = "27"
          endingLineNumber = "27"
          landmarkName = "-initWithContext:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "POI.m"
+         timestampString = "344319655.95314"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "+createPOIWithID:andTitle:andDetails:andLatitude:andLongitude:andPhoto:andPublic:andRating:andCreator:inManagedObjectContext:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "POI.m"
+         timestampString = "344319769.920496"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "+createPOIWithID:andTitle:andDetails:andLatitude:andLongitude:andPhoto:andPublic:andRating:andCreator:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

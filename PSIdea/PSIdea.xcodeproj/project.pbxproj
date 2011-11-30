@@ -10,6 +10,7 @@
 		5128ECB71465DEE90039E2E4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECB61465DEE90039E2E4 /* Event.m */; };
 		5128ECBC1465DEE90039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBB1465DEE90039E2E4 /* User.m */; };
 		5128ECBF1465DF220039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBE1465DF220039E2E4 /* Photo.m */; };
+		5139B73A1485E8A200744EE5 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5139B7391485E8A200744EE5 /* POI.m */; };
 		516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D10FE1464B0D000CF95D2 /* UIKit.framework */; };
 		516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11001464B0D000CF95D2 /* Foundation.framework */; };
 		516D11031464B0D000CF95D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11021464B0D000CF95D2 /* CoreGraphics.framework */; };
@@ -27,7 +28,6 @@
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
 		6617E413147C735600F1E018 /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E412147C735600F1E018 /* POIDetailsViewController.m */; };
 		6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E41C147EED9300F1E018 /* POIMapView.xib */; };
-		663292001485BA2F003198A1 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 663291FF1485BA2F003198A1 /* POI.m */; };
 		667EF944147C4544004BA5FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667EF943147C4544004BA5FE /* MainWindow.xib */; };
 		66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1754C147EF0FF001A2E27 /* MapKit.framework */; };
 		66A17550147EF5BF001A2E27 /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A1754F147EF5BF001A2E27 /* POIMapViewController.m */; };
@@ -42,6 +42,8 @@
 		5128ECBB1465DEE90039E2E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
 		5128ECBD1465DF220039E2E4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = PSIdea/Photo.h; sourceTree = "<group>"; };
 		5128ECBE1465DF220039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSIdea/Photo.m; sourceTree = "<group>"; };
+		5139B7381485E8A200744EE5 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = PSIdea/POI.h; sourceTree = "<group>"; };
+		5139B7391485E8A200744EE5 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = PSIdea/POI.m; sourceTree = "<group>"; };
 		516D10FA1464B0D000CF95D2 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516D10FE1464B0D000CF95D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		516D11001464B0D000CF95D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,8 +70,6 @@
 		6617E411147C735600F1E018 /* POIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailsViewController.h; sourceTree = "<group>"; };
 		6617E412147C735600F1E018 /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailsViewController.m; sourceTree = "<group>"; };
 		6617E41C147EED9300F1E018 /* POIMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POIMapView.xib; path = ../POIMapView.xib; sourceTree = "<group>"; };
-		663291FE1485BA2F003198A1 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
-		663291FF1485BA2F003198A1 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
 		667EF943147C4544004BA5FE /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 		66A1754C147EF0FF001A2E27 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		66A1754F147EF5BF001A2E27 /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIMapViewController.m; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 				5128ECBB1465DEE90039E2E4 /* User.m */,
 				5128ECB51465DEE90039E2E4 /* Event.h */,
 				5128ECB61465DEE90039E2E4 /* Event.m */,
-				663291FE1485BA2F003198A1 /* POI.h */,
-				663291FF1485BA2F003198A1 /* POI.m */,
+				5139B7381485E8A200744EE5 /* POI.h */,
+				5139B7391485E8A200744EE5 /* POI.m */,
 			);
 			name = "CoreData Classes";
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 				66A17553147F669E001A2E27 /* POIAnnotation.m in Sources */,
 				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
 				51DBE0BD14858A4F000FCF12 /* POICreationView.m in Sources */,
-				663292001485BA2F003198A1 /* POI.m in Sources */,
+				5139B73A1485E8A200744EE5 /* POI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
