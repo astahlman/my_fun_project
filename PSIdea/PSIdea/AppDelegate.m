@@ -24,19 +24,19 @@
     
     //Allocate TabBarController and Views
     
-    tabBarController = [[UITabBarController alloc] init];
-    eventTableViewController = [[EventTableViewController alloc] initWithContext:__managedObjectContext];
-    eventMapViewController = [[EventMapViewController alloc] initWithContext:__managedObjectContext];
+    __tabBarController = [[UITabBarController alloc] init];
+    __poiTableViewController = [[POITableViewController alloc] initWithContext:__managedObjectContext];
+    __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext];
     
     UINavigationController *firstNavCon = [[UINavigationController alloc] init];
-    [firstNavCon pushViewController:eventTableViewController animated:NO];
+    [firstNavCon pushViewController:__poiTableViewController animated:NO];
     UINavigationController *secondNavCon = [[UINavigationController alloc] init];
-    [secondNavCon pushViewController:eventMapViewController animated:NO];
+    [secondNavCon pushViewController:__poiMapViewController animated:NO];
     
     //Array of ViewControllers (tabs on the view controller)
     NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
-    tabBarController.viewControllers = viewControllers;
-    [window addSubview: [tabBarController view]];
+    __tabBarController.viewControllers = viewControllers;
+    [window addSubview: [__tabBarController view]];
     [self.window makeKeyAndVisible];
     
     return YES;

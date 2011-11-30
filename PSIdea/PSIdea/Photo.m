@@ -7,7 +7,7 @@
 //
 
 #import "Photo.h"
-#import "Event.h"
+#import "POI.h"
 #import "User.h"
 
 
@@ -15,7 +15,7 @@
 
 @dynamic idNumber;
 @dynamic url;
-@dynamic event;
+@dynamic poi;
 @dynamic owner;
 
 @end

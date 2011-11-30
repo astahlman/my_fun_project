@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EventTableViewController.h"
-#import "EventMapViewController.h"
+#import "POITableViewController.h"
+#import "POIMapViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     
-    EventTableViewController *eventTableViewController;
-    EventMapViewController *eventMapViewController;
-    UITabBarController *tabBarController;
+    POITableViewController *__poiTableViewController;
+    POIMapViewController *__poiMapViewController;
+    UITabBarController *__tabBarController;
 }
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;

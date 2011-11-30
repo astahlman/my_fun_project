@@ -47,13 +47,13 @@
 				<integer>0</integer>
 			</dict>
 		</array>
-		<key>Events</key>
+		<key>POIs</key>
 		<array>
 			<dict>
 				<key>id</key>
 				<integer>1</integer>
 				<key>title</key>
-				<string>My First Event</string>
+				<string>POI #1</string>
 				<key>details</key>
 				<string>Wow, you need to check this place out! #awesome</string>
 				<key>latitude</key>
@@ -73,7 +73,7 @@
 				<key>id</key>
 				<integer>2</integer>
 				<key>title</key>
-				<string>My Second Event</string>
+				<string>POI #2</string>
 				<key>details</key>
 				<string>Please check this place out! #hashtag</string>
 				<key>latitude</key>

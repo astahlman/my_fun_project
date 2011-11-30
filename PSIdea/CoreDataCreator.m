@@ -8,8 +8,10 @@
 
 #import "CoreDataCreator.h"
 #import "User.h"
-#import "Event.h"
+#import "poi.h"
+#import "POI.h"
 #import "Photo.h"
+
 @implementation CoreDataCreator
 
 -(id) init{
@@ -54,17 +56,17 @@
     NSDictionary *user = nil;
     for (int i=0; i<users.count; i++){
         user = [users objectAtIndex:i];
-        [User createUserWithID:[user objectForKey:@"id"] andName:[user objectForKey:@"name"] andLatitude:[user objectForKey:@"latitude"] andLongitude:[user objectForKey:@"longitude"] andEvents:[user objectForKey:@"events"] andFriends:[user objectForKey:@"friends"] andPhoto:[user objectForKey:@"photo"] inManagedObjectContext:context];
+        [User createUserWithID:[user objectForKey:@"id"] andName:[user objectForKey:@"name"] andLatitude:[user objectForKey:@"latitude"] andLongitude:[user objectForKey:@"longitude"] andPOIs:[user objectForKey:@"pois"] andFriends:[user objectForKey:@"friends"] andPhoto:[user objectForKey:@"photo"] inManagedObjectContext:context];
      
     }
     
-    NSArray *events = [root objectForKey:@"Events"];
-    NSDictionary *event = nil;
+    NSArray *pois = [root objectForKey:@"POIs"];
+    NSDictionary *poi = nil;
     
-    for(int i=0; i<events.count; i++){
-        event = [events objectAtIndex:i];
+    for(int i=0; i<pois.count; i++){
+        poi = [pois objectAtIndex:i];
         
-        [Event createEventWithID:[event objectForKey:@"id"] andTitle:[event objectForKey:@"title"] andDetails:[event objectForKey:@"details"] andLatitude:[event objectForKey:@"latitude"] andLongitude:[event objectForKey:@"longitude"] andPhoto:[event objectForKey:@"photo"] andPublic:[event objectForKey:@"public"] andRating:[event objectForKey:@"rating"] andCreator:[event objectForKey:@"creator"] inManagedObjectContext:context];
+        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] inManagedObjectContext:context];
     }
     
     

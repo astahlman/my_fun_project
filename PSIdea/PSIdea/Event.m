@@ -9,6 +9,7 @@
 #import "Event.h"
 #import "Photo.h"
 #import "User.h"
+#import "POI.h"
 
 
 @implementation Event
@@ -25,7 +26,9 @@
 
 @synthesize tags;
 
-+(Event*) createEventWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator inManagedObjectContext:(NSManagedObjectContext*) context{
+// TODO: This can probably be cleaned up to use a [super init].
++(Event*) createEventWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andStartDate:(NSDate*)start andEndDate:(NSDate*)end andRecurrenceType:(NSString*)recurrence inManagedObjectContext:(NSManagedObjectContext*) context
+{
     
     Event *event = nil;
     
@@ -45,8 +48,9 @@
         event.details = details;
         event.latitude = latitude;
         event.longitude = longitude;
-        event.public =public;
-        //TO DO: set up photo
+        event.public = public;
+        
+        //TO DO: set up photo, recurrence type and parse start and end date to strings
         
         User *user = nil;
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -58,7 +62,7 @@
         
         user = [[context executeFetchRequest:request error:&error] lastObject];
         if(!error && !user){
-            user = [User createUserWithID:creator andName:nil andLatitude:nil andLongitude:nil andEvents:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
+            user = [User createUserWithID:creator andName:nil andLatitude:nil andLongitude:nil andPOIs:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
         }
         event.creator = user;
         
@@ -82,7 +86,7 @@
             
             user = [[context executeFetchRequest:request error:&error] lastObject];
             if(!error && !user){
-                user = [User createUserWithID:creator andName:nil andLatitude:nil andLongitude:nil andEvents:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
+                user = [User createUserWithID:creator andName:nil andLatitude:nil andLongitude:nil andPOIs:nil andFriends:nil andPhoto:nil inManagedObjectContext:context];
             }
             event.creator = user;
         }
@@ -90,33 +94,12 @@
         
     }    
     
-    [event.tags addObjectsFromArray:[Event extractTags:event.details]];
+    [event.tags addObjectsFromArray:[POI extractTags:event.details]];
     
     return event;
 }
 
-/* Extracts tags delimited by the '#' and space characters
- from a string of text.
- */
-+(NSMutableArray*)extractTags:(NSString*) text {
-    NSMutableArray* tagArray = [[NSMutableArray alloc] init];
-    int length = [text length];
-    for (int i = 0; i < length; i++) {
-        if ([text characterAtIndex:i] == '#') {
-            i += 1;
-            int start = i;
-            while (i < length && [text characterAtIndex:i] != ' ') {
-                i++;
-            }
-            int tagLength = i - start;
-            NSRange range = NSMakeRange(start, tagLength);
-            NSString* tag = [NSString stringWithString:[text substringWithRange:range]];
-            [tagArray addObject:tag];
-        }
-    }
-    
-    return tagArray;
-}
+
 
 
 

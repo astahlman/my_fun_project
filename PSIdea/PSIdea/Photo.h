@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Event, User;
+@class POI, User;
 
 @interface Photo : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * idNumber;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) Event *event;
+@property (nonatomic, retain) POI *poi;
 @property (nonatomic, retain) User *owner;
 
 @end
