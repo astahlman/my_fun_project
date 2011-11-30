@@ -2,8 +2,8 @@
 //  POI.m
 //  PSIdea
 //
-//  Created by Andrew Stahlman on 11/29/11.
-//  Copyright (c) 2011 Auburn University. All rights reserved.
+//  Created by William Patty on 11/29/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "POI.h"
@@ -117,5 +117,4 @@
     
     return tagArray;
 }
-
 @end
