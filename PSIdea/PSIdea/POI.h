@@ -2,8 +2,8 @@
 //  POI.h
 //  PSIdea
 //
-//  Created by Andrew Stahlman on 11/29/11.
-//  Copyright (c) 2011 Auburn University. All rights reserved.
+//  Created by William Patty on 11/29/11.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -23,10 +23,10 @@
 @property (nonatomic, retain) User *creator;
 @property (nonatomic, retain) Photo *photo;
 
+
 @property (nonatomic, retain) NSMutableArray* tags;
 
 +(NSMutableArray*)extractTags:(NSString*) text;
 
 +(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator inManagedObjectContext:(NSManagedObjectContext*) context;
-
 @end
