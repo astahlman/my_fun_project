@@ -11,8 +11,10 @@
 #import "POIDetailsViewController.h"
 #import "ViewWithCoreData.h"
 #import "CoreDataManager.h"
+#import "POICreationModalViewController.h"
 
-@interface POITableViewController : UITableViewController <ViewWithCoreData>
+
+@interface POITableViewController : UITableViewController <ViewWithCoreData, POICreationModalViewControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet UITableView *poiTableView;
@@ -22,5 +24,5 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 -(id)initWithContext:(NSManagedObjectContext *)context;
-
+-(void) didFinishEditing:(BOOL)finished;
 @end

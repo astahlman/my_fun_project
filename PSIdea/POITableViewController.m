@@ -24,20 +24,23 @@
     }
     return self;
 }
-
+-(void) fetchTableViewDataInManagedObjectcontext: (NSManagedObjectContext*) context{
+    __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
+    
+    __visiblePOI = [[NSMutableArray alloc] init];
+    [__visiblePOI addObjectsFromArray:__poiArray];
+}
 -(id)initWithContext:(NSManagedObjectContext *)context
 {
     self = [super initWithNibName:@"POITableView" bundle:nil];
     if (self) {
         
     __managedObjectContext = context;
+        [self fetchTableViewDataInManagedObjectcontext:context];
     // perform load of view here
     //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ALL"];
-    __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
-    
-    __visiblePOI = [[NSMutableArray alloc] init];
-    [__visiblePOI addObjectsFromArray:__poiArray];
         self.title = @"Points of Interest";
+        
     }
     return self;
 }
@@ -73,9 +76,30 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void) createNewPOI{
+    POICreationModalViewController *poiCreationMVC = [[POICreationModalViewController alloc] initWithManagedObjectContext:__managedObjectContext];
+    poiCreationMVC.delegate = self;
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:poiCreationMVC];
+    [self presentModalViewController:navCon animated:YES];
+    
+}
+
+-(void) didFinishEditing:(BOOL)finished{
+    if (YES) {
+        [__managedObjectContext save:nil];
+        [self fetchTableViewDataInManagedObjectcontext:__managedObjectContext];
+        [self.tableView reloadData];
+    }
+    
+    [self.modalViewController dismissModalViewControllerAnimated:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

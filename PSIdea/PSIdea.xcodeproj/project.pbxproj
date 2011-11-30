@@ -21,8 +21,10 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
-		51DBE0BD14858A4F000FCF12 /* POICreationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DBE0BB14858A4E000FCF12 /* POICreationView.m */; };
-		51DBE0BE14858A4F000FCF12 /* POICreationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DBE0BC14858A4E000FCF12 /* POICreationView.xib */; };
+		5175CF5F1486A40100332DEF /* creationBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5175CF5E1486A40100332DEF /* creationBackground.png */; };
+		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
+		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
+		51C471781486DB7B001BD1A4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C471771486DB7B001BD1A4 /* background.png */; };
 		6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* POITableViewController.m */; };
 		6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* POITableView.xib */; };
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
@@ -60,9 +62,11 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
-		51DBE0BA14858A4E000FCF12 /* POICreationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationView.h; sourceTree = "<group>"; };
-		51DBE0BB14858A4E000FCF12 /* POICreationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationView.m; sourceTree = "<group>"; };
-		51DBE0BC14858A4E000FCF12 /* POICreationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationView.xib; sourceTree = "<group>"; };
+		5175CF5E1486A40100332DEF /* creationBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creationBackground.png; sourceTree = "<group>"; };
+		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
+		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
+		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
+		51C471771486DB7B001BD1A4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
 		6617E40B147C6CC500F1E018 /* POITableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableView.xib; sourceTree = "<group>"; };
@@ -193,8 +197,8 @@
 				6617E412147C735600F1E018 /* POIDetailsViewController.m */,
 				66A17554147F7139001A2E27 /* POIMapViewController.h */,
 				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
-				51DBE0BA14858A4E000FCF12 /* POICreationView.h */,
-				51DBE0BB14858A4E000FCF12 /* POICreationView.m */,
+				51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */,
+				51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -206,7 +210,9 @@
 				6617E41C147EED9300F1E018 /* POIMapView.xib */,
 				6617E40B147C6CC500F1E018 /* POITableView.xib */,
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
-				51DBE0BC14858A4E000FCF12 /* POICreationView.xib */,
+				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
+				51C471771486DB7B001BD1A4 /* background.png */,
+				5175CF5E1486A40100332DEF /* creationBackground.png */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -275,7 +281,9 @@
 				6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */,
 				6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */,
 				6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */,
-				51DBE0BE14858A4F000FCF12 /* POICreationView.xib in Resources */,
+				5175CF5F1486A40100332DEF /* creationBackground.png in Resources */,
+				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
+				51C471781486DB7B001BD1A4 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,8 +306,8 @@
 				66A17550147EF5BF001A2E27 /* POIMapViewController.m in Sources */,
 				66A17553147F669E001A2E27 /* POIAnnotation.m in Sources */,
 				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
-				51DBE0BD14858A4F000FCF12 /* POICreationView.m in Sources */,
 				5139B73A1485E8A200744EE5 /* POI.m in Sources */,
+				51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

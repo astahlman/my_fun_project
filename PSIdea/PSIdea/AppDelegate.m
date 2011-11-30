@@ -26,13 +26,12 @@
     
     __tabBarController = [[UITabBarController alloc] init];
     __poiTableViewController = [[POITableViewController alloc] initWithContext:__managedObjectContext];
-    __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext];
-    
+    __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
     UINavigationController *firstNavCon = [[UINavigationController alloc] init];
     [firstNavCon pushViewController:__poiTableViewController animated:NO];
     UINavigationController *secondNavCon = [[UINavigationController alloc] init];
     [secondNavCon pushViewController:__poiMapViewController animated:NO];
-    
+
     //Array of ViewControllers (tabs on the view controller)
     NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
     __tabBarController.viewControllers = viewControllers;
