@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "POITableViewController.h"
 #import "POIMapViewController.h"
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     
