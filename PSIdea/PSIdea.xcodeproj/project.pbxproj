@@ -22,6 +22,9 @@
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
 		5175CF5F1486A40100332DEF /* creationBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5175CF5E1486A40100332DEF /* creationBackground.png */; };
+		519ACBE21486FB2D004690C8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 519ACBE11486FB2D004690C8 /* background2.png */; };
+		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
+		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
 		51C471781486DB7B001BD1A4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C471771486DB7B001BD1A4 /* background.png */; };
@@ -63,6 +66,10 @@
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
 		5175CF5E1486A40100332DEF /* creationBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creationBackground.png; sourceTree = "<group>"; };
+		519ACBE11486FB2D004690C8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
+		519ACBF114873571004690C8 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
@@ -90,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */,
 				66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */,
 				516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */,
 				516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */,
@@ -104,6 +112,8 @@
 		516D10EF1464B0CF00CF95D2 = {
 			isa = PBXGroup;
 			children = (
+				519ACBF014873571004690C8 /* MyCLController.h */,
+				519ACBF114873571004690C8 /* MyCLController.m */,
 				516D11061464B0D000CF95D2 /* PSIdea */,
 				516D10FD1464B0D000CF95D2 /* Frameworks */,
 				516D10FB1464B0D000CF95D2 /* Products */,
@@ -121,6 +131,7 @@
 		516D10FD1464B0D000CF95D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				519ACBEE14873538004690C8 /* CoreLocation.framework */,
 				66A1754C147EF0FF001A2E27 /* MapKit.framework */,
 				516D10FE1464B0D000CF95D2 /* UIKit.framework */,
 				516D11001464B0D000CF95D2 /* Foundation.framework */,
@@ -161,9 +172,9 @@
 		516D113B1464B43F00CF95D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				516D113C1464B44C00CF95D2 /* CoreData Classes */,
 				516D115E1464C47800CF95D2 /* CoreDataCreator.h */,
 				516D115F1464C47800CF95D2 /* CoreDataCreator.m */,
-				516D113C1464B44C00CF95D2 /* CoreData Classes */,
 				66A17551147F669E001A2E27 /* POIAnnotation.h */,
 				66A17552147F669E001A2E27 /* POIAnnotation.m */,
 				66E2864F148463F5009EFCF2 /* CoreDataManager.h */,
@@ -212,6 +223,7 @@
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
 				51C471771486DB7B001BD1A4 /* background.png */,
+				519ACBE11486FB2D004690C8 /* background2.png */,
 				5175CF5E1486A40100332DEF /* creationBackground.png */,
 			);
 			name = Views;
@@ -284,6 +296,7 @@
 				5175CF5F1486A40100332DEF /* creationBackground.png in Resources */,
 				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
 				51C471781486DB7B001BD1A4 /* background.png in Resources */,
+				519ACBE21486FB2D004690C8 /* background2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +321,7 @@
 				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
 				5139B73A1485E8A200744EE5 /* POI.m in Sources */,
 				51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */,
+				519ACBF214873571004690C8 /* MyCLController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
