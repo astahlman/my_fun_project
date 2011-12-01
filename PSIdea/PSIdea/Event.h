@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "POI.h"
 
 @class Photo, User;
 
-@interface Event : NSManagedObject
+@interface Event : POI
 
+// These should already be inherited, right? Check before deleting...
+/*
 @property (nonatomic, retain) NSString * details;
 @property (nonatomic, retain) NSNumber * idNumber;
 @property (nonatomic, retain) NSNumber * public;
@@ -22,8 +25,7 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) User *creator;
 @property (nonatomic, retain) Photo *photo;
-
-@property (nonatomic, retain) NSMutableArray* tags;
+*/
 
 
 

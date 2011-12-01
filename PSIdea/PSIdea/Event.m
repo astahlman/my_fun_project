@@ -14,6 +14,7 @@
 
 @implementation Event
 
+/*
 @dynamic details;
 @dynamic idNumber;
 @dynamic public;
@@ -23,8 +24,7 @@
 @dynamic longitude;
 @dynamic creator;
 @dynamic photo;
-
-@synthesize tags;
+*/
 
 // TODO: This can probably be cleaned up to use a [super init].
 +(Event*) createEventWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andStartDate:(NSDate*)start andEndDate:(NSDate*)end andRecurrenceType:(NSString*)recurrence inManagedObjectContext:(NSManagedObjectContext*) context
@@ -94,7 +94,7 @@
         
     }    
     
-    [event.tags addObjectsFromArray:[POI extractTags:event.details]];
+    event.tags = [POI extractTags:details];
     
     return event;
 }

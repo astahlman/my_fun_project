@@ -12,12 +12,14 @@
         <relationship name="poi" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="POI" inverseName="photo" inverseEntity="POI" syncable="YES"/>
     </entity>
     <entity name="POI" representedClassName="POI" syncable="YES">
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="public" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="pois" inverseEntity="User" syncable="YES"/>
         <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="poi" inverseEntity="Photo" syncable="YES"/>
@@ -34,7 +36,7 @@
     <elements>
         <element name="Event" positionX="214" positionY="-54" width="128" height="90"/>
         <element name="Photo" positionX="-83" positionY="198" width="128" height="105"/>
-        <element name="POI" positionX="216" positionY="108" width="128" height="180"/>
+        <element name="POI" positionX="216" positionY="108" width="128" height="210"/>
         <element name="User" positionX="-63" positionY="-90" width="128" height="150"/>
     </elements>
 </model>

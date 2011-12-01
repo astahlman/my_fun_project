@@ -199,7 +199,7 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithNibName:@"POIDetailsView" bundle:nil];
+     POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
 
      // ...
      // Pass the selected object to the new view controller.
@@ -207,7 +207,7 @@
     NSString* details = [[__poiArray objectAtIndex:indexPath.row] details];
     NSString* title = [[__poiArray objectAtIndex:indexPath.row] title];
     [detailViewController setWithDetails:details withTitle:title];
-         [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark UISearchBarDelegate
