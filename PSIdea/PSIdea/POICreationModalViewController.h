@@ -27,6 +27,7 @@
     __weak IBOutlet UIView *mainInfoView;
  
 }
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
@@ -39,5 +40,6 @@
 
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
+- (IBAction)infoButtonSelected:(id)sender;
 
 @end

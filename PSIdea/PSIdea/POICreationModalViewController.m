@@ -9,6 +9,7 @@
 #import "POICreationModalViewController.h"
 
 @implementation POICreationModalViewController
+@synthesize infoButton;
 @synthesize titleField;
 @synthesize detailsField;
 @synthesize miniMapView;
@@ -109,6 +110,7 @@
     [self setMiniMapView:nil];
     tapeImage = nil;
     mainInfoView = nil;
+    [self setInfoButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -118,6 +120,13 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)infoButtonSelected:(id)sender{
+    
+    //Push a bigger map View that allows user to drop pin at location
+    //expand off current map class?
+    
 }
 -(void) textViewDidBeginEditing:(UITextView *)textView{
     if ([textView.text isEqualToString:@"Click here to add details."]) {
