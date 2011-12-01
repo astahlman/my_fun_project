@@ -80,6 +80,7 @@
     miniMapView.showsUserLocation=YES;
     locationController = [[MYCLController alloc] init];
     locationController.delegate=self;
+    [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     [locationController.locationManager startUpdatingLocation];
 }
 
