@@ -261,12 +261,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
-         timestampString = "344464050.816549"
+         timestampString = "344477194.389401"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
-         landmarkName = "-textViewDidBeginEditing:"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
+         landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -289,13 +289,27 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
-         timestampString = "344464034.905544"
+         timestampString = "344477194.389401"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "127"
+         endingLineNumber = "127"
          landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "PSIdea/POICreationModalViewController.h"
+         timestampString = "344477272.400326"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "20"
+         endingLineNumber = "20"
+         landmarkName = "-didFinishEditing:"
+         landmarkType = "4">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

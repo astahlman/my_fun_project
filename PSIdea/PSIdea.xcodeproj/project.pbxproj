@@ -263,7 +263,7 @@
 		516D10F11464B0CF00CF95D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 516D10F41464B0CF00CF95D2 /* Build configuration list for PBXProject "PSIdea" */;
 			compatibilityVersion = "Xcode 3.2";

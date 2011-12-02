@@ -96,11 +96,13 @@
     tapeImage.layer.shouldRasterize = YES;
     tapeImage.layer.shadowOpacity = 0.8;
     tapeImage.layer.shadowRadius = 2.0;
+    tapeImage.layer.contentsScale = [UIScreen mainScreen].scale;
     mainInfoView.layer.shadowColor = [UIColor blackColor].CGColor;
     mainInfoView.layer.shadowOffset = CGSizeMake(0, 1);
-    mainInfoView.layer.shouldRasterize = YES;
+    mainInfoView.layer.shouldRasterize = NO;
     mainInfoView.layer.shadowOpacity = 1.0;
-    mainInfoView.layer.shadowRadius = 50.0;
+    mainInfoView.layer.shadowRadius = 20.0;
+    mainInfoView.layer.contentsScale = [UIScreen mainScreen].scale;
 }
 
 - (void)viewDidUnload
