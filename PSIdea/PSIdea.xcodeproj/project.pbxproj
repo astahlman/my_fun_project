@@ -25,9 +25,12 @@
 		519ACBE21486FB2D004690C8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 519ACBE11486FB2D004690C8 /* background2.png */; };
 		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
 		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
+		51B387F914892E22008FE3C7 /* POILocationChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */; };
+		51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
 		51C471781486DB7B001BD1A4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C471771486DB7B001BD1A4 /* background.png */; };
+		51FF9DFE1489401200830BBB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FF9DFD1489401200830BBB /* QuartzCore.framework */; };
 		6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* POITableViewController.m */; };
 		6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* POITableView.xib */; };
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
@@ -70,10 +73,14 @@
 		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		519ACBF114873571004690C8 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
+		51B387F614892E22008FE3C7 /* POILocationChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POILocationChooserViewController.h; sourceTree = "<group>"; };
+		51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POILocationChooserViewController.m; sourceTree = "<group>"; };
+		51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POILocationChooserViewController.xib; sourceTree = "<group>"; };
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
 		51C471771486DB7B001BD1A4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		51FF9DFD1489401200830BBB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
 		6617E40B147C6CC500F1E018 /* POITableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableView.xib; sourceTree = "<group>"; };
@@ -97,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51FF9DFE1489401200830BBB /* QuartzCore.framework in Frameworks */,
 				519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */,
 				66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */,
 				516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */,
@@ -131,6 +139,7 @@
 		516D10FD1464B0D000CF95D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51FF9DFD1489401200830BBB /* QuartzCore.framework */,
 				519ACBEE14873538004690C8 /* CoreLocation.framework */,
 				66A1754C147EF0FF001A2E27 /* MapKit.framework */,
 				516D10FE1464B0D000CF95D2 /* UIKit.framework */,
@@ -210,6 +219,8 @@
 				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
 				51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */,
 				51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */,
+				51B387F614892E22008FE3C7 /* POILocationChooserViewController.h */,
+				51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 				6617E40B147C6CC500F1E018 /* POITableView.xib */,
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
+				51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */,
 				51C471771486DB7B001BD1A4 /* background.png */,
 				519ACBE11486FB2D004690C8 /* background2.png */,
 				5175CF5E1486A40100332DEF /* creationBackground.png */,
@@ -297,6 +309,7 @@
 				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
 				51C471781486DB7B001BD1A4 /* background.png in Resources */,
 				519ACBE21486FB2D004690C8 /* background2.png in Resources */,
+				51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +335,7 @@
 				5139B73A1485E8A200744EE5 /* POI.m in Sources */,
 				51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */,
 				519ACBF214873571004690C8 /* MyCLController.m in Sources */,
+				51B387F914892E22008FE3C7 /* POILocationChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +374,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Debug;
 		};
@@ -379,7 +393,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

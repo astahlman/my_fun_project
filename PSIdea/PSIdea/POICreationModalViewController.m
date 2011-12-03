@@ -14,8 +14,7 @@
 @synthesize detailsField;
 @synthesize miniMapView;
 @synthesize delegate;
-@synthesize poiArray = __poiArray;
-@synthesize visiblePOI = __visiblePOI;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,11 +52,11 @@
 - (void) zoomToLocation:(CLLocation*) location {
     MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
     MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate, span);
-    [miniMapView setRegion:region animated:YES];
+    [miniMapView setRegion:region animated:NO];
 }
 
 -(void) locationUpdate:(CLLocation *)location{
-    
+    currentLocation =location;
     [self zoomToLocation:location];
 }
 
@@ -78,7 +77,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    miniMapView.showsUserLocation=YES;
+    miniMapView.showsUserLocation=NO;
     locationController = [[MYCLController alloc] init];
     locationController.delegate=self;
     [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
@@ -128,6 +127,8 @@
     
     //Push a bigger map View that allows user to drop pin at location
     //expand off current map class?
+    POILocationChooserViewController *locationChooserVC = [[POILocationChooserViewController alloc] initWithCurrentLocation:currentLocation];
+    [self.navigationController pushViewController:locationChooserVC animated:YES];
     
 }
 -(void) textViewDidBeginEditing:(UITextView *)textView{

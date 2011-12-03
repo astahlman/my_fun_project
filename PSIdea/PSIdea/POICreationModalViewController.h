@@ -14,6 +14,7 @@
 #import "CoreDataManager.h"
 #import "POIAnnotation.h"
 #import "MyCLController.h"
+#import "POILocationChooserViewController.h"
 @protocol POICreationModalViewControllerDelegate <NSObject>
 
 @required
@@ -25,14 +26,14 @@
     __weak IBOutlet UIImageView *tapeImage;
     MYCLController *locationController;
     __weak IBOutlet UIView *mainInfoView;
+    CLLocation *currentLocation;
  
 }
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
-@property (nonatomic, retain) NSMutableArray *poiArray;
-@property (nonatomic, retain) NSMutableArray *visiblePOI;
+
 
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 

@@ -26,7 +26,11 @@
     [self.delegate locationError:error];
 }
 -(void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    [self.delegate locationUpdate:newLocation];
+    if ((oldLocation.coordinate.latitude != newLocation.coordinate.latitude) &&
+        (oldLocation.coordinate.longitude != newLocation.coordinate.longitude)){
+        [self.delegate locationUpdate:newLocation];
+
+    }
 }
 
  

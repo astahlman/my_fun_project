@@ -28,4 +28,20 @@
     return __details;
 }
 
+-(void) setCoordinate:(CLLocationCoordinate2D)newCoordinate{
+    __coordinate = newCoordinate;
+}
+
+
+-(void) updateAnnotationView:(CLLocation *) location {
+    
+    CLGeocoder *__coder = [[CLGeocoder alloc] init];
+    
+    [__coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks lastObject];
+        self.details = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+    }];
+}
+
+
 @end

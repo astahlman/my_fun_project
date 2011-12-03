@@ -15,5 +15,5 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 - (id)initWithDetails:(NSString*)details coordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title;
-
+-(void) updateAnnotationView:(CLLocation *) location;
 @end
