@@ -21,7 +21,7 @@
 -(void) didFinishEditing:(BOOL) finished;
 @end
 
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate>{
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate>{
     NSManagedObjectContext *__managedObjectContext;
     __weak IBOutlet UIImageView *tapeImage;
     MYCLController *locationController;
@@ -38,7 +38,7 @@
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
-
+-(void) didSelectLocation: (CLLocation*) location;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)infoButtonSelected:(id)sender;

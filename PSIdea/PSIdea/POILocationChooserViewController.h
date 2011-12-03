@@ -11,14 +11,22 @@
 #import "MyCLController.h"
 #import "POIAnnotation.h"
 
-@interface POILocationChooserViewController : UIViewController  <MKMapViewDelegate>
+@protocol POILocationChooserViewControllerDelegate <NSObject>
+
+@required
+-(void) didSelectLocation: (CLLocation *) location;
+
+@end
+
+@interface POILocationChooserViewController : UIViewController  <MKMapViewDelegate, MyCLControllerDelegate>
 {
     MYCLController *locationController;
-    CLLocation *currentLocation;
+    CLLocation *pinLocation;
 
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
+@property (nonatomic, retain) id <POILocationChooserViewControllerDelegate> delegate;
 -(id) initWithCurrentLocation: (CLLocation*) location;
-
+-(void) locationUpdate:(CLLocation *)location;
+-(void) locationError:(NSError *)error;
 @end

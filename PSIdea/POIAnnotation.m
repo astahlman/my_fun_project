@@ -19,7 +19,7 @@
         __details = [details copy];
         __coordinate = coordinate;
         __title = title;
-    
+
     }
     return self;
 }

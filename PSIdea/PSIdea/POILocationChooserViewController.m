@@ -10,7 +10,7 @@
 
 @implementation POILocationChooserViewController
 @synthesize mapView=__mapView;
-
+@synthesize delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,17 +29,17 @@
     [__mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
     
-    
-    
     POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:@"Drag to drop at new Location" coordinate:touchMapCoordinate title:@"Dropped Pin"];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
+    [annotation updateAnnotationView:location];
     [__mapView addAnnotation:annotation];
 }
 
 -(id) initWithCurrentLocation: (CLLocation*) location{
     self = [self initWithNibName:@"POILocationChooserViewController" bundle:[NSBundle mainBundle]];
     if(self){        
-        currentLocation =location;
-
+        pinLocation =location;
+        self.title = @"POI Location";
     }
     return self;
 }
@@ -61,16 +61,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    locationController = [[MYCLController alloc] init];
+    [locationController.locationManager startUpdatingLocation];
+    locationController.delegate =self;
     __mapView.showsUserLocation = YES;
     // Do any additional setup after loading the view from its nib.
-    [self zoomToLocation:currentLocation];
+    [self zoomToLocation:pinLocation];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] 
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [__mapView addGestureRecognizer:lpgr];
-    /*POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:@"Drag to drop pin" coordinate:currentLocation.coordinate title:@"Drag to drop pin"];    
-    [__mapView addAnnotation:annotation];*/
-    
+
 
 }
 
@@ -90,9 +91,15 @@
 
 
 -(MKAnnotationView  *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-   if(annotation == mapView.userLocation){
+    if(annotation == mapView.userLocation){
         return nil;
     }
+    POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
+
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:poiAnnotation.coordinate.latitude longitude:poiAnnotation.coordinate.longitude];
+    [poiAnnotation updateAnnotationView:location];
+    pinLocation = location;
+    
     MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
     if (annotationView == nil) {
         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
@@ -109,9 +116,30 @@
         POIAnnotation *annotation = (POIAnnotation*)view.annotation;
         CLLocation *location = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
         [annotation updateAnnotationView:location];
-        
+        pinLocation = location;
+     
     }
 }
 
+-(void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [delegate didSelectLocation:pinLocation];
 
+}
+
+-(void) locationUpdate:(CLLocation *)location;
+{
+    
+    if (pinLocation.coordinate.latitude != location.coordinate.latitude &&
+        pinLocation.coordinate.longitude != location.coordinate.longitude) {
+        POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:@"Drag to drop pin" coordinate:pinLocation.coordinate title:@"Dropped Pin"];   
+        [annotation updateAnnotationView:location];
+        [__mapView addAnnotation:annotation];
+
+    }
+    [locationController.locationManager stopUpdatingLocation];
+}
+-(void) locationError:(NSError *)error{
+    
+}
 @end

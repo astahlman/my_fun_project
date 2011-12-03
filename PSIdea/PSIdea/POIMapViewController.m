@@ -30,14 +30,15 @@
     if (self) {
     __managedObjectContext = context;
     // set visiblePOI here...
-    __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
-    __visiblePOI = [[NSMutableArray alloc] init];
-    [__visiblePOI addObjectsFromArray:__poiArray];
         self.title = @"Map View";
     }
     return self;
 }
-
+-(void) getPOIs {
+    __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
+    __visiblePOI = [[NSMutableArray alloc] init];
+    [__visiblePOI addObjectsFromArray:__poiArray];
+}
 - (void) plotPOI {
     
     for (id<MKAnnotation> annotation in __poiMapView.annotations) {
@@ -50,6 +51,12 @@
         location.latitude = poi.latitude.doubleValue;
         location.longitude = poi.longitude.doubleValue;
         POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:poi.details coordinate:location title:poi.title];
+        CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
+       
+        //Sets details to the address if nil;
+        if(poi.details == nil){
+            [annotation updateAnnotationView:annotationLocation];
+        }
         [__poiMapView addAnnotation:annotation];
     }
     
@@ -77,7 +84,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self plotPOI];
+
+    
 }
 
 
@@ -96,8 +104,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {  
-    
-    CLLocationCoordinate2D zoomLocation;
+    [self getPOIs];
+    [self plotPOI];
+  /*  CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 34.677035;
     zoomLocation.longitude = -86.452324;
     
@@ -105,7 +114,7 @@
     
     MKCoordinateRegion adjustedRegion = [__poiMapView regionThatFits:viewRegion];                
     
-    [__poiMapView setRegion:adjustedRegion animated:YES];        
+    [__poiMapView setRegion:adjustedRegion animated:YES];   */     
 }
 
 @end

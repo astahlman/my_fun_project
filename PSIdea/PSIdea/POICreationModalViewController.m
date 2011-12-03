@@ -30,7 +30,14 @@
     // need to pass in user id for user logged in.
     int number = arc4random() % 10000; // This will need to change. Could get same number multiple times
     NSNumber *idNumber = [NSNumber numberWithInt:number];
-    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:detailsField.text andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil inManagedObjectContext:__managedObjectContext];
+    
+    NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+    NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+    NSString *details = detailsField.text;
+    if ([detailsField.text isEqualToString:@"Click here to add details."]) {
+        details = nil;
+    }
+    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:nil andRating:nil andCreator:nil inManagedObjectContext:__managedObjectContext];
     //Create POI and Save context   
     [delegate didFinishEditing:YES];
 }
@@ -117,6 +124,7 @@
     // e.g. self.myOutlet = nil;
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -128,6 +136,7 @@
     //Push a bigger map View that allows user to drop pin at location
     //expand off current map class?
     POILocationChooserViewController *locationChooserVC = [[POILocationChooserViewController alloc] initWithCurrentLocation:currentLocation];
+    locationChooserVC.delegate = self;
     [self.navigationController pushViewController:locationChooserVC animated:YES];
     
 }
@@ -135,5 +144,17 @@
     if ([textView.text isEqualToString:@"Click here to add details."]) {
         textView.text=@"";
     }
+}
+
+-(void) didSelectLocation: (CLLocation*) location{
+    [self zoomToLocation:location];
+    //Add annotation to miniMapView
+    
+    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:location.coordinate title:nil];
+    for (id<MKAnnotation> annotation in miniMapView.annotations) {
+        [miniMapView removeAnnotation:annotation];
+    }
+    [miniMapView addAnnotation:annotation];
+    currentLocation = location;
 }
 @end
