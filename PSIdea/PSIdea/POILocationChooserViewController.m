@@ -24,6 +24,9 @@
     if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
         return;
     
+    if(__mapView.annotations.count >1) {
+        return;
+    }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];   
     CLLocationCoordinate2D touchMapCoordinate = 
     [__mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
@@ -33,6 +36,7 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
     [annotation updateAnnotationView:location];
     [__mapView addAnnotation:annotation];
+    
 }
 
 -(id) initWithCurrentLocation: (CLLocation*) location{

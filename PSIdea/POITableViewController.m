@@ -163,19 +163,22 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        
+        NSManagedObject *managedObject = [__poiArray objectAtIndex:indexPath.row];
+        [__managedObjectContext deleteObject:managedObject];
+        [__managedObjectContext save:nil];
+        
+        [self fetchTableViewDataInManagedObjectcontext:__managedObjectContext];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }    
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -199,14 +202,14 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
+    
 
      // ...
      // Pass the selected object to the new view controller.
 
     NSString* details = [[__poiArray objectAtIndex:indexPath.row] details];
     NSString* title = [[__poiArray objectAtIndex:indexPath.row] title];
-    [detailViewController setWithDetails:details withTitle:title];
+    POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithDetails:details withTitle:title];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 

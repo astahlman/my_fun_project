@@ -21,7 +21,6 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
-		5175CF5F1486A40100332DEF /* creationBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5175CF5E1486A40100332DEF /* creationBackground.png */; };
 		519ACBE21486FB2D004690C8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 519ACBE11486FB2D004690C8 /* background2.png */; };
 		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
 		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
@@ -29,7 +28,6 @@
 		51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
-		51C471781486DB7B001BD1A4 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C471771486DB7B001BD1A4 /* background.png */; };
 		51FF9DFE1489401200830BBB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FF9DFD1489401200830BBB /* QuartzCore.framework */; };
 		6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* POITableViewController.m */; };
 		6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* POITableView.xib */; };
@@ -61,14 +59,13 @@
 		516D110A1464B0D000CF95D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		516D110C1464B0D000CF95D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		516D110E1464B0D000CF95D2 /* PSIdea-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSIdea-Prefix.pch"; sourceTree = "<group>"; };
-		516D110F1464B0D000CF95D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		516D11101464B0D000CF95D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		516D110F1464B0D000CF95D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PSIdea/AppDelegate.h; sourceTree = "<group>"; };
+		516D11101464B0D000CF95D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PSIdea/AppDelegate.m; sourceTree = "<group>"; };
 		516D11131464B0D000CF95D2 /* PSIdea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea.xcdatamodel; sourceTree = "<group>"; };
 		516D111B1464B0D100CF95D2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
-		5175CF5E1486A40100332DEF /* creationBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creationBackground.png; sourceTree = "<group>"; };
 		519ACBE11486FB2D004690C8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
@@ -79,7 +76,6 @@
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
-		51C471771486DB7B001BD1A4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		51FF9DFD1489401200830BBB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
@@ -120,8 +116,6 @@
 		516D10EF1464B0CF00CF95D2 = {
 			isa = PBXGroup;
 			children = (
-				519ACBF014873571004690C8 /* MyCLController.h */,
-				519ACBF114873571004690C8 /* MyCLController.m */,
 				516D11061464B0D000CF95D2 /* PSIdea */,
 				516D10FD1464B0D000CF95D2 /* Frameworks */,
 				516D10FB1464B0D000CF95D2 /* Products */,
@@ -155,12 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				66E28652148466F9009EFCF2 /* Protocols */,
-				6617E40E147C6F2F00F1E018 /* Views */,
+				6617E40E147C6F2F00F1E018 /* Resources */,
 				6617E40A147C6B5000F1E018 /* View Controllers */,
 				516D113B1464B43F00CF95D2 /* Classes */,
-				516D110F1464B0D000CF95D2 /* AppDelegate.h */,
-				516D11101464B0D000CF95D2 /* AppDelegate.m */,
-				516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */,
 				516D11071464B0D000CF95D2 /* Supporting Files */,
 			);
 			path = PSIdea;
@@ -181,9 +172,14 @@
 		516D113B1464B43F00CF95D2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				516D110F1464B0D000CF95D2 /* AppDelegate.h */,
+				516D11101464B0D000CF95D2 /* AppDelegate.m */,
+				516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */,
 				516D113C1464B44C00CF95D2 /* CoreData Classes */,
 				516D115E1464C47800CF95D2 /* CoreDataCreator.h */,
 				516D115F1464C47800CF95D2 /* CoreDataCreator.m */,
+				519ACBF014873571004690C8 /* MyCLController.h */,
+				519ACBF114873571004690C8 /* MyCLController.m */,
 				66A17551147F669E001A2E27 /* POIAnnotation.h */,
 				66A17552147F669E001A2E27 /* POIAnnotation.m */,
 				66E2864F148463F5009EFCF2 /* CoreDataManager.h */,
@@ -215,17 +211,17 @@
 				6617E406147C6B1E00F1E018 /* POITableViewController.m */,
 				6617E411147C735600F1E018 /* POIDetailsViewController.h */,
 				6617E412147C735600F1E018 /* POIDetailsViewController.m */,
-				66A17554147F7139001A2E27 /* POIMapViewController.h */,
-				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
 				51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */,
 				51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */,
 				51B387F614892E22008FE3C7 /* POILocationChooserViewController.h */,
 				51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */,
+				66A17554147F7139001A2E27 /* POIMapViewController.h */,
+				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		6617E40E147C6F2F00F1E018 /* Views */ = {
+		6617E40E147C6F2F00F1E018 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				667EF943147C4544004BA5FE /* MainWindow.xib */,
@@ -234,11 +230,9 @@
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
 				51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */,
-				51C471771486DB7B001BD1A4 /* background.png */,
 				519ACBE11486FB2D004690C8 /* background2.png */,
-				5175CF5E1486A40100332DEF /* creationBackground.png */,
 			);
-			name = Views;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		66E28652148466F9009EFCF2 /* Protocols */ = {
@@ -305,9 +299,7 @@
 				6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */,
 				6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */,
 				6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */,
-				5175CF5F1486A40100332DEF /* creationBackground.png in Resources */,
 				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
-				51C471781486DB7B001BD1A4 /* background.png in Resources */,
 				519ACBE21486FB2D004690C8 /* background2.png in Resources */,
 				51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */,
 			);
@@ -452,7 +444,8 @@
 				516D11131464B0D000CF95D2 /* PSIdea.xcdatamodel */,
 			);
 			currentVersion = 516D11131464B0D000CF95D2 /* PSIdea.xcdatamodel */;
-			path = PSIdea.xcdatamodeld;
+			name = PSIdea.xcdatamodeld;
+			path = PSIdea/PSIdea.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

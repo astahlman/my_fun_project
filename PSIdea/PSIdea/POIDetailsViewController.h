@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface POIDetailsViewController : UIViewController
+@interface POIDetailsViewController : UIViewController{
+    NSString *__title;
+    NSString *__details;
+}
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
 
-- (void) setWithDetails:(NSString*)details withTitle:(NSString*)title;
+- (id)initWithDetails:(NSString *)details withTitle:(NSString *)title;
 
 @end

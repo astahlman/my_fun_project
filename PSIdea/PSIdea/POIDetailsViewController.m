@@ -22,10 +22,16 @@
     return self;
 }
 
-- (void)setWithDetails:(NSString *)details withTitle:(NSString *)title {
-    __detailsTextView.text = details;
-    __titleLabel.text = title;
-    self.title = title;
+- (id)initWithDetails:(NSString *)details withTitle:(NSString *)title {
+    self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
+    if (self) {
+       __details = details;
+        __title = title;
+        self.title = title;
+    }
+
+    
+    return self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,13 +51,16 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.detailsTextView.text = __details;
+    self.titleLabel.text = __title;
 }
-*/
+
 
 - (void)viewDidUnload
 {
