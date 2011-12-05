@@ -9,6 +9,8 @@
 #import "POILocationChooserViewController.h"
 
 @implementation POILocationChooserViewController
+@synthesize pageCurlButton;
+@synthesize userLocationButton;
 @synthesize mapView=__mapView;
 @synthesize delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,7 +38,8 @@
     CLLocation *location = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
     [annotation updateAnnotationView:location];
     [__mapView addAnnotation:annotation];
-    
+    userLocationButton.style = UIBarButtonItemStyleBordered;
+
 }
 
 -(id) initWithCurrentLocation: (CLLocation*) location{
@@ -44,6 +47,7 @@
     if(self){        
         pinLocation =location;
         self.title = @"POI Location";
+        makePublic = NO;
     }
     return self;
 }
@@ -57,10 +61,16 @@
 
 #pragma mark - View lifecycle
 
-- (void) zoomToLocation:(CLLocation*) location {
+- (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
     MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate, span);
-    [__mapView setRegion:region animated:NO];
+    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
+    [__mapView setRegion:region animated:animated];
+}
+-(void) handlePanGesture:(UIGestureRecognizer *)gestureRecognizer 
+{
+    if(gestureRecognizer.state == UIGestureRecognizerStateRecognized){
+        userLocationButton.style = UIBarButtonItemStyleBordered;
+    }
 }
 - (void)viewDidLoad
 {
@@ -70,18 +80,21 @@
     locationController.delegate =self;
     __mapView.showsUserLocation = YES;
     // Do any additional setup after loading the view from its nib.
-    [self zoomToLocation:pinLocation];
+    [self zoomToLocation:pinLocation.coordinate animated:NO];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] 
                                           initWithTarget:self action:@selector(handleLongPress:)];
+   // UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [__mapView addGestureRecognizer:lpgr];
-
+    //[__mapView addGestureRecognizer:pgr];
 
 }
 
 - (void)viewDidUnload
 {
     [self setMapView:nil];
+    [self setUserLocationButton:nil];
+    [self setPageCurlButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -125,25 +138,99 @@
     }
 }
 
+-(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
+    if(centerAtUserLocation){
+        userLocationButton.style = UIBarButtonItemStyleBordered;
+        centerAtUserLocation = NO;
+
+    }
+}
+
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [delegate didSelectLocation:pinLocation];
 
 }
 
--(void) locationUpdate:(CLLocation *)location;
-{
-    
+-(void) locationUpdate:(CLLocation *)location{
+     
     if (pinLocation.coordinate.latitude != location.coordinate.latitude &&
         pinLocation.coordinate.longitude != location.coordinate.longitude) {
         POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:@"Drag to drop pin" coordinate:pinLocation.coordinate title:@"Dropped Pin"];   
         [annotation updateAnnotationView:location];
         [__mapView addAnnotation:annotation];
-
     }
+        if(centerAtUserLocation){
+        [self zoomToLocation:location.coordinate animated:NO];
+    }
+
     [locationController.locationManager stopUpdatingLocation];
 }
 -(void) locationError:(NSError *)error{
     
 }
+
+-(IBAction)userLocationButtonSelected:(id)sender{
+    userLocationButton.style = UIBarButtonItemStyleDone;
+    __mapView.showsUserLocation = YES;
+    if (!centerAtUserLocation) {
+        [self zoomToLocation:__mapView.userLocation.coordinate animated:YES];
+        centerAtUserLocation = YES;
+    }
+
+}
+
+-(IBAction)pageCurlButtonSelected:(id)sender{
+   
+    int selectedMapType;
+    if(__mapView.mapType == MKMapTypeStandard){
+        selectedMapType = 0;
+    }
+    else if(__mapView.mapType == MKMapTypeSatellite){
+        selectedMapType =1;
+    }
+    else{
+        selectedMapType =2;
+    }
+    MapOptionsViewController *optionsView = [[MapOptionsViewController alloc] initWithPublicSwitchState:makePublic andMapType:selectedMapType];
+    optionsView.delegate = self;
+           [optionsView setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [optionsView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    self.navigationController.hidesBottomBarWhenPushed = NO;
+    [self presentModalViewController:optionsView animated:YES];
+  
+}
+
+-(void) userDidDismissViewControllerWithResults:(NSArray *)results{
+
+    NSNumber *public = [results objectAtIndex:0];
+    NSNumber *removePin = [results objectAtIndex:1];
+    NSNumber *mapType = [results lastObject];
+    
+    if([public isEqualToNumber:[NSNumber numberWithInt:1]]){
+        makePublic = YES;
+    }
+    if([removePin isEqualToNumber:[NSNumber numberWithInt:1]]){
+        for (id<MKAnnotation> annotation in __mapView.annotations) {
+            [__mapView removeAnnotation:annotation];
+        }
+    }
+    int caseType = [mapType intValue];
+    
+    switch (caseType) {
+        case 0:
+            __mapView.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            __mapView.mapType = MKMapTypeSatellite;
+            break;
+        case 2:
+            __mapView.mapType = MKMapTypeHybrid;
+            break;
+        default:
+            break;
+    }
+     [self dismissModalViewControllerAnimated:YES];
+}
+
 @end

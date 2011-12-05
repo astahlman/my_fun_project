@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "MyCLController.h"
 #import "POIAnnotation.h"
+#import "MapOptionsViewController.h"
 
 @protocol POILocationChooserViewControllerDelegate <NSObject>
 
@@ -18,15 +19,20 @@
 
 @end
 
-@interface POILocationChooserViewController : UIViewController  <MKMapViewDelegate, MyCLControllerDelegate>
+@interface POILocationChooserViewController : UIViewController  <MKMapViewDelegate, MyCLControllerDelegate,MapOptionsViewControllerDelegate>
 {
     MYCLController *locationController;
     CLLocation *pinLocation;
+    BOOL centerAtUserLocation;
+    BOOL makePublic;
 
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *pageCurlButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *userLocationButton;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) id <POILocationChooserViewControllerDelegate> delegate;
 -(id) initWithCurrentLocation: (CLLocation*) location;
 -(void) locationUpdate:(CLLocation *)location;
 -(void) locationError:(NSError *)error;
+-(void) userDidDismissViewControllerWithResults:(NSArray *)results;
 @end

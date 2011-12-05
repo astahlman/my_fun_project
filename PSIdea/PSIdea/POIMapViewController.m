@@ -117,4 +117,6 @@
     [__poiMapView setRegion:adjustedRegion animated:YES];   */     
 }
 
+
+
 @end
