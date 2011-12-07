@@ -261,11 +261,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
-         timestampString = "344793650.326825"
+         timestampString = "344914083.200291"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -289,11 +289,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
-         timestampString = "344793650.326825"
+         timestampString = "344914083.200291"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "135"
-         endingLineNumber = "135"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
          landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -483,12 +483,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
-         timestampString = "344793650.326825"
+         timestampString = "344914083.200291"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "150"
-         endingLineNumber = "150"
-         landmarkName = "-didSelectLocation:"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-didSelectLocation:WithPrivacy:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -686,26 +686,12 @@
          landmarkType = "2">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344799310.716165"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344798789.662484"
+         timestampString = "344912708.608045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "53"
@@ -719,11 +705,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344799766.4802"
+         timestampString = "344912949.565623"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
          landmarkName = "-removePinButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -733,7 +719,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344798789.662484"
+         timestampString = "344912708.608045"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "46"
@@ -742,16 +728,16 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344798228.127826"
+         timestampString = "344912832.251755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
+         startingLineNumber = "194"
+         endingLineNumber = "194"
          landmarkName = "-userDidDismissViewControllerWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -761,11 +747,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344798228.127826"
+         timestampString = "344912832.251755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "213"
-         endingLineNumber = "213"
+         startingLineNumber = "202"
+         endingLineNumber = "202"
          landmarkName = "-userDidDismissViewControllerWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -775,26 +761,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344799766.4802"
+         timestampString = "344903307.216856"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
-         landmarkName = "-mapTypeSlected:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PSIdea/MapOptionsViewController.m"
-         timestampString = "344798228.127826"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
-         landmarkName = "-initWithPublicSwitchState:andMapType:"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
+         landmarkName = "-initWithPublicSwitchState:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -803,25 +775,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344798302.990138"
+         timestampString = "344912832.251755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
-         landmarkName = "-pageCurlButtonSelected:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344798877.612899"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "218"
-         endingLineNumber = "218"
+         startingLineNumber = "196"
+         endingLineNumber = "196"
          landmarkName = "-userDidDismissViewControllerWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -831,25 +789,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344798933.590937"
+         timestampString = "344912832.251755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "206"
-         endingLineNumber = "206"
-         landmarkName = "-userDidDismissViewControllerWithResults:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344799057.441119"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "199"
+         endingLineNumber = "199"
          landmarkName = "-userDidDismissViewControllerWithResults:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -859,11 +803,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSIdea/POILocationChooserViewController.m"
-         timestampString = "344799152.840984"
+         timestampString = "344912832.251755"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "195"
-         endingLineNumber = "195"
+         startingLineNumber = "185"
+         endingLineNumber = "185"
          landmarkName = "-pageCurlButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>

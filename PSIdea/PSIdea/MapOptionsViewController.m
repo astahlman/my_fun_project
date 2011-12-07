@@ -10,9 +10,10 @@
 
 @implementation MapOptionsViewController
 
+@synthesize backgroundPinButtonImage;
 @synthesize mapViewType;
-@synthesize groupedTableView;
 @synthesize delegate;
+@synthesize backgroundButtonImage;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -21,11 +22,10 @@
     }
     return self;
 }
-- (id) initWithPublicSwitchState:(BOOL)isOn andMapType:(int)mapType{
+- (id) initWithPublicSwitchState:(BOOL)isOn{
     self = [super initWithNibName:@"MapOptionsViewController" bundle:[NSBundle mainBundle]];
     if (self) {
         
-        mapViewOption =[NSNumber numberWithInt:mapType];
         removePin = [NSNumber numberWithInt:0];
         makePublic = [NSNumber numberWithInt:isOn];
 
@@ -49,25 +49,47 @@
     makePublic = [NSNumber numberWithInt:tableViewCellSwitch.isOn];
 
     
-    NSArray *results = [NSArray arrayWithObjects:makePublic,removePin,mapViewOption, nil];
+    NSArray *results = [NSArray arrayWithObjects:makePublic,removePin, nil];
  
     [delegate userDidDismissViewControllerWithResults:results];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    mapViewType.selectedSegmentIndex =     [mapViewOption intValue];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mapOptionsBackground"]]];
+    [tableViewCellSwitch setOn:[makePublic intValue]];
+    backgroundButtonImage.image =[UIImage imageNamed:@"normalPattern1"];
+    backgroundButtonImage.layer.cornerRadius = 10.0;
+    backgroundButtonImage.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    backgroundButtonImage.layer.borderWidth = 1.2;
+    backgroundButtonImage.layer.masksToBounds = YES;
+    backgroundPinButtonImage.image =[UIImage imageNamed:@"normalPattern1"];
+    backgroundPinButtonImage.layer.cornerRadius = 10.0;
+    backgroundPinButtonImage.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    backgroundPinButtonImage.layer.borderWidth = 1.2;
+    backgroundPinButtonImage.layer.masksToBounds = YES;
+
 
 
     // Do any additional setup after loading the view from its nib.
 }
 
+
+-(IBAction)userDidTouchDownOnButton:(id)sender{
+    backgroundPinButtonImage.image =[UIImage imageNamed:@"selectedPattern1"];
+    backgroundPinButtonImage.layer.cornerRadius = 10.0;
+    backgroundPinButtonImage.layer.borderColor = [UIColor blackColor].CGColor;
+    backgroundPinButtonImage.layer.borderWidth = 1.2;
+    backgroundPinButtonImage.layer.masksToBounds = YES;
+}
+
 - (void)viewDidUnload
 {
     customPublicCell = nil;
-    [self setGroupedTableView:nil];
     tableViewCellSwitch = nil;
     [self setMapViewType:nil];
+    [self setBackgroundButtonImage:nil];
+    [self setBackgroundPinButtonImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -80,54 +102,32 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 1;
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *CellIdentifier = @"Public";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = customPublicCell;
-        if([makePublic intValue] == 1){
-            [tableViewCellSwitch setOn:YES animated:YES];
-            
-        }
-    }
-
-    return cell;
+-(IBAction)userDidCancelPress:(id)sender{
+    backgroundPinButtonImage.image =[UIImage imageNamed:@"normalPattern1"];
+    backgroundPinButtonImage.layer.cornerRadius = 10.0;
+    backgroundPinButtonImage.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    backgroundPinButtonImage.layer.borderWidth = 1.2;
+    backgroundPinButtonImage.layer.masksToBounds = YES;
 }
 
 -(IBAction)removePinButtonSelected:(id)sender{
+    backgroundPinButtonImage.image =[UIImage imageNamed:@"normalPattern1"];
+    backgroundPinButtonImage.layer.cornerRadius = 10.0;
+    backgroundPinButtonImage.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    backgroundPinButtonImage.layer.borderWidth = 1.2;
+    backgroundPinButtonImage.layer.masksToBounds = YES;
     removePin = [NSNumber numberWithInt:1];
         makePublic = [NSNumber numberWithInt:tableViewCellSwitch.isOn];
 
     
-    mapViewOption = [NSNumber numberWithInt:[mapViewType selectedSegmentIndex]];
+ 
     
-    NSArray *results = [NSArray arrayWithObjects:makePublic,removePin,mapViewOption, nil];
+    NSArray *results = [NSArray arrayWithObjects:makePublic,removePin, nil];
     
     [delegate userDidDismissViewControllerWithResults:results];
 }
 
-- (IBAction)mapTypeSlected:(id)sender {
-    makePublic = [NSNumber numberWithInt:tableViewCellSwitch.isOn];
-
-    mapViewOption = [NSNumber numberWithInt:[mapViewType selectedSegmentIndex]];
-    NSArray *results = [NSArray arrayWithObjects:makePublic,removePin,mapViewOption, nil];
-    
-    [delegate userDidDismissViewControllerWithResults:results];
-}
 
 
 @end

@@ -148,7 +148,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [delegate didSelectLocation:pinLocation];
+    [delegate didSelectLocation:pinLocation WithPrivacy:makePublic];
 
 }
 
@@ -181,18 +181,8 @@
 }
 
 -(IBAction)pageCurlButtonSelected:(id)sender{
-   
-    int selectedMapType;
-    if(__mapView.mapType == MKMapTypeStandard){
-        selectedMapType = 0;
-    }
-    else if(__mapView.mapType == MKMapTypeSatellite){
-        selectedMapType =1;
-    }
-    else{
-        selectedMapType =2;
-    }
-    MapOptionsViewController *optionsView = [[MapOptionsViewController alloc] initWithPublicSwitchState:makePublic andMapType:selectedMapType];
+
+    MapOptionsViewController *optionsView = [[MapOptionsViewController alloc] initWithPublicSwitchState:makePublic];
     optionsView.delegate = self;
            [optionsView setModalPresentationStyle:UIModalPresentationCurrentContext];
     [optionsView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
@@ -205,31 +195,20 @@
 
     NSNumber *public = [results objectAtIndex:0];
     NSNumber *removePin = [results objectAtIndex:1];
-    NSNumber *mapType = [results lastObject];
-    
+    makePublic = NO;
     if([public isEqualToNumber:[NSNumber numberWithInt:1]]){
         makePublic = YES;
     }
     if([removePin isEqualToNumber:[NSNumber numberWithInt:1]]){
         for (id<MKAnnotation> annotation in __mapView.annotations) {
-            [__mapView removeAnnotation:annotation];
+            if(annotation!=__mapView.userLocation){
+                [__mapView removeAnnotation:annotation];
+
+            }
         }
     }
-    int caseType = [mapType intValue];
     
-    switch (caseType) {
-        case 0:
-            __mapView.mapType = MKMapTypeStandard;
-            break;
-        case 1:
-            __mapView.mapType = MKMapTypeSatellite;
-            break;
-        case 2:
-            __mapView.mapType = MKMapTypeHybrid;
-            break;
-        default:
-            break;
-    }
+
      [self dismissModalViewControllerAnimated:YES];
 }
 

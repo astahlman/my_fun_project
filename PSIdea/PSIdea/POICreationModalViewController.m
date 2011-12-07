@@ -37,7 +37,8 @@
     if ([detailsField.text isEqualToString:@"Click here to add details."]) {
         details = nil;
     }
-    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:nil andRating:nil andCreator:nil inManagedObjectContext:__managedObjectContext];
+    NSNumber *public = [NSNumber numberWithBool:publicPOI];
+    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil inManagedObjectContext:__managedObjectContext];
     //Create POI and Save context   
     [delegate didFinishEditing:YES];
 }
@@ -51,6 +52,7 @@
     self = [super initWithNibName:@"POICreationModalViewController" bundle:[NSBundle mainBundle]];
     if(self){
         __managedObjectContext = context;
+        publicPOI = NO;
 
     }
     
@@ -89,6 +91,19 @@
     locationController.delegate=self;
     [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
     [locationController.locationManager startUpdatingLocation];
+    
+    backgroundImageView.layer.cornerRadius = 10.0;
+    backgroundImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    backgroundImageView.layer.borderWidth = 1.2;
+    backgroundImageView.layer.masksToBounds = YES;
+    
+    detailsField.layer.cornerRadius = 10.0;
+    detailsField.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    detailsField.layer.borderWidth = 1.2;
+    detailsField.layer.masksToBounds = YES;
+
+
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -120,6 +135,7 @@
     tapeImage = nil;
     mainInfoView = nil;
     [self setInfoButton:nil];
+    backgroundImageView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -147,7 +163,7 @@
     }
 }
 
--(void) didSelectLocation: (CLLocation*) location{
+-(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic{
     [self zoomToLocation:location];
     //Add annotation to miniMapView
     
@@ -157,5 +173,6 @@
     }
     [miniMapView addAnnotation:annotation];
     currentLocation = location;
+    publicPOI = makePublic;
 }
 @end

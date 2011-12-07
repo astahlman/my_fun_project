@@ -15,7 +15,7 @@
 @protocol POILocationChooserViewControllerDelegate <NSObject>
 
 @required
--(void) didSelectLocation: (CLLocation *) location;
+-(void) didSelectLocation: (CLLocation *) location WithPrivacy: (BOOL) makePublic;
 
 @end
 

@@ -27,6 +27,8 @@
     MYCLController *locationController;
     __weak IBOutlet UIView *mainInfoView;
     CLLocation *currentLocation;
+    __weak IBOutlet UIImageView *backgroundImageView;
+    BOOL publicPOI;
  
 }
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
@@ -38,7 +40,7 @@
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
--(void) didSelectLocation: (CLLocation*) location;
+-(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)infoButtonSelected:(id)sender;

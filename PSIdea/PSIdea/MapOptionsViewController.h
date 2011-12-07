@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <QuartzCore/QuartzCore.h>
 @protocol MapOptionsViewControllerDelegate <NSObject>
 
 @required
@@ -19,15 +19,17 @@
     __weak IBOutlet UITableViewCell *customPublicCell;
     NSNumber  *makePublic;
     NSNumber *removePin;
-    NSNumber  *mapViewOption;
     __weak IBOutlet UISwitch *tableViewCellSwitch;
-    
+    __weak IBOutlet UIButton *removePinButton;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPinButtonImage;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mapViewType;
-@property (weak, nonatomic) IBOutlet UITableView *groupedTableView;
 @property (nonatomic, retain) id <MapOptionsViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundButtonImage;
 
+
+-(IBAction)userDidTouchDownOnButton:(id)sender;
+-(IBAction)userDidCancelPress:(id)sender;
 -(IBAction)removePinButtonSelected:(id)sender;
-- (IBAction)mapTypeSlected:(id)sender;
--(id)initWithPublicSwitchState:(BOOL) isOn andMapType:(int) mapType;
+-(id)initWithPublicSwitchState:(BOOL) isOn;
 @end

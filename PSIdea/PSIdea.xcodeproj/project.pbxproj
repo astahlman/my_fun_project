@@ -11,6 +11,7 @@
 		5128ECBC1465DEE90039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBB1465DEE90039E2E4 /* User.m */; };
 		5128ECBF1465DF220039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBE1465DF220039E2E4 /* Photo.m */; };
 		5139B73A1485E8A200744EE5 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5139B7391485E8A200744EE5 /* POI.m */; };
+		5164476B148ECBB600EAAE66 /* mapOptionsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */; };
 		516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D10FE1464B0D000CF95D2 /* UIKit.framework */; };
 		516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11001464B0D000CF95D2 /* Foundation.framework */; };
 		516D11031464B0D000CF95D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11021464B0D000CF95D2 /* CoreGraphics.framework */; };
@@ -21,13 +22,15 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
-		519ACBE21486FB2D004690C8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 519ACBE11486FB2D004690C8 /* background2.png */; };
 		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
 		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
 		51B387F914892E22008FE3C7 /* POILocationChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */; };
 		51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
+		51FF01E7148EE7EA000E8757 /* normalPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01E6148EE7EA000E8757 /* normalPattern1.png */; };
+		51FF01F8148EF80A000E8757 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01F7148EF809000E8757 /* background2.png */; };
+		51FF01FA148EF987000E8757 /* selectedPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01F9148EF987000E8757 /* selectedPattern1.png */; };
 		51FF9DFE1489401200830BBB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51FF9DFD1489401200830BBB /* QuartzCore.framework */; };
 		51FF9E2A148C92F800830BBB /* MapOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FF9E28148C92F500830BBB /* MapOptionsViewController.m */; };
 		51FF9E2B148C92F800830BBB /* MapOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */; };
@@ -54,6 +57,7 @@
 		5128ECBE1465DF220039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSIdea/Photo.m; sourceTree = "<group>"; };
 		5139B7381485E8A200744EE5 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = PSIdea/POI.h; sourceTree = "<group>"; };
 		5139B7391485E8A200744EE5 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = PSIdea/POI.m; sourceTree = "<group>"; };
+		5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOptionsBackground.png; sourceTree = "<group>"; };
 		516D10FA1464B0D000CF95D2 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516D10FE1464B0D000CF95D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		516D11001464B0D000CF95D2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,7 +74,6 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
-		519ACBE11486FB2D004690C8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		519ACBF114873571004690C8 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
@@ -80,6 +83,9 @@
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
+		51FF01E6148EE7EA000E8757 /* normalPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalPattern1.png; sourceTree = "<group>"; };
+		51FF01F7148EF809000E8757 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		51FF01F9148EF987000E8757 /* selectedPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedPattern1.png; sourceTree = "<group>"; };
 		51FF9DFD1489401200830BBB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		51FF9E27148C92F500830BBB /* MapOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapOptionsViewController.h; sourceTree = "<group>"; };
 		51FF9E28148C92F500830BBB /* MapOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapOptionsViewController.m; sourceTree = "<group>"; };
@@ -242,9 +248,12 @@
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
 				51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */,
 				51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */,
+				51FF01F7148EF809000E8757 /* background2.png */,
 				51FF9E3F148D3CC400830BBB /* locationArrow.png */,
 				51FF9E40148D3CC400830BBB /* locationArrow@2x.png */,
-				519ACBE11486FB2D004690C8 /* background2.png */,
+				5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */,
+				51FF01E6148EE7EA000E8757 /* normalPattern1.png */,
+				51FF01F9148EF987000E8757 /* selectedPattern1.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -314,11 +323,14 @@
 				6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */,
 				6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */,
 				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
-				519ACBE21486FB2D004690C8 /* background2.png in Resources */,
 				51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */,
 				51FF9E2B148C92F800830BBB /* MapOptionsViewController.xib in Resources */,
 				51FF9E41148D3CC400830BBB /* locationArrow.png in Resources */,
 				51FF9E42148D3CC400830BBB /* locationArrow@2x.png in Resources */,
+				5164476B148ECBB600EAAE66 /* mapOptionsBackground.png in Resources */,
+				51FF01E7148EE7EA000E8757 /* normalPattern1.png in Resources */,
+				51FF01F8148EF80A000E8757 /* background2.png in Resources */,
+				51FF01FA148EF987000E8757 /* selectedPattern1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
