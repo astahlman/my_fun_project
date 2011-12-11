@@ -55,13 +55,14 @@
 -(void) viewWillAppear:(BOOL)animated{
      
     [super viewWillAppear:animated];
-    [self tilePages];
-    [currentPage.poiTableView reloadData];
+
 }
 
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
+    [currentPage resetArrays];
+    [self tilePages];
+    [currentPage.poiTableView reloadData];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -251,7 +252,9 @@
  
     }
     
+    [currentPage resetArrays];
     [self tilePages];
+    [currentPage.poiTableView reloadData];
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 }
 
