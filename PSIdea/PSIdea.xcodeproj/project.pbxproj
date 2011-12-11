@@ -10,7 +10,6 @@
 		5128ECB71465DEE90039E2E4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECB61465DEE90039E2E4 /* Event.m */; };
 		5128ECBC1465DEE90039E2E4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBB1465DEE90039E2E4 /* User.m */; };
 		5128ECBF1465DF220039E2E4 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5128ECBE1465DF220039E2E4 /* Photo.m */; };
-		5139B73A1485E8A200744EE5 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5139B7391485E8A200744EE5 /* POI.m */; };
 		5164476B148ECBB600EAAE66 /* mapOptionsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */; };
 		516D10FF1464B0D000CF95D2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D10FE1464B0D000CF95D2 /* UIKit.framework */; };
 		516D11011464B0D000CF95D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516D11001464B0D000CF95D2 /* Foundation.framework */; };
@@ -24,10 +23,16 @@
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
 		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
 		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
+		51A79049149199EB0073F659 /* ListsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A79047149199EA0073F659 /* ListsScrollViewController.m */; };
+		51A7904A149199EB0073F659 /* ListsScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A79048149199EA0073F659 /* ListsScrollViewController.xib */; };
+		51A7904E14919E730073F659 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A7904D14919E720073F659 /* POI.m */; };
+		51A790521491A6F30073F659 /* POIScrollTableViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A790501491A6F30073F659 /* POIScrollTableViewControllers.m */; };
+		51A790531491A6F30073F659 /* POIScrollTableViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51A790511491A6F30073F659 /* POIScrollTableViewControllers.xib */; };
 		51B387F914892E22008FE3C7 /* POILocationChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */; };
 		51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
+		51DFBC53149186FC008706F5 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DFBC52149186FC008706F5 /* List.m */; };
 		51FF01E7148EE7EA000E8757 /* normalPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01E6148EE7EA000E8757 /* normalPattern1.png */; };
 		51FF01F8148EF80A000E8757 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01F7148EF809000E8757 /* background2.png */; };
 		51FF01FA148EF987000E8757 /* selectedPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01F9148EF987000E8757 /* selectedPattern1.png */; };
@@ -55,8 +60,6 @@
 		5128ECBB1465DEE90039E2E4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSIdea/User.m; sourceTree = "<group>"; };
 		5128ECBD1465DF220039E2E4 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = PSIdea/Photo.h; sourceTree = "<group>"; };
 		5128ECBE1465DF220039E2E4 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSIdea/Photo.m; sourceTree = "<group>"; };
-		5139B7381485E8A200744EE5 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POI.h; path = PSIdea/POI.h; sourceTree = "<group>"; };
-		5139B7391485E8A200744EE5 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POI.m; path = PSIdea/POI.m; sourceTree = "<group>"; };
 		5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOptionsBackground.png; sourceTree = "<group>"; };
 		516D10FA1464B0D000CF95D2 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516D10FE1464B0D000CF95D2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -77,12 +80,22 @@
 		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		519ACBF114873571004690C8 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
+		51A79046149199EA0073F659 /* ListsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListsScrollViewController.h; path = ../ListsScrollViewController.h; sourceTree = "<group>"; };
+		51A79047149199EA0073F659 /* ListsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListsScrollViewController.m; path = ../ListsScrollViewController.m; sourceTree = "<group>"; };
+		51A79048149199EA0073F659 /* ListsScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListsScrollViewController.xib; path = ../ListsScrollViewController.xib; sourceTree = "<group>"; };
+		51A7904C14919E720073F659 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
+		51A7904D14919E720073F659 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
+		51A7904F1491A6F30073F659 /* POIScrollTableViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POIScrollTableViewControllers.h; path = ../POIScrollTableViewControllers.h; sourceTree = "<group>"; };
+		51A790501491A6F30073F659 /* POIScrollTableViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POIScrollTableViewControllers.m; path = ../POIScrollTableViewControllers.m; sourceTree = "<group>"; };
+		51A790511491A6F30073F659 /* POIScrollTableViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POIScrollTableViewControllers.xib; path = ../POIScrollTableViewControllers.xib; sourceTree = "<group>"; };
 		51B387F614892E22008FE3C7 /* POILocationChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POILocationChooserViewController.h; sourceTree = "<group>"; };
 		51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POILocationChooserViewController.m; sourceTree = "<group>"; };
 		51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POILocationChooserViewController.xib; sourceTree = "<group>"; };
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
+		51DFBC51149186FC008706F5 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		51DFBC52149186FC008706F5 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		51FF01E6148EE7EA000E8757 /* normalPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalPattern1.png; sourceTree = "<group>"; };
 		51FF01F7148EF809000E8757 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		51FF01F9148EF987000E8757 /* selectedPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedPattern1.png; sourceTree = "<group>"; };
@@ -207,14 +220,16 @@
 		516D113C1464B44C00CF95D2 /* CoreData Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5128ECBD1465DF220039E2E4 /* Photo.h */,
-				5128ECBE1465DF220039E2E4 /* Photo.m */,
-				5128ECBA1465DEE90039E2E4 /* User.h */,
-				5128ECBB1465DEE90039E2E4 /* User.m */,
 				5128ECB51465DEE90039E2E4 /* Event.h */,
 				5128ECB61465DEE90039E2E4 /* Event.m */,
-				5139B7381485E8A200744EE5 /* POI.h */,
-				5139B7391485E8A200744EE5 /* POI.m */,
+				51DFBC51149186FC008706F5 /* List.h */,
+				51DFBC52149186FC008706F5 /* List.m */,
+				5128ECBD1465DF220039E2E4 /* Photo.h */,
+				5128ECBE1465DF220039E2E4 /* Photo.m */,
+				51A7904C14919E720073F659 /* POI.h */,
+				51A7904D14919E720073F659 /* POI.m */,
+				5128ECBA1465DEE90039E2E4 /* User.h */,
+				5128ECBB1465DEE90039E2E4 /* User.m */,
 			);
 			name = "CoreData Classes";
 			sourceTree = "<group>";
@@ -222,6 +237,10 @@
 		6617E40A147C6B5000F1E018 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				51A79046149199EA0073F659 /* ListsScrollViewController.h */,
+				51A79047149199EA0073F659 /* ListsScrollViewController.m */,
+				51A7904F1491A6F30073F659 /* POIScrollTableViewControllers.h */,
+				51A790501491A6F30073F659 /* POIScrollTableViewControllers.m */,
 				6617E405147C6B1E00F1E018 /* POITableViewController.h */,
 				6617E406147C6B1E00F1E018 /* POITableViewController.m */,
 				6617E411147C735600F1E018 /* POIDetailsViewController.h */,
@@ -242,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				667EF943147C4544004BA5FE /* MainWindow.xib */,
+				51A79048149199EA0073F659 /* ListsScrollViewController.xib */,
+				51A790511491A6F30073F659 /* POIScrollTableViewControllers.xib */,
 				6617E41C147EED9300F1E018 /* POIMapView.xib */,
 				6617E40B147C6CC500F1E018 /* POITableView.xib */,
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
@@ -331,6 +352,8 @@
 				51FF01E7148EE7EA000E8757 /* normalPattern1.png in Resources */,
 				51FF01F8148EF80A000E8757 /* background2.png in Resources */,
 				51FF01FA148EF987000E8757 /* selectedPattern1.png in Resources */,
+				51A7904A149199EB0073F659 /* ListsScrollViewController.xib in Resources */,
+				51A790531491A6F30073F659 /* POIScrollTableViewControllers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,11 +376,14 @@
 				66A17550147EF5BF001A2E27 /* POIMapViewController.m in Sources */,
 				66A17553147F669E001A2E27 /* POIAnnotation.m in Sources */,
 				66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */,
-				5139B73A1485E8A200744EE5 /* POI.m in Sources */,
 				51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */,
 				519ACBF214873571004690C8 /* MyCLController.m in Sources */,
 				51B387F914892E22008FE3C7 /* POILocationChooserViewController.m in Sources */,
 				51FF9E2A148C92F800830BBB /* MapOptionsViewController.m in Sources */,
+				51DFBC53149186FC008706F5 /* List.m in Sources */,
+				51A79049149199EB0073F659 /* ListsScrollViewController.m in Sources */,
+				51A7904E14919E730073F659 /* POI.m in Sources */,
+				51A790521491A6F30073F659 /* POIScrollTableViewControllers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

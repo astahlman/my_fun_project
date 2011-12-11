@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface POIDetailsViewController : UIViewController{
     NSString *__title;
     NSString *__details;
+    __weak IBOutlet UIView *containerView;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;

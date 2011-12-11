@@ -55,6 +55,7 @@
 }
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"mapOptionsBackground"]]];
     [tableViewCellSwitch setOn:[makePublic intValue]];
@@ -68,8 +69,6 @@
     backgroundPinButtonImage.layer.borderColor = [UIColor darkGrayColor].CGColor;
     backgroundPinButtonImage.layer.borderWidth = 1.2;
     backgroundPinButtonImage.layer.masksToBounds = YES;
-
-
 
     // Do any additional setup after loading the view from its nib.
 }

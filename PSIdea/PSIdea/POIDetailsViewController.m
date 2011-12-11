@@ -59,11 +59,18 @@
     
     self.detailsTextView.text = __details;
     self.titleLabel.text = __title;
+    
+    containerView.layer.cornerRadius = 10.0;
+    containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    containerView.layer.borderWidth = 1.2;
+    containerView.layer.masksToBounds = YES;
+
 }
 
 
 - (void)viewDidUnload
 {
+    containerView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

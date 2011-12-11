@@ -14,7 +14,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-
+@synthesize thirdNavCon;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -24,6 +24,7 @@
     
     //Allocate TabBarController and Views
     
+   ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
     __tabBarController = [[UITabBarController alloc] init];
     __poiTableViewController = [[POITableViewController alloc] initWithContext:__managedObjectContext];
     __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
@@ -31,9 +32,10 @@
     [firstNavCon pushViewController:__poiTableViewController animated:NO];
     UINavigationController *secondNavCon = [[UINavigationController alloc] init];
     [secondNavCon pushViewController:__poiMapViewController animated:NO];
-
+    thirdNavCon = [[UINavigationController alloc] init];
+    [thirdNavCon pushViewController:lvc animated:NO];
     //Array of ViewControllers (tabs on the view controller)
-    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,thirdNavCon,nil];
     __tabBarController.viewControllers = viewControllers;
     [window addSubview: [__tabBarController view]];
     [self.window makeKeyAndVisible];

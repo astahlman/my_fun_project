@@ -15,6 +15,7 @@
 @synthesize poiArray = __poiArray;
 @synthesize visiblePOI = __visiblePOI;
 @synthesize searchBar = __searchBar;
+@synthesize index;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

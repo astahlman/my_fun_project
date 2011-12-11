@@ -1,32 +1,34 @@
-
+//
 //  POI.m
 //  PSIdea
 //
-//  Created by William Patty on 11/29/11.
+//  Created by William Patty on 12/8/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "POI.h"
+#import "List.h"
 #import "Photo.h"
 #import "User.h"
 
 
 @implementation POI
 
+@dynamic creationDate;
 @dynamic details;
 @dynamic idNumber;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic public;
 @dynamic rating;
-@dynamic title;
 @dynamic tags;
-@dynamic creationDate;
+@dynamic title;
 @dynamic creator;
+@dynamic list;
 @dynamic photo;
 
 
-+(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator inManagedObjectContext:(NSManagedObjectContext*) context{
++(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andList:(NSNumber*) list inManagedObjectContext:(NSManagedObjectContext*) context{
     
     POI *poi = nil;
     
@@ -48,6 +50,22 @@
         poi.longitude = longitude;
         poi.public =public;
         //TO DO: set up photo
+        //Don't forget to remove!!!!!!!
+        
+        List *theList = nil;
+        
+        NSFetchRequest *listRequest = [[NSFetchRequest alloc] init];
+        
+        listRequest.entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
+        listRequest.predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", list];
+        NSError *listError = nil;
+        
+        theList = [[context executeFetchRequest:listRequest error:&listError]lastObject];
+        if(!theList && !listError){
+            theList = [List getDefaulListInMangedObjectContext:context];
+            
+        }
+        poi.list = theList;
         
         User *user = nil;
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -113,4 +131,5 @@
     NSString* tags = [NSString stringWithString:tagString];
     return tags;
 }
+
 @end

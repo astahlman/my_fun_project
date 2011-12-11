@@ -14,7 +14,7 @@
 @synthesize detailsField;
 @synthesize miniMapView;
 @synthesize delegate;
-
+@synthesize listNumber;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,8 +37,12 @@
     if ([detailsField.text isEqualToString:@"Click here to add details."]) {
         details = nil;
     }
+    
+    if(!listNumber){
+        listNumber = 0;
+    }
     NSNumber *public = [NSNumber numberWithBool:publicPOI];
-    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil inManagedObjectContext:__managedObjectContext];
+    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andList:listNumber inManagedObjectContext:__managedObjectContext];
     //Create POI and Save context   
     [delegate didFinishEditing:YES];
 }

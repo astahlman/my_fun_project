@@ -8,7 +8,6 @@
 
 #import "CoreDataCreator.h"
 #import "User.h"
-#import "poi.h"
 #import "POI.h"
 #import "Photo.h"
 
@@ -26,6 +25,8 @@
 
 -(void) createCoreDataIn:(NSManagedObjectContext*) context{
     
+    [List createDefaultListWithTitle:@"Default" InManagedObjectContext:context];
+    [List createtListWithTitle:@"My Favorite Places" withIDNumber:[NSNumber numberWithInt:1] InManagedObjectContext:context];
     //Parses SampleData.plist created for app
     
     NSString *errorDesc = nil;
@@ -66,7 +67,7 @@
     for(int i=0; i<pois.count; i++){
         poi = [pois objectAtIndex:i];
         
-        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] inManagedObjectContext:context];
+        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] andList: 0 inManagedObjectContext:context];
     }
     
     

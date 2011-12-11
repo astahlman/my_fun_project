@@ -35,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
-
+@property (nonatomic, retain) NSNumber *listNumber;
 
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "POITableViewController.h"
 #import "POIMapViewController.h"
+#import "ListsScrollViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     
@@ -18,6 +20,8 @@
 }
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
+
+@property (nonatomic, retain) UINavigationController *thirdNavCon;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

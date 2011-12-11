@@ -12,13 +12,13 @@
 #import "ViewWithCoreData.h"
 #import "CoreDataManager.h"
 #import "POICreationModalViewController.h"
-
+#import "List.h"
 
 @interface POITableViewController : UITableViewController <ViewWithCoreData, POICreationModalViewControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet UITableView *poiTableView;
-
+@property (nonatomic) int index;
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) NSMutableArray *visiblePOI;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;

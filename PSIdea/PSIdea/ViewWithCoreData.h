@@ -18,6 +18,6 @@
     (i.e., set the instance variables that will be used to populate
     a map view, table view, etc.)
  */
--(void)initWithContext:(NSManagedObjectContext*) context;
+-(id)initWithContext:(NSManagedObjectContext*) context;
 
 @end
