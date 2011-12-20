@@ -46,10 +46,19 @@
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
 		6617E413147C735600F1E018 /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E412147C735600F1E018 /* POIDetailsViewController.m */; };
 		6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E41C147EED9300F1E018 /* POIMapView.xib */; };
+		66534A6B14998EB400843C54 /* notebook_paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 66534A6A14998EB400843C54 /* notebook_paper.png */; };
+		66534A6E1499999600843C54 /* marker_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 66534A6D1499999600843C54 /* marker_pin.png */; };
+		66534A72149B02AC00843C54 /* DraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66534A71149B02AC00843C54 /* DraggableButton.m */; };
 		667EF944147C4544004BA5FE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667EF943147C4544004BA5FE /* MainWindow.xib */; };
 		66A1754D147EF0FF001A2E27 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A1754C147EF0FF001A2E27 /* MapKit.framework */; };
 		66A17550147EF5BF001A2E27 /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A1754F147EF5BF001A2E27 /* POIMapViewController.m */; };
 		66A17553147F669E001A2E27 /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A17552147F669E001A2E27 /* POIAnnotation.m */; };
+		66DB341E149C339F0045097F /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB341D149C339F0045097F /* GridViewController.m */; };
+		66DB3425149C3A8D0045097F /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB3424149C3A8D0045097F /* GridCell.m */; };
+		66DB3428149C5D750045097F /* POIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DB3427149C5D750045097F /* POIButton.m */; };
+		66E12953149822F00000240D /* ListEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E12951149822F00000240D /* ListEditorViewController.m */; };
+		66E12954149822F00000240D /* ListEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66E12952149822F00000240D /* ListEditorViewController.xib */; };
+		66E1295614982F790000240D /* yellow_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 66E1295514982F790000240D /* yellow_ball.png */; };
 		66E28651148463F5009EFCF2 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E28650148463F5009EFCF2 /* CoreDataManager.m */; };
 /* End PBXBuildFile section */
 
@@ -112,12 +121,26 @@
 		6617E411147C735600F1E018 /* POIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailsViewController.h; sourceTree = "<group>"; };
 		6617E412147C735600F1E018 /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailsViewController.m; sourceTree = "<group>"; };
 		6617E41C147EED9300F1E018 /* POIMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POIMapView.xib; path = ../POIMapView.xib; sourceTree = "<group>"; };
+		66534A6A14998EB400843C54 /* notebook_paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notebook_paper.png; sourceTree = "<group>"; };
+		66534A6D1499999600843C54 /* marker_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_pin.png; sourceTree = "<group>"; };
+		66534A70149B02AC00843C54 /* DraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableButton.h; sourceTree = "<group>"; };
+		66534A71149B02AC00843C54 /* DraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableButton.m; sourceTree = "<group>"; };
 		667EF943147C4544004BA5FE /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 		66A1754C147EF0FF001A2E27 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		66A1754F147EF5BF001A2E27 /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIMapViewController.m; sourceTree = "<group>"; };
 		66A17551147F669E001A2E27 /* POIAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIAnnotation.h; sourceTree = "<group>"; };
 		66A17552147F669E001A2E27 /* POIAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIAnnotation.m; sourceTree = "<group>"; };
 		66A17554147F7139001A2E27 /* POIMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIMapViewController.h; sourceTree = "<group>"; };
+		66DB341C149C339F0045097F /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		66DB341D149C339F0045097F /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		66DB3423149C3A8D0045097F /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		66DB3424149C3A8D0045097F /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
+		66DB3426149C5D750045097F /* POIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIButton.h; sourceTree = "<group>"; };
+		66DB3427149C5D750045097F /* POIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIButton.m; sourceTree = "<group>"; };
+		66E12950149822F00000240D /* ListEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEditorViewController.h; sourceTree = "<group>"; };
+		66E12951149822F00000240D /* ListEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEditorViewController.m; sourceTree = "<group>"; };
+		66E12952149822F00000240D /* ListEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEditorViewController.xib; sourceTree = "<group>"; };
+		66E1295514982F790000240D /* yellow_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_ball.png; sourceTree = "<group>"; };
 		66E2864F148463F5009EFCF2 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		66E28650148463F5009EFCF2 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		66E2865314846746009EFCF2 /* ViewWithCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWithCoreData.h; sourceTree = "<group>"; };
@@ -176,6 +199,7 @@
 		516D11061464B0D000CF95D2 /* PSIdea */ = {
 			isa = PBXGroup;
 			children = (
+				66534A6F149B012F00843C54 /* Custom Controls */,
 				66E28652148466F9009EFCF2 /* Protocols */,
 				6617E40E147C6F2F00F1E018 /* Resources */,
 				6617E40A147C6B5000F1E018 /* View Controllers */,
@@ -253,6 +277,8 @@
 				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
 				51FF9E27148C92F500830BBB /* MapOptionsViewController.h */,
 				51FF9E28148C92F500830BBB /* MapOptionsViewController.m */,
+				66E12950149822F00000240D /* ListEditorViewController.h */,
+				66E12951149822F00000240D /* ListEditorViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -260,6 +286,9 @@
 		6617E40E147C6F2F00F1E018 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66534A6D1499999600843C54 /* marker_pin.png */,
+				66534A6A14998EB400843C54 /* notebook_paper.png */,
+				66E1295514982F790000240D /* yellow_ball.png */,
 				667EF943147C4544004BA5FE /* MainWindow.xib */,
 				51A79048149199EA0073F659 /* ListsScrollViewController.xib */,
 				51A790511491A6F30073F659 /* POIScrollTableViewControllers.xib */,
@@ -269,14 +298,30 @@
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
 				51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */,
 				51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */,
+				66E12952149822F00000240D /* ListEditorViewController.xib */,
 				51FF01F7148EF809000E8757 /* background2.png */,
 				51FF9E3F148D3CC400830BBB /* locationArrow.png */,
 				51FF9E40148D3CC400830BBB /* locationArrow@2x.png */,
-				5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */,
 				51FF01E6148EE7EA000E8757 /* normalPattern1.png */,
 				51FF01F9148EF987000E8757 /* selectedPattern1.png */,
+				5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		66534A6F149B012F00843C54 /* Custom Controls */ = {
+			isa = PBXGroup;
+			children = (
+				66534A70149B02AC00843C54 /* DraggableButton.h */,
+				66534A71149B02AC00843C54 /* DraggableButton.m */,
+				66DB341C149C339F0045097F /* GridViewController.h */,
+				66DB341D149C339F0045097F /* GridViewController.m */,
+				66DB3423149C3A8D0045097F /* GridCell.h */,
+				66DB3424149C3A8D0045097F /* GridCell.m */,
+				66DB3426149C5D750045097F /* POIButton.h */,
+				66DB3427149C5D750045097F /* POIButton.m */,
+			);
+			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
 		66E28652148466F9009EFCF2 /* Protocols */ = {
@@ -354,6 +399,10 @@
 				51FF01FA148EF987000E8757 /* selectedPattern1.png in Resources */,
 				51A7904A149199EB0073F659 /* ListsScrollViewController.xib in Resources */,
 				51A790531491A6F30073F659 /* POIScrollTableViewControllers.xib in Resources */,
+				66E12954149822F00000240D /* ListEditorViewController.xib in Resources */,
+				66E1295614982F790000240D /* yellow_ball.png in Resources */,
+				66534A6B14998EB400843C54 /* notebook_paper.png in Resources */,
+				66534A6E1499999600843C54 /* marker_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +433,11 @@
 				51A79049149199EB0073F659 /* ListsScrollViewController.m in Sources */,
 				51A7904E14919E730073F659 /* POI.m in Sources */,
 				51A790521491A6F30073F659 /* POIScrollTableViewControllers.m in Sources */,
+				66E12953149822F00000240D /* ListEditorViewController.m in Sources */,
+				66534A72149B02AC00843C54 /* DraggableButton.m in Sources */,
+				66DB341E149C339F0045097F /* GridViewController.m in Sources */,
+				66DB3425149C3A8D0045097F /* GridCell.m in Sources */,
+				66DB3428149C5D750045097F /* POIButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

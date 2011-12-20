@@ -24,11 +24,11 @@
 @dynamic tags;
 @dynamic title;
 @dynamic creator;
-@dynamic list;
+@dynamic lists;
 @dynamic photo;
 
 
-+(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andList:(NSNumber*) list inManagedObjectContext:(NSManagedObjectContext*) context{
++(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andLists:(NSArray*) listNumbers inManagedObjectContext:(NSManagedObjectContext*) context{
     
     POI *poi = nil;
     
@@ -48,24 +48,28 @@
         poi.details = details;
         poi.latitude = latitude;
         poi.longitude = longitude;
-        poi.public =public;
+        poi.public = public;
         //TO DO: set up photo
         //Don't forget to remove!!!!!!!
-        
-        List *theList = nil;
+        NSMutableSet* listSet = [[NSMutableSet alloc] init];
         
         NSFetchRequest *listRequest = [[NSFetchRequest alloc] init];
-        
         listRequest.entity = [NSEntityDescription entityForName:@"List" inManagedObjectContext:context];
-        listRequest.predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", list];
-        NSError *listError = nil;
-        
-        theList = [[context executeFetchRequest:listRequest error:&listError]lastObject];
-        if(!theList && !listError){
-            theList = [List getDefaulListInMangedObjectContext:context];
+        List* theList;
+        for (NSNumber* list in listNumbers) {
+            theList = nil;
+            listRequest.predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", list];
+            NSError *listError = nil;
             
+            theList = [[context executeFetchRequest:listRequest error:&listError]lastObject];
+            if(!theList && !listError){
+                theList = [List getDefaulListInMangedObjectContext:context];
+                
+            }
+            [listSet addObject:theList];
         }
-        poi.list = theList;
+        poi.lists = [NSSet setWithSet:listSet];
+
         
         User *user = nil;
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -113,6 +117,7 @@
     
     return poi;
 }
+
 
 /* Extracts tags delimited by the '#' and space characters
  from a string of text.

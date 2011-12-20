@@ -49,7 +49,7 @@
             
         }
         for(int i=0; i<pois.count; i++){
-            [POI createPOIWithID:[pois objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil andList:nil inManagedObjectContext:context];       
+            [POI createPOIWithID:[pois objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil andLists:nil inManagedObjectContext:context];       
         }
         
     }
@@ -67,7 +67,7 @@
             }
 
             for(int i=0; i<pois.count; i++){
-            [POI createPOIWithID:[pois objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil andList:nil inManagedObjectContext:context];   
+            [POI createPOIWithID:[pois objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil andPublic:nil andRating:nil andCreator:nil andLists:nil inManagedObjectContext:context];   
             }
             
         }

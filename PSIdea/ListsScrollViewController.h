@@ -33,9 +33,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *pagingScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
--(void) pushDetailsView:(POIDetailsViewController *)detailsVC;
+-(void) pushView:(UIViewController *)vc;
 -(void)didFinishEditing:(BOOL)finished;
--(void)createNewPOIForListNumber:(NSNumber *)listNumber;
+-(void)editList:(NSNumber *)listNumber;
 
 -(IBAction)pageChanged:(id)sender;
 -(id)initWithContext:(NSManagedObjectContext*) context;

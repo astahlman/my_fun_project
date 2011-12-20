@@ -76,6 +76,14 @@
     
 }
 
+-(void)editList:(NSNumber *)listNumber
+{
+    ListEditorViewController* editorVC = [[ListEditorViewController alloc] initWithContext:__managedObjectContext];
+    // temporary fix, this is a race condition
+    [editorVC setSelectedList:currentPage.list];
+    [self.navigationController pushViewController:editorVC animated:YES];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -237,6 +245,7 @@
     [pagingScrollView setContentOffset:CGPointMake(pagingScrollView.bounds.size.width *currentIndex,0.0f) animated:YES];
 }
 
+/*
 -(void) createNewPOIForListNumber:(NSNumber *)listNumber{
     
     POICreationModalViewController *poiCreationMVC = [[POICreationModalViewController alloc] initWithManagedObjectContext:__managedObjectContext];
@@ -244,8 +253,9 @@
     poiCreationMVC.listNumber = listNumber;
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:poiCreationMVC];
     [self presentModalViewController:navCon animated:YES];
-}
 
+}
+*/
 -(void) didFinishEditing:(BOOL)finished {
     if (YES) {
         [__managedObjectContext save:nil];
@@ -258,8 +268,8 @@
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 }
 
--(void) pushDetailsView:(POIDetailsViewController *)detailsVC{
-    [self.navigationController pushViewController:detailsVC animated:YES];
+-(void)pushView:(UIViewController *)vc {
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -12,14 +12,15 @@
 #import "POI.h"
 #import "CoreDataManager.h"
 #import "POICreationModalViewController.h"
+#import "ListEditorViewController.h"
 
 
 @protocol POIScrollTableViewControllersDelegate <NSObject>
 
 @required
 
--(void) createNewPOIForListNumber: (NSNumber*) listNumber;
--(void) pushDetailsView:(POIDetailsViewController*) detailsVC;
+-(void) editList:(NSNumber*) listNumber;
+-(void) pushView:(UIViewController*) vc;
 @end
 
 @interface POIScrollTableViewControllers : UIViewController <POICreationModalViewControllerDelegate, UITableViewDelegate>
@@ -31,6 +32,7 @@
 @property (nonatomic) int index;
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) NSMutableArray *visiblePOI;
+@property (nonatomic, retain) List *list;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addPOIButton;
@@ -43,4 +45,5 @@
 -(void) didFinishEditing:(BOOL)finished;
 -(id)initWithContext:(NSManagedObjectContext *)context;
 -(void) resetArrays;
+-(IBAction)editListClicked:(id) sender;
 @end

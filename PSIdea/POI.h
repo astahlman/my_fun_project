@@ -23,11 +23,11 @@
 @property (nonatomic, retain) NSString * tags;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) User *creator;
-@property (nonatomic, retain) List *list;
+@property (nonatomic, retain) NSSet *lists;
 @property (nonatomic, retain) Photo *photo;
 
 
 +(NSString*)extractTags:(NSString*) text;
-+(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andList:(NSNumber*) list inManagedObjectContext:(NSManagedObjectContext*) context;
++(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andLists:(NSArray*) listNumbers inManagedObjectContext:(NSManagedObjectContext*) context;
 
 @end

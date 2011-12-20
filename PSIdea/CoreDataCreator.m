@@ -66,8 +66,8 @@
     
     for(int i=0; i<pois.count; i++){
         poi = [pois objectAtIndex:i];
-        
-        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] andList: 0 inManagedObjectContext:context];
+        NSArray* lists = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], nil];
+        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] andLists: lists inManagedObjectContext:context];
     }
     
     

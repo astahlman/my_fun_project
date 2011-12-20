@@ -12,7 +12,7 @@
 
 @class Photo, User;
 
-@interface Event : POI
+@interface Event : POI 
 
 // These should already be inherited, right? Check before deleting...
 /*

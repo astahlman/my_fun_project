@@ -41,8 +41,9 @@
     if(!listNumber){
         listNumber = 0;
     }
+    NSArray* lists = [[NSArray alloc] initWithObjects:listNumber, nil];
     NSNumber *public = [NSNumber numberWithBool:publicPOI];
-    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andList:listNumber inManagedObjectContext:__managedObjectContext];
+    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andLists:lists inManagedObjectContext:__managedObjectContext];
     //Create POI and Save context   
     [delegate didFinishEditing:YES];
 }
