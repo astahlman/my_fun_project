@@ -18,6 +18,7 @@
     poiIcon.poi = poiIn;
     [poiIcon setBounds:CGRectMake(0, 0, 50, 50)];
     [poiIcon setBackgroundImage:[UIImage imageNamed:@"marker_pin.png"] forState:UIControlStateNormal];
+    poiIcon.titleLabel.font = [UIFont systemFontOfSize:11];
     poiIcon.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     [poiIcon setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     return poiIcon;

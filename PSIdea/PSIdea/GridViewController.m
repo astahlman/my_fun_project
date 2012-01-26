@@ -15,10 +15,9 @@
 @synthesize numCols = __numCols;
 @synthesize cellCount = __cellCount;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         __gridCells = [[NSMutableArray alloc] init];
     }
@@ -124,7 +123,7 @@
     __numRows = ceil(rows);
 }
 
-- (void)drawGrid
+- (void)drawGrid;
 {
     int index = 0;
     for (int i = 0; i < __numRows; i++) {
@@ -134,10 +133,15 @@
                 int x = (self.view.bounds.size.width / (__numCols + 1)) * (j + 1);
                 // TODO: change 3 to a constant in a Constants header file
                 int y = (i + 1) * (cellItem.bounds.size.height + 3);
+                //x += __gridOrigin.x;
+                //y += __gridOrigin.y;
                 cellItem.center = CGPointMake(x, y);
                 index++;
             }
         }
+    }
+    for (UIView* view in self.view.subviews) {
+        NSLog(@"Subview: %@", view);
     }
 }
 
@@ -158,13 +162,16 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    for (GridCell* cell in __gridCells) {
+        [self.view addSubview:cell.contentItem];
+    }
 }
-*/
+
 
 - (void)viewDidUnload
 {

@@ -7,6 +7,7 @@
 //
 
 #import "POICreationModalViewController.h"
+#import "PSINetworkController.h"
 
 @implementation POICreationModalViewController
 @synthesize infoButton;
@@ -43,8 +44,12 @@
     }
     NSArray* lists = [[NSArray alloc] initWithObjects:listNumber, nil];
     NSNumber *public = [NSNumber numberWithBool:publicPOI];
-    [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andLists:lists inManagedObjectContext:__managedObjectContext];
-    //Create POI and Save context   
+    POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andLists:lists inManagedObjectContext:__managedObjectContext];
+    //Create POI and Save context
+    // Network Testing - Remove later
+    PSINetworkController* net = [[PSINetworkController alloc] initWithBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
+    [net setDelegate:self];
+    [net postPoi:poi];
     [delegate didFinishEditing:YES];
 }
 -(void) cancel{
@@ -77,6 +82,12 @@
 -(void) locationError:(NSError *)error{
     NSLog(@"ERROR: %@", error);
 }
+
+-(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
+{
+    NSLog(@"connection received response: %@", response);
+}
+
 
 - (void)didReceiveMemoryWarning
 {

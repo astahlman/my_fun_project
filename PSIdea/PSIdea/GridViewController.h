@@ -17,6 +17,7 @@
 @property (nonatomic, assign) int cellCount;
 
 - (id)initWithGridItems:(NSMutableArray*)itemsIn numCols:(int)colsIn;
+- (id)init;
 - (void)addGridCell:(UIView*)item;
 - (void)removeGridCellAtRow:(int)row atColumn:(int)col;
 - (void)removeGridCellForItem:(UIView*)item;

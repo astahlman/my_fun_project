@@ -15,13 +15,15 @@
 #import "POIAnnotation.h"
 #import "MyCLController.h"
 #import "POILocationChooserViewController.h"
+#import "NetworkController.h"
 @protocol POICreationModalViewControllerDelegate <NSObject>
 
 @required
 -(void) didFinishEditing:(BOOL) finished;
 @end
 
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate>{
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate, NetworkControllerDelegate>
+{
     NSManagedObjectContext *__managedObjectContext;
     __weak IBOutlet UIImageView *tapeImage;
     MYCLController *locationController;
@@ -44,5 +46,6 @@
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)infoButtonSelected:(id)sender;
+-(void)connection:(NSURLConnection*)connection receivedResponse:(id)response;
 
 @end

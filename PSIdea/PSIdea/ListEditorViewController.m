@@ -7,11 +7,14 @@
 //
 
 #import "ListEditorViewController.h"
+#import "PSINetworkController.h"
 
 @implementation ListEditorViewController
 @synthesize searchBar = __searchBar;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize selectedListView = __selectedListView;
+@synthesize gridView = __gridView;
+@synthesize gridViewController = __gridViewController;
 @synthesize visiblePoi = __visiblePoi;
 @synthesize poiArray = __poiArray;
 @synthesize selectedList = __selectedList;
@@ -32,16 +35,18 @@
     if (self) {
         self.title = @"Edit List";
         __managedObjectContext = context;
-        [self setNumCols:3];
         [self fetchTableViewDataInManagedObjectContext:context];
+        
+        __gridViewController = [[GridViewController alloc] init];
+        [__gridViewController setNumCols:3];
         
         for (POI* poi in __visiblePoi)
         {
             DraggableButton* poiIcon = [POIButton POIButtonWithDelegate:self forPOI:poi];
             [poiIcon setTitle:poi.title forState:UIControlStateNormal];
-            [self addGridCell:poiIcon];
+            [__gridViewController addGridCell:poiIcon];
         }
-        [self drawGrid];
+        
     }
     return self;
 }
@@ -67,19 +72,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     __listButton = [UIButton buttonWithType:UIButtonTypeCustom];
     __listButton.titleLabel.text = __selectedList.title;
-    [__listButton setFrame:CGRectMake(__selectedListView.bounds.size.width / 2, 0, 50, 75)];
-    __listButton.center = CGPointMake(__selectedListView.bounds.size.width / 2, 0);
+    [__listButton setFrame:CGRectMake(__selectedListView.bounds.size.width / 2, 0, 100, 75)];
+    __listButton.center = CGPointMake(__selectedListView.bounds.size.width / 2, __selectedListView.bounds.size.height / 2);
     [__listButton setBackgroundImage:[UIImage imageNamed:@"notebook_paper.png"] forState:UIControlStateNormal];
     [__listButton setTitle:__selectedList.title forState:UIControlStateNormal];
     __listButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     [__listButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    //__selectedListView.bounds = CGRectMake(0, screenBounds.size.height - __listButton.bounds.size.height, screenBounds.size.width, __listButton.bounds.size.height);
     [__selectedListView addSubview:__listButton];
-    [self drawGrid];
+    
+    [__gridViewController setView:__gridView];
+    //__gridView.bounds = CGRectMake(0, __searchBar.bounds.size.height, screenBounds.size.width, screenBounds.size.height - (__searchBar.bounds.size.height + __selectedListView.bounds.size.height));
+    for (GridCell* cell in __gridViewController.gridCells) {
+        [__gridViewController.view addSubview:cell.contentItem];
+    }
+    [__gridViewController drawGrid];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    // Network Testing - Remove later
+    PSINetworkController* net = [[PSINetworkController alloc] init];
+    [net setDelegate:self];
+    [net setBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:@"10" forKey:@"poi_id"];
+    [net postRequestAtRelUrl:@"get_poi/" withPostData:dict];
 }
+
+-(void) connection:(NSURLConnection *)connection receivedResponse:(id)response
+{
+    NSDictionary* dict = (NSDictionary*)response;
+    for (id key in dict) {
+        NSLog(@"key: %@, value: %@ \n", key, [dict objectForKey:key]);
+    }
+}
+
 
 - (void)viewDidUnload
 {
@@ -105,7 +136,7 @@
         //NSLog(@"Dropped in list.");
         POIButton* button = sender;
         [__selectedList addPoisObject:button.poi];
-        [self removeGridCellForItem:button];
+        [__gridViewController removeGridCellForItem:button];
         
     }
     else 
@@ -117,13 +148,13 @@
 
 -(void)onVisibleChanged:(NSMutableArray*)visible
 {
-    [self clearGridCells];
+    [__gridViewController clearGridCells];
     for (POI* poi in visible) {
         DraggableButton* poiIcon = [POIButton POIButtonWithDelegate:self forPOI:poi];
         [poiIcon setTitle:poi.title forState:UIControlStateNormal];
-        [self addGridCell:poiIcon];
+        [__gridViewController addGridCell:poiIcon];
     }
-    [self drawGrid];
+    [__gridViewController drawGrid];
 }
 
 #pragma mark UISearchBarDelegate

@@ -14,11 +14,14 @@
 #import "DraggableButton.h"
 #import "GridViewController.h"
 #import "POIButton.h"
+#import "NetworkController.h"
 
-@interface ListEditorViewController : GridViewController <ViewWithCoreData, DraggableButtonDelegate>
+@interface ListEditorViewController : UIViewController <ViewWithCoreData, DraggableButtonDelegate, NetworkControllerDelegate> // remove NetworkController later, for testing only
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) IBOutlet UIView *selectedListView;
+@property (strong, nonatomic) IBOutlet UIScrollView *gridView;
+@property (strong, nonatomic) GridViewController *gridViewController;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) NSMutableArray *visiblePoi;
