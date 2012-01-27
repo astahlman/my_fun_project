@@ -15,7 +15,6 @@
 @synthesize poiArray= __poiArray;
 @synthesize visiblePOI = __visiblePOI;
 @synthesize index;
-@synthesize list = __list;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize delegate;
 @synthesize intermediateView = _intermediateView;
@@ -40,7 +39,7 @@
     __poiArray = [[NSMutableArray alloc] initWithArray:[__list.pois allObjects]];
     __visiblePOI = [[NSMutableArray alloc] init];
     [__visiblePOI addObjectsFromArray:__poiArray];
-
+    
 }
 -(id)initWithContext:(NSManagedObjectContext *)context
 {
@@ -202,16 +201,15 @@
     NSString* details = [[__poiArray objectAtIndex:indexPath.row] details];
     NSString* title = [[__poiArray objectAtIndex:indexPath.row] title];
     POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithDetails:details withTitle:title];
-    [delegate pushView:detailViewController];
-
+    [delegate pushDetailsView:detailViewController];
+    
 }   
 
 
--(IBAction)editListClicked:(id) sender{
-    [delegate editList:__list.idNumber];
-    //[delegate createNewPOIForListNumber:__list.idNumber];
-    //ListEditorModalViewController* editorVC = [[ListEditorModalViewController alloc] initWithContext:__managedObjectContext];
-    //[delegate pushView:editorVC];
+-(IBAction)createNewPOI:(id) sender{
+    
+    [delegate createNewPOIForListNumber:__list.idNumber];
+    
     
 }
 

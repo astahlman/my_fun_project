@@ -262,7 +262,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "157"
          endingLineNumber = "157"
-         landmarkName = "-infoButtonSelected:"
+         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -290,7 +290,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "153"
          endingLineNumber = "153"
-         landmarkName = "-shouldAutorotateToInterfaceOrientation:"
+         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -484,7 +484,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "168"
          endingLineNumber = "168"
-         landmarkName = "-textViewDidBeginEditing:"
+         landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -854,115 +854,17 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345148923.360289"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345148923.360289"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "131"
-         endingLineNumber = "131"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345148923.360289"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-initWithContext:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345148923.360289"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
-         landmarkName = "-fetchTableViewDataInManagedObjectcontext:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345148923.360289"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "192"
-         endingLineNumber = "192"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ListsScrollViewController.m"
-         timestampString = "345330633.121508"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
          filePath = "PSIdea/POICreationModalViewController.m"
          timestampString = "345143002.692978"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "27"
          endingLineNumber = "27"
-         landmarkName = "-done"
+         landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "ListsScrollViewController.m"
-         timestampString = "345330633.121508"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "250"
-         endingLineNumber = "250"
-         landmarkName = "-didFinishEditing:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
@@ -972,7 +874,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "31"
          endingLineNumber = "31"
-         landmarkName = "+createPOIWithID:andTitle:andDetails:andLatitude:andLongitude:andPhoto:andPublic:andRating:andCreator:andList:inManagedObjectContext:"
+         landmarkName = "+createPOIWithID:andTitle:andDetails:andLatitude:andLongitude:andPhoto:andPublic:andRating:andCreator:andLists:inManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -981,54 +883,96 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ListsScrollViewController.m"
-         timestampString = "345330633.121508"
+         timestampString = "349324831.064152"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "115"
-         endingLineNumber = "115"
-         landmarkName = "-tilePages"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-fetchCoreDataEntitiesInManagedObjectContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ListsScrollViewController.m"
-         timestampString = "345330633.121508"
+         timestampString = "349324833.376266"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
-         landmarkName = "-tilePages"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-initWithContext:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345249771.878932"
+         filePath = "ListsScrollViewController.m"
+         timestampString = "349325581.895587"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
-         landmarkName = "@implementation POIScrollTableViewControllers"
-         landmarkType = "3">
+         startingLineNumber = "257"
+         endingLineNumber = "257"
+         landmarkName = "-didFinishEditing:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "POIScrollTableViewControllers.m"
-         timestampString = "345249774.929404"
+         filePath = "ListsScrollViewController.m"
+         timestampString = "349325645.394218"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
-         landmarkName = "-createNewPOI:"
+         startingLineNumber = "255"
+         endingLineNumber = "255"
+         landmarkName = "-didFinishEditing:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "PSIdea/POICreationModalViewController.m"
+         timestampString = "349326776.360954"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "-done"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "PSIdea/POICreationModalViewController.m"
+         timestampString = "349326781.410157"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
+         landmarkName = "-done"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "ListsScrollViewController.m"
+         timestampString = "349326961.562387"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "250"
+         endingLineNumber = "250"
+         landmarkName = "-didFinishEditing:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -40,7 +40,7 @@
     }
     
     if(!listNumber){
-        listNumber = 0;
+        listNumber = [NSNumber numberWithInt:0];
     }
     NSArray* lists = [[NSArray alloc] initWithObjects:listNumber, nil];
     NSNumber *public = [NSNumber numberWithBool:publicPOI];

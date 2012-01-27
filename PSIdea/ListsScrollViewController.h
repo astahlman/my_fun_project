@@ -28,14 +28,14 @@
     NSManagedObjectContext *__managedObjectContext;
     
     POIScrollTableViewControllers *currentPage;
-
+    
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *pagingScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
--(void) pushView:(UIViewController *)vc;
+-(void) pushDetailsView:(POIDetailsViewController *)detailsVC;
 -(void)didFinishEditing:(BOOL)finished;
--(void)editList:(NSNumber *)listNumber;
+-(void)createNewPOIForListNumber:(NSNumber *)listNumber;
 
 -(IBAction)pageChanged:(id)sender;
 -(id)initWithContext:(NSManagedObjectContext*) context;

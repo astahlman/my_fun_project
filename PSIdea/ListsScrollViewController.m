@@ -53,9 +53,9 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-     
+    
     [super viewWillAppear:animated];
-
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -76,14 +76,6 @@
     
 }
 
--(void)editList:(NSNumber *)listNumber
-{
-    ListEditorViewController* editorVC = [[ListEditorViewController alloc] initWithContext:__managedObjectContext];
-    // temporary fix, this is a race condition
-    [editorVC setSelectedList:currentPage.list];
-    [self.navigationController pushViewController:editorVC animated:YES];
-}
-
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -95,11 +87,11 @@
     pageControl.numberOfPages = [__listArray count];
     pageControl.currentPage = 0;
     [self configurePagingScrollView];
-      /* UINavigationController *navcontroller = [[UINavigationController alloc]init];
-    navcontroller.navigationBarHidden = YES;
-    navcontroller.view.frame = [self frameForPageAtIndex:0];
-    [navcontroller pushViewController:currentPage animated:NO];
-    [pagingScrollView addSubview:navcontroller.view];*/
+    /* UINavigationController *navcontroller = [[UINavigationController alloc]init];
+     navcontroller.navigationBarHidden = YES;
+     navcontroller.view.frame = [self frameForPageAtIndex:0];
+     [navcontroller pushViewController:currentPage animated:NO];
+     [pagingScrollView addSubview:navcontroller.view];*/
     recycledPages = [[NSMutableSet alloc] init];
     visiblePages = [[NSMutableSet alloc] init];
 }
@@ -128,7 +120,7 @@
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
     lastNeededPageIndex  = MIN(lastNeededPageIndex, [self tableCount] - 1);
     
-   for(POIScrollTableViewControllers *page in visiblePages){
+    for(POIScrollTableViewControllers *page in visiblePages){
         if(page.index <firstNeededPageIndex || page.index > lastNeededPageIndex){
             [recycledPages addObject:page];
             [page.view removeFromSuperview];
@@ -139,7 +131,7 @@
     
     for(int index = firstNeededPageIndex; index<=lastNeededPageIndex; index++){
         if(![self isDisplayingPageForIndex:index]){
-        POIScrollTableViewControllers *page = [self dequeueRecycledPage];
+            POIScrollTableViewControllers *page = [self dequeueRecycledPage];
             if(!page){
                 page = [[POIScrollTableViewControllers alloc] initWithList:[__listArray objectAtIndex:index]];
                 
@@ -152,7 +144,7 @@
         }
     }
 }
-    
+
 - (POIScrollTableViewControllers *) dequeueRecycledPage{
     POIScrollTableViewControllers *page = [recycledPages anyObject];
     if(page){
@@ -164,7 +156,7 @@
 -(BOOL) isDisplayingPageForIndex:(NSUInteger)index{
     BOOL foundPage = NO;
     
- for  ( POIScrollTableViewControllers *page in visiblePages){
+    for  ( POIScrollTableViewControllers *page in visiblePages){
         if(page.index == index){
             foundPage = YES;
             break;
@@ -178,10 +170,10 @@
 -(void) configurePage:(POIScrollTableViewControllers *)page forIndex:(NSUInteger)index{
     page.index = index;
     page.view.frame = [self frameForPageAtIndex:index];
-     page.view.layer.cornerRadius = 10.0;
-     page.view.layer.borderColor = [UIColor darkGrayColor].CGColor;
-     page.view.layer.borderWidth = 1.2;
-     page.view.layer.masksToBounds = YES;
+    page.view.layer.cornerRadius = 10.0;
+    page.view.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    page.view.layer.borderWidth = 1.2;
+    page.view.layer.masksToBounds = YES;
     page.delegate = self;
     [page resetArrays];
     [page.poiTableView reloadData];
@@ -245,7 +237,6 @@
     [pagingScrollView setContentOffset:CGPointMake(pagingScrollView.bounds.size.width *currentIndex,0.0f) animated:YES];
 }
 
-/*
 -(void) createNewPOIForListNumber:(NSNumber *)listNumber{
     
     POICreationModalViewController *poiCreationMVC = [[POICreationModalViewController alloc] initWithManagedObjectContext:__managedObjectContext];
@@ -253,13 +244,12 @@
     poiCreationMVC.listNumber = listNumber;
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:poiCreationMVC];
     [self presentModalViewController:navCon animated:YES];
-
 }
-*/
+
 -(void) didFinishEditing:(BOOL)finished {
     if (YES) {
         [__managedObjectContext save:nil];
- 
+        
     }
     
     [currentPage resetArrays];
@@ -268,8 +258,8 @@
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 }
 
--(void)pushView:(UIViewController *)vc {
-    [self.navigationController pushViewController:vc animated:YES];
+-(void) pushDetailsView:(POIDetailsViewController *)detailsVC{
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 @end
