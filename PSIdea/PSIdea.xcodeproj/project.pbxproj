@@ -21,6 +21,10 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
+		517386BA14D6147200E3A765 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */; };
+		517386BD14D61CE800E3A765 /* ListEditingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517386BC14D61CE800E3A765 /* ListEditingTableViewCell.xib */; };
+		517386C114D620A000E3A765 /* ListEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517386BF14D620A000E3A765 /* ListEditingViewController.m */; };
+		517386C214D620A000E3A765 /* ListEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517386C014D620A000E3A765 /* ListEditingViewController.xib */; };
 		519ACBEF14873538004690C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519ACBEE14873538004690C8 /* CoreLocation.framework */; };
 		519ACBF214873571004690C8 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ACBF114873571004690C8 /* MyCLController.m */; };
 		51A79049149199EB0073F659 /* ListsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A79047149199EA0073F659 /* ListsScrollViewController.m */; };
@@ -41,8 +45,6 @@
 		51FF9E2B148C92F800830BBB /* MapOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */; };
 		51FF9E41148D3CC400830BBB /* locationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E3F148D3CC400830BBB /* locationArrow.png */; };
 		51FF9E42148D3CC400830BBB /* locationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E40148D3CC400830BBB /* locationArrow@2x.png */; };
-		6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* POITableViewController.m */; };
-		6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* POITableView.xib */; };
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
 		6617E413147C735600F1E018 /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E412147C735600F1E018 /* POIDetailsViewController.m */; };
 		6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E41C147EED9300F1E018 /* POIMapView.xib */; };
@@ -101,6 +103,12 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
+		517386B814D6147200E3A765 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFSlideNavigationViewController.h; path = "../../../../Downloads/meiwin-MWFSlideNavigationViewController-74f6d28/Classes/MWFSlideNavigationViewController.h"; sourceTree = "<group>"; };
+		517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFSlideNavigationViewController.m; path = "../../../../Downloads/meiwin-MWFSlideNavigationViewController-74f6d28/Classes/MWFSlideNavigationViewController.m"; sourceTree = "<group>"; };
+		517386BC14D61CE800E3A765 /* ListEditingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListEditingTableViewCell.xib; path = ../ListEditingTableViewCell.xib; sourceTree = "<group>"; };
+		517386BE14D620A000E3A765 /* ListEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEditingViewController.h; sourceTree = "<group>"; };
+		517386BF14D620A000E3A765 /* ListEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEditingViewController.m; sourceTree = "<group>"; };
+		517386C014D620A000E3A765 /* ListEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEditingViewController.xib; sourceTree = "<group>"; };
 		519ACBEE14873538004690C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519ACBF014873571004690C8 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		519ACBF114873571004690C8 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
@@ -129,9 +137,6 @@
 		51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapOptionsViewController.xib; sourceTree = "<group>"; };
 		51FF9E3F148D3CC400830BBB /* locationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationArrow.png; sourceTree = "<group>"; };
 		51FF9E40148D3CC400830BBB /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locationArrow@2x.png"; sourceTree = "<group>"; };
-		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
-		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
-		6617E40B147C6CC500F1E018 /* POITableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableView.xib; sourceTree = "<group>"; };
 		6617E40F147C72C700F1E018 /* POIDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIDetailsView.xib; sourceTree = "<group>"; };
 		6617E411147C735600F1E018 /* POIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailsViewController.h; sourceTree = "<group>"; };
 		6617E412147C735600F1E018 /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailsViewController.m; sourceTree = "<group>"; };
@@ -259,6 +264,8 @@
 		516D11071464B0D000CF95D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				517386B814D6147200E3A765 /* MWFSlideNavigationViewController.h */,
+				517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */,
 				516D11081464B0D000CF95D2 /* PSIdea-Info.plist */,
 				516D11431464B6C400CF95D2 /* SampleData.plist */,
 				516D11091464B0D000CF95D2 /* InfoPlist.strings */,
@@ -316,10 +323,10 @@
 			children = (
 				51A79046149199EA0073F659 /* ListsScrollViewController.h */,
 				51A79047149199EA0073F659 /* ListsScrollViewController.m */,
+				517386BE14D620A000E3A765 /* ListEditingViewController.h */,
+				517386BF14D620A000E3A765 /* ListEditingViewController.m */,
 				51A7904F1491A6F30073F659 /* POIScrollTableViewControllers.h */,
 				51A790501491A6F30073F659 /* POIScrollTableViewControllers.m */,
-				6617E405147C6B1E00F1E018 /* POITableViewController.h */,
-				6617E406147C6B1E00F1E018 /* POITableViewController.m */,
 				6617E411147C735600F1E018 /* POIDetailsViewController.h */,
 				6617E412147C735600F1E018 /* POIDetailsViewController.m */,
 				51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */,
@@ -327,8 +334,8 @@
 				51B387F614892E22008FE3C7 /* POILocationChooserViewController.h */,
 				51B387F714892E22008FE3C7 /* POILocationChooserViewController.m */,
 				66A17554147F7139001A2E27 /* POIMapViewController.h */,
-				51FF9E27148C92F500830BBB /* MapOptionsViewController.h */,
 				66A1754F147EF5BF001A2E27 /* POIMapViewController.m */,
+				51FF9E27148C92F500830BBB /* MapOptionsViewController.h */,
 				51FF9E28148C92F500830BBB /* MapOptionsViewController.m */,
 				66E12950149822F00000240D /* ListEditorViewController.h */,
 				66E12951149822F00000240D /* ListEditorViewController.m */,
@@ -339,6 +346,12 @@
 		6617E40E147C6F2F00F1E018 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				51FF01F7148EF809000E8757 /* background2.png */,
+				51FF9E3F148D3CC400830BBB /* locationArrow.png */,
+				51FF9E40148D3CC400830BBB /* locationArrow@2x.png */,
+				51FF01E6148EE7EA000E8757 /* normalPattern1.png */,
+				51FF01F9148EF987000E8757 /* selectedPattern1.png */,
+				5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */,
 				66534A6D1499999600843C54 /* marker_pin.png */,
 				66534A6A14998EB400843C54 /* notebook_paper.png */,
 				66E1295514982F790000240D /* yellow_ball.png */,
@@ -346,18 +359,13 @@
 				51A79048149199EA0073F659 /* ListsScrollViewController.xib */,
 				51A790511491A6F30073F659 /* POIScrollTableViewControllers.xib */,
 				6617E41C147EED9300F1E018 /* POIMapView.xib */,
-				6617E40B147C6CC500F1E018 /* POITableView.xib */,
 				6617E40F147C72C700F1E018 /* POIDetailsView.xib */,
 				51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */,
 				51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */,
 				51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */,
 				66E12952149822F00000240D /* ListEditorViewController.xib */,
-				51FF01F7148EF809000E8757 /* background2.png */,
-				51FF9E3F148D3CC400830BBB /* locationArrow.png */,
-				51FF9E40148D3CC400830BBB /* locationArrow@2x.png */,
-				51FF01E6148EE7EA000E8757 /* normalPattern1.png */,
-				51FF01F9148EF987000E8757 /* selectedPattern1.png */,
-				5164476A148ECBB600EAAE66 /* mapOptionsBackground.png */,
+				517386BC14D61CE800E3A765 /* ListEditingTableViewCell.xib */,
+				517386C014D620A000E3A765 /* ListEditingViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -478,7 +486,6 @@
 				516D110B1464B0D000CF95D2 /* InfoPlist.strings in Resources */,
 				516D11441464B6C400CF95D2 /* SampleData.plist in Resources */,
 				667EF944147C4544004BA5FE /* MainWindow.xib in Resources */,
-				6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */,
 				6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */,
 				6617E41D147EED9300F1E018 /* POIMapView.xib in Resources */,
 				51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */,
@@ -496,6 +503,8 @@
 				66E1295614982F790000240D /* yellow_ball.png in Resources */,
 				66534A6B14998EB400843C54 /* notebook_paper.png in Resources */,
 				66534A6E1499999600843C54 /* marker_pin.png in Resources */,
+				517386BD14D61CE800E3A765 /* ListEditingTableViewCell.xib in Resources */,
+				517386C214D620A000E3A765 /* ListEditingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +522,6 @@
 				5128ECB71465DEE90039E2E4 /* Event.m in Sources */,
 				5128ECBC1465DEE90039E2E4 /* User.m in Sources */,
 				5128ECBF1465DF220039E2E4 /* Photo.m in Sources */,
-				6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */,
 				6617E413147C735600F1E018 /* POIDetailsViewController.m in Sources */,
 				66A17550147EF5BF001A2E27 /* POIMapViewController.m in Sources */,
 				66A17553147F669E001A2E27 /* POIAnnotation.m in Sources */,
@@ -546,6 +554,8 @@
 				66CAEBD814CE115200C2EE27 /* NetworkController.m in Sources */,
 				66CAEBDB14CE2DE700C2EE27 /* PSINetworkController.m in Sources */,
 				66CAEBE214D0B9B500C2EE27 /* NSObject+PropertyArray.m in Sources */,
+				517386BA14D6147200E3A765 /* MWFSlideNavigationViewController.m in Sources */,
+				517386C114D620A000E3A765 /* ListEditingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

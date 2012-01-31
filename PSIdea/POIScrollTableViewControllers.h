@@ -26,7 +26,10 @@
 {
     NSString *__title;
     List *__list;
+    UILongPressGestureRecognizer *lpgr;
+    NSUInteger editRow;
 }
+@property (weak, nonatomic) IBOutlet UIView *__containerView;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic) int index;
 @property (nonatomic, retain) NSMutableArray *poiArray;
@@ -41,6 +44,6 @@
 @property (weak, nonatomic) IBOutlet UIView *intermediateView;
 -(id)initWithList:(List *)list;
 -(void) didFinishEditing:(BOOL)finished;
--(id)initWithContext:(NSManagedObjectContext *)context;
 -(void) resetArrays;
+-(void) resetViewWithList:(List*)list;
 @end

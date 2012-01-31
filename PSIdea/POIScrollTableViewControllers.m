@@ -15,6 +15,7 @@
 @synthesize poiArray= __poiArray;
 @synthesize visiblePOI = __visiblePOI;
 @synthesize index;
+@synthesize __containerView;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize delegate;
 @synthesize intermediateView = _intermediateView;
@@ -36,24 +37,14 @@
 }
 
 -(void) resetArrays{
-    __poiArray = [[NSMutableArray alloc] initWithArray:[__list.pois allObjects]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", __list.idNumber];
+        NSArray *results = [CoreDataManager fetchEntity:@"List" fromContext:__managedObjectContext withPredicate:predicate withSortKey:@"title" ascending:YES];
+    List *list = results.lastObject;
+    __list = list;
+    __poiArray = [[NSMutableArray alloc] initWithArray:[list.pois allObjects]];
     __visiblePOI = [[NSMutableArray alloc] init];
     [__visiblePOI addObjectsFromArray:__poiArray];
     
-}
--(id)initWithContext:(NSManagedObjectContext *)context
-{
-    self = [super initWithNibName:@"POIScrollTableViewControllers" bundle:[NSBundle mainBundle]];
-    if (self) {
-        
-        __managedObjectContext = context;
-        [self fetchTableViewDataInManagedObjectcontext:context];
-        // perform load of view here
-        //NSPredicate* predicate = [NSPredicate predicateWithFormat:@"ALL"];
-        self.title = @"Points of Interest";
-        
-    }
-    return self;
 }
 
 -(id)initWithList:(List *)list{
@@ -82,12 +73,34 @@
 
 #pragma mark - View lifecycle
 
+-(void) longPressedCell:(UIGestureRecognizer*) recognizer{
+    
+    CGPoint location = [recognizer locationInView:_poiTableView];
+    NSIndexPath* indexPath = [_poiTableView indexPathForRowAtPoint:location];
+    editRow = indexPath.row;
+    //UITableViewCell* cell = [_poiTableView cellForRowAtIndexPath:indexPath];
+    [_poiTableView setEditing:YES animated:YES];
+    
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     titleLabel.text =__title;
     _poiTableView.showsVerticalScrollIndicator = YES;
+    _intermediateView.layer.cornerRadius = 10.0;
+    _intermediateView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _intermediateView.layer.borderWidth = 3.0;
+    _intermediateView.layer.masksToBounds = YES;
+    editRow = -1;
+    lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressedCell:)];
+    [_poiTableView addGestureRecognizer:lpgr];
     
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    [__containerView addGestureRecognizer:tgr];
+   // [_poiTableView addGestureRecognizer:tgr];
     // Do any additional setup after loading the view from its nib.
 }
 -(void) viewDidAppear:(BOOL)animated
@@ -102,6 +115,7 @@
     [self setAddPOIButton:nil];
     [self setPoiTableView:nil];
     [self setIntermediateView:nil];
+    [self set__containerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -145,14 +159,22 @@
     return cell;
 }
 
-/*
+
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
- // Return NO if you do not want the specified item to be editable.
- return YES;
+     if (editRow == -1) {
+         return NO;
+     }
+     else if (editRow == indexPath.row) {
+         return YES;
+     }
+     else{
+         return NO;
+     }
+   
  }
- */
+ 
 
 
 // Override to support editing the table view.
@@ -165,11 +187,19 @@
         [__managedObjectContext deleteObject:managedObject];
         [__managedObjectContext save:nil];
         
-        [self fetchTableViewDataInManagedObjectcontext:__managedObjectContext];
+        [self resetArrays];        
+        [tableView setEditing:NO animated:YES];
+
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }    
 }
 
+-(void) handleTapGesture:(UIGestureRecognizer*) recognizer{
+    if (_poiTableView.isEditing) {
+        [_poiTableView setEditing:NO animated:YES];
+
+    }
+}
 
 /*
  // Override to support rearranging the table view.
@@ -198,9 +228,8 @@
     // ...
     // Pass the selected object to the new view controller.
     
-    NSString* details = [[__poiArray objectAtIndex:indexPath.row] details];
-    NSString* title = [[__poiArray objectAtIndex:indexPath.row] title];
-    POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc] initWithDetails:details withTitle:title];
+
+    POIDetailsViewController *detailViewController = [[POIDetailsViewController alloc]initWithPOI:[__poiArray objectAtIndex:indexPath.row]];
     [delegate pushDetailsView:detailViewController];
     
 }   
@@ -222,5 +251,10 @@
     
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 }
+-(void) resetViewWithList:(List*)list{
+    __title = list.title;
+    __list = list;
+    titleLabel.text =__title;
 
+}
 @end

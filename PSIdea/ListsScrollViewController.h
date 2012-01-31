@@ -13,8 +13,10 @@
 #import "POIScrollTableViewControllers.h"
 #import <QuartzCore/QuartzCore.h>
 #import "POICreationModalViewController.h"
+#import "MWFSlideNavigationViewController.h"
+#import "ListEditingViewController.h"
 
-@interface ListsScrollViewController : UIViewController <UIScrollViewDelegate,POICreationModalViewControllerDelegate,POIScrollTableViewControllersDelegate>
+@interface ListsScrollViewController : UIViewController <UIScrollViewDelegate,POICreationModalViewControllerDelegate,POIScrollTableViewControllersDelegate,MWFSlideNavigationViewControllerDelegate,ListEditingViewDelegate>
 {
     NSMutableSet *recycledPages;
     NSMutableSet *visiblePages;
@@ -33,9 +35,11 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *pagingScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
+/* Delegate Methods */
 -(void) pushDetailsView:(POIDetailsViewController *)detailsVC;
 -(void)didFinishEditing:(BOOL)finished;
 -(void)createNewPOIForListNumber:(NSNumber *)listNumber;
+-(void) didSelectRow:(NSUInteger)row;
 
 -(IBAction)pageChanged:(id)sender;
 -(id)initWithContext:(NSManagedObjectContext*) context;
@@ -50,4 +54,6 @@
 - (void)tilePages;
 - (POIScrollTableViewControllers *)dequeueRecycledPage;
 - (NSUInteger)tableCount;
+
+
 @end

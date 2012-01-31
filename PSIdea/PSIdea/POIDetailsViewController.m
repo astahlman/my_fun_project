@@ -12,6 +12,7 @@
 
 @synthesize titleLabel = __titleLabel;
 @synthesize detailsTextView = __detailsTextView;
+@synthesize __mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,12 +23,13 @@
     return self;
 }
 
-- (id)initWithDetails:(NSString *)details withTitle:(NSString *)title {
+- (id)initWithPOI: (POI*) poi {
     self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
     if (self) {
-       __details = details;
-        __title = title;
-        self.title = title;
+       __details = poi.details;
+        __title = poi.title;
+        pinLocation = [[CLLocation alloc] initWithLatitude: poi.latitude.floatValue longitude:poi.longitude.floatValue];
+        self.title = __title;
     }
 
     
@@ -50,7 +52,11 @@
 {
 }
 */
-
+- (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
+    [__mapView setRegion:region animated:animated];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -60,10 +66,21 @@
     self.detailsTextView.text = __details;
     self.titleLabel.text = __title;
     
+    [self zoomToLocation:pinLocation.coordinate animated:NO];
+    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:pinLocation.coordinate title:nil];
+    [annotation updateAnnotationView:pinLocation];
+    [__mapView addAnnotation:annotation];
+    
     containerView.layer.cornerRadius = 10.0;
     containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     containerView.layer.borderWidth = 1.2;
     containerView.layer.masksToBounds = YES;
+    
+    __mapView.layer.cornerRadius = 10.0;
+    __mapView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    __mapView.layer.borderWidth = 2.0;
+    __mapView.layer.masksToBounds = YES;
+
 
 }
 
@@ -71,6 +88,7 @@
 - (void)viewDidUnload
 {
     containerView = nil;
+    [self set__mapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

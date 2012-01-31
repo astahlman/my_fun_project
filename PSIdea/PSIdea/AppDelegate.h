@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "POITableViewController.h"
 #import "POIMapViewController.h"
 #import "ListsScrollViewController.h"
-
+#import "MWFSlideNavigationViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     
-    POITableViewController *__poiTableViewController;
     POIMapViewController *__poiMapViewController;
     UITabBarController *__tabBarController;
 }
