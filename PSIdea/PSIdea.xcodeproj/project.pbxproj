@@ -140,14 +140,11 @@
 		51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapOptionsViewController.xib; sourceTree = "<group>"; };
 		51FF9E3F148D3CC400830BBB /* locationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationArrow.png; sourceTree = "<group>"; };
 		51FF9E40148D3CC400830BBB /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locationArrow@2x.png"; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		660F6B4614F3F0A200F8901D /* NSManagedObject+PropertiesDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+PropertiesDict.h"; sourceTree = "<group>"; };
 		660F6B4714F3F0A200F8901D /* NSManagedObject+PropertiesDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+PropertiesDict.m"; sourceTree = "<group>"; };
 		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
 		6617E40B147C6CC500F1E018 /* POITableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableView.xib; sourceTree = "<group>"; };
-=======
->>>>>>> 0e38d3668aadfa77b534da49dfdcdd12e91a564f
 		6617E40F147C72C700F1E018 /* POIDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIDetailsView.xib; sourceTree = "<group>"; };
 		6617E411147C735600F1E018 /* POIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailsViewController.h; sourceTree = "<group>"; };
 		6617E412147C735600F1E018 /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailsViewController.m; sourceTree = "<group>"; };
@@ -567,12 +564,9 @@
 				66CAEBD814CE115200C2EE27 /* NetworkController.m in Sources */,
 				66CAEBDB14CE2DE700C2EE27 /* PSINetworkController.m in Sources */,
 				66CAEBE214D0B9B500C2EE27 /* NSObject+PropertyArray.m in Sources */,
-<<<<<<< HEAD
 				660F6B4814F3F0A200F8901D /* NSManagedObject+PropertiesDict.m in Sources */,
-=======
 				517386BA14D6147200E3A765 /* MWFSlideNavigationViewController.m in Sources */,
 				517386C114D620A000E3A765 /* ListEditingViewController.m in Sources */,
->>>>>>> 0e38d3668aadfa77b534da49dfdcdd12e91a564f
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
