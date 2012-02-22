@@ -23,8 +23,6 @@
     free(properties);
     
     return [NSArray arrayWithArray:propertyArray];
-
-    
 }
 
 @end

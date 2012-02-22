@@ -16,8 +16,14 @@
 
 +(PSINetworkController*)PSINetworkControllerWithBaseURL:(NSURL*)baseUrl;
 -(void)retrieveObjectForId:(NSString*)idString atRelUrl:(NSString*)relUrl;
--(void)postRequestAtRelUrl:(NSString*)relUrl withPostData:(NSDictionary*)postDict;
 -(void)connectionDidFinishLoading:(NSURLConnection*)connection;
+
++(NSDictionary*)getModelDictionary;
++(NSDictionary*)getPOIMappingDictionary;
+
+-(id)queryForClass:(Class*)queryClass onField:(NSString*)string withString:(NSString*)queryString;
+-(void)requestPoi:(NSString*)idString;
 -(void)postPoi:(POI*)poi;
+-(POI*)parsePoi:(NSDictionary*)poiDict;
 
 @end

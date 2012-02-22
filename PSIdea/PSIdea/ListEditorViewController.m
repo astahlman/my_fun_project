@@ -92,15 +92,6 @@
     }
     [__gridViewController drawGrid];
     // Do any additional setup after loading the view from its nib.
-    
-    
-    // Network Testing - Remove later
-    PSINetworkController* net = [[PSINetworkController alloc] init];
-    [net setDelegate:self];
-    [net setBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
-    NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
-    [dict setValue:@"10" forKey:@"poi_id"];
-    [net postRequestAtRelUrl:@"get_poi/" withPostData:dict];
 }
 
 -(void) connection:(NSURLConnection *)connection receivedResponse:(id)response

@@ -72,8 +72,8 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void) createNewList{
-    
+-(void) createNewList
+{
 }
 
 #pragma mark - View lifecycle

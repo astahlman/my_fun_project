@@ -29,5 +29,6 @@
 
 +(NSString*)extractTags:(NSString*) text;
 +(POI*) createPOIWithID: (NSNumber*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andPublic: (NSNumber*) public andRating:(NSNumber*) rating andCreator:(NSNumber*)creator andLists:(NSArray*) listNumbers inManagedObjectContext:(NSManagedObjectContext*) context;
+-(NSDictionary*)propertiesDict;
 
 @end

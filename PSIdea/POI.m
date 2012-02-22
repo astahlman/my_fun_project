@@ -10,6 +10,7 @@
 #import "List.h"
 #import "Photo.h"
 #import "User.h"
+#import "NSManagedObject+PropertiesDict.h"
 
 
 @implementation POI
@@ -135,6 +136,24 @@
     }
     NSString* tags = [NSString stringWithString:tagString];
     return tags;
+}
+
+-(NSDictionary*)propertiesDict
+{
+    NSMutableDictionary* dict = [super propertiesDict];
+    
+    NSDictionary* listDict = [dict objectForKey:@"lists"];
+    [dict removeObjectForKey:@"lists"];
+    NSSet* listIds = [listDict objectForKey:@"idNumber"];
+    NSSet* listNames = [listDict objectForKey:@"title"];
+    NSArray* idNums = [listIds allObjects];
+    NSArray* titles = [listNames allObjects];
+    NSDictionary* idDict = [NSDictionary dictionaryWithObjects:idNums forKeys:titles];
+    [dict setObject:idDict forKey:@"lists"];
+    
+    NSDictionary* resultDict = [NSDictionary dictionaryWithDictionary:dict];
+    return resultDict;
+    
 }
 
 @end

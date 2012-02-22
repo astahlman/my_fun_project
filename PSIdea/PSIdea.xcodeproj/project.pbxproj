@@ -41,6 +41,7 @@
 		51FF9E2B148C92F800830BBB /* MapOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */; };
 		51FF9E41148D3CC400830BBB /* locationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E3F148D3CC400830BBB /* locationArrow.png */; };
 		51FF9E42148D3CC400830BBB /* locationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF9E40148D3CC400830BBB /* locationArrow@2x.png */; };
+		660F6B4814F3F0A200F8901D /* NSManagedObject+PropertiesDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 660F6B4714F3F0A200F8901D /* NSManagedObject+PropertiesDict.m */; };
 		6617E408147C6B1E00F1E018 /* POITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6617E406147C6B1E00F1E018 /* POITableViewController.m */; };
 		6617E40C147C6CC500F1E018 /* POITableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40B147C6CC500F1E018 /* POITableView.xib */; };
 		6617E410147C72C700F1E018 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6617E40F147C72C700F1E018 /* POIDetailsView.xib */; };
@@ -129,6 +130,8 @@
 		51FF9E29148C92F700830BBB /* MapOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapOptionsViewController.xib; sourceTree = "<group>"; };
 		51FF9E3F148D3CC400830BBB /* locationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationArrow.png; sourceTree = "<group>"; };
 		51FF9E40148D3CC400830BBB /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locationArrow@2x.png"; sourceTree = "<group>"; };
+		660F6B4614F3F0A200F8901D /* NSManagedObject+PropertiesDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+PropertiesDict.h"; sourceTree = "<group>"; };
+		660F6B4714F3F0A200F8901D /* NSManagedObject+PropertiesDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+PropertiesDict.m"; sourceTree = "<group>"; };
 		6617E405147C6B1E00F1E018 /* POITableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POITableViewController.h; path = ../POITableViewController.h; sourceTree = "<group>"; };
 		6617E406147C6B1E00F1E018 /* POITableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POITableViewController.m; path = ../POITableViewController.m; sourceTree = "<group>"; };
 		6617E40B147C6CC500F1E018 /* POITableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableView.xib; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 				66CAEBDA14CE2DE700C2EE27 /* PSINetworkController.m */,
 				66CAEBE014D0B9B400C2EE27 /* NSObject+PropertyArray.h */,
 				66CAEBE114D0B9B500C2EE27 /* NSObject+PropertyArray.m */,
+				660F6B4614F3F0A200F8901D /* NSManagedObject+PropertiesDict.h */,
+				660F6B4714F3F0A200F8901D /* NSManagedObject+PropertiesDict.m */,
 			);
 			name = Classes;
 			path = ..;
@@ -546,6 +551,7 @@
 				66CAEBD814CE115200C2EE27 /* NetworkController.m in Sources */,
 				66CAEBDB14CE2DE700C2EE27 /* PSINetworkController.m in Sources */,
 				66CAEBE214D0B9B500C2EE27 /* NSObject+PropertyArray.m in Sources */,
+				660F6B4814F3F0A200F8901D /* NSManagedObject+PropertiesDict.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
