@@ -26,16 +26,22 @@
     
    ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
     __tabBarController = [[UITabBarController alloc] init];
-    __poiTableViewController = [[POITableViewController alloc] initWithContext:__managedObjectContext];
+
     __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
     UINavigationController *firstNavCon = [[UINavigationController alloc] init];
-    [firstNavCon pushViewController:__poiTableViewController animated:NO];
+    MWFSlideNavigationViewController *slideNavCon = [[MWFSlideNavigationViewController alloc] initWithRootViewController:lvc];
+    slideNavCon.title = @"Lists";
+    slideNavCon.delegate = lvc;
+
+    
+    [firstNavCon pushViewController:slideNavCon animated:NO];
     UINavigationController *secondNavCon = [[UINavigationController alloc] init];
     [secondNavCon pushViewController:__poiMapViewController animated:NO];
-    thirdNavCon = [[UINavigationController alloc] init];
-    [thirdNavCon pushViewController:lvc animated:NO];
+       
+
+    
     //Array of ViewControllers (tabs on the view controller)
-    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,thirdNavCon,nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
     __tabBarController.viewControllers = viewControllers;
     [window addSubview: [__tabBarController view]];
     [self.window makeKeyAndVisible];

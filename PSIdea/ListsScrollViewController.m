@@ -38,7 +38,7 @@
 }
 
 -(void) fetchCoreDataEntitiesInManagedObjectContext: (NSManagedObjectContext*) context{
-    __listArray = [CoreDataManager fetchEntity:@"List" fromContext:context withPredicate:nil withSortKey:@"title" ascending:YES];
+    __listArray = [CoreDataManager fetchEntity:@"List" fromContext:context withPredicate:nil withSortKey:@"idNumber" ascending:YES];
 }
 
 -(id) initWithContext:(NSManagedObjectContext *)context{
@@ -46,16 +46,10 @@
     if(self){
         __managedObjectContext = context;
         [self fetchCoreDataEntitiesInManagedObjectContext:context];
-        self.title = @"Lists";
+        self.parentViewController.title = @"Lists";
     }
     
     return self;
-}
-
--(void) viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -72,8 +66,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
--(void) createNewList
-{
+-(void) editList{
+    
+    ListEditingViewController *levc = [[ListEditingViewController alloc] initWithContext:__managedObjectContext];
+    levc.delegate = self;
+    
+    [self.slideNavigationViewController slideForViewController:levc direction:MWFSlideDirectionDown portraitOrientationDistance:420 landscapeOrientationDistance:320];
 }
 
 #pragma mark - View lifecycle
@@ -82,19 +80,15 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewList)];
+    self.parentViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editList)];
     // Do any additional setup after loading the view from its nib.
     pageControl.numberOfPages = [__listArray count];
     pageControl.currentPage = 0;
     [self configurePagingScrollView];
-    /* UINavigationController *navcontroller = [[UINavigationController alloc]init];
-     navcontroller.navigationBarHidden = YES;
-     navcontroller.view.frame = [self frameForPageAtIndex:0];
-     [navcontroller pushViewController:currentPage animated:NO];
-     [pagingScrollView addSubview:navcontroller.view];*/
     recycledPages = [[NSMutableSet alloc] init];
     visiblePages = [[NSMutableSet alloc] init];
 }
+
 
 - (void)viewDidUnload
 {
@@ -168,6 +162,7 @@
 
 
 -(void) configurePage:(POIScrollTableViewControllers *)page forIndex:(NSUInteger)index{
+    [page resetViewWithList:[__listArray objectAtIndex:index]];
     page.index = index;
     page.view.frame = [self frameForPageAtIndex:index];
     page.view.layer.cornerRadius = 10.0;
@@ -186,16 +181,12 @@
     float fractionalPage = scrollView.contentOffset.x / pageWidth;
     NSInteger page = lround(fractionalPage);
     if (previousPage != page) {
-        // Page has changed
-        // Do your thing!
         currentIndex = page;
         for(POIScrollTableViewControllers *page in visiblePages) {
             if (page.index == currentIndex) {
                 
                 currentPage = page;
                 pageControl.currentPage = currentIndex;
-                // aitvc.assignment = [assignments objectAtIndex:currentIndex];
-                //[aitvc.tableView reloadData];
                 previousPage = currentIndex;
             }
         }
@@ -207,7 +198,7 @@
 #define PADDING  10
 
 -(CGRect) frameForPagingScrollView{
-    CGRect frame = pagingScrollView.frame;
+    CGRect frame = CGRectMake(10, 20, 300, 420);
     frame.origin.x -= PADDING;
     frame.size.width += (2 * PADDING);
     return frame;
@@ -222,7 +213,7 @@
 }
 
 - (CGSize)contentSizeForPagingScrollView {
-    // We have to use the paging scroll view's bounds to calculate the contentSize, for the same reason outlined above.
+
     CGRect bounds = pagingScrollView.bounds;
     return CGSizeMake(bounds.size.width * [self tableCount], bounds.size.height - 108);
 }
@@ -252,9 +243,11 @@
         
     }
     
-    [currentPage resetArrays];
+    [self fetchCoreDataEntitiesInManagedObjectContext:__managedObjectContext];
+    [self configurePage:currentPage forIndex:currentIndex];
+  //  [currentPage resetArrays];
     [self tilePages];
-    [currentPage.poiTableView reloadData];
+   // [currentPage.poiTableView reloadData];
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 }
 
@@ -262,4 +255,33 @@
     [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
+-(void) slideNavigationViewController:(MWFSlideNavigationViewController *)controller willPerformSlideFor:(UIViewController *)targetController withSlideDirection:(MWFSlideDirection)slideDirection distance:(CGFloat)distance orientation:(UIInterfaceOrientation)orientation{
+    if (slideDirection == MWFSlideDirectionDown) {
+
+    }
+    
+    else {
+        self.parentViewController.navigationItem.rightBarButtonItem = nil;
+
+        self.parentViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editList)];   
+        
+            
+        [self fetchCoreDataEntitiesInManagedObjectContext:__managedObjectContext];
+        if (currentIndex > __listArray.count-1) {
+            currentIndex = __listArray.count-1;
+        }
+        [self configurePage:currentPage forIndex:currentIndex];
+
+        pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
+        pageControl.numberOfPages = [__listArray count];
+        [self tilePages];
+    }
+}
+
+-(void) didSelectRow:(NSUInteger)row{
+    currentIndex = row;
+    pageControl.currentPage = currentIndex;
+ [pagingScrollView setContentOffset:CGPointMake(pagingScrollView.bounds.size.width *currentIndex,0.0f) animated:NO];
+
+}
 @end

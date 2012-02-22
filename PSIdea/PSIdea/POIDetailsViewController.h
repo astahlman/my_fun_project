@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-@interface POIDetailsViewController : UIViewController{
+#import <MapKit/MapKit.h>
+#import "POI.h"
+#import "MyCLController.h"
+#import "POIAnnotation.h"
+
+@interface POIDetailsViewController : UIViewController <MKMapViewDelegate>{
+    
+    CLLocation *pinLocation;
     NSString *__title;
     NSString *__details;
     __weak IBOutlet UIView *containerView;
@@ -16,7 +23,8 @@
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
+@property (weak, nonatomic) IBOutlet MKMapView *__mapView;
 
-- (id)initWithDetails:(NSString *)details withTitle:(NSString *)title;
+- (id)initWithPOI:(POI*) poi;
 
 @end
