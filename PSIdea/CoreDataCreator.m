@@ -25,8 +25,7 @@
 
 -(void) createCoreDataIn:(NSManagedObjectContext*) context{
     
-    [List createDefaultListWithTitle:@"Default" InManagedObjectContext:context];
-    [List createtListWithTitle:@"My Favorite Places" withIDNumber:[NSNumber numberWithInt:1] InManagedObjectContext:context];
+    [List createDefaultListWithTitle:@"My POIs" InManagedObjectContext:context];
     //Parses SampleData.plist created for app
     
     NSString *errorDesc = nil;

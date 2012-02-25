@@ -48,6 +48,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<bool key="IBUIHidesForSinglePage">YES</bool>
 						<bool key="IBUIDefersCurrentPageDisplay">YES</bool>
 					</object>
 					<object class="IBUIScrollView" id="594734333">

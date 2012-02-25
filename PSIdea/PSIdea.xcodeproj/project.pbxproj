@@ -21,7 +21,6 @@
 		516D11141464B0D000CF95D2 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516D11121464B0D000CF95D2 /* PSIdea.xcdatamodeld */; };
 		516D11441464B6C400CF95D2 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516D11431464B6C400CF95D2 /* SampleData.plist */; };
 		516D11601464C47800CF95D2 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516D115F1464C47800CF95D2 /* CoreDataCreator.m */; };
-		517386BA14D6147200E3A765 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */; };
 		517386BD14D61CE800E3A765 /* ListEditingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517386BC14D61CE800E3A765 /* ListEditingTableViewCell.xib */; };
 		517386C114D620A000E3A765 /* ListEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517386BF14D620A000E3A765 /* ListEditingViewController.m */; };
 		517386C214D620A000E3A765 /* ListEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 517386C014D620A000E3A765 /* ListEditingViewController.xib */; };
@@ -36,6 +35,7 @@
 		51B387FA14892E22008FE3C7 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B387F814892E22008FE3C7 /* POILocationChooserViewController.xib */; };
 		51C4716D1486B49D001BD1A4 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */; };
 		51C4716E1486B49D001BD1A4 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */; };
+		51D9C1A214F73F1100FC01A5 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D9C1A114F73F1100FC01A5 /* MWFSlideNavigationViewController.m */; };
 		51DFBC53149186FC008706F5 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 51DFBC52149186FC008706F5 /* List.m */; };
 		51FF01E7148EE7EA000E8757 /* normalPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01E6148EE7EA000E8757 /* normalPattern1.png */; };
 		51FF01F8148EF80A000E8757 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 51FF01F7148EF809000E8757 /* background2.png */; };
@@ -106,8 +106,6 @@
 		516D11431464B6C400CF95D2 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
 		516D115E1464C47800CF95D2 /* CoreDataCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataCreator.h; sourceTree = "<group>"; };
 		516D115F1464C47800CF95D2 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
-		517386B814D6147200E3A765 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFSlideNavigationViewController.h; path = "../../../../Downloads/meiwin-MWFSlideNavigationViewController-74f6d28/Classes/MWFSlideNavigationViewController.h"; sourceTree = "<group>"; };
-		517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFSlideNavigationViewController.m; path = "../../../../Downloads/meiwin-MWFSlideNavigationViewController-74f6d28/Classes/MWFSlideNavigationViewController.m"; sourceTree = "<group>"; };
 		517386BC14D61CE800E3A765 /* ListEditingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListEditingTableViewCell.xib; path = ../ListEditingTableViewCell.xib; sourceTree = "<group>"; };
 		517386BE14D620A000E3A765 /* ListEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEditingViewController.h; sourceTree = "<group>"; };
 		517386BF14D620A000E3A765 /* ListEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEditingViewController.m; sourceTree = "<group>"; };
@@ -129,6 +127,8 @@
 		51C4716A1486B49D001BD1A4 /* POICreationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICreationModalViewController.h; sourceTree = "<group>"; };
 		51C4716B1486B49D001BD1A4 /* POICreationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICreationModalViewController.m; sourceTree = "<group>"; };
 		51C4716C1486B49D001BD1A4 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICreationModalViewController.xib; sourceTree = "<group>"; };
+		51D9C1A014F73F1100FC01A5 /* MWFSlideNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFSlideNavigationViewController.h; sourceTree = "<group>"; };
+		51D9C1A114F73F1100FC01A5 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
 		51DFBC51149186FC008706F5 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		51DFBC52149186FC008706F5 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		51FF01E6148EE7EA000E8757 /* normalPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalPattern1.png; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 		516D11071464B0D000CF95D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				517386B814D6147200E3A765 /* MWFSlideNavigationViewController.h */,
-				517386B914D6147200E3A765 /* MWFSlideNavigationViewController.m */,
+				51D9C1A014F73F1100FC01A5 /* MWFSlideNavigationViewController.h */,
+				51D9C1A114F73F1100FC01A5 /* MWFSlideNavigationViewController.m */,
 				516D11081464B0D000CF95D2 /* PSIdea-Info.plist */,
 				516D11431464B6C400CF95D2 /* SampleData.plist */,
 				516D11091464B0D000CF95D2 /* InfoPlist.strings */,
@@ -564,9 +564,13 @@
 				66CAEBD814CE115200C2EE27 /* NetworkController.m in Sources */,
 				66CAEBDB14CE2DE700C2EE27 /* PSINetworkController.m in Sources */,
 				66CAEBE214D0B9B500C2EE27 /* NSObject+PropertyArray.m in Sources */,
+<<<<<<< HEAD
 				660F6B4814F3F0A200F8901D /* NSManagedObject+PropertiesDict.m in Sources */,
 				517386BA14D6147200E3A765 /* MWFSlideNavigationViewController.m in Sources */,
+=======
+>>>>>>> Updated MWFSlideViewController Errors
 				517386C114D620A000E3A765 /* ListEditingViewController.m in Sources */,
+				51D9C1A214F73F1100FC01A5 /* MWFSlideNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
