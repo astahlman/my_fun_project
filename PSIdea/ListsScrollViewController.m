@@ -80,6 +80,8 @@
 {
     [super viewDidLoad];
     
+
+    
     self.parentViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editList)];
     // Do any additional setup after loading the view from its nib.
     pageControl.numberOfPages = [__listArray count];
@@ -166,7 +168,7 @@
     page.index = index;
     page.view.frame = [self frameForPageAtIndex:index];
     page.view.layer.cornerRadius = 10.0;
-    page.view.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    page.view.layer.borderColor = [UIColor clearColor].CGColor;
     page.view.layer.borderWidth = 1.2;
     page.view.layer.masksToBounds = YES;
     page.delegate = self;
@@ -234,6 +236,11 @@
     poiCreationMVC.delegate = self;
     poiCreationMVC.listNumber = listNumber;
     UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:poiCreationMVC];
+    UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
+    [navCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault]; 
+    [navCon.toolbar setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];  
+
+    navCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
     [self presentModalViewController:navCon animated:YES];
 }
 

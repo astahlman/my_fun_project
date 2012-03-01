@@ -29,7 +29,7 @@
     
     if(!list && !error){
         list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
-        list.idNumber = 0; //reserved for default
+        list.idNumber = [NSNumber numberWithInt:0]; //reserved for default
         list.title = title;
     }
     

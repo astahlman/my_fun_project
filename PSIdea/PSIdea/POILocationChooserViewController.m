@@ -75,6 +75,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     locationController = [[MYCLController alloc] init];
     [locationController.locationManager startUpdatingLocation];
     locationController.delegate =self;

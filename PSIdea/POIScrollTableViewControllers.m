@@ -91,7 +91,7 @@
     titleLabel.text =__title;
     _poiTableView.showsVerticalScrollIndicator = YES;
     _intermediateView.layer.cornerRadius = 10.0;
-    _intermediateView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _intermediateView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     _intermediateView.layer.borderWidth = 3.0;
     _intermediateView.layer.masksToBounds = YES;
     editRow = -1;
