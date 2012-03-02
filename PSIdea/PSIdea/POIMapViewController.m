@@ -13,6 +13,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize poiArray = __poiArray;
 @synthesize visiblePOI = __visiblePOI;
+@synthesize segmentedControl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,9 +36,33 @@
     return self;
 }
 -(void) getPOIs {
-    __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
-    __visiblePOI = [[NSMutableArray alloc] init];
-    [__visiblePOI addObjectsFromArray:__poiArray];
+    __visiblePOI =nil;
+    if (nearby) {
+        //Search for public POI on server
+        
+    }
+    else{
+        //Use user saved POI (this will be downloaded and stored in CoreData
+        __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
+        __visiblePOI = [[NSMutableArray alloc] init];
+        [__visiblePOI addObjectsFromArray:__poiArray];
+    }
+   
+}
+
+- (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
+    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
+    [__poiMapView setRegion:region animated:animated];
+    __poiMapView.showsUserLocation = YES;
+}
+
+-(void) zoomOutToLocation:(CLLocationCoordinate2D) location animated:(BOOL) animated{
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.5, 0.5);
+    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
+    [__poiMapView setRegion:region animated:animated];
+    __poiMapView.showsUserLocation = NO;
+
 }
 - (void) plotPOI {
     
@@ -81,11 +106,19 @@
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+
+-(void) resetView{
+    [self getPOIs];
+    [self plotPOI];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    
+    nearby = segmentedControl.selectedSegmentIndex;
+    self.navigationItem.titleView = self.segmentedControl;
+    [self resetView];
 }
 
 
@@ -103,10 +136,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {  
-    [self getPOIs];
-    [self plotPOI];
-  /*  CLLocationCoordinate2D zoomLocation;
+    defaultRegion = __poiMapView.region;
+    if (nearby) {
+        __poiMapView.showsUserLocation = YES;
+
+    }
+    if (locationController==nil) {
+        locationController = [[MYCLController alloc] init];
+        locationController.delegate=self;
+        [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    }
+
+    [locationController.locationManager startUpdatingLocation];
+
+
+     /*  CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 34.677035;
     zoomLocation.longitude = -86.452324;
     
@@ -117,6 +163,50 @@
     [__poiMapView setRegion:adjustedRegion animated:YES];   */     
 }
 
+-(IBAction)segmentSelected:(id)sender{
+    
+    switch (self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+            nearby = NO;
+            [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+            break;
+        case 1:
+            nearby = YES;
+            centeredAtUserLocation = YES;
+            
+            // TODO: Add nearby POIs on Server (i.e. friends POIs)
+            [locationController.locationManager startUpdatingLocation];
+            break;
+        default:
+            
+            break;
+            
+    }
 
+}
+-(void) locationUpdate:(CLLocation *)location{
+    currentLocation =location;
+    [locationController.locationManager stopUpdatingLocation];
+    if (nearby) {
+        [self zoomToLocation:currentLocation.coordinate animated:NO];
 
+    }
+    
+    else{
+        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+
+    }
+
+}
+
+-(void) locationError:(NSError *)error{
+    NSLog(@"ERROR: %@", error);
+}
+
+-(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
+    if(centeredAtUserLocation){
+        centeredAtUserLocation = NO;
+        // TODO: add button so that user can get back to location after panning
+    }
+}
 @end

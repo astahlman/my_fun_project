@@ -72,7 +72,7 @@
     [__mapView addAnnotation:annotation];
     
     containerView.layer.cornerRadius = 10.0;
-    containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    containerView.layer.borderColor = [UIColor clearColor].CGColor;
     containerView.layer.borderWidth = 1.2;
     containerView.layer.masksToBounds = YES;
     

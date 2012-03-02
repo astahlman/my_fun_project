@@ -80,7 +80,6 @@
     [__listButton setTitle:__selectedList.title forState:UIControlStateNormal];
     __listButton.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
     [__listButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     //__selectedListView.bounds = CGRectMake(0, screenBounds.size.height - __listButton.bounds.size.height, screenBounds.size.width, __listButton.bounds.size.height);
     [__selectedListView addSubview:__listButton];

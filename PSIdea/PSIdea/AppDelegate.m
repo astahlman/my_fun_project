@@ -43,7 +43,7 @@
     slideNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Places" image:[UIImage imageNamed:@"marker"] tag:0];
     secondNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"map"] tag:1];
     [secondNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];    
-   // secondNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    secondNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
 
     //Array of ViewControllers (tabs on the view controller)
     NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,nil];
