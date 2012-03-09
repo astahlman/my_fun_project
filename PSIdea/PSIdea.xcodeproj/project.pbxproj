@@ -90,6 +90,15 @@
 		516E699314FF5D750026E273 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699114FF5D740026E273 /* list@2x.png */; };
 		516E699614FF5DFF0026E273 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699414FF5DFE0026E273 /* marker.png */; };
 		516E699714FF5DFF0026E273 /* marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699514FF5DFE0026E273 /* marker@2x.png */; };
+		66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7861502AA79008B2FE1 /* TwitterController.m */; };
+		66C2B78A1502AB00008B2FE1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B7891502AB00008B2FE1 /* Twitter.framework */; };
+		66C2B78C1502AB3C008B2FE1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B78B1502AB3C008B2FE1 /* Accounts.framework */; };
+		66C2B78F15053E44008B2FE1 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B78E15053E43008B2FE1 /* NetworkManager.m */; };
+		66C2B79315066E40008B2FE1 /* HTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B79215066E40008B2FE1 /* HTTPOperation.m */; };
+		66C2B7961507BA65008B2FE1 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7951507BA65008B2FE1 /* Logging.m */; };
+		66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7981507EA87008B2FE1 /* NetworkAPI.m */; };
+		66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */; };
+		66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7A215091617008B2FE1 /* NSOperationWithState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +230,24 @@
 		516E699114FF5D740026E273 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		516E699414FF5DFE0026E273 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		516E699514FF5DFE0026E273 /* marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker@2x.png"; sourceTree = "<group>"; };
+		66C2B7851502AA79008B2FE1 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
+		66C2B7861502AA79008B2FE1 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
+		66C2B7891502AB00008B2FE1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		66C2B78B1502AB3C008B2FE1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		66C2B78D15053E43008B2FE1 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		66C2B78E15053E43008B2FE1 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		66C2B79115066E40008B2FE1 /* HTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPOperation.h; sourceTree = "<group>"; };
+		66C2B79215066E40008B2FE1 /* HTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPOperation.m; sourceTree = "<group>"; };
+		66C2B7941507BA65008B2FE1 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		66C2B7951507BA65008B2FE1 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
+		66C2B7971507EA87008B2FE1 /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAPI.h; sourceTree = "<group>"; };
+		66C2B7981507EA87008B2FE1 /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAPI.m; sourceTree = "<group>"; };
+		66C2B79A15087422008B2FE1 /* ParseJSONOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSONOperation.h; sourceTree = "<group>"; };
+		66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSONOperation.m; sourceTree = "<group>"; };
+		66C2B79D150914F4008B2FE1 /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		66C2B7A115091615008B2FE1 /* NSOperationWithState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationWithState.h; sourceTree = "<group>"; };
+		66C2B7A215091617008B2FE1 /* NSOperationWithState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationWithState.m; sourceTree = "<group>"; };
+		66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataEntities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +255,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C2B78C1502AB3C008B2FE1 /* Accounts.framework in Frameworks */,
+				66C2B78A1502AB00008B2FE1 /* Twitter.framework in Frameworks */,
 				516E697314FF47360026E273 /* MapKit.framework in Frameworks */,
 				516E697114FF470A0026E273 /* CoreLocation.framework in Frameworks */,
 				516E67BA14FF456C0026E273 /* UIKit.framework in Frameworks */,
@@ -260,6 +289,8 @@
 		516E67B814FF456C0026E273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66C2B78B1502AB3C008B2FE1 /* Accounts.framework */,
+				66C2B7891502AB00008B2FE1 /* Twitter.framework */,
 				516E697214FF47360026E273 /* MapKit.framework */,
 				516E697014FF470A0026E273 /* CoreLocation.framework */,
 				516E67B914FF456C0026E273 /* UIKit.framework */,
@@ -421,6 +452,7 @@
 		51745EE714FFD893001A3162 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */,
 				516E68C214FF46D60026E273 /* List.h */,
 				516E68C314FF46D60026E273 /* List.m */,
 				516E68D114FF46D60026E273 /* POI.h */,
@@ -440,6 +472,7 @@
 		51745EE814FFD8FD001A3162 /* Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66C2B79015053E62008B2FE1 /* Networking */,
 				516E68BE14FF46D60026E273 /* CoreDataCreator.h */,
 				516E68BF14FF46D60026E273 /* CoreDataCreator.m */,
 				516E68C014FF46D60026E273 /* CoreDataManager.h */,
@@ -467,8 +500,30 @@
 				516E692414FF46D60026E273 /* PSIdea-Prefix.pch */,
 				516E692D14FF46D60026E273 /* PSINetworkController.h */,
 				516E692E14FF46D60026E273 /* PSINetworkController.m */,
+				66C2B7851502AA79008B2FE1 /* TwitterController.h */,
+				66C2B7861502AA79008B2FE1 /* TwitterController.m */,
 			);
 			name = "Supporting Classes";
+			sourceTree = "<group>";
+		};
+		66C2B79015053E62008B2FE1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				66C2B79D150914F4008B2FE1 /* Networking.h */,
+				66C2B78D15053E43008B2FE1 /* NetworkManager.h */,
+				66C2B78E15053E43008B2FE1 /* NetworkManager.m */,
+				66C2B79115066E40008B2FE1 /* HTTPOperation.h */,
+				66C2B79215066E40008B2FE1 /* HTTPOperation.m */,
+				66C2B7941507BA65008B2FE1 /* Logging.h */,
+				66C2B7951507BA65008B2FE1 /* Logging.m */,
+				66C2B7971507EA87008B2FE1 /* NetworkAPI.h */,
+				66C2B7981507EA87008B2FE1 /* NetworkAPI.m */,
+				66C2B79A15087422008B2FE1 /* ParseJSONOperation.h */,
+				66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */,
+				66C2B7A115091615008B2FE1 /* NSOperationWithState.h */,
+				66C2B7A215091617008B2FE1 /* NSOperationWithState.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -608,6 +663,13 @@
 				516E696A14FF46D60026E273 /* PSIdea.xcdatamodeld in Sources */,
 				516E696D14FF46D60026E273 /* User.m in Sources */,
 				516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */,
+				66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */,
+				66C2B78F15053E44008B2FE1 /* NetworkManager.m in Sources */,
+				66C2B79315066E40008B2FE1 /* HTTPOperation.m in Sources */,
+				66C2B7961507BA65008B2FE1 /* Logging.m in Sources */,
+				66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */,
+				66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */,
+				66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11D50b" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Event" representedClassName="Event" parentEntity="POI" syncable="YES">
         <attribute name="dateTimeEnd" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateTimeStart" optional="YES" attributeType="Date" syncable="YES"/>
@@ -40,8 +40,8 @@
         <relationship name="pois" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="POI" inverseName="creator" inverseEntity="POI" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="214" positionY="-54" width="128" height="90"/>
-        <element name="List" positionX="466" positionY="153" width="128" height="90"/>
+        <element name="Event" positionX="63" positionY="81" width="128" height="90"/>
+        <element name="List" positionX="414" positionY="-45" width="128" height="90"/>
         <element name="Photo" positionX="-83" positionY="198" width="128" height="105"/>
         <element name="POI" positionX="216" positionY="108" width="128" height="225"/>
         <element name="User" positionX="-63" positionY="-90" width="128" height="150"/>

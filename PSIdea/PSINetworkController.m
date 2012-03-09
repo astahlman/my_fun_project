@@ -12,6 +12,7 @@
 #import "User.h"
 #import "List.h"
 #import "Photo.h"
+#import "TwitterController.h"
 
 @implementation PSINetworkController
 
@@ -105,6 +106,11 @@ static NSDictionary* poiMappingDict = nil;
     POI* poi = [[POI alloc] init];
     NSString* pkString = [poiDict valueForKey:@"pk"];
     poi.idNumber = [NSNumber numberWithInteger:[pkString integerValue]];
+}
+
+-(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
+{
+    //TwitterController* 
 }
 
 @end

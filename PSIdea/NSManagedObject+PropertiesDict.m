@@ -7,31 +7,38 @@
 //
 
 #import "NSManagedObject+PropertiesDict.h"
+#import "CoreDataManager.h"
 
 @implementation NSManagedObject (PropertiesDict)
 
--(NSMutableDictionary*)propertiesDict
+-(NSDictionary*)propertiesDict
 {
     NSDictionary* attributes = [[self entity] attributesByName];
     NSDictionary* properties = [self dictionaryWithValuesForKeys:[attributes allKeys]];
-    NSMutableDictionary* allProps = [NSMutableDictionary dictionaryWithDictionary:properties];
+
+    return properties;
+}
+
+-(NSDictionary*)relationshipDict
+{
+    NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+    
     NSDictionary* relationships = [[self entity] relationshipsByName];
     for (id key in relationships)
     {
-        id relationship = [relationships objectForKey:key];
-        NSEntityDescription* destEntity = [relationship destinationEntity];
-        NSDictionary* relationshipAttributes = [destEntity attributesByName];
-        id relationshipObject = [self valueForKey:key];
-        NSDictionary* relationshipProps = [relationshipObject dictionaryWithValuesForKeys:[relationshipAttributes allKeys]];
-        if (relationshipProps == nil)
+        NSEntityDescription* targetEntity = [[self valueForKey:key] destinationEntity];
+        if ([[relationships valueForKey:key] isKindOfEntity:targetEntity])
         {
-            relationshipProps = [[NSDictionary alloc] init];
+            NSManagedObject* obj = [relationships valueForKey:key];
+            NSString* objPK = [[CoreDataManager primaryKeys] objectForKey:[obj.class description]];
+            [result setValue:[relationships valueForKey:key] forKey:objPK];
         }
-        //NSString* keyString = key;
-        //NSString* realString = [NSString stringWithString:keyString];
-        [allProps setObject:relationshipProps forKey:key];
+        else
+        {
+            // must be enumerable
+        }
     }
-    return allProps;
+    return (NSDictionary*)result;
 }
 
 @end

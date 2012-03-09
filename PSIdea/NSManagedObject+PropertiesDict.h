@@ -10,6 +10,6 @@
 
 @interface NSManagedObject (PropertiesDict)
 
--(NSMutableDictionary*)propertiesDict;
+-(NSDictionary*)propertiesDict;
 
 @end

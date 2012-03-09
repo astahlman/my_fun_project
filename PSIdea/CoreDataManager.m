@@ -27,4 +27,20 @@
     return mutableFetchResults;
 }
 
++(NSDictionary*)primaryKeys
+{
+    NSMutableDictionary* pk = [[NSMutableDictionary alloc] init];
+    [pk setValue:@"twitterHandle" forKey:@"User"];
+    [pk setValue:@"id" forKey:@"POI"];
+    //[pk setValue:@"url" forKey:@"Photo"];
+    return (NSDictionary*) pk;
+}
+
++(POI*)parsePOI:(NSDictionary*)poiDict
+{    
+    POI* poi = [[POI alloc] init];
+    [poi setValue:[poiDict valueForKey:@"id"] forKey:@"id"];
+}
+
++(User*)parseUser:(NSDictionary*)userDict;
 @end

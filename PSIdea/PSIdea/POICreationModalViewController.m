@@ -25,6 +25,7 @@
     }
     return self;
 }
+
 -(void) done{
     [locationController.locationManager stopUpdatingLocation];
     miniMapView.showsUserLocation=NO;
@@ -48,16 +49,18 @@
     //Create POI and Save context
     // Network Testing - Remove later
     PSINetworkController* net = [[PSINetworkController alloc] initWithBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
-    [net setDelegate:self];
+    [net setDelegate:net];
     [net postPoi:poi];
     [delegate didFinishEditing:YES];
 }
+
 -(void) cancel{
     miniMapView.showsUserLocation=NO;
     [locationController.locationManager stopUpdatingLocation];
     [delegate didFinishEditing:NO];
 
 }
+
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context{
     self = [super initWithNibName:@"POICreationModalViewController" bundle:[NSBundle mainBundle]];
     if(self){

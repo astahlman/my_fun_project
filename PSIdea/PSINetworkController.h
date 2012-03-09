@@ -10,7 +10,7 @@
 #import "POI.h"
 
 
-@interface PSINetworkController : NetworkController
+@interface PSINetworkController : NetworkController <NetworkControllerDelegate>
 
 @property (nonatomic, retain) NSURL* baseUrl;
 
