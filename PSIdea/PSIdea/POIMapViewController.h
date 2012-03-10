@@ -13,11 +13,12 @@
 #import "ViewWithCoreData.h"
 #import "CoreDataManager.h"
 #import "MyCLController.h"
+#import "POICreationModalViewController.h"
 
 
 #define METERS_PER_MILE 1609.344
 
-@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData,MyCLControllerDelegate>
+@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData,MyCLControllerDelegate, POICreationModalViewControllerDelegate>
 {
     BOOL nearby;
     BOOL centeredAtUserLocation;
@@ -37,4 +38,7 @@
 -(id)initWithContext:(NSManagedObjectContext *)context;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
+
+-(void) didFinishEditing:(BOOL) finished;
+
 @end

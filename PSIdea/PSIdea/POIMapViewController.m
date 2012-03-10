@@ -112,6 +112,19 @@
     [self plotPOI];
     
 }
+
+-(void) createNewPOI{
+    POICreationModalViewController *poiCreationMVC = [[POICreationModalViewController alloc] initWithManagedObjectContext:__managedObjectContext];
+    poiCreationMVC.delegate = self;
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:poiCreationMVC];
+    UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
+    [navCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault]; 
+    [navCon.toolbar setBackgroundImage:image forToolbarPosition:UIToolbarPositionBottom barMetrics:UIBarMetricsDefault];  
+    
+    navCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    [self presentModalViewController:navCon animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -119,6 +132,8 @@
     nearby = segmentedControl.selectedSegmentIndex;
     self.navigationItem.titleView = self.segmentedControl;
     [self resetView];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
 }
 
 
@@ -139,6 +154,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {  
     defaultRegion = __poiMapView.region;
+        
     if (nearby) {
         __poiMapView.showsUserLocation = YES;
 
@@ -209,4 +225,15 @@
         // TODO: add button so that user can get back to location after panning
     }
 }
+
+-(void) didFinishEditing:(BOOL)finished {
+        if (YES) {
+            [__managedObjectContext save:nil];
+            
+        }
+    [self.modalViewController dismissModalViewControllerAnimated:YES];
+
+}
+
+
 @end

@@ -27,7 +27,15 @@
         return;
     
     if(__mapView.annotations.count >1) {
-        return;
+     
+        for (id<MKAnnotation> annotation in __mapView.annotations) {
+            if(annotation!=__mapView.userLocation){
+                [__mapView removeAnnotation:annotation];
+                
+            }
+                
+        }
+
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];   
     CLLocationCoordinate2D touchMapCoordinate = 
@@ -62,7 +70,7 @@
 #pragma mark - View lifecycle
 
 - (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.002, 0.002);
     MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
     [__mapView setRegion:region animated:animated];
 }
@@ -89,6 +97,8 @@
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [__mapView addGestureRecognizer:lpgr];
     //[__mapView addGestureRecognizer:pgr];
+    
+    self.navigationItem.rightBarButtonItem = userLocationButton;
 
 }
 

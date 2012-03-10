@@ -10,7 +10,6 @@
 #import "NSObject+PropertyArray.h"
 #import "POI.h"
 #import "User.h"
-#import "List.h"
 #import "Photo.h"
 #import "TwitterController.h"
 
@@ -37,7 +36,7 @@ static NSDictionary* poiMappingDict = nil;
 
 +(NSDictionary*)getModelDictionary
 {
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[POI class], @"pois.poi", [User class], @"pois.user", [List class], @"pois.list", [Photo class], @"pois.photo", nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[POI class], @"pois.poi", [User class], @"pois.user", [Photo class], @"pois.photo", nil];
     return dict;
 }
 

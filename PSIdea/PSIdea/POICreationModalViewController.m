@@ -14,6 +14,7 @@
 @synthesize titleField;
 @synthesize detailsField;
 @synthesize miniMapView;
+@synthesize publicButton;
 @synthesize delegate;
 @synthesize listNumber;
 
@@ -27,7 +28,6 @@
 }
 
 -(void) done{
-    [locationController.locationManager stopUpdatingLocation];
     miniMapView.showsUserLocation=NO;
     // need to pass in user id for user logged in.
     int number = arc4random() % 10000; // This will need to change. Could get same number multiple times
@@ -40,12 +40,7 @@
         details = nil;
     }
     
-    if(!listNumber){
-        listNumber = [NSNumber numberWithInt:1];
-    }
-    NSArray* lists = [[NSArray alloc] initWithObjects:listNumber, nil];
-    NSNumber *public = [NSNumber numberWithBool:publicPOI];
-    POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andPublic:public andRating:nil andCreator:nil andLists:lists inManagedObjectContext:__managedObjectContext];
+    POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
     //Create POI and Save context
     // Network Testing - Remove later
     PSINetworkController* net = [[PSINetworkController alloc] initWithBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
@@ -65,7 +60,7 @@
     self = [super initWithNibName:@"POICreationModalViewController" bundle:[NSBundle mainBundle]];
     if(self){
         __managedObjectContext = context;
-        publicPOI = NO;
+        tweetPOI = NO;
 
     }
     
@@ -80,10 +75,23 @@
 -(void) locationUpdate:(CLLocation *)location{
     currentLocation =location;
     [self zoomToLocation:location];
+    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:currentLocation.coordinate title:nil];
+    for (id<MKAnnotation> annotation in miniMapView.annotations) {
+        [miniMapView removeAnnotation:annotation];
+    }
+    [miniMapView addAnnotation:annotation];
+    
+    [locationController.locationManager stopUpdatingLocation];
+
+
 }
 
 -(void) locationError:(NSError *)error{
     NSLog(@"ERROR: %@", error);
+    
+    [locationController.locationManager stopUpdatingLocation];
+    [locationController.locationManager startUpdatingLocation];
+
 }
 
 -(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
@@ -115,11 +123,10 @@
     backgroundImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     backgroundImageView.layer.borderWidth = 1.2;
     backgroundImageView.layer.masksToBounds = YES;
+    [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
+    tweetPOI = NO;
     
-    detailsField.layer.cornerRadius = 10.0;
-    detailsField.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    detailsField.layer.borderWidth = 1.2;
-    detailsField.layer.masksToBounds = YES;
+    
 
 
     
@@ -131,14 +138,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     [titleField becomeFirstResponder];
-    tapeImage.layer.shadowColor = [UIColor blackColor].CGColor;
-    tapeImage.layer.shadowOffset = CGSizeMake(0, 1);
-    tapeImage.layer.shouldRasterize = YES;
-    tapeImage.layer.shadowOpacity = 0.8;
-    tapeImage.layer.shadowRadius = 2.0;
-    tapeImage.layer.contentsScale = [UIScreen mainScreen].scale;
-
- }
+    
+    }
 
 - (void)viewDidUnload
 {
@@ -149,6 +150,7 @@
     mainInfoView = nil;
     [self setInfoButton:nil];
     backgroundImageView = nil;
+    [self setPublicButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -186,6 +188,21 @@
     }
     [miniMapView addAnnotation:annotation];
     currentLocation = location;
-    publicPOI = makePublic;
+    tweetPOI = makePublic;
+}
+- (IBAction)publicButtonSelected:(id)sender {
+    
+    //Need to update this to control Tweeting and Rename
+    
+    if (tweetPOI  == YES) {
+        
+        [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
+        tweetPOI = NO;
+    }
+    else{
+        
+        [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
+        tweetPOI = YES;
+    }
 }
 @end

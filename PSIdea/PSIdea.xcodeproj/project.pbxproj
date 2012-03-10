@@ -14,22 +14,14 @@
 		516E67C014FF456C0026E273 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516E67BF14FF456C0026E273 /* CoreData.framework */; };
 		516E692F14FF46D60026E273 /* CoreDataCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68BF14FF46D60026E273 /* CoreDataCreator.m */; };
 		516E693014FF46D60026E273 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68C114FF46D60026E273 /* CoreDataManager.m */; };
-		516E693114FF46D60026E273 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68C314FF46D60026E273 /* List.m */; };
-		516E693214FF46D60026E273 /* ListEditingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E68C414FF46D60026E273 /* ListEditingTableViewCell.xib */; };
-		516E693314FF46D60026E273 /* ListsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68C614FF46D60026E273 /* ListsScrollViewController.m */; };
-		516E693414FF46D60026E273 /* ListsScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E68C714FF46D60026E273 /* ListsScrollViewController.xib */; };
 		516E693514FF46D60026E273 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E68C814FF46D60026E273 /* MainWindow.xib */; };
 		516E693614FF46D60026E273 /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68CA14FF46D60026E273 /* MyCLController.m */; };
 		516E693714FF46D60026E273 /* NetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68CC14FF46D60026E273 /* NetworkController.m */; };
 		516E693814FF46D60026E273 /* NSManagedObject+PropertiesDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68CE14FF46D60026E273 /* NSManagedObject+PropertiesDict.m */; };
 		516E693914FF46D60026E273 /* NSObject+PropertyArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68D014FF46D60026E273 /* NSObject+PropertyArray.m */; };
-		516E693A14FF46D60026E273 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68D214FF46D60026E273 /* POI.m */; };
 		516E693B14FF46D60026E273 /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68D414FF46D60026E273 /* POIAnnotation.m */; };
 		516E693C14FF46D60026E273 /* POIMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E68D514FF46D60026E273 /* POIMapView.xib */; };
-		516E693D14FF46D60026E273 /* POIScrollTableViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68D714FF46D60026E273 /* POIScrollTableViewControllers.m */; };
-		516E693E14FF46D60026E273 /* POIScrollTableViewControllers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E68D814FF46D60026E273 /* POIScrollTableViewControllers.xib */; };
 		516E693F14FF46D60026E273 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68DB14FF46D60026E273 /* AppDelegate.m */; };
-		516E694014FF46D60026E273 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E68DC14FF46D60026E273 /* background2.png */; };
 		516E694114FF46D60026E273 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68DF14FF46D60026E273 /* NSObject+SBJson.m */; };
 		516E694214FF46D60026E273 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68E214FF46D60026E273 /* SBJsonParser.m */; };
 		516E694314FF46D60026E273 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68E414FF46D60026E273 /* SBJsonStreamParser.m */; };
@@ -44,15 +36,8 @@
 		516E694C14FF46D60026E273 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68F614FF46D60026E273 /* SBJsonWriter.m */; };
 		516E694D14FF46D60026E273 /* DraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68F814FF46D60026E273 /* DraggableButton.m */; };
 		516E694E14FF46D60026E273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 516E68F914FF46D60026E273 /* InfoPlist.strings */; };
-		516E694F14FF46D60026E273 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68FC14FF46D60026E273 /* Event.m */; };
 		516E695014FF46D60026E273 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E68FE14FF46D60026E273 /* GridCell.m */; };
 		516E695114FF46D60026E273 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E690014FF46D60026E273 /* GridViewController.m */; };
-		516E695214FF46D60026E273 /* ListEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E690214FF46D60026E273 /* ListEditingViewController.m */; };
-		516E695314FF46D60026E273 /* ListEditingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E690314FF46D60026E273 /* ListEditingViewController.xib */; };
-		516E695414FF46D60026E273 /* ListEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E690514FF46D60026E273 /* ListEditorViewController.m */; };
-		516E695514FF46D60026E273 /* ListEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E690614FF46D60026E273 /* ListEditorViewController.xib */; };
-		516E695614FF46D60026E273 /* locationArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E690714FF46D60026E273 /* locationArrow.png */; };
-		516E695714FF46D60026E273 /* locationArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E690814FF46D60026E273 /* locationArrow@2x.png */; };
 		516E695814FF46D60026E273 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E690914FF46D60026E273 /* main.m */; };
 		516E695914FF46D60026E273 /* mapOptionsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E690A14FF46D60026E273 /* mapOptionsBackground.png */; };
 		516E695A14FF46D60026E273 /* MapOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E690C14FF46D60026E273 /* MapOptionsViewController.m */; };
@@ -61,7 +46,6 @@
 		516E695D14FF46D60026E273 /* MWFSlideNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691014FF46D60026E273 /* MWFSlideNavigationViewController.m */; };
 		516E695E14FF46D60026E273 /* normalPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E691114FF46D60026E273 /* normalPattern1.png */; };
 		516E695F14FF46D60026E273 /* notebook_paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E691214FF46D60026E273 /* notebook_paper.png */; };
-		516E696014FF46D60026E273 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691414FF46D60026E273 /* Photo.m */; };
 		516E696114FF46D60026E273 /* POIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691714FF46D60026E273 /* POIButton.m */; };
 		516E696214FF46D60026E273 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691914FF46D60026E273 /* POICreationModalViewController.m */; };
 		516E696314FF46D60026E273 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E691A14FF46D60026E273 /* POICreationModalViewController.xib */; };
@@ -71,10 +55,8 @@
 		516E696714FF46D60026E273 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E692014FF46D60026E273 /* POILocationChooserViewController.xib */; };
 		516E696814FF46D60026E273 /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E692214FF46D60026E273 /* POIMapViewController.m */; };
 		516E696914FF46D60026E273 /* PSIdea-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516E692314FF46D60026E273 /* PSIdea-Info.plist */; };
-		516E696A14FF46D60026E273 /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 516E692514FF46D60026E273 /* PSIdea.xcdatamodeld */; };
 		516E696B14FF46D60026E273 /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 516E692714FF46D60026E273 /* SampleData.plist */; };
 		516E696C14FF46D60026E273 /* selectedPattern1.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E692814FF46D60026E273 /* selectedPattern1.png */; };
-		516E696D14FF46D60026E273 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E692A14FF46D60026E273 /* User.m */; };
 		516E696E14FF46D60026E273 /* yellow_ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E692C14FF46D60026E273 /* yellow_ball.png */; };
 		516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E692E14FF46D60026E273 /* PSINetworkController.m */; };
 		516E697114FF470A0026E273 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516E697014FF470A0026E273 /* CoreLocation.framework */; };
@@ -90,6 +72,22 @@
 		516E699314FF5D750026E273 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699114FF5D740026E273 /* list@2x.png */; };
 		516E699614FF5DFF0026E273 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699414FF5DFE0026E273 /* marker.png */; };
 		516E699714FF5DFF0026E273 /* marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699514FF5DFE0026E273 /* marker@2x.png */; };
+
+
+
+
+
+		517E6E5F150A71B6003B7849 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E5E150A71B6003B7849 /* POI.m */; };
+		517E6E62150A71B6003B7849 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E61150A71B6003B7849 /* User.m */; };
+		517E6E68150AEE28003B7849 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E67150AEE28003B7849 /* Photo.m */; };
+		51A2DA6D150AF49B00A87A0E /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */; };
+		51A2DA74150AFE5500A87A0E /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A2DA72150AFE5000A87A0E /* location@2x.png */; };
+		51A2DA75150AFE5500A87A0E /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A2DA73150AFE5100A87A0E /* location.png */; };
+		51B4C70E1505D9A800123744 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B4C70D1505D9A800123744 /* background2.png */; };
+		51EDEFFD1507216400431732 /* button_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51EDEFFB1507216400431732 /* button_unselected@2x.png */; };
+		51EDEFFE1507216400431732 /* button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51EDEFFC1507216400431732 /* button_selected@2x.png */; };
+
+
 		66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7861502AA79008B2FE1 /* TwitterController.m */; };
 		66C2B78A1502AB00008B2FE1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B7891502AB00008B2FE1 /* Twitter.framework */; };
 		66C2B78C1502AB3C008B2FE1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B78B1502AB3C008B2FE1 /* Accounts.framework */; };
@@ -99,6 +97,7 @@
 		66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7981507EA87008B2FE1 /* NetworkAPI.m */; };
 		66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */; };
 		66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7A215091617008B2FE1 /* NSOperationWithState.m */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,12 +111,6 @@
 		516E68BF14FF46D60026E273 /* CoreDataCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataCreator.m; sourceTree = "<group>"; };
 		516E68C014FF46D60026E273 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		516E68C114FF46D60026E273 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
-		516E68C214FF46D60026E273 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		516E68C314FF46D60026E273 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		516E68C414FF46D60026E273 /* ListEditingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListEditingTableViewCell.xib; sourceTree = "<group>"; };
-		516E68C514FF46D60026E273 /* ListsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsScrollViewController.h; sourceTree = "<group>"; };
-		516E68C614FF46D60026E273 /* ListsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsScrollViewController.m; sourceTree = "<group>"; };
-		516E68C714FF46D60026E273 /* ListsScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListsScrollViewController.xib; sourceTree = "<group>"; };
 		516E68C814FF46D60026E273 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		516E68C914FF46D60026E273 /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCLController.h; sourceTree = "<group>"; };
 		516E68CA14FF46D60026E273 /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCLController.m; sourceTree = "<group>"; };
@@ -127,17 +120,11 @@
 		516E68CE14FF46D60026E273 /* NSManagedObject+PropertiesDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+PropertiesDict.m"; sourceTree = "<group>"; };
 		516E68CF14FF46D60026E273 /* NSObject+PropertyArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyArray.h"; sourceTree = "<group>"; };
 		516E68D014FF46D60026E273 /* NSObject+PropertyArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyArray.m"; sourceTree = "<group>"; };
-		516E68D114FF46D60026E273 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
-		516E68D214FF46D60026E273 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
 		516E68D314FF46D60026E273 /* POIAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIAnnotation.h; sourceTree = "<group>"; };
 		516E68D414FF46D60026E273 /* POIAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIAnnotation.m; sourceTree = "<group>"; };
 		516E68D514FF46D60026E273 /* POIMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIMapView.xib; sourceTree = "<group>"; };
-		516E68D614FF46D60026E273 /* POIScrollTableViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIScrollTableViewControllers.h; sourceTree = "<group>"; };
-		516E68D714FF46D60026E273 /* POIScrollTableViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIScrollTableViewControllers.m; sourceTree = "<group>"; };
-		516E68D814FF46D60026E273 /* POIScrollTableViewControllers.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIScrollTableViewControllers.xib; sourceTree = "<group>"; };
 		516E68DA14FF46D60026E273 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = PSidea/AppDelegate.h; sourceTree = "<group>"; };
 		516E68DB14FF46D60026E273 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = PSidea/AppDelegate.m; sourceTree = "<group>"; };
-		516E68DC14FF46D60026E273 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background2.png; path = PSidea/background2.png; sourceTree = "<group>"; };
 		516E68DE14FF46D60026E273 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		516E68DF14FF46D60026E273 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		516E68E014FF46D60026E273 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -166,20 +153,10 @@
 		516E68F714FF46D60026E273 /* DraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableButton.h; path = PSidea/DraggableButton.h; sourceTree = "<group>"; };
 		516E68F814FF46D60026E273 /* DraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableButton.m; path = PSidea/DraggableButton.m; sourceTree = "<group>"; };
 		516E68FA14FF46D60026E273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		516E68FB14FF46D60026E273 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = PSidea/Event.h; sourceTree = "<group>"; };
-		516E68FC14FF46D60026E273 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = PSidea/Event.m; sourceTree = "<group>"; };
 		516E68FD14FF46D60026E273 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridCell.h; path = PSidea/GridCell.h; sourceTree = "<group>"; };
 		516E68FE14FF46D60026E273 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridCell.m; path = PSidea/GridCell.m; sourceTree = "<group>"; };
 		516E68FF14FF46D60026E273 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridViewController.h; path = PSidea/GridViewController.h; sourceTree = "<group>"; };
 		516E690014FF46D60026E273 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridViewController.m; path = PSidea/GridViewController.m; sourceTree = "<group>"; };
-		516E690114FF46D60026E273 /* ListEditingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListEditingViewController.h; path = PSidea/ListEditingViewController.h; sourceTree = "<group>"; };
-		516E690214FF46D60026E273 /* ListEditingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListEditingViewController.m; path = PSidea/ListEditingViewController.m; sourceTree = "<group>"; };
-		516E690314FF46D60026E273 /* ListEditingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListEditingViewController.xib; path = PSidea/ListEditingViewController.xib; sourceTree = "<group>"; };
-		516E690414FF46D60026E273 /* ListEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListEditorViewController.h; path = PSidea/ListEditorViewController.h; sourceTree = "<group>"; };
-		516E690514FF46D60026E273 /* ListEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListEditorViewController.m; path = PSidea/ListEditorViewController.m; sourceTree = "<group>"; };
-		516E690614FF46D60026E273 /* ListEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListEditorViewController.xib; path = PSidea/ListEditorViewController.xib; sourceTree = "<group>"; };
-		516E690714FF46D60026E273 /* locationArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locationArrow.png; path = PSidea/locationArrow.png; sourceTree = "<group>"; };
-		516E690814FF46D60026E273 /* locationArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locationArrow@2x.png"; path = "PSidea/locationArrow@2x.png"; sourceTree = "<group>"; };
 		516E690914FF46D60026E273 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = PSidea/main.m; sourceTree = "<group>"; };
 		516E690A14FF46D60026E273 /* mapOptionsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapOptionsBackground.png; path = PSidea/mapOptionsBackground.png; sourceTree = "<group>"; };
 		516E690B14FF46D60026E273 /* MapOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOptionsViewController.h; path = PSidea/MapOptionsViewController.h; sourceTree = "<group>"; };
@@ -190,8 +167,6 @@
 		516E691014FF46D60026E273 /* MWFSlideNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFSlideNavigationViewController.m; path = PSidea/MWFSlideNavigationViewController.m; sourceTree = "<group>"; };
 		516E691114FF46D60026E273 /* normalPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = normalPattern1.png; path = PSidea/normalPattern1.png; sourceTree = "<group>"; };
 		516E691214FF46D60026E273 /* notebook_paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notebook_paper.png; path = PSidea/notebook_paper.png; sourceTree = "<group>"; };
-		516E691314FF46D60026E273 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = PSidea/Photo.h; sourceTree = "<group>"; };
-		516E691414FF46D60026E273 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = PSidea/Photo.m; sourceTree = "<group>"; };
 		516E691514FF46D60026E273 /* POIAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POIAnnotationView.h; path = PSidea/POIAnnotationView.h; sourceTree = "<group>"; };
 		516E691614FF46D60026E273 /* POIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POIButton.h; path = PSidea/POIButton.h; sourceTree = "<group>"; };
 		516E691714FF46D60026E273 /* POIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POIButton.m; path = PSidea/POIButton.m; sourceTree = "<group>"; };
@@ -208,11 +183,8 @@
 		516E692214FF46D60026E273 /* POIMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POIMapViewController.m; path = PSidea/POIMapViewController.m; sourceTree = "<group>"; };
 		516E692314FF46D60026E273 /* PSIdea-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "PSIdea-Info.plist"; path = "PSidea/PSIdea-Info.plist"; sourceTree = "<group>"; };
 		516E692414FF46D60026E273 /* PSIdea-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PSIdea-Prefix.pch"; path = "PSidea/PSIdea-Prefix.pch"; sourceTree = "<group>"; };
-		516E692614FF46D60026E273 /* PSIdea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea.xcdatamodel; sourceTree = "<group>"; };
 		516E692714FF46D60026E273 /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SampleData.plist; path = PSidea/SampleData.plist; sourceTree = "<group>"; };
 		516E692814FF46D60026E273 /* selectedPattern1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedPattern1.png; path = PSidea/selectedPattern1.png; sourceTree = "<group>"; };
-		516E692914FF46D60026E273 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = PSidea/User.h; sourceTree = "<group>"; };
-		516E692A14FF46D60026E273 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = PSidea/User.m; sourceTree = "<group>"; };
 		516E692B14FF46D60026E273 /* ViewWithCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewWithCoreData.h; path = PSidea/ViewWithCoreData.h; sourceTree = "<group>"; };
 		516E692C14FF46D60026E273 /* yellow_ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellow_ball.png; path = PSidea/yellow_ball.png; sourceTree = "<group>"; };
 		516E692D14FF46D60026E273 /* PSINetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSINetworkController.h; sourceTree = "<group>"; };
@@ -230,6 +202,23 @@
 		516E699114FF5D740026E273 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		516E699414FF5DFE0026E273 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		516E699514FF5DFE0026E273 /* marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker@2x.png"; sourceTree = "<group>"; };
+
+
+
+
+
+		517E6E5D150A71B6003B7849 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
+		517E6E5E150A71B6003B7849 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
+		517E6E60150A71B6003B7849 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		517E6E61150A71B6003B7849 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		517E6E66150AEE28003B7849 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		517E6E67150AEE28003B7849 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea.xcdatamodel; sourceTree = "<group>"; };
+		51A2DA72150AFE5000A87A0E /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
+		51A2DA73150AFE5100A87A0E /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		51B4C70D1505D9A800123744 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		51EDEFFB1507216400431732 /* button_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_unselected@2x.png"; sourceTree = "<group>"; };
+		51EDEFFC1507216400431732 /* button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_selected@2x.png"; sourceTree = "<group>"; };
 		66C2B7851502AA79008B2FE1 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
 		66C2B7861502AA79008B2FE1 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		66C2B7891502AB00008B2FE1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -248,6 +237,7 @@
 		66C2B7A115091615008B2FE1 /* NSOperationWithState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationWithState.h; sourceTree = "<group>"; };
 		66C2B7A215091617008B2FE1 /* NSOperationWithState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationWithState.m; sourceTree = "<group>"; };
 		66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataEntities.h; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,8 +336,8 @@
 		516E69A114FFD53C0026E273 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				516E69A314FFD5520026E273 /* Images */,
 				516E69A214FFD5450026E273 /* xib */,
+				516E69A314FFD5520026E273 /* Images */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -355,13 +345,8 @@
 		516E69A214FFD5450026E273 /* xib */ = {
 			isa = PBXGroup;
 			children = (
-				516E68C414FF46D60026E273 /* ListEditingTableViewCell.xib */,
-				516E68C714FF46D60026E273 /* ListsScrollViewController.xib */,
 				516E68C814FF46D60026E273 /* MainWindow.xib */,
 				516E68D514FF46D60026E273 /* POIMapView.xib */,
-				516E68D814FF46D60026E273 /* POIScrollTableViewControllers.xib */,
-				516E690314FF46D60026E273 /* ListEditingViewController.xib */,
-				516E690614FF46D60026E273 /* ListEditorViewController.xib */,
 				516E690D14FF46D60026E273 /* MapOptionsViewController.xib */,
 				516E691A14FF46D60026E273 /* POICreationModalViewController.xib */,
 				516E691B14FF46D60026E273 /* POIDetailsView.xib */,
@@ -373,6 +358,7 @@
 		516E69A314FFD5520026E273 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				51B4C70D1505D9A800123744 /* background2.png */,
 				516E690A14FF46D60026E273 /* mapOptionsBackground.png */,
 				516E690E14FF46D60026E273 /* marker_pin.png */,
 				516E699414FF5DFE0026E273 /* marker.png */,
@@ -385,15 +371,16 @@
 				516E697C14FF50840026E273 /* navigationBarBackground.png */,
 				516E697D14FF50840026E273 /* navigationBarBackground@2x.png */,
 				516E698614FF559E0026E273 /* add.png */,
+				51A2DA72150AFE5000A87A0E /* location@2x.png */,
+				51A2DA73150AFE5100A87A0E /* location.png */,
 				516E697814FF4F750026E273 /* selectedButton.png */,
 				5152DA9F15013AFC0069F28E /* background.png */,
-				516E68DC14FF46D60026E273 /* background2.png */,
-				516E690714FF46D60026E273 /* locationArrow.png */,
-				516E690814FF46D60026E273 /* locationArrow@2x.png */,
 				516E691114FF46D60026E273 /* normalPattern1.png */,
 				516E691214FF46D60026E273 /* notebook_paper.png */,
 				516E692814FF46D60026E273 /* selectedPattern1.png */,
 				516E692C14FF46D60026E273 /* yellow_ball.png */,
+				51EDEFFB1507216400431732 /* button_unselected@2x.png */,
+				51EDEFFC1507216400431732 /* button_selected@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -417,14 +404,6 @@
 				516E68FF14FF46D60026E273 /* GridViewController.h */,
 				516E690014FF46D60026E273 /* GridViewController.m */,
 				516E691514FF46D60026E273 /* POIAnnotationView.h */,
-				516E68C514FF46D60026E273 /* ListsScrollViewController.h */,
-				516E68C614FF46D60026E273 /* ListsScrollViewController.m */,
-				516E68D614FF46D60026E273 /* POIScrollTableViewControllers.h */,
-				516E68D714FF46D60026E273 /* POIScrollTableViewControllers.m */,
-				516E690114FF46D60026E273 /* ListEditingViewController.h */,
-				516E690214FF46D60026E273 /* ListEditingViewController.m */,
-				516E690414FF46D60026E273 /* ListEditorViewController.h */,
-				516E690514FF46D60026E273 /* ListEditorViewController.m */,
 				516E690B14FF46D60026E273 /* MapOptionsViewController.h */,
 				516E690C14FF46D60026E273 /* MapOptionsViewController.m */,
 				516E690F14FF46D60026E273 /* MWFSlideNavigationViewController.h */,
@@ -452,6 +431,19 @@
 		51745EE714FFD893001A3162 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+
+
+
+
+
+				51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */,
+				517E6E66150AEE28003B7849 /* Photo.h */,
+				517E6E67150AEE28003B7849 /* Photo.m */,
+				517E6E60150A71B6003B7849 /* User.h */,
+				517E6E61150A71B6003B7849 /* User.m */,
+				517E6E5D150A71B6003B7849 /* POI.h */,
+				517E6E5E150A71B6003B7849 /* POI.m */,
+
 				66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */,
 				516E68C214FF46D60026E273 /* List.h */,
 				516E68C314FF46D60026E273 /* List.m */,
@@ -463,8 +455,6 @@
 				516E691414FF46D60026E273 /* Photo.m */,
 				516E692514FF46D60026E273 /* PSIdea.xcdatamodeld */,
 				516E692714FF46D60026E273 /* SampleData.plist */,
-				516E692914FF46D60026E273 /* User.h */,
-				516E692A14FF46D60026E273 /* User.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -552,7 +542,7 @@
 		516E67AC14FF456C0026E273 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 516E67AF14FF456C0026E273 /* Build configuration list for PBXProject "PSIdea" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -576,17 +566,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				516E693214FF46D60026E273 /* ListEditingTableViewCell.xib in Resources */,
-				516E693414FF46D60026E273 /* ListsScrollViewController.xib in Resources */,
 				516E693514FF46D60026E273 /* MainWindow.xib in Resources */,
 				516E693C14FF46D60026E273 /* POIMapView.xib in Resources */,
-				516E693E14FF46D60026E273 /* POIScrollTableViewControllers.xib in Resources */,
-				516E694014FF46D60026E273 /* background2.png in Resources */,
 				516E694E14FF46D60026E273 /* InfoPlist.strings in Resources */,
-				516E695314FF46D60026E273 /* ListEditingViewController.xib in Resources */,
-				516E695514FF46D60026E273 /* ListEditorViewController.xib in Resources */,
-				516E695614FF46D60026E273 /* locationArrow.png in Resources */,
-				516E695714FF46D60026E273 /* locationArrow@2x.png in Resources */,
 				516E695914FF46D60026E273 /* mapOptionsBackground.png in Resources */,
 				516E695B14FF46D60026E273 /* MapOptionsViewController.xib in Resources */,
 				516E695C14FF46D60026E273 /* marker_pin.png in Resources */,
@@ -611,6 +593,11 @@
 				516E699614FF5DFF0026E273 /* marker.png in Resources */,
 				516E699714FF5DFF0026E273 /* marker@2x.png in Resources */,
 				5152DAA015013AFC0069F28E /* background.png in Resources */,
+				51B4C70E1505D9A800123744 /* background2.png in Resources */,
+				51EDEFFD1507216400431732 /* button_unselected@2x.png in Resources */,
+				51EDEFFE1507216400431732 /* button_selected@2x.png in Resources */,
+				51A2DA74150AFE5500A87A0E /* location@2x.png in Resources */,
+				51A2DA75150AFE5500A87A0E /* location.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,15 +610,11 @@
 			files = (
 				516E692F14FF46D60026E273 /* CoreDataCreator.m in Sources */,
 				516E693014FF46D60026E273 /* CoreDataManager.m in Sources */,
-				516E693114FF46D60026E273 /* List.m in Sources */,
-				516E693314FF46D60026E273 /* ListsScrollViewController.m in Sources */,
 				516E693614FF46D60026E273 /* MyCLController.m in Sources */,
 				516E693714FF46D60026E273 /* NetworkController.m in Sources */,
 				516E693814FF46D60026E273 /* NSManagedObject+PropertiesDict.m in Sources */,
 				516E693914FF46D60026E273 /* NSObject+PropertyArray.m in Sources */,
-				516E693A14FF46D60026E273 /* POI.m in Sources */,
 				516E693B14FF46D60026E273 /* POIAnnotation.m in Sources */,
-				516E693D14FF46D60026E273 /* POIScrollTableViewControllers.m in Sources */,
 				516E693F14FF46D60026E273 /* AppDelegate.m in Sources */,
 				516E694114FF46D60026E273 /* NSObject+SBJson.m in Sources */,
 				516E694214FF46D60026E273 /* SBJsonParser.m in Sources */,
@@ -646,23 +629,28 @@
 				516E694B14FF46D60026E273 /* SBJsonUTF8Stream.m in Sources */,
 				516E694C14FF46D60026E273 /* SBJsonWriter.m in Sources */,
 				516E694D14FF46D60026E273 /* DraggableButton.m in Sources */,
-				516E694F14FF46D60026E273 /* Event.m in Sources */,
 				516E695014FF46D60026E273 /* GridCell.m in Sources */,
 				516E695114FF46D60026E273 /* GridViewController.m in Sources */,
-				516E695214FF46D60026E273 /* ListEditingViewController.m in Sources */,
-				516E695414FF46D60026E273 /* ListEditorViewController.m in Sources */,
 				516E695814FF46D60026E273 /* main.m in Sources */,
 				516E695A14FF46D60026E273 /* MapOptionsViewController.m in Sources */,
 				516E695D14FF46D60026E273 /* MWFSlideNavigationViewController.m in Sources */,
-				516E696014FF46D60026E273 /* Photo.m in Sources */,
 				516E696114FF46D60026E273 /* POIButton.m in Sources */,
 				516E696214FF46D60026E273 /* POICreationModalViewController.m in Sources */,
 				516E696514FF46D60026E273 /* POIDetailsViewController.m in Sources */,
 				516E696614FF46D60026E273 /* POILocationChooserViewController.m in Sources */,
 				516E696814FF46D60026E273 /* POIMapViewController.m in Sources */,
-				516E696A14FF46D60026E273 /* PSIdea.xcdatamodeld in Sources */,
-				516E696D14FF46D60026E273 /* User.m in Sources */,
 				516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */,
+
+
+
+
+
+				517E6E5F150A71B6003B7849 /* POI.m in Sources */,
+				517E6E62150A71B6003B7849 /* User.m in Sources */,
+				517E6E68150AEE28003B7849 /* Photo.m in Sources */,
+				51A2DA6D150AF49B00A87A0E /* PSIdea.xcdatamodeld in Sources */,
+
+
 				66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */,
 				66C2B78F15053E44008B2FE1 /* NetworkManager.m in Sources */,
 				66C2B79315066E40008B2FE1 /* HTTPOperation.m in Sources */,
@@ -670,6 +658,11 @@
 				66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */,
 				66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */,
 				66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */,
+
+
+
+
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,14 +772,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		516E692514FF46D60026E273 /* PSIdea.xcdatamodeld */ = {
+		51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				516E692614FF46D60026E273 /* PSIdea.xcdatamodel */,
+				51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */,
 			);
-			currentVersion = 516E692614FF46D60026E273 /* PSIdea.xcdatamodel */;
-			name = PSIdea.xcdatamodeld;
-			path = PSidea/PSIdea.xcdatamodeld;
+			currentVersion = 51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */;
+			path = PSIdea.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

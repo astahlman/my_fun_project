@@ -30,14 +30,16 @@
     __weak IBOutlet UIView *mainInfoView;
     CLLocation *currentLocation;
     __weak IBOutlet UIImageView *backgroundImageView;
-    BOOL publicPOI;
+    BOOL tweetPOI;
  
 }
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
+@property (weak, nonatomic) IBOutlet UIButton *publicButton;
 @property (nonatomic, retain) NSNumber *listNumber;
+- (IBAction)publicButtonSelected:(id)sender;
 
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
