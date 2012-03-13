@@ -37,33 +37,32 @@
 
 - (id)init
 {
-    // any thread can call init, but serialised by +sharedManager
     self = [super init];
     if (self != nil) {
         
         // We don't limit network management queue because its operations aren't resource intensive
-        self->_networkManagementQueue = [[NSOperationQueue alloc] init];
-        assert(self->_networkManagementQueue != nil);
-        [self->_networkManagementQueue setMaxConcurrentOperationCount:NSIntegerMax];
-        assert(self->_networkManagementQueue != nil);
+        _networkManagementQueue = [[NSOperationQueue alloc] init];
+        assert(_networkManagementQueue != nil);
+        [_networkManagementQueue setMaxConcurrentOperationCount:NSIntegerMax];
+        assert(_networkManagementQueue != nil);
         
         // Limit network transfer queue to 4 simultaneous network requests.
-        self->_networkTransferQueue = [[NSOperationQueue alloc] init];
-        assert(self->_networkTransferQueue != nil);
-        [self->_networkTransferQueue setMaxConcurrentOperationCount:4];
-        assert(self->_networkTransferQueue != nil);
+        _networkTransferQueue = [[NSOperationQueue alloc] init];
+        assert(_networkTransferQueue != nil);
+        [_networkTransferQueue setMaxConcurrentOperationCount:4];
+        assert(_networkTransferQueue != nil);
         
         // Leave the max number of current operations as the default - currently 1
-        self->_CPUqueue = [[NSOperationQueue alloc] init];
-        assert(self->_CPUqueue != nil);
+        _CPUqueue = [[NSOperationQueue alloc] init];
+        assert(_CPUqueue != nil);
         
         // create the mappings for the running operations
-        self->_runningOperationToTargetMap = [[NSMutableDictionary alloc] init];
-        assert(self->_runningOperationToTargetMap != NULL);
-        self->_runningOperationToActionMap = [[NSMutableDictionary alloc] init];
-        assert(self->_runningOperationToActionMap != NULL);
-        self->_runningOperationToThreadMap = [[NSMutableDictionary alloc] init];
-        assert(self->_runningOperationToThreadMap != NULL);
+        _runningOperationToTargetMap = [[NSMutableDictionary alloc] init];
+        assert(_runningOperationToTargetMap != NULL);
+        _runningOperationToActionMap = [[NSMutableDictionary alloc] init];
+        assert(_runningOperationToActionMap != NULL);
+        _runningOperationToThreadMap = [[NSMutableDictionary alloc] init];
+        assert(_runningOperationToThreadMap != NULL);
     }
     
     return self;
@@ -174,17 +173,17 @@
     [queue addOperation:operation];
 }
 
-- (void)addNetworkManagementOperation:(NSOperation *)operation finishedTarget:(id)target action:(SEL)action
+- (void)addNetworkManagementOperation:(NSOperationWithState *)operation finishedTarget:(id)target action:(SEL)action
 {
     [self addOperation:operation toQueue:_networkManagementQueue finishedTarget:target action:action];
 }
 
-- (void)addNetworkTransferOperation:(NSOperation *)operation finishedTarget:(id)target action:(SEL)action
+- (void)addNetworkTransferOperation:(NSOperationWithState *)operation finishedTarget:(id)target action:(SEL)action
 {
     [self addOperation:operation toQueue:_networkTransferQueue finishedTarget:target action:action];
 }
 
-- (void)addCPUOperation:(NSOperation *)operation finishedTarget:(id)target action:(SEL)action
+- (void)addCPUOperation:(NSOperationWithState *)operation finishedTarget:(id)target action:(SEL)action
 {
     [self addOperation:operation toQueue:_CPUqueue finishedTarget:target action:action];
 }
@@ -200,8 +199,8 @@
         assert([operation isKindOfClass:[NSOperation class]]);
         assert([operation isFinished]);
         
-        // +1 for retain count
-        queue = (__bridge_transfer NSOperationQueue*) context;
+        // don't decrement retain count
+        queue = (__bridge NSOperationQueue*) context;
         assert([queue isKindOfClass:[NSOperationQueue class]]);
         
         [operation removeObserver:self forKeyPath:@"isFinished"];
@@ -213,10 +212,12 @@
             thread = (NSThread*) [_runningOperationToThreadMap objectForKey:[operation operationID]];
         }
         
-        if (thread != nil) {
+        if (thread != nil) 
+        {
             [self performSelector:@selector(operationDone:) onThread:thread withObject:operation waitUntilDone:NO];
             
-            if (queue == _networkTransferQueue) {
+            if (queue == _networkTransferQueue) 
+            {
                 [self performSelectorOnMainThread:@selector(decrementRunningNetworkTransferCount) withObject:nil waitUntilDone:NO];
             }
         }

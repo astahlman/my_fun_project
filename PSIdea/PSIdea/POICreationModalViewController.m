@@ -69,7 +69,7 @@
     }
 }
      
--(void) cancel
+-(void)cancel
 {
     miniMapView.showsUserLocation=NO;
     [locationController.locationManager stopUpdatingLocation];

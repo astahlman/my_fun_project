@@ -12,7 +12,7 @@
 
 +(NSDictionary*)primaryKeys
 {
-    NSDictionary* dict = [[NSDictionary alloc] init];
+    NSDictionary* dict;
     NSArray* objects = [NSArray arrayWithObjects:@"idNumber", @"twitterHandle", @"url", nil];
     NSArray* keys = [NSArray arrayWithObjects:@"POI", @"User", @"Photo", nil];
     dict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];

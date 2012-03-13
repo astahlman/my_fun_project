@@ -247,7 +247,6 @@
     {
         return NO;
     }
-    NSInteger code = _lastResponse.statusCode;
     return [_acceptableStatusCodes containsIndex:_lastResponse.statusCode];
 }
 

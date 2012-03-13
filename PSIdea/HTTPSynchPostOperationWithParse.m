@@ -62,7 +62,6 @@
     NSString* dataString = [[NSString alloc] initWithData:_responseBody encoding:NSUTF8StringEncoding];
     NSError* parseError;
     NSDictionary* responseDict = [_jsonParser objectWithString:dataString error:&parseError];
-    responseDict = [_jsonParser objectWithData:_responseBody];
     if (parseError == nil)
     {
         if ([responseDict valueForKey:@"twitterHandle"] != nil)
