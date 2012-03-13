@@ -24,27 +24,27 @@
     
     //Allocate TabBarController and Views
     
-  // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
+    // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
     __tabBarController = [[UITabBarController alloc] init];
-
+    
     __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
-  //  UINavigationController *firstNavCon = [[UINavigationController alloc] init];
-  //  MWFSlideNavigationViewController *slideNavCon = [[MWFSlideNavigationViewController alloc] initWithRootViewController:lvc];
-  //  slideNavCon.title = @"Lists";
-  //  slideNavCon.delegate = lvc;
-
+    //  UINavigationController *firstNavCon = [[UINavigationController alloc] init];
+    //  MWFSlideNavigationViewController *slideNavCon = [[MWFSlideNavigationViewController alloc] initWithRootViewController:lvc];
+    //  slideNavCon.title = @"Lists";
+    //  slideNavCon.delegate = lvc;
+    
     UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
-   // [firstNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];  
-   // firstNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
-   // [firstNavCon pushViewController:slideNavCon animated:NO];
+    // [firstNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];  
+    // firstNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
+    // [firstNavCon pushViewController:slideNavCon animated:NO];
     UINavigationController *secondNavCon = [[UINavigationController alloc] init];
     [secondNavCon pushViewController:__poiMapViewController animated:NO];
-       
+    
     //slideNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Places" image:[UIImage imageNamed:@"marker"] tag:0];
     secondNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"map"] tag:1];
     [secondNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];    
     secondNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
-
+    
     //Array of ViewControllers (tabs on the view controller)
     NSArray *viewControllers = [NSArray arrayWithObjects:secondNavCon,nil];
     __tabBarController.viewControllers = viewControllers;

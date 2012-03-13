@@ -72,11 +72,6 @@
 		516E699314FF5D750026E273 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699114FF5D740026E273 /* list@2x.png */; };
 		516E699614FF5DFF0026E273 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699414FF5DFE0026E273 /* marker.png */; };
 		516E699714FF5DFF0026E273 /* marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699514FF5DFE0026E273 /* marker@2x.png */; };
-
-
-
-
-
 		517E6E5F150A71B6003B7849 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E5E150A71B6003B7849 /* POI.m */; };
 		517E6E62150A71B6003B7849 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E61150A71B6003B7849 /* User.m */; };
 		517E6E68150AEE28003B7849 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E67150AEE28003B7849 /* Photo.m */; };
@@ -86,8 +81,9 @@
 		51B4C70E1505D9A800123744 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 51B4C70D1505D9A800123744 /* background2.png */; };
 		51EDEFFD1507216400431732 /* button_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51EDEFFB1507216400431732 /* button_unselected@2x.png */; };
 		51EDEFFE1507216400431732 /* button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51EDEFFC1507216400431732 /* button_selected@2x.png */; };
-
-
+		66519A6A150EFDC800FA1FD0 /* HTTPSynchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A69150EFDC700FA1FD0 /* HTTPSynchOperation.m */; };
+		66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */; };
+		66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */; };
 		66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7861502AA79008B2FE1 /* TwitterController.m */; };
 		66C2B78A1502AB00008B2FE1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B7891502AB00008B2FE1 /* Twitter.framework */; };
 		66C2B78C1502AB3C008B2FE1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B78B1502AB3C008B2FE1 /* Accounts.framework */; };
@@ -95,9 +91,10 @@
 		66C2B79315066E40008B2FE1 /* HTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B79215066E40008B2FE1 /* HTTPOperation.m */; };
 		66C2B7961507BA65008B2FE1 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7951507BA65008B2FE1 /* Logging.m */; };
 		66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7981507EA87008B2FE1 /* NetworkAPI.m */; };
-		66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */; };
 		66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7A215091617008B2FE1 /* NSOperationWithState.m */; };
-
+		66C2B7BE150BF255008B2FE1 /* CoreDataEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7BD150BF254008B2FE1 /* CoreDataEntities.m */; };
+		66C2B7C1150C0597008B2FE1 /* HTTPGetOperationWithParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7C0150C0596008B2FE1 /* HTTPGetOperationWithParse.m */; };
+		66C2B7C4150D0C9E008B2FE1 /* HTTPPostOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7C3150D0C98008B2FE1 /* HTTPPostOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,11 +199,6 @@
 		516E699114FF5D740026E273 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		516E699414FF5DFE0026E273 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		516E699514FF5DFE0026E273 /* marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker@2x.png"; sourceTree = "<group>"; };
-
-
-
-
-
 		517E6E5D150A71B6003B7849 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
 		517E6E5E150A71B6003B7849 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
 		517E6E60150A71B6003B7849 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -219,6 +211,12 @@
 		51B4C70D1505D9A800123744 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
 		51EDEFFB1507216400431732 /* button_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_unselected@2x.png"; sourceTree = "<group>"; };
 		51EDEFFC1507216400431732 /* button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_selected@2x.png"; sourceTree = "<group>"; };
+		66519A68150EFDC700FA1FD0 /* HTTPSynchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSynchOperation.h; sourceTree = "<group>"; };
+		66519A69150EFDC700FA1FD0 /* HTTPSynchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSynchOperation.m; sourceTree = "<group>"; };
+		66519A6C150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSynchGetOperationWithParse.h; sourceTree = "<group>"; };
+		66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSynchGetOperationWithParse.m; sourceTree = "<group>"; };
+		66519A6F150F901000FA1FD0 /* HTTPSynchPostOperationWithParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSynchPostOperationWithParse.h; sourceTree = "<group>"; };
+		66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSynchPostOperationWithParse.m; sourceTree = "<group>"; };
 		66C2B7851502AA79008B2FE1 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
 		66C2B7861502AA79008B2FE1 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		66C2B7891502AB00008B2FE1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -231,13 +229,15 @@
 		66C2B7951507BA65008B2FE1 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
 		66C2B7971507EA87008B2FE1 /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAPI.h; sourceTree = "<group>"; };
 		66C2B7981507EA87008B2FE1 /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAPI.m; sourceTree = "<group>"; };
-		66C2B79A15087422008B2FE1 /* ParseJSONOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseJSONOperation.h; sourceTree = "<group>"; };
-		66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseJSONOperation.m; sourceTree = "<group>"; };
 		66C2B79D150914F4008B2FE1 /* Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		66C2B7A115091615008B2FE1 /* NSOperationWithState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationWithState.h; sourceTree = "<group>"; };
 		66C2B7A215091617008B2FE1 /* NSOperationWithState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationWithState.m; sourceTree = "<group>"; };
-		66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataEntities.h; sourceTree = "<group>"; };
-
+		66C2B7BC150BF254008B2FE1 /* CoreDataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataEntities.h; sourceTree = "<group>"; };
+		66C2B7BD150BF254008B2FE1 /* CoreDataEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataEntities.m; sourceTree = "<group>"; };
+		66C2B7BF150C0596008B2FE1 /* HTTPGetOperationWithParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPGetOperationWithParse.h; sourceTree = "<group>"; };
+		66C2B7C0150C0596008B2FE1 /* HTTPGetOperationWithParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPGetOperationWithParse.m; sourceTree = "<group>"; };
+		66C2B7C2150D0C97008B2FE1 /* HTTPPostOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPPostOperation.h; sourceTree = "<group>"; };
+		66C2B7C3150D0C98008B2FE1 /* HTTPPostOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPPostOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,11 +431,6 @@
 		51745EE714FFD893001A3162 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-
-
-
-
-
 				51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */,
 				517E6E66150AEE28003B7849 /* Photo.h */,
 				517E6E67150AEE28003B7849 /* Photo.m */,
@@ -443,18 +438,9 @@
 				517E6E61150A71B6003B7849 /* User.m */,
 				517E6E5D150A71B6003B7849 /* POI.h */,
 				517E6E5E150A71B6003B7849 /* POI.m */,
-
-				66C2B7A415092B5F008B2FE1 /* CoreDataEntities.h */,
-				516E68C214FF46D60026E273 /* List.h */,
-				516E68C314FF46D60026E273 /* List.m */,
-				516E68D114FF46D60026E273 /* POI.h */,
-				516E68D214FF46D60026E273 /* POI.m */,
-				516E68FB14FF46D60026E273 /* Event.h */,
-				516E68FC14FF46D60026E273 /* Event.m */,
-				516E691314FF46D60026E273 /* Photo.h */,
-				516E691414FF46D60026E273 /* Photo.m */,
-				516E692514FF46D60026E273 /* PSIdea.xcdatamodeld */,
 				516E692714FF46D60026E273 /* SampleData.plist */,
+				66C2B7BC150BF254008B2FE1 /* CoreDataEntities.h */,
+				66C2B7BD150BF254008B2FE1 /* CoreDataEntities.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -462,6 +448,7 @@
 		51745EE814FFD8FD001A3162 /* Supporting Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66159F75150FAB6900A138F6 /* Old Networking */,
 				66C2B79015053E62008B2FE1 /* Networking */,
 				516E68BE14FF46D60026E273 /* CoreDataCreator.h */,
 				516E68BF14FF46D60026E273 /* CoreDataCreator.m */,
@@ -496,22 +483,37 @@
 			name = "Supporting Classes";
 			sourceTree = "<group>";
 		};
+		66159F75150FAB6900A138F6 /* Old Networking */ = {
+			isa = PBXGroup;
+			children = (
+				66C2B79115066E40008B2FE1 /* HTTPOperation.h */,
+				66C2B79215066E40008B2FE1 /* HTTPOperation.m */,
+				66C2B7BF150C0596008B2FE1 /* HTTPGetOperationWithParse.h */,
+				66C2B7C0150C0596008B2FE1 /* HTTPGetOperationWithParse.m */,
+				66C2B7C2150D0C97008B2FE1 /* HTTPPostOperation.h */,
+				66C2B7C3150D0C98008B2FE1 /* HTTPPostOperation.m */,
+			);
+			name = "Old Networking";
+			sourceTree = "<group>";
+		};
 		66C2B79015053E62008B2FE1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				66C2B79D150914F4008B2FE1 /* Networking.h */,
 				66C2B78D15053E43008B2FE1 /* NetworkManager.h */,
 				66C2B78E15053E43008B2FE1 /* NetworkManager.m */,
-				66C2B79115066E40008B2FE1 /* HTTPOperation.h */,
-				66C2B79215066E40008B2FE1 /* HTTPOperation.m */,
 				66C2B7941507BA65008B2FE1 /* Logging.h */,
 				66C2B7951507BA65008B2FE1 /* Logging.m */,
 				66C2B7971507EA87008B2FE1 /* NetworkAPI.h */,
 				66C2B7981507EA87008B2FE1 /* NetworkAPI.m */,
-				66C2B79A15087422008B2FE1 /* ParseJSONOperation.h */,
-				66C2B79B15087423008B2FE1 /* ParseJSONOperation.m */,
 				66C2B7A115091615008B2FE1 /* NSOperationWithState.h */,
 				66C2B7A215091617008B2FE1 /* NSOperationWithState.m */,
+				66519A68150EFDC700FA1FD0 /* HTTPSynchOperation.h */,
+				66519A69150EFDC700FA1FD0 /* HTTPSynchOperation.m */,
+				66519A6C150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.h */,
+				66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */,
+				66519A6F150F901000FA1FD0 /* HTTPSynchPostOperationWithParse.h */,
+				66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -640,29 +642,22 @@
 				516E696614FF46D60026E273 /* POILocationChooserViewController.m in Sources */,
 				516E696814FF46D60026E273 /* POIMapViewController.m in Sources */,
 				516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */,
-
-
-
-
-
 				517E6E5F150A71B6003B7849 /* POI.m in Sources */,
 				517E6E62150A71B6003B7849 /* User.m in Sources */,
 				517E6E68150AEE28003B7849 /* Photo.m in Sources */,
 				51A2DA6D150AF49B00A87A0E /* PSIdea.xcdatamodeld in Sources */,
-
-
 				66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */,
 				66C2B78F15053E44008B2FE1 /* NetworkManager.m in Sources */,
 				66C2B79315066E40008B2FE1 /* HTTPOperation.m in Sources */,
 				66C2B7961507BA65008B2FE1 /* Logging.m in Sources */,
 				66C2B7991507EA87008B2FE1 /* NetworkAPI.m in Sources */,
-				66C2B79C15087424008B2FE1 /* ParseJSONOperation.m in Sources */,
 				66C2B7A31509161B008B2FE1 /* NSOperationWithState.m in Sources */,
-
-
-
-
-
+				66C2B7BE150BF255008B2FE1 /* CoreDataEntities.m in Sources */,
+				66C2B7C1150C0597008B2FE1 /* HTTPGetOperationWithParse.m in Sources */,
+				66C2B7C4150D0C9E008B2FE1 /* HTTPPostOperation.m in Sources */,
+				66519A6A150EFDC800FA1FD0 /* HTTPSynchOperation.m in Sources */,
+				66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */,
+				66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

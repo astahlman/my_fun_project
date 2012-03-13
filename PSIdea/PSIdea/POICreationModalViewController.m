@@ -8,15 +8,18 @@
 
 #import "POICreationModalViewController.h"
 #import "PSINetworkController.h"
+#import "NSManagedObject+PropertiesDict.h"
+#import "NetworkAPI.h"
+#import "Logging.h"
 
 @implementation POICreationModalViewController
+
 @synthesize infoButton;
 @synthesize titleField;
 @synthesize detailsField;
 @synthesize miniMapView;
 @synthesize publicButton;
 @synthesize delegate;
-@synthesize listNumber;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +30,8 @@
     return self;
 }
 
--(void) done{
+-(void)done
+{
     miniMapView.showsUserLocation=NO;
     // need to pass in user id for user logged in.
     int number = arc4random() % 10000; // This will need to change. Could get same number multiple times
@@ -41,19 +45,35 @@
     }
     
     POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
+    /*
     //Create POI and Save context
     // Network Testing - Remove later
     PSINetworkController* net = [[PSINetworkController alloc] initWithBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
     [net setDelegate:net];
     [net postPoi:poi];
+     */
+    [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
     [delegate didFinishEditing:YES];
 }
 
--(void) cancel{
+-(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation
+{
+    if (operation.operationState != OperationStateFailed)
+    {
+        NSError* saveErr;
+        [__managedObjectContext save:&saveErr];
+        if (saveErr != nil)
+        {
+            [[Logging logger] logMessage:@"Error: Post entity not saved in managedObjectContext"];
+        }
+    }
+}
+     
+-(void) cancel
+{
     miniMapView.showsUserLocation=NO;
     [locationController.locationManager stopUpdatingLocation];
     [delegate didFinishEditing:NO];
-
 }
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context{
@@ -93,12 +113,6 @@
     [locationController.locationManager startUpdatingLocation];
 
 }
-
--(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
-{
-    NSLog(@"connection received response: %@", response);
-}
-
 
 - (void)didReceiveMemoryWarning
 {

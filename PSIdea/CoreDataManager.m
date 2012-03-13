@@ -42,5 +42,8 @@
     [poi setValue:[poiDict valueForKey:@"id"] forKey:@"id"];
 }
 
-+(User*)parseUser:(NSDictionary*)userDict;
++(User*)parseUser:(NSDictionary*)userDict{
+    
+    // TODO
+}
 @end

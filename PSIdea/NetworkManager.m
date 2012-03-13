@@ -13,6 +13,7 @@
 //
 
 #import "NetworkManager.h"
+#import "NSOperationWithState.h"
 
 @interface NetworkManager ()
 
@@ -33,22 +34,6 @@
 @synthesize networkTransferQueue = _networkTransferQueue;
 @synthesize networkManagementQueue = _networkManagementQueue;
 @synthesize CPUqueue = _CPUqueue;
-
-+ (NetworkManager *)sharedManager
-{
-    static NetworkManager* sNetworkManager;
-    
-    // This can be called on any thread, so we synchronise.  We only do this in 
-    // the sNetworkManager case because, once sNetworkManager goes non-nil, it can 
-    // never go nil again.
-    if (sNetworkManager == nil) {
-        @synchronized (self) {
-            sNetworkManager = [[NetworkManager alloc] init];
-            assert(sNetworkManager != nil);
-        }
-    }
-    return sNetworkManager;
-}
 
 - (id)init
 {
@@ -148,7 +133,7 @@
 }
 
 // Add an operation to a queue.
-- (void)addOperation:(NSOperation *)operation toQueue:(NSOperationQueue *)queue finishedTarget:(id)target action:(SEL)action
+- (void)addOperation:(NSOperationWithState*)operation toQueue:(NSOperationQueue *)queue finishedTarget:(id)target action:(SEL)action
 {
     // any thread
     assert(operation != nil);
@@ -174,10 +159,9 @@
         
         
         // add operation to mappings
-        [_runningOperationToTargetMap setObject:target forKey:operation];
-        [_runningOperationToActionMap setObject:NSStringFromSelector(action) forKey:operation];
-        [_runningOperationToThreadMap setObject:[NSThread currentThread] forKey:operation];
-        
+        [_runningOperationToTargetMap setObject:target forKey:[operation operationID]];
+        [_runningOperationToActionMap setObject:NSStringFromSelector(action) forKey:[operation operationID]];
+        [_runningOperationToThreadMap setObject:[NSThread currentThread] forKey:[operation operationID]];
         assert( [_runningOperationToTargetMap count] == [_runningOperationToActionMap count] );
         assert( [_runningOperationToTargetMap count] == [_runningOperationToThreadMap count] );
 
@@ -208,11 +192,11 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ( [keyPath isEqual:@"isFinished"] ) {
-        NSOperation* operation;
+        NSOperationWithState* operation;
         NSOperationQueue* queue;
         NSThread* thread;
         
-        operation = (NSOperation *) object;
+        operation = (NSOperationWithState*) object;
         assert([operation isKindOfClass:[NSOperation class]]);
         assert([operation isFinished]);
         
@@ -226,7 +210,7 @@
             assert( [_runningOperationToTargetMap count] == [_runningOperationToActionMap count] );
             assert( [_runningOperationToTargetMap count] == [_runningOperationToThreadMap count] );
             
-            thread = (NSThread *) [_runningOperationToThreadMap objectForKey:operation];
+            thread = (NSThread*) [_runningOperationToThreadMap objectForKey:[operation operationID]];
         }
         
         if (thread != nil) {
@@ -236,12 +220,13 @@
                 [self performSelectorOnMainThread:@selector(decrementRunningNetworkTransferCount) withObject:nil waitUntilDone:NO];
             }
         }
+        
     } 
 }
 
 // Called by the operation queue when the operation is done. We find the corresponding 
 // target/action and call it on this thread.
-- (void)operationDone:(NSOperation *)operation
+- (void)operationDone:(NSOperationWithState *)operation
 {
     id target;
     SEL action;
@@ -253,9 +238,9 @@
         assert( [_runningOperationToTargetMap count] == [_runningOperationToActionMap count] );
         assert( [_runningOperationToTargetMap count] == [_runningOperationToThreadMap count] );
         
-        target = (id) [_runningOperationToTargetMap objectForKey:operation];
-        action = NSSelectorFromString([_runningOperationToActionMap objectForKey:operation]);
-        thread = (NSThread*) [_runningOperationToThreadMap objectForKey:operation];
+        target = (id) [_runningOperationToTargetMap objectForKey:[operation operationID]];
+        action = NSSelectorFromString([_runningOperationToActionMap objectForKey:[operation operationID]]);
+        thread = (NSThread*) [_runningOperationToThreadMap objectForKey:[operation operationID]];
         
         assert( (target != nil) == (action != nil) );
         assert( (target != nil) == (thread != nil) );
@@ -265,9 +250,9 @@
         if (target != nil) {
             assert( thread == [NSThread currentThread] );
             
-            [_runningOperationToTargetMap removeObjectForKey:operation];
-            [_runningOperationToActionMap removeObjectForKey:operation];
-            [_runningOperationToThreadMap removeObjectForKey:operation];
+            [_runningOperationToTargetMap removeObjectForKey:[operation operationID]];
+            [_runningOperationToActionMap removeObjectForKey:[operation operationID]];
+            [_runningOperationToThreadMap removeObjectForKey:[operation operationID]];
         }
         assert( [_runningOperationToTargetMap count] == [_runningOperationToActionMap count] );
         assert( [_runningOperationToTargetMap count] == [_runningOperationToThreadMap count] );

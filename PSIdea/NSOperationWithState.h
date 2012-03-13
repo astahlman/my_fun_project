@@ -30,10 +30,12 @@ typedef enum OperationState {
 {
     OperationState _operationState;
     OperationError _operationError;
+    NSNumber* _operationID;
 }
 
 @property (nonatomic, readonly) OperationState operationState;
 @property (nonatomic, readonly) OperationError operationError;
+@property (nonatomic, readonly, retain) NSNumber* operationID;
 
 -(id)init;
 -(NSString*)messageForError:(OperationError)error;

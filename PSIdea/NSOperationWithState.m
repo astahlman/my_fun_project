@@ -8,18 +8,23 @@
 
 #import "NSOperationWithState.h"
 
+#define MAX_ID 4294967295
+
 @implementation NSOperationWithState
 
 @synthesize operationState = _operationState;
 @synthesize operationError = _operationError;
+@synthesize operationID = _operationID;
 
 -(id)init
 {
     self = [super init];
     _operationError = OperationErrorNone;
     _operationState = OperationStateNotStarted;
+    _operationID = [NSNumber numberWithLong:(arc4random() % MAX_ID)];
     return self;
 }
+
 
 -(void)failWithError:(OperationError)error
 {

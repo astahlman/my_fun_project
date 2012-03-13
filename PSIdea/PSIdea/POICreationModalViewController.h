@@ -15,14 +15,16 @@
 #import "POIAnnotation.h"
 #import "MyCLController.h"
 #import "POILocationChooserViewController.h"
-#import "NetworkController.h"
+
 @protocol POICreationModalViewControllerDelegate <NSObject>
 
 @required
 -(void) didFinishEditing:(BOOL) finished;
 @end
 
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate, NetworkControllerDelegate>
+@class HTTPSynchPostOperationWithParse;
+
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate>
 {
     NSManagedObjectContext *__managedObjectContext;
     __weak IBOutlet UIImageView *tapeImage;
@@ -38,7 +40,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
 @property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
 @property (weak, nonatomic) IBOutlet UIButton *publicButton;
-@property (nonatomic, retain) NSNumber *listNumber;
 - (IBAction)publicButtonSelected:(id)sender;
 
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
@@ -48,6 +49,11 @@
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)infoButtonSelected:(id)sender;
--(void)connection:(NSURLConnection*)connection receivedResponse:(id)response;
+
+
+-(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation;
+//-(void)operation:(HTTPOperation*)operation didFailWithError:(NSString*)errorMsg;
+//-(void)operation:(HTTPPostOperation*)operation didPostAndReceivePrimaryKey:(id)primaryKey;
+
 
 @end

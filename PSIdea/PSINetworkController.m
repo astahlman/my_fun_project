@@ -7,7 +7,7 @@
 //
 
 #import "PSINetworkController.h"
-#import "NSObject+PropertyArray.h"
+#import "NSManagedObject+PropertiesDict.h"
 #import "POI.h"
 #import "User.h"
 #import "Photo.h"

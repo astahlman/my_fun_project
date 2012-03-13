@@ -10,20 +10,13 @@
 #import "NetworkManager.h"
 #import "POI.h"
 #import "User.h"
-#import "HTTPOperation.h"
 #import "SBJson.h"
+#import "HTTPSynchOperation.h"
+#import "HTTPSynchPostOperationWithParse.h"
+#import "HTTPSynchGetOperationWithParse.h"
 
-@protocol NetworkAPIDelegate <NSObject>
-// eliminate the other 3?
-//-(void)operation:(NSOperation*)operation didParseResults:(NSArray*)entitites
--(void)operation:(NSOperation*)operation didRetrievePOIs:(NSArray*)pois;
--(void)operation:(NSOperation*)operation didRetrieveUsers:(NSArray*)users;
--(void)operation:(NSOperation*)operation didRetrieveQueryResults:(NSArray*)results;
--(void)operation:(NSOperation*)operation didFailWithError:(NSString*)errorMsg;
 
-@end
-
-const NSString* URL_BASE = @"http://127.0.0.1:8000";
+extern const NSString* PSI_URL_BASE;
 
 @interface NetworkAPI : NSObject
 {
@@ -32,7 +25,6 @@ const NSString* URL_BASE = @"http://127.0.0.1:8000";
     SBJsonWriter* _jsonWriter;
 }
 
-@property (nonatomic, retain) id<NetworkAPIDelegate> delegate;
 
 // singleton
 +(NetworkAPI*)apiInstance;
@@ -41,14 +33,13 @@ const NSString* URL_BASE = @"http://127.0.0.1:8000";
 +(NSData*)dataFromJSONString:(NSString*)jsonString;
 +(NSString*)requestStringFromDictionary:(NSDictionary*)dict;
 
--(void)httpOperationDidFinish:(HTTPOperation*)operation;
-
--(void)postPOI:(POI*)poi;
--(void)postUser:(User*)user;
--(void)getPOIsWithinRadius:(NSUInteger*)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon;
--(void)getPOIsForUser:(NSString*)twitterHandle;
--(void)getUserForTwitterHandle:(NSString*)twitterHandle;
--(void)sendTweet:(NSString*)tweetBody forUser:(NSString*)twitterHandle;
--(void)doQuery:(NSString*)query onClasses:(NSArray*)classes;
-
+-(void)postPOI:(POI *)poi callbackTarget:(id)target action:(SEL)action;
+/*
+-(void)postUser:(User*)user delegate:(id<HTTPPostOperationDelegate>)delegate;;
+-(void)getPOIsWithinRadius:(NSUInteger*)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon delegate:(id<HTTPPostOperationDelegate>)delegate;;
+-(void)getPOIsForUser:(NSString*)twitterHandle delegate:(id<HTTPPostOperationDelegate>)delegate;;
+-(void)getUserForTwitterHandle:(NSString*)twitterHandle delegate:(id<HTTPPostOperationDelegate>)delegate;;
+-(void)sendTweet:(NSString*)tweetBody forUser:(NSString*)twitterHandle delegate:(id<HTTPPostOperationDelegate>)delegate;;
+-(void)doQuery:(NSString*)query onClasses:(NSArray*)classes delegate:(id<HTTPPostOperationDelegate>)delegate;;
+*/
 @end

@@ -11,5 +11,6 @@
 @interface NSManagedObject (PropertiesDict)
 
 -(NSDictionary*)propertiesDict;
+-(NSDictionary*)relationshipsDict;
 
 @end

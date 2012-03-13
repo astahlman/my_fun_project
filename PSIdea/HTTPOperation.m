@@ -9,21 +9,41 @@
 #import "HTTPOperation.h"
 #import "Logging.h"
 
-@interface HTTPOperation()
-
--(BOOL)isContentTypeAcceptable;
--(BOOL)isResponseCodeAcceptable;
-
-@end
-
 @implementation HTTPOperation
+
+@synthesize dataAccumulator = _dataAccumulator;
+@synthesize responseBody = _responseBody;
+@synthesize request = _request;
+@synthesize connection = _connection;
+@synthesize lastResponse = _lastResponse;
+@synthesize maxResponseSize = _maxResponseSize;
+@synthesize acceptableStatusCodes = _acceptableStatusCodes;
+@synthesize acceptableContentTypes = _acceptableContentTypes;
+@synthesize delegate;
 
 -(id)initWithRequest:(NSURLRequest*)request 
 {
     self = [super init];
     _request = request;
     _maxResponseSize = 1024 * 1024; // TODO: Calculate an appropriate value here
+    _acceptableContentTypes = [NSArray arrayWithObjects:@"application/json", nil];
+    _acceptableStatusCodes = [[self class] defaultAcceptableStatusCodes];
     return self;
+}
+
+-(id)copyWithZone:(NSZone*)zone
+{
+    HTTPOperation* clone = [[self class] allocWithZone:zone];
+    [clone setDataAccumulator:_dataAccumulator];
+    [clone setResponseBody:_responseBody];
+    [clone setRequest:_request];
+    [clone setConnection:_connection];
+    [clone setLastResponse:_lastResponse];
+    [clone setMaxResponseSize:_maxResponseSize];
+    [clone setAcceptableStatusCodes:_acceptableStatusCodes];
+    [clone setAcceptableContentTypes:_acceptableContentTypes];
+    [clone setDelegate:[self delegate]];
+    return clone;
 }
 
 +(NSIndexSet*)defaultAcceptableStatusCodes
@@ -50,6 +70,16 @@
 
 -(void)start
 {
+    // Ensure that this operation starts on the main thread
+    // NOTE: This has to be done on the main thread, because any other thread
+    // will die after the start method finishes
+    if (![NSThread isMainThread])
+    {
+        [self performSelectorOnMainThread:@selector(start)
+                               withObject:nil waitUntilDone:NO];
+        return;
+    }
+    
     if (_operationState != OperationStateCancelled)
     {
         _connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self];
@@ -95,7 +125,7 @@
         
         if (length <= _maxResponseSize)
         {
-            _dataAccumulator = [[NSMutableData alloc] initWithLength:length];
+            _dataAccumulator = [[NSMutableData alloc] initWithData:data];
         }
         else 
         {
@@ -104,6 +134,10 @@
     }
     else 
     {
+        [_dataAccumulator appendData:data];
+        /*
+        // TODO: Why is expected content length -1?
+        long long expected = _lastResponse.expectedContentLength;
         if (_dataAccumulator.length + data.length > _lastResponse.expectedContentLength)
         {
             [self failWithError:OperationErrorResponseTooLarge];
@@ -112,6 +146,7 @@
         {
             [_dataAccumulator appendData:data];
         }
+         */
     }
 }
 
@@ -120,6 +155,7 @@
     _responseBody = _dataAccumulator;
     _dataAccumulator = nil;
     
+    NSLog(@"Received response: %@", [[NSString alloc] initWithData:_responseBody encoding:NSUTF8StringEncoding]);
     // Because we fill out _dataAccumulator lazily, an empty body will leave _dataAccumulator 
     // set to nil.  That's not what our clients expect, so we fix it here.
     
@@ -172,8 +208,11 @@
         case OperationErrorUnexpectedResponseSize:
             message = [NSString stringWithFormat:@"Response size different than expected. Expected %i", _lastResponse.expectedContentLength];
             break;
+        case OperationErrorJSONParsingError:
+            message = @"Failed to parse JSON.";
+            break;
         default:
-            assert(NO); // make sure errors aren't falling through the cracks
+            message = @"Unknown error";
     }
     return message;
 }
@@ -208,7 +247,7 @@
     {
         return NO;
     }
-    
+    NSInteger code = _lastResponse.statusCode;
     return [_acceptableStatusCodes containsIndex:_lastResponse.statusCode];
 }
 

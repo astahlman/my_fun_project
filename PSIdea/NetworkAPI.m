@@ -7,21 +7,24 @@
 //
 
 #import "NetworkAPI.h"
+#import "HTTPSynchGetOperationWithParse.h"
+#import "HTTPSynchPostOperationWithParse.h"
+#import "NSManagedObject+PropertiesDict.h"
+#import "CoreDataManager.h"
 
-@interface NetworkAPI()
--(void)doSomething;
-@end
+const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
 
 @implementation NetworkAPI
-
-@synthesize delegate = _delegate;
 
 +(NetworkAPI*)apiInstance
 {
     static NetworkAPI* api;
     if (api == nil)
     {
-        api = [[NetworkAPI alloc] init];
+        @synchronized(self)
+        {
+            api = [[NetworkAPI alloc] init];
+        }
     }
     return api;
 }
@@ -30,14 +33,19 @@
 {
     self = [super init];
     _networkManager = [[NetworkManager alloc] init];
+    _jsonParser = [[SBJsonParser alloc] init];
+    _jsonWriter = [[SBJsonWriter alloc] init];
     return self;
 }
 
--(void)postPOI:(POI *)poi
+@class HTTPPostOperationDelegate;
+
+-(void)postPOI:(POI *)poi callbackTarget:(id)target action:(SEL)action;   
 {
-    NSDictionary* propDict = [poi propertiesDict];
+    NSMutableDictionary* poiDict = [[NSMutableDictionary alloc] initWithDictionary:[poi propertiesDict]];
+    [poiDict addEntriesFromDictionary:[poi relationshipsDict]];
     NSError* jsonError = nil;
-    NSString* json = [_jsonWriter stringWithObject:propDict error:&jsonError];
+    NSString* json = [_jsonWriter stringWithObject:poiDict error:&jsonError];
     NSData* data = [[self class] dataFromJSONString:json];
     if (jsonError != nil)
     {
@@ -47,13 +55,16 @@
     {
         NSLog(@"postPoi: Here is the JSON for the poi: %@", json);
     }
-    NSString* urlString = [NSString stringWithFormat:@"%@/%@/", URL_BASE, @"poi"];
-    NSMutableURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+
+    NSString* urlString = [NSString stringWithFormat:@"%@/%@/", PSI_URL_BASE, @"poi"];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:data];
-    HTTPOperation* op = [[HTTPOperation alloc] initWithRequest:request];
-    [_networkManager addNetworkTransferOperation:op finishedTarget:self action:(SEL)@"queueParseOperation:"];
+    HTTPSynchPostOperationWithParse* op = [[HTTPSynchPostOperationWithParse alloc] initWithRequest:request postEntity:poi];
+    [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
 }
+
+
 
 #pragma JSON/URL support methods 
 +(NSData*)dataFromJSONString:(NSString*)jsonString

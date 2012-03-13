@@ -20,9 +20,6 @@
     NSUInteger _runningNetworkTransferCount;
 }
 
-// returns the singleton TODO: Remove?
-+ (NetworkManager *)sharedManager; 
-
 // returns a url request with the user-agent supplied
 - (NSMutableURLRequest *)requestToGetURL:(NSURL *)url;
 

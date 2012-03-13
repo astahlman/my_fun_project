@@ -19,25 +19,39 @@
     return properties;
 }
 
--(NSDictionary*)relationshipDict
+-(NSDictionary*)relationshipsDict
 {
     NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
     
     NSDictionary* relationships = [[self entity] relationshipsByName];
     for (id key in relationships)
     {
-        NSEntityDescription* targetEntity = [[self valueForKey:key] destinationEntity];
-        if ([[relationships valueForKey:key] isKindOfEntity:targetEntity])
+        if ([self valueForKey:key] != nil)
         {
-            NSManagedObject* obj = [relationships valueForKey:key];
-            NSString* objPK = [[CoreDataManager primaryKeys] objectForKey:[obj.class description]];
-            [result setValue:[relationships valueForKey:key] forKey:objPK];
-        }
-        else
-        {
-            // must be enumerable
+            NSEntityDescription* targetEntity = [[relationships valueForKey:key] destinationEntity];
+            NSString* actualClass = NSStringFromClass([[self valueForKey:key] class]);
+            NSString* targetClass = targetEntity.managedObjectClassName;
+            if ([actualClass isEqualToString:targetClass])
+            {
+                NSManagedObject* obj = [self valueForKey:key];
+                NSString* keyPath = [[CoreDataManager primaryKeys] objectForKey:targetEntity.managedObjectClassName];
+                [result setValue:[obj valueForKey:keyPath] forKey:key];
+            }
+            else
+            {
+                // must be enumerable
+                NSMutableArray* pkArray = [[NSMutableArray alloc] init];
+                NSEnumerator* enumerator = [[self valueForKey:key] objectEnumerator];
+                for (id entity in enumerator)
+                {
+                    NSString* keyPath = [[CoreDataManager primaryKeys] objectForKey:targetEntity.managedObjectClassName];
+                    [pkArray addObject:[entity valueForKey:keyPath]];
+                }
+                [result setValue:pkArray forKey:key];
+            }
         }
     }
+    
     return (NSDictionary*)result;
 }
 
