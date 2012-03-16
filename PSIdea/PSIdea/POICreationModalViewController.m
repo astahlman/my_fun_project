@@ -30,6 +30,12 @@
     return self;
 }
 
+-(void)operationDidGetLocalPOIs:(HTTPSynchGetOperationWithParse*)operation
+{
+    NSString* responseString = [[NSString alloc] initWithData:[operation responseBody] encoding:NSUTF8StringEncoding];
+    [[Logging logger] logMessage:responseString];
+}
+
 -(void)done
 {
     miniMapView.showsUserLocation=NO;
@@ -45,14 +51,12 @@
     }
     
     POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
-    /*
-    //Create POI and Save context
-    // Network Testing - Remove later
-    PSINetworkController* net = [[PSINetworkController alloc] initWithBaseUrl:[NSURL URLWithString:@"http://127.0.0.1:8000/"]];
-    [net setDelegate:net];
-    [net postPoi:poi];
-     */
+    [poi setLatitude:[NSNumber numberWithDouble:([poi.latitude doubleValue] + .02)]];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
+    
+    
+    // local poi testing
+    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:)];
     [delegate didFinishEditing:YES];
 }
 
@@ -78,10 +82,10 @@
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context{
     self = [super initWithNibName:@"POICreationModalViewController" bundle:[NSBundle mainBundle]];
-    if(self){
+    if (self)
+    {
         __managedObjectContext = context;
         tweetPOI = NO;
-
     }
     
     return self;
@@ -102,8 +106,6 @@
     [miniMapView addAnnotation:annotation];
     
     [locationController.locationManager stopUpdatingLocation];
-
-
 }
 
 -(void) locationError:(NSError *)error{
@@ -111,7 +113,6 @@
     
     [locationController.locationManager stopUpdatingLocation];
     [locationController.locationManager startUpdatingLocation];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,21 +140,18 @@
     backgroundImageView.layer.masksToBounds = YES;
     [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
     tweetPOI = NO;
-    
-    
 
-
-    
 }
 
--(void) viewWillAppear:(BOOL)animated{
+-(void) viewWillAppear:(BOOL)animated
+{
     
     self.title = @"New POI";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
     [titleField becomeFirstResponder];
     
-    }
+}
 
 - (void)viewDidUnload
 {

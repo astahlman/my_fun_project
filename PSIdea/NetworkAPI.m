@@ -64,6 +64,17 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
     [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
 }
 
+-(void)getPOIsWithinRadius:(NSUInteger)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon callbackTarget:(id)target action:(SEL)action
+{
+    NSArray* objects = [NSArray arrayWithObjects:[NSNumber numberWithInteger:radius], lat, lon, nil];
+    NSArray* keys = [NSArray arrayWithObjects:@"radius", @"latitude", @"longitude", nil];
+    NSDictionary* locationDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    NSString* urlString = [NSString stringWithFormat:@"%@/%@%@", PSI_URL_BASE, @"local_poi", [[self class] requestStringFromDictionary:locationDict]];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"GET"];
+    HTTPSynchGetOperationWithParse* op = [[HTTPSynchGetOperationWithParse alloc] initWithRequest:request];
+    [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
+}
 
 
 #pragma JSON/URL support methods 
