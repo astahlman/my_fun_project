@@ -13,7 +13,7 @@
 @synthesize title = __title;
 @synthesize details = __details;
 @synthesize coordinate = __coordinate;
-
+@synthesize tag;
 - (id)initWithDetails:(NSString*)details coordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title {
     if ((self = [super init])) {
         __details = [details copy];

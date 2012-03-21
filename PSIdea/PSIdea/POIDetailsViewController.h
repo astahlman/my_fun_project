@@ -10,20 +10,25 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MapKit/MapKit.h>
 #import "POI.h"
+#import "User.h"
 #import "MyCLController.h"
 #import "POIAnnotation.h"
 
-@interface POIDetailsViewController : UIViewController <MKMapViewDelegate>{
+@interface POIDetailsViewController : UIViewController <MKMapViewDelegate, UIActionSheetDelegate>{
     
     CLLocation *pinLocation;
     NSString *__title;
     NSString *__details;
+    NSString *__creatorUserName;
+    POI *__poi;
     __weak IBOutlet UIView *containerView;
 }
+@property (weak, nonatomic) IBOutlet UILabel *creatorNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *creatorLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userPhotoImageView;
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
-@property (weak, nonatomic) IBOutlet MKMapView *__mapView;
 
 - (id)initWithPOI:(POI*) poi;
 
