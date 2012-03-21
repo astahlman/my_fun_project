@@ -33,8 +33,10 @@ extern const NSString* PSI_URL_BASE;
 +(NSData*)dataFromJSONString:(NSString*)jsonString;
 +(NSString*)requestStringFromDictionary:(NSDictionary*)dict;
 
--(void)postPOI:(POI *)poi callbackTarget:(id)target action:(SEL)action;
--(void)getPOIsWithinRadius:(NSUInteger)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon callbackTarget:(id)target action:(SEL)action;
+-(void)postPOI:(POI*)poi callbackTarget:(id)target action:(SEL)action;
+-(void)getPOIsWithinRadius:(NSUInteger)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon callbackTarget:(id)target action:(SEL)action managedObjectContext:(NSManagedObjectContext*)moc;
+-(void)postUser:(User*)user callbackTarget:(id)target action:(SEL)action;
+-(void)getPOIsForUser:(User*)user callbackTarget:(id)target action:(SEL)action managedObjectContext:(NSManagedObjectContext*)moc;
 /*
 -(void)postUser:(User*)user delegate:(id<HTTPPostOperationDelegate>)delegate;;
 -(void)getPOIsWithinRadius:(NSUInteger*)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon delegate:(id<HTTPPostOperationDelegate>)delegate;

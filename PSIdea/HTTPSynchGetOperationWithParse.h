@@ -15,16 +15,18 @@
     SBJsonWriter* _jsonWriter;
     NSMutableArray* _parsedResults;
     NSMutableDictionary* _relationships;
+    NSManagedObjectContext* _managedObjectContext;
 }
 
 @property (nonatomic, retain) SBJsonParser* jsonParser;
 @property (nonatomic, retain) SBJsonWriter* jsonWriter;
 @property (nonatomic, retain) NSMutableArray* parsedResults;
 @property (nonatomic, retain) NSMutableDictionary* relationships;
+@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
 
 //@property (nonatomic, retain) id<HTTPGetOperationWithParseDelegate> delegate;
 
--(id)initWithRequest:(NSURLRequest*)request;
+-(id)initWithRequest:(NSURLRequest*)request managedObjectContext:(NSManagedObjectContext*)moc;
 -(id)copyWithZone:(NSZone*)zone;
 
 -(NSManagedObject*)parseDictionaryToResults:(NSDictionary*)dict;

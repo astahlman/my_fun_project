@@ -16,15 +16,16 @@
 @synthesize jsonWriter = _jsonWriter;
 @synthesize parsedResults = _parsedResults;
 @synthesize relationships = _relationships;
+@synthesize managedObjectContext = _managedObjectContext;
 
--(id)initWithRequest:(NSURLRequest*)request;
+-(id)initWithRequest:(NSURLRequest*)request managedObjectContext:(NSManagedObjectContext*)moc;
 {
     self = [super initWithRequest:request];
     _jsonWriter = [[SBJsonWriter alloc] init];
     _jsonParser = [[SBJsonParser alloc] init];
     _parsedResults = [[NSMutableArray alloc] init];
     _relationships = [[NSMutableDictionary alloc] init];
-
+    _managedObjectContext = moc;
     return self;
 }
 
@@ -88,7 +89,8 @@
         NSMutableArray* results = [[NSMutableArray alloc] init];
         for (NSDictionary* dict in arrayToParse)
         {
-            NSManagedObject* resultObj = [self parseDictionaryToResults:dict];
+            //NSManagedObject* resultObj = [self parseDictionaryToResults:dict];
+            NSManagedObject* resultObj = [CoreDataManager parseManagedObject:dict managedObjectContext:_managedObjectContext];
             if (resultObj != nil)
             {
                 [results addObject:resultObj]; 
@@ -105,6 +107,7 @@
     return YES;
 }
 
+/*
 -(NSManagedObject*)parseDictionaryToResults:(NSDictionary*)dict
 {
     NSString* poiPK = [[CoreDataManager primaryKeys] valueForKey:@"POI"];
@@ -170,6 +173,7 @@
     
     return result;
 }
+*/
 
 -(NSString*)messageForError:(OperationError)error
 {

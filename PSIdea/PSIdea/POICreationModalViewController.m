@@ -11,6 +11,7 @@
 #import "NSManagedObject+PropertiesDict.h"
 #import "NetworkAPI.h"
 #import "Logging.h"
+#import "CoreDataEntities.h"
 
 @implementation POICreationModalViewController
 
@@ -34,6 +35,7 @@
 {
     NSString* responseString = [[NSString alloc] initWithData:[operation responseBody] encoding:NSUTF8StringEncoding];
     [[Logging logger] logMessage:responseString];
+    NSArray* parsedResults = [operation parsedResults];
 }
 
 -(void)done
@@ -54,11 +56,26 @@
     [poi setLatitude:[NSNumber numberWithDouble:([poi.latitude doubleValue] + .02)]];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
     
-    
+    /*
     // local poi testing
-    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:)];
+    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
     [delegate didFinishEditing:YES];
+     */
+    
+    // get pois for user testing
+    /*
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
+    User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
+    [user setTwitterHandle:@"PSI_Tester"];
+    NSError* err;
+    [__managedObjectContext save:&err];
+    */
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
+    NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
+    [[NetworkAPI apiInstance] getPOIsForUser:[userResults objectAtIndex:0] callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
 }
+
 
 -(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation
 {

@@ -11,6 +11,7 @@
 #import "HTTPSynchPostOperationWithParse.h"
 #import "NSManagedObject+PropertiesDict.h"
 #import "CoreDataManager.h"
+#import "Logging.h"
 
 const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
 
@@ -49,11 +50,11 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
     NSData* data = [[self class] dataFromJSONString:json];
     if (jsonError != nil)
     {
-        NSLog(@"Error writing JSON for POI: %@", jsonError);
+        [[Logging logger] logMessage:[NSString stringWithFormat:@"Error writing JSON for POI: %@", jsonError]];
     }
     else 
     {
-        NSLog(@"postPoi: Here is the JSON for the poi: %@", json);
+        [[Logging logger] logMessage:[NSString stringWithFormat:@"postPoi: Here is the JSON for the poi: %@", json]];
     }
 
     NSString* urlString = [NSString stringWithFormat:@"%@/%@/", PSI_URL_BASE, @"poi"];
@@ -64,7 +65,7 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
     [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
 }
 
--(void)getPOIsWithinRadius:(NSUInteger)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon callbackTarget:(id)target action:(SEL)action
+-(void)getPOIsWithinRadius:(NSUInteger)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon callbackTarget:(id)target action:(SEL)action managedObjectContext:(NSManagedObjectContext*)moc
 {
     NSArray* objects = [NSArray arrayWithObjects:[NSNumber numberWithInteger:radius], lat, lon, nil];
     NSArray* keys = [NSArray arrayWithObjects:@"radius", @"latitude", @"longitude", nil];
@@ -72,7 +73,42 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
     NSString* urlString = [NSString stringWithFormat:@"%@/%@%@", PSI_URL_BASE, @"local_poi", [[self class] requestStringFromDictionary:locationDict]];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"GET"];
-    HTTPSynchGetOperationWithParse* op = [[HTTPSynchGetOperationWithParse alloc] initWithRequest:request];
+    HTTPSynchGetOperationWithParse* op = [[HTTPSynchGetOperationWithParse alloc] initWithRequest:request managedObjectContext:moc];
+    [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
+}
+
+-(void)postUser:(User*)user callbackTarget:(id)target action:(SEL)action
+{
+    NSDictionary* userDict = [NSDictionary dictionaryWithObject:[user twitterHandle] forKey:@"twitterHandle"];
+    NSError* jsonError;
+    NSString* json = [_jsonWriter stringWithObject:userDict error:&jsonError];
+    NSData* data = [[self class] dataFromJSONString:json];
+    if (jsonError != nil)
+    {
+        [[Logging logger] logMessage:[NSString stringWithFormat:@"Error writing JSON for postUser request: %@", jsonError]];
+    }
+    else 
+    {
+        [[Logging logger] logMessage:[NSString stringWithFormat:@"postUser: Here is the JSON for the request: %@", json]];
+    }
+    
+    NSString* urlString = [NSString stringWithFormat:@"%@/%@/", PSI_URL_BASE, @"user"];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:data];
+    HTTPSynchPostOperationWithParse* op = [[HTTPSynchPostOperationWithParse alloc] initWithRequest:request postEntity:user];
+    [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
+}
+
+-(void)getPOIsForUser:(User*)user callbackTarget:(id)target action:(SEL)action managedObjectContext:(NSManagedObjectContext*)moc
+{
+    NSArray* objects = [NSArray arrayWithObject:[user twitterHandle]];
+    NSArray* keys = [NSArray arrayWithObject:@"twitterHandle"];
+    NSDictionary* locationDict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    NSString* urlString = [NSString stringWithFormat:@"%@/%@%@", PSI_URL_BASE, @"user_poi", [[self class] requestStringFromDictionary:locationDict]];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"GET"];
+    HTTPSynchGetOperationWithParse* op = [[HTTPSynchGetOperationWithParse alloc] initWithRequest:request managedObjectContext:moc];
     [_networkManager addNetworkTransferOperation:op finishedTarget:target action:action];
 }
 
@@ -94,7 +130,10 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
     NSString* queryString = @"?";
     for (id key in dict)
     {
-        NSString* append = [NSString stringWithFormat:@"%@=%@&", key, [dict objectForKey:key]];
+        id value = [dict objectForKey:key];
+
+        NSString* append = [NSString stringWithFormat:@"%@=%@&", key, value];
+
         queryString = [queryString stringByAppendingString:append];
     }
     queryString = [queryString substringToIndex:queryString.length - 1]; //remove the final '&'
