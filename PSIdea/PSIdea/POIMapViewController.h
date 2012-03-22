@@ -12,13 +12,18 @@
 #import "POI.h"
 #import "ViewWithCoreData.h"
 #import "CoreDataManager.h"
-#import "MyCLController.h"
 #import "POICreationModalViewController.h"
+#import "PSINetworkController.h"
+#import "NSManagedObject+PropertiesDict.h"
+#import "NetworkAPI.h"
+#import "Logging.h"
+#import "POIDetailsViewController.h"
+
 
 
 #define METERS_PER_MILE 1609.344
 
-@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData,MyCLControllerDelegate, POICreationModalViewControllerDelegate>
+@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate>
 {
     BOOL nearby;
     BOOL centeredAtUserLocation;
@@ -36,8 +41,7 @@
 - (IBAction)segmentSelected:(id)sender;
 -(void)plotPOI;
 -(id)initWithContext:(NSManagedObjectContext *)context;
-- (void)locationUpdate:(CLLocation *)location;
-- (void)locationError:(NSError *)error;
+-(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate;
 
 -(void) didFinishEditing:(BOOL) finished;
 

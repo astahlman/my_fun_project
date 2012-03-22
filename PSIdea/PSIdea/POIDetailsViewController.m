@@ -10,9 +10,11 @@
 
 @implementation POIDetailsViewController
 
+@synthesize creatorNameLabel = _creatorNameLabel;
+@synthesize creatorLabel = _creatorLabel;
+@synthesize userPhotoImageView = _userPhotoImageView;
 @synthesize titleLabel = __titleLabel;
 @synthesize detailsTextView = __detailsTextView;
-@synthesize __mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,10 +28,12 @@
 - (id)initWithPOI: (POI*) poi {
     self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
     if (self) {
+        __poi = poi;
        __details = poi.details;
         __title = poi.title;
         pinLocation = [[CLLocation alloc] initWithLatitude: poi.latitude.floatValue longitude:poi.longitude.floatValue];
-        self.title = __title;
+        self.title =@"Details";
+        __creatorUserName = poi.creator.twitterHandle;
     }
 
     
@@ -52,12 +56,27 @@
 {
 }
 */
-- (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
-    [__mapView setRegion:region animated:animated];
+
+
+/*-(void) handleAction{
+    UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Place?" otherButtonTitles: nil];
+    actionsheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    [actionsheet dismissWithClickedButtonIndex:actionsheet.cancelButtonIndex animated:YES];
+    [actionsheet showInView:self.view];
 }
 
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        //Delete From Server and CoreData
+        NSManagedObjectContext *context = __poi.managedObjectContext;
+        
+        [context deleteObject:__poi];
+        [context save:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+
+}*/
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -65,22 +84,18 @@
     
     self.detailsTextView.text = __details;
     self.titleLabel.text = __title;
+    self.creatorLabel.text = __creatorUserName;
     
-    [self zoomToLocation:pinLocation.coordinate animated:NO];
-    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:pinLocation.coordinate title:nil];
-    [annotation updateAnnotationView:pinLocation];
-    [__mapView addAnnotation:annotation];
+  /* Added for future use (if needed). Uncomment action sheet methods above  
     
-    containerView.layer.cornerRadius = 10.0;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleAction)];
+    */
+    
+    
+   containerView.layer.cornerRadius = 10.0;
     containerView.layer.borderColor = [UIColor clearColor].CGColor;
     containerView.layer.borderWidth = 1.2;
     containerView.layer.masksToBounds = YES;
-    
-    __mapView.layer.cornerRadius = 10.0;
-    __mapView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    __mapView.layer.borderWidth = 2.0;
-    __mapView.layer.masksToBounds = YES;
-
 
 }
 
@@ -88,7 +103,9 @@
 - (void)viewDidUnload
 {
     containerView = nil;
-    [self set__mapView:nil];
+    [self setCreatorLabel:nil];
+    [self setCreatorNameLabel:nil];
+    [self setUserPhotoImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

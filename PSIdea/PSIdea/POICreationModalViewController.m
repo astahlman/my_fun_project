@@ -53,7 +53,6 @@
     }
     
     POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
-    [poi setLatitude:[NSNumber numberWithDouble:([poi.latitude doubleValue] + .02)]];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
     
     /*

@@ -40,6 +40,12 @@
     if (nearby) {
         //Search for public POI on server
         
+        __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
+        __visiblePOI = [[NSMutableArray alloc] init];
+        [__visiblePOI addObjectsFromArray:__poiArray];
+        [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
+
+        
     }
     else{
         //Use user saved POI (this will be downloaded and stored in CoreData
@@ -69,15 +75,17 @@
     for (id<MKAnnotation> annotation in __poiMapView.annotations) {
         [__poiMapView removeAnnotation:annotation];
     }
-    
+    int tag = 0;
     for (POI *poi in __visiblePOI) {
         
         CLLocationCoordinate2D location;
         location.latitude = poi.latitude.doubleValue;
         location.longitude = poi.longitude.doubleValue;
         POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:poi.details coordinate:location title:poi.title];
+        annotation.tag = tag;
         CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
-       
+        tag++;
+        
         //Sets details to the address if nil;
         if(poi.details == nil){
             [annotation updateAnnotationView:annotationLocation];
@@ -108,6 +116,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 
 -(void) resetView{
+
     [self getPOIs];
     [self plotPOI];
     
@@ -129,10 +138,10 @@
 {
     [super viewDidLoad];
 
-    nearby = segmentedControl.selectedSegmentIndex;
+    nearby = !segmentedControl.selectedSegmentIndex;
     self.navigationItem.titleView = self.segmentedControl;
     [self resetView];
-    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
 }
 
@@ -159,81 +168,115 @@
         __poiMapView.showsUserLocation = YES;
 
     }
-    if (locationController==nil) {
-        locationController = [[MYCLController alloc] init];
-        locationController.delegate=self;
-        [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-    }
-
-    [locationController.locationManager startUpdatingLocation];
-
-
-     /*  CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 34.677035;
-    zoomLocation.longitude = -86.452324;
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 50*METERS_PER_MILE, 50*METERS_PER_MILE);
-    
-    MKCoordinateRegion adjustedRegion = [__poiMapView regionThatFits:viewRegion];                
-    
-    [__poiMapView setRegion:adjustedRegion animated:YES];   */     
+    [self resetView];
 }
 
 -(IBAction)segmentSelected:(id)sender{
     
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
-            nearby = NO;
-            [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+            centeredAtUserLocation = YES;
+
+            nearby = YES;
+            [self zoomToLocation:currentLocation.coordinate animated:NO];
+
             break;
         case 1:
-            nearby = YES;
-            centeredAtUserLocation = YES;
+            nearby = NO;
             
             // TODO: Add nearby POIs on Server (i.e. friends POIs)
-            [locationController.locationManager startUpdatingLocation];
+            [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+
+            
             break;
         default:
             
             break;
             
     }
-
-}
--(void) locationUpdate:(CLLocation *)location{
-    currentLocation =location;
-    [locationController.locationManager stopUpdatingLocation];
-    if (nearby) {
-        [self zoomToLocation:currentLocation.coordinate animated:NO];
-
-    }
     
-    else{
-        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+    [self resetView];
 
-    }
 
 }
 
--(void) locationError:(NSError *)error{
-    NSLog(@"ERROR: %@", error);
-}
+
 
 -(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
     if(centeredAtUserLocation){
         centeredAtUserLocation = NO;
         // TODO: add button so that user can get back to location after panning
+        
     }
 }
 
 -(void) didFinishEditing:(BOOL)finished {
         if (YES) {
             [__managedObjectContext save:nil];
+            [self resetView];
             
         }
     [self.modalViewController dismissModalViewControllerAnimated:YES];
 
 }
 
+-(void)operationDidGetLocalPOIs:(HTTPSynchGetOperationWithParse*)operation
+{
+    NSString* responseString = [[NSString alloc] initWithData:[operation responseBody] encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *responseDictionary = [responseString JSONValue];
+    
+    NSLog(@"%@",responseDictionary);
+    //TODO: Plot Nearby POIs (Use different color from User's own POIs)
+    
+    
+}
+-(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate{
+    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:)];
+}
+
+
+-(MKAnnotationView  *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    if(annotation == mapView.userLocation){
+        return nil;
+    }
+
+    POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
+    
+    
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+    if (annotationView == nil) {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+    }
+    annotationView.draggable =YES;
+    annotationView.pinColor = MKPinAnnotationColorRed;
+    annotationView.canShowCallout = YES;
+    annotationView.animatesDrop =YES;
+    annotationView.tag = poiAnnotation.tag;
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    
+    POI *desiredPOI = [__visiblePOI objectAtIndex:view.tag];
+    
+    POIDetailsViewController *poiDVC = [[POIDetailsViewController alloc] initWithPOI:desiredPOI];
+    [self.navigationController pushViewController:poiDVC animated:YES];
+}
+
+-(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    currentLocation = userLocation.location;
+    if (nearby) {
+        [self zoomToLocation:currentLocation.coordinate animated:NO];
+        
+    }
+    
+    else{
+        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+        
+    }
+
+}
 
 @end
