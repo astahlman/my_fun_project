@@ -142,7 +142,29 @@
     self.navigationItem.titleView = self.segmentedControl;
     [self resetView];
 
+    // get pois for user testing
+    /*
+     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
+     User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
+     [user setTwitterHandle:@"PSI_Tester"];
+     NSError* err;
+     [__managedObjectContext save:&err];
+     */
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
+    NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
+    [[NetworkAPI apiInstance] getPOIsForUser:[userResults objectAtIndex:0] callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
+}
+
+
+/// TESTING ONLY - REMOVE LATER
+-(void)operationDidGetPOIsForUser:(HTTPSynchGetOperationWithParse*)operation
+{
+    NSString* responseString = [[NSString alloc] initWithData:[operation responseBody] encoding:NSUTF8StringEncoding];
+    [[Logging logger] logMessage:responseString];
+    NSArray* parsedResults = [operation parsedResults];
 }
 
 
@@ -229,10 +251,10 @@
     NSLog(@"%@",responseDictionary);
     //TODO: Plot Nearby POIs (Use different color from User's own POIs)
     
-    
 }
+
 -(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate{
-    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:)];
+    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
 }
 
 
