@@ -18,12 +18,11 @@
 #import "NetworkAPI.h"
 #import "Logging.h"
 #import "POIDetailsViewController.h"
-
-
+#import "MyCLController.h"
 
 #define METERS_PER_MILE 1609.344
 
-@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate>
+@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate, MyCLControllerDelegate>
 {
     BOOL nearby;
     BOOL centeredAtUserLocation;
@@ -45,4 +44,6 @@
 
 -(void) didFinishEditing:(BOOL) finished;
 
+-(void) locationUpdate:(CLLocation *) location;
+-(void) locationError:(NSError*) error;
 @end

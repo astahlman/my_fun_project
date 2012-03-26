@@ -217,7 +217,7 @@
 									<object class="IBUIButton" id="663267108">
 										<reference key="NSNextResponder" ref="140825924"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{234, 26}, {26, 39}}</string>
+										<string key="NSFrame">{{241, 27}, {19, 25}}</string>
 										<reference key="NSSuperview" ref="140825924"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="618846959"/>
@@ -254,7 +254,7 @@
 										</object>
 									</object>
 								</array>
-								<string key="NSFrame">{{0, 235}, {280, 80}}</string>
+								<string key="NSFrame">{{0, 249}, {280, 80}}</string>
 								<reference key="NSSuperview" ref="759942716"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="161857296"/>
@@ -265,7 +265,7 @@
 							<object class="IBUIImageView" id="618846959">
 								<reference key="NSNextResponder" ref="759942716"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{14, 224}, {50, 32}}</string>
+								<string key="NSFrame">{{10, 233}, {50, 32}}</string>
 								<reference key="NSSuperview" ref="759942716"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -278,7 +278,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrame">{{20, 20}, {280, 315}}</string>
+						<string key="NSFrame">{{20, 20}, {280, 329}}</string>
 						<reference key="NSSuperview" ref="843705742"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="806814198"/>
@@ -393,8 +393,8 @@
 							<reference ref="1038653444"/>
 							<reference ref="777502164"/>
 							<reference ref="806814198"/>
-							<reference ref="618846959"/>
 							<reference ref="140825924"/>
+							<reference ref="618846959"/>
 						</array>
 						<reference key="parent" ref="843705742"/>
 					</object>
@@ -413,10 +413,10 @@
 						<int key="objectID">23</int>
 						<reference key="object" ref="140825924"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="663267108"/>
 							<reference ref="161857296"/>
 							<reference ref="1044143040"/>
 							<reference ref="67718703"/>
+							<reference ref="663267108"/>
 						</array>
 						<reference key="parent" ref="759942716"/>
 					</object>

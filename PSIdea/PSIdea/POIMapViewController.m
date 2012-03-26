@@ -156,6 +156,13 @@
     [[NetworkAPI apiInstance] getPOIsForUser:[userResults objectAtIndex:0] callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
+    
+    if (locationController==nil) {
+        locationController = [[MYCLController alloc] init];
+        locationController.delegate = self;
+    }
+    
+    [locationController.locationManager startUpdatingLocation];
 }
 
 
@@ -190,6 +197,17 @@
         __poiMapView.showsUserLocation = YES;
 
     }
+    
+    if (nearby) {
+        [self zoomToLocation:currentLocation.coordinate animated:NO];
+        
+    }
+    
+    else{
+        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
+        
+    }
+
     [self resetView];
 }
 
@@ -289,6 +307,13 @@
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     currentLocation = userLocation.location;
+  
+}
+
+-(void) locationUpdate:(CLLocation *)location{
+    
+    currentLocation = location;
+    
     if (nearby) {
         [self zoomToLocation:currentLocation.coordinate animated:NO];
         
@@ -299,6 +324,13 @@
         
     }
 
+    
+    [locationController.locationManager stopUpdatingLocation];
+    
+    
 }
 
+-(void) locationError:(NSError *)error{
+    
+}
 @end
