@@ -43,7 +43,7 @@
         __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
         __visiblePOI = [[NSMutableArray alloc] init];
         [__visiblePOI addObjectsFromArray:__poiArray];
-        [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
+       // [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
 
         
     }
@@ -138,20 +138,20 @@
 {
     [super viewDidLoad];
 
-    nearby = !segmentedControl.selectedSegmentIndex;
-    self.navigationItem.titleView = self.segmentedControl;
+    nearby = !(segmentedControl.selectedSegmentIndex);
+    self.navigationItem.titleView = segmentedControl;
     [self resetView];
 
     // get pois for user testing
-    /*
+    
      NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
      User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
      [user setTwitterHandle:@"PSI_Tester"];
      NSError* err;
      [__managedObjectContext save:&err];
-     */
+     
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
+   NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
     [[NetworkAPI apiInstance] getPOIsForUser:[userResults objectAtIndex:0] callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
     
@@ -271,9 +271,9 @@
     
 }
 
--(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate{
+/*-(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate{
     [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
-}
+}*/
 
 
 -(MKAnnotationView  *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{

@@ -13,6 +13,7 @@
 #import "User.h"
 #import "MyCLController.h"
 #import "POIAnnotation.h"
+#import "ProfileViewController.h"
 
 @interface POIDetailsViewController : UIViewController <MKMapViewDelegate, UIActionSheetDelegate>{
     
@@ -29,6 +30,8 @@
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
+@property (weak, nonatomic) IBOutlet UIButton *disclosureButton;
+- (IBAction)disclosureButtonSelected:(id)sender;
 
 - (id)initWithPOI:(POI*) poi;
 

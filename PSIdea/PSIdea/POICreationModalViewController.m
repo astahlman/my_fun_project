@@ -59,8 +59,9 @@
     /*
     // local poi testing
     [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
-    [delegate didFinishEditing:YES];
      */
+    [delegate didFinishEditing:YES];
+
 }
 
 

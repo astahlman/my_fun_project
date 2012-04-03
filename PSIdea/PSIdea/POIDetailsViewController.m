@@ -15,6 +15,7 @@
 @synthesize userPhotoImageView = _userPhotoImageView;
 @synthesize titleLabel = __titleLabel;
 @synthesize detailsTextView = __detailsTextView;
+@synthesize disclosureButton = _disclosureButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +25,8 @@
     }
     return self;
 }
+
+
 
 - (id)initWithPOI: (POI*) poi {
     self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
@@ -106,6 +109,7 @@
     [self setCreatorLabel:nil];
     [self setCreatorNameLabel:nil];
     [self setUserPhotoImageView:nil];
+    [self setDisclosureButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -115,6 +119,12 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)disclosureButtonSelected:(id)sender {
+    ProfileViewController *pvc = [[ProfileViewController alloc] initWithUser:__poi.creator];
+    [self.navigationController pushViewController:pvc animated:YES];
+    
 }
 
 @end
