@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import <AddressBook/AddressBook.h>
 
 @interface POIAnnotation : NSObject <MKAnnotation>
 

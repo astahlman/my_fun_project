@@ -36,6 +36,7 @@
     
     poi = [[context executeFetchRequest:request error:&error] lastObject];
     
+    
     if(!error && !poi){
         poi =[NSEntityDescription insertNewObjectForEntityForName:@"POI" inManagedObjectContext:context];
         poi.idNumber = idNumber;
@@ -48,20 +49,23 @@
         //TO DO: set up photo
         //Don't forget to remove!!!!!!        
 
-        
         User *user = nil;
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        
-        request.entity =[NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-        request.predicate = [NSPredicate predicateWithFormat:@"twitterHandle = %@", creator];
-        
-        NSError *error = nil;
-        
-        user = [[context executeFetchRequest:request error:&error] lastObject];
-        if(!error && !user){
-            user = [User createUserWithHandle:creator andPOIs:nil inManagedObjectContext:context];
+        if (creator == nil) {
+            creator = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
         }
-        
+    
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            
+            request.entity =[NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+            request.predicate = [NSPredicate predicateWithFormat:@"twitterHandle = %@", creator];
+            
+            NSError *error = nil;
+            user = [[context executeFetchRequest:request error:&error] lastObject];
+            if(!error && !user){
+                user = [User createUserWithHandle:creator andPOIs:nil inManagedObjectContext:context];
+            }
+
+              
         poi.creator = user;
         
     }

@@ -39,7 +39,7 @@
     
     [__coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = [placemarks lastObject];
-        self.details = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+        self.details = [placemark.addressDictionary valueForKey:(NSString *)kABPersonAddressStreetKey];
     }];
 }
 

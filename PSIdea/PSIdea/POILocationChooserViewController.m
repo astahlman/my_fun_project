@@ -47,7 +47,7 @@
     [annotation updateAnnotationView:location];
     [__mapView addAnnotation:annotation];
     userLocationButton.style = UIBarButtonItemStyleBordered;
-
+    locationAddress = annotation.details;
 }
 
 -(id) initWithCurrentLocation: (CLLocation*) location{
@@ -160,7 +160,7 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [delegate didSelectLocation:pinLocation WithPrivacy:makePublic];
+    [delegate didSelectLocation:pinLocation WithAddress:@"Current Location"];
 
 }
 

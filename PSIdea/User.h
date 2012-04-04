@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @class POI;
 
@@ -24,4 +26,5 @@
 - (void)addPois:(NSSet *)values;
 - (void)removePois:(NSSet *)values;
 +(User*) createUserWithHandle:(NSString*) twitterHandle andPOIs: (NSArray*) pois inManagedObjectContext:(NSManagedObjectContext*) context;
++(void) setUpCurrentUser;
 @end

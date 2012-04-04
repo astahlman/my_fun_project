@@ -55,6 +55,15 @@
         //Add profile Photo
    /* NSData *imageData = [NSData alloc] initWithContentsOfURL:__user.
     UIImage *image = [UIImage imageWithData:*/
+    NSString *twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
+
+    if ([__user.twitterHandle isEqualToString:twitterHandle]) {
+        UIImage *image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"]];
+        
+        userPhoto.image = image;
+        
+    }
+
     containerView.layer.cornerRadius = 10.0;
     containerView.layer.borderColor = [UIColor clearColor].CGColor;
     containerView.layer.borderWidth = 1.2;
@@ -159,7 +168,7 @@
     modLocation.longitude = location.longitude + 0.0001;
     MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
     MKCoordinateRegion region = MKCoordinateRegionMake(modLocation, span);
-    [mapView setRegion:region animated:YES];
+    [mapView setRegion:region animated:NO];
     
     return cell;
 }

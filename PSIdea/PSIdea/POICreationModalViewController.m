@@ -15,6 +15,7 @@
 
 @implementation POICreationModalViewController
 
+@synthesize locationLabel;
 @synthesize infoButton;
 @synthesize titleField;
 @synthesize detailsField;
@@ -145,6 +146,12 @@
     backgroundImageView.layer.masksToBounds = YES;
     [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
     tweetPOI = NO;
+    mainInfoView.layer.cornerRadius = 10.0;
+    mainInfoView.layer.borderColor = [UIColor clearColor].CGColor;
+    mainInfoView.layer.borderWidth = 1.2;
+    mainInfoView.layer.masksToBounds = YES;
+    
+    locationLabel.text = @"Current Location";
 
 }
 
@@ -168,6 +175,7 @@
     [self setInfoButton:nil];
     backgroundImageView = nil;
     [self setPublicButton:nil];
+    [self setLocationLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -195,17 +203,24 @@
     }
 }
 
--(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic{
-    [self zoomToLocation:location];
-    //Add annotation to miniMapView
+-(void) didSelectLocation: (CLLocation *) location WithAddress:(NSString*) address{
+    currentLocation = location;    
+    locationLabel.text = address;
     
-    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:location.coordinate title:nil];
+    CLGeocoder *__coder = [[CLGeocoder alloc] init];
+    
+    [__coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks lastObject];
+        locationLabel.text = [placemark.addressDictionary valueForKey:(NSString *)kABPersonAddressStreetKey];
+    }];
+    //Add annotation to miniMapView
+
+ /*   POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:location.coordinate title:nil];
     for (id<MKAnnotation> annotation in miniMapView.annotations) {
         [miniMapView removeAnnotation:annotation];
     }
     [miniMapView addAnnotation:annotation];
-    currentLocation = location;
-    tweetPOI = makePublic;
+    currentLocation = location;*/
 }
 - (IBAction)publicButtonSelected:(id)sender {
     

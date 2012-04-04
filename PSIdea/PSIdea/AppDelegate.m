@@ -21,7 +21,7 @@
     
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
-    
+    [User setUpCurrentUser];
     //Allocate TabBarController and Views
     
     // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];

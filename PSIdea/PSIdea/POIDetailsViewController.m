@@ -88,6 +88,14 @@
     self.detailsTextView.text = __details;
     self.titleLabel.text = __title;
     self.creatorLabel.text = __creatorUserName;
+    NSString *twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
+    
+    if ([__creatorUserName isEqualToString:twitterHandle]) {
+        UIImage *image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"]];
+        
+        _userPhotoImageView.image = image;
+        
+    }
     
   /* Added for future use (if needed). Uncomment action sheet methods above  
     

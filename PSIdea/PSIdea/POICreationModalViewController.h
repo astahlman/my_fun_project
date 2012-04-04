@@ -35,6 +35,7 @@
     BOOL tweetPOI;
  
 }
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
@@ -45,7 +46,7 @@
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
--(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic;
+-(void) didSelectLocation: (CLLocation *) location WithAddress:(NSString*) address;
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)infoButtonSelected:(id)sender;
