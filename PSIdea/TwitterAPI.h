@@ -17,6 +17,7 @@
 }
 // singleton
 +(TwitterAPI*)apiInstance;
++(void) getCurrentUser;
 
 -(id)init;
 -(void)sendTweet:(NSString*)body forHandle:(NSString*)handle;

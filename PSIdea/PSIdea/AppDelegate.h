@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "POIMapViewController.h"
 #import "MWFSlideNavigationViewController.h"
+#import "TwitterAPI.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     

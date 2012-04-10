@@ -136,6 +136,10 @@
     mainInfoView.layer.masksToBounds = YES;
     
     locationLabel.text = @"Current Location";
+    locationController = [[MYCLController alloc] init];
+    [locationController.locationManager startUpdatingLocation];
+    locationController.delegate =self;
+    
     
 }
 
@@ -220,5 +224,15 @@
     CFStringRef string = CFUUIDCreateString(NULL, theUUID);
     CFRelease(theUUID);
     return (__bridge_transfer NSString *)string;
+}
+
+-(void) locationUpdate:(CLLocation *)location{
+    currentLocation = location;
+    [locationController.locationManager stopUpdatingLocation];
+    
+}
+
+-(void) locationError:(NSError *)error{
+    NSLog(@"%@", error);
 }
 @end

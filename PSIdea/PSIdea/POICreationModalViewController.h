@@ -27,12 +27,13 @@
 @class HTTPSynchPostOperationWithParse;
 
 
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate>
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate, POILocationChooserViewControllerDelegate>
 {
     NSManagedObjectContext *__managedObjectContext;
     __weak IBOutlet UIView *mainInfoView;
     CLLocation *currentLocation;
     BOOL tweetPOI;
+    MyCLController *locationController;
  
 }
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -60,6 +61,9 @@
 -(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation;
 //-(void)operation:(HTTPOperation*)operation didFailWithError:(NSString*)errorMsg;
 //-(void)operation:(HTTPPostOperation*)operation didPostAndReceivePrimaryKey:(id)primaryKey;
+
+-(void) locationUpdate:(CLLocation *)location;
+-(void) locationError:(NSError *)error;
 
 
 @end

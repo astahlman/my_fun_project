@@ -21,7 +21,7 @@
     
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
-    [User setUpCurrentUser];
+    [TwitterAPI getCurrentUser];
     
     
     //Allocate TabBarController and Views
