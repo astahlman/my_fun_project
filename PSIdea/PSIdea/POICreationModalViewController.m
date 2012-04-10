@@ -121,27 +121,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
-    miniMapView.showsUserLocation=NO;
-    locationController = [[MYCLController alloc] init];
-    locationController.delegate=self;
-    [locationController.locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-    [locationController.locationManager startUpdatingLocation];
     
-    backgroundImageView.layer.cornerRadius = 10.0;
-    backgroundImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    backgroundImageView.layer.borderWidth = 1.2;
-    backgroundImageView.layer.masksToBounds = YES;
     [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
     tweetPOI = YES;
-=======
        [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
     
    // View Setup (rounded Corners) 
 
 
     tweetPOI = NO;
->>>>>>> Added UUID for POIs
     mainInfoView.layer.cornerRadius = 10.0;
     mainInfoView.layer.borderColor = [UIColor clearColor].CGColor;
     mainInfoView.layer.borderWidth = 1.2;

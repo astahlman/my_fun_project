@@ -51,25 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "191"
-         endingLineNumber = "191"
-         landmarkName = "@implementation POIMapViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "188"
+         endingLineNumber = "188"
          landmarkName = "-operationDidGetPOIsForUser:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -78,13 +64,27 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "PSidea/POICreationModalViewController.m"
-         timestampString = "355687611.535826"
+         filePath = "PSidea/POIMapViewController.m"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
-         landmarkName = "-infoButtonSelected:"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "PSidea/POICreationModalViewController.m"
+         timestampString = "355715178.798288"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
+         landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -98,7 +98,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "191"
          endingLineNumber = "191"
-         landmarkName = "-tweetButtonSelected:"
+         landmarkName = "-infoButtonSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -147,38 +147,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "244"
-         endingLineNumber = "244"
-         landmarkName = "@implementation POIMapViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "252"
-         endingLineNumber = "252"
-         landmarkName = "@implementation POIMapViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "227"
-         endingLineNumber = "227"
+         startingLineNumber = "241"
+         endingLineNumber = "241"
          landmarkName = "-segmentSelected:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PSidea/POIMapViewController.m"
+         timestampString = "355715178.798288"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "249"
+         endingLineNumber = "249"
+         landmarkName = "-segmentSelected:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PSidea/POIMapViewController.m"
+         timestampString = "355715178.798288"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "224"
+         endingLineNumber = "224"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -186,12 +186,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "228"
-         endingLineNumber = "228"
-         landmarkName = "-segmentSelected:"
+         startingLineNumber = "225"
+         endingLineNumber = "225"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -230,7 +230,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "216"
          endingLineNumber = "216"
-         landmarkName = "-segmentSelected:"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -251,12 +251,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "256"
-         endingLineNumber = "256"
-         landmarkName = "-didFinishEditing:"
+         startingLineNumber = "253"
+         endingLineNumber = "253"
+         landmarkName = "-segmentSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -264,12 +264,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "354432619.057856"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "257"
-         endingLineNumber = "257"
-         landmarkName = "-didFinishEditing:"
+         startingLineNumber = "254"
+         endingLineNumber = "254"
+         landmarkName = "-segmentSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -329,12 +329,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "355166330.490327"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
-         landmarkName = "-operationDidGetPOIsForUser:"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -368,11 +368,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "355166475.98023"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -381,12 +381,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "355166756.62984"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "190"
+         endingLineNumber = "190"
+         landmarkName = "-operationDidGetPOIsForUser:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -433,12 +433,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POIMapViewController.m"
-         timestampString = "355166908.255134"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194"
-         landmarkName = "-viewWillAppear:"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
+         landmarkName = "-operationDidGetPOIsForUser:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -472,13 +472,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POICreationModalViewController.m"
-         timestampString = "355687611.535826"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "176"
-         endingLineNumber = "176"
-         landmarkName = "-didSelectLocation:WithAddress:"
-         landmarkType = "5">
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "@implementation POICreationModalViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -561,12 +561,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PSidea/POICreationModalViewController.m"
-         timestampString = "355687611.535826"
+         timestampString = "355715178.798288"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
-         landmarkName = "-GetUUID"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
+         landmarkName = "-didSelectLocation:WithAddress:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

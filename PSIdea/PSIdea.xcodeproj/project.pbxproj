@@ -81,6 +81,8 @@
 		51A2DA6D150AF49B00A87A0E /* PSIdea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */; };
 		51A2DA74150AFE5500A87A0E /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A2DA72150AFE5000A87A0E /* location@2x.png */; };
 		51A2DA75150AFE5500A87A0E /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A2DA73150AFE5100A87A0E /* location.png */; };
+		51BF7F0E1533C79500AD1AB7 /* TwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BF7F0B1533C79500AD1AB7 /* TwitterAPI.m */; };
+		51BF7F0F1533C79500AD1AB7 /* TWRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BF7F0D1533C79500AD1AB7 /* TWRequestOperation.m */; };
 		51C8A1AE15237DC100671A32 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C8A1AC15237DC100671A32 /* ProfileViewController.m */; };
 		51C8A1AF15237DC100671A32 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C8A1AD15237DC100671A32 /* ProfileViewController.xib */; };
 		51C8A1B215237E0600671A32 /* triangle_Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 51C8A1B115237E0600671A32 /* triangle_Up.png */; };
@@ -217,6 +219,10 @@
 		51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea.xcdatamodel; sourceTree = "<group>"; };
 		51A2DA72150AFE5000A87A0E /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
 		51A2DA73150AFE5100A87A0E /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		51BF7F0A1533C79500AD1AB7 /* TwitterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAPI.h; sourceTree = "<group>"; };
+		51BF7F0B1533C79500AD1AB7 /* TwitterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAPI.m; sourceTree = "<group>"; };
+		51BF7F0C1533C79500AD1AB7 /* TWRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRequestOperation.h; sourceTree = "<group>"; };
+		51BF7F0D1533C79500AD1AB7 /* TWRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRequestOperation.m; sourceTree = "<group>"; };
 		51C8A1AB15237DC100671A32 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		51C8A1AC15237DC100671A32 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		51C8A1AD15237DC100671A32 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +504,10 @@
 				516E692E14FF46D60026E273 /* PSINetworkController.m */,
 				66C2B7851502AA79008B2FE1 /* TwitterController.h */,
 				66C2B7861502AA79008B2FE1 /* TwitterController.m */,
+				51BF7F0A1533C79500AD1AB7 /* TwitterAPI.h */,
+				51BF7F0B1533C79500AD1AB7 /* TwitterAPI.m */,
+				51BF7F0C1533C79500AD1AB7 /* TWRequestOperation.h */,
+				51BF7F0D1533C79500AD1AB7 /* TWRequestOperation.m */,
 			);
 			name = "Supporting Classes";
 			sourceTree = "<group>";
@@ -681,6 +691,8 @@
 				66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */,
 				51C8A1AE15237DC100671A32 /* ProfileViewController.m in Sources */,
 				516E455F15335BF000ED4F3C /* POI.m in Sources */,
+				51BF7F0E1533C79500AD1AB7 /* TwitterAPI.m in Sources */,
+				51BF7F0F1533C79500AD1AB7 /* TWRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

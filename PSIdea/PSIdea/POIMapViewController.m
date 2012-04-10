@@ -143,11 +143,9 @@
     [self resetView];
     
     // get pois for user testing
-<<<<<<< HEAD
 
      
     // TESTING
-=======
     
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
     User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
@@ -156,10 +154,9 @@
     [__managedObjectContext save:&err];
     
     
->>>>>>> Added UUID for POIs
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
-    User* user;
+    user = nil;
     if ([userResults count] == 0)
     {
         NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
