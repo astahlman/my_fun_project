@@ -25,8 +25,6 @@
 
 -(void) createCoreDataIn:(NSManagedObjectContext*) context{
     
-    [List createDefaultListWithTitle:@"Default" InManagedObjectContext:context];
-    [List createtListWithTitle:@"My Favorite Places" withIDNumber:[NSNumber numberWithInt:1] InManagedObjectContext:context];
     //Parses SampleData.plist created for app
     
     NSString *errorDesc = nil;
@@ -57,17 +55,15 @@
     NSDictionary *user = nil;
     for (int i=0; i<users.count; i++){
         user = [users objectAtIndex:i];
-        [User createUserWithID:[user objectForKey:@"id"] andName:[user objectForKey:@"name"] andLatitude:[user objectForKey:@"latitude"] andLongitude:[user objectForKey:@"longitude"] andPOIs:[user objectForKey:@"pois"] andFriends:[user objectForKey:@"friends"] andPhoto:[user objectForKey:@"photo"] inManagedObjectContext:context];
-     
-    }
+        [User createUserWithHandle:[user objectForKey:@"twitterHandle"] andPOIs:[user objectForKey:@"pois"]inManagedObjectContext:context];
+}
     
     NSArray *pois = [root objectForKey:@"POIs"];
     NSDictionary *poi = nil;
     
     for(int i=0; i<pois.count; i++){
         poi = [pois objectAtIndex:i];
-        NSArray* lists = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1], nil];
-        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andPublic:[poi objectForKey:@"public"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"] andLists: lists inManagedObjectContext:context];
+        [POI createPOIWithID:[poi objectForKey:@"id"] andTitle:[poi objectForKey:@"title"] andDetails:[poi objectForKey:@"details"] andLatitude:[poi objectForKey:@"latitude"] andLongitude:[poi objectForKey:@"longitude"] andPhoto:[poi objectForKey:@"photo"] andRating:[poi objectForKey:@"rating"] andCreator:[poi objectForKey:@"creator"]  inManagedObjectContext:context];
     }
     
     

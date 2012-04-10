@@ -7,7 +7,7 @@
 //
 
 #import "MyCLController.h"
-@implementation MYCLController
+@implementation MyCLController
 
 @synthesize locationManager;
 @synthesize delegate;

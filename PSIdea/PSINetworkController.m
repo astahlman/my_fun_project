@@ -7,7 +7,11 @@
 //
 
 #import "PSINetworkController.h"
-#import "NSObject+PropertyArray.h"
+#import "NSManagedObject+PropertiesDict.h"
+#import "POI.h"
+#import "User.h"
+#import "Photo.h"
+#import "TwitterController.h"
 
 @implementation PSINetworkController
 
@@ -16,10 +20,8 @@
 @synthesize jsonWriter = _jsonWriter;
 @synthesize jsonParser = _jsonParser;
 
-+(PSINetworkController*)PSINetworkControllerWithBaseURL:(NSURL*)baseUrl {
-    PSINetworkController* controller = [super networkControllerWithBaseURL:baseUrl];
-    return controller;
-}
+static NSDictionary* modelDict = nil;
+static NSDictionary* poiMappingDict = nil;
 
 -(id)initWithBaseUrl:(NSURL *)baseUrl
 {
@@ -28,26 +30,22 @@
         // custom init
     }
     return self;
-}
--(void)retrieveObjectForId:(NSString*)idString atRelUrl:(NSString*)relUrl
-{
-    relUrl = [relUrl stringByAppendingString:idString];
-    NSURL* url = [NSURL URLWithString:relUrl relativeToURL:_baseUrl];
-    [self sendRequestForURL:url];
+    modelDict = [PSINetworkController getModelDictionary];
+    poiMappingDict = [PSINetworkController getPOIMappingDictionary];
 }
 
--(void)postRequestAtRelUrl:(NSString*)relUrl withPostData:(NSDictionary*)postDict
++(NSDictionary*)getModelDictionary
 {
-    NSString* postData = @"";
-    for (id key in postDict)
-    {
-        NSString* appended = [NSString stringWithFormat:@"%@=%@&", key, [postDict objectForKey:key]];
-        postData = [postData stringByAppendingString:appended];
-    }
-    postData = [postData substringToIndex:postData.length - 1]; //remove the final '&'
-    NSData* data = [postData dataUsingEncoding:NSUTF8StringEncoding];
-    NSURL* url = [NSURL URLWithString:relUrl relativeToURL:_baseUrl];
-    [self postRequestToURL:url withData:data withContentType:nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[POI class], @"pois.poi", [User class], @"pois.user", [Photo class], @"pois.photo", nil];
+    return dict;
+}
+
++(NSDictionary*)getPOIMappingDictionary
+{
+    NSArray* objects = [NSArray arrayWithObjects:@"creationDate", @"details", @"latitude", @"longitude", @"rating", @"tags", @"title", nil];
+    NSArray* keys = [NSArray arrayWithObjects:@"creationDate", @"details", @"latitude", @"longitude", @"rating", @"tags", @"title", nil];
+    NSDictionary* dict = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+    return dict;
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection*)connection
@@ -56,37 +54,63 @@
     NSString *responseString = [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding];
     NSLog(@"responseData as string: %@", responseString);
     SBJsonParser* parser = [[SBJsonParser alloc] init];
-    /*
-     NSArray* objs = [parser objectWithData:_responseData];
-    NSLog(@"responseData as dictionary:");
-    NSDictionary* theDict = [NSDictionary alloc];
-    for (NSDictionary* dict in objs)
+    NSError* parserError = nil;
+    NSArray* responseObjects = [parser objectWithString:responseString error:&parserError];
+    for (id dict in responseObjects)
     {
-        for (id key in dict) {
-            NSLog(@"%@=%@", key, [dict objectForKey:key]);
-            theDict = dict;
+        id theClass = [dict valueForKey:@"model"];
+        if (theClass == [POI class])
+        {
+            //POI* poi = [self parsePOI:dict];
         }
+        
     }
-     */
     [_delegate connection:connection receivedResponse:responseString];
+}
+
+-(void)retrieveObjectForId:(NSString*)idString atRelUrl:(NSString*)relUrl
+{
+    relUrl = [relUrl stringByAppendingString:idString];
+    NSURL* url = [NSURL URLWithString:relUrl relativeToURL:_baseUrl];
+    [self requestForURL:url];
 }
 
 -(void)postPoi:(POI*)poi 
 {
-    NSDictionary *properties = [poi dictionaryWithValuesForKeys:[poi allKeys]];
-    NSMutableDictionary *editedProps = [NSMutableDictionary dictionaryWithDictionary:properties];
-    [editedProps removeObjectForKey:@"creator"];
-    [editedProps removeObjectForKey:@"lists"];
-    NSLog(@"properties Dictionary:");
-    for (id key in editedProps) {
-        NSLog(@"%@=%@", key, [editedProps valueForKey:key]);
-    }
+    NSDictionary* propDict = [poi propertiesDict];
     NSError* jsonError = nil;
-    NSString* json = [_jsonWriter stringWithObject:editedProps error:&jsonError];
-    NSLog(@"json error: %@", jsonError);
-    NSLog(@"postPoi: Here is the JSON for the poi: %@", json);
-    NSURL* url = [NSURL URLWithString:@"add_poi/" relativeToURL:_baseUrl];
-    [self postJSONToURL:url withJson:json];
+    NSString* json = [_jsonWriter stringWithObject:propDict error:&jsonError];
+    NSData* data = [NetworkController dataFromJSONString:json];
+    if (jsonError != nil)
+    {
+        NSLog(@"json error: %@", jsonError);
+    }
+    else 
+    {
+        NSLog(@"postPoi: Here is the JSON for the poi: %@", json);
+    }
+    NSURL* url = [self appendURLToBase:@"poi/"];
+    [self postRequestToURL:url withData:data withContentType:[[NetworkController contentTypeDict] valueForKey:@"JSON"]];
+}
+
+-(void)requestPoi:(NSString *)idString
+{
+    NSURL* url = [self appendURLToBase:@"poi"];
+    NSDictionary* requestDict = [NSDictionary dictionaryWithObjectsAndKeys:idString, @"id", nil];
+    [self getRequestAtUrl:url withGetData:requestDict];
+}
+
+-(POI*)parsePoi:(NSDictionary*)poiDict
+{
+    POI* poi = [[POI alloc] init];
+    NSString* pkString = [poiDict valueForKey:@"pk"];
+    poi.idString = pkString;
+    return poi;
+}
+
+-(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
+{
+    //TwitterController* 
 }
 
 @end

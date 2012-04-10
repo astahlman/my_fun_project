@@ -7,51 +7,27 @@
 		<key>Users</key>
 		<array>
 			<dict>
-				<key>id</key>
-				<integer>1</integer>
-				<key>name</key>
+				<key>twitterHandle</key>
 				<string>William Patty</string>
-				<key>latitude</key>
-				<integer>0</integer>
-				<key>longitude</key>
-				<integer>0</integer>
-				<key>events</key>
+				<key>pois</key>
 				<array>
-					<integer>1</integer>
+					<string>1</string>
 				</array>
-				<key>friends</key>
-				<array>
-					<integer>2</integer>
-				</array>
-				<key>photo</key>
-				<integer>0</integer>
 			</dict>
 			<dict>
-				<key>id</key>
-				<integer>2</integer>
-				<key>name</key>
+				<key>twitterHandle</key>
 				<string>Andrew Stahlman</string>
-				<key>latitude</key>
-				<integer>0</integer>
-				<key>longitude</key>
-				<integer>0</integer>
-				<key>events</key>
+				<key>pois</key>
 				<array>
-					<integer>2</integer>
+					<string>2</string>
 				</array>
-				<key>friends</key>
-				<array>
-					<integer>1</integer>
-				</array>
-				<key>photo</key>
-				<integer>0</integer>
 			</dict>
 		</array>
 		<key>POIs</key>
 		<array>
 			<dict>
 				<key>id</key>
-				<integer>1</integer>
+				<string>1</string>
 				<key>title</key>
 				<string>POI #1</string>
 				<key>details</key>
@@ -62,16 +38,14 @@
 				<real>-86.452324</real>
 				<key>photo</key>
 				<string>null</string>
-				<key>public</key>
-				<true/>
 				<key>rating</key>
 				<integer>10</integer>
 				<key>creator</key>
-				<integer>1</integer>
+				<string>William Patty</string>
 			</dict>
 			<dict>
 				<key>id</key>
-				<integer>2</integer>
+				<string>2</string>
 				<key>title</key>
 				<string>POI #2</string>
 				<key>details</key>
@@ -87,7 +61,7 @@
 				<key>rating</key>
 				<integer>15</integer>
 				<key>creator</key>
-				<integer>2</integer>
+				<string>Andrew Stahlman</string>
 			</dict>
 		</array>
 	</dict>

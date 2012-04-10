@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "List.h"
 @interface CoreDataCreator : NSObject
 -(void) createCoreDataIn:(NSManagedObjectContext*) context;
 

@@ -25,11 +25,19 @@
 @property (retain) SBJsonParser* jsonParser;
 @property (retain) SBJsonWriter* jsonWriter;
 
-+(NetworkController*)networkControllerWithBaseURL:(NSURL*)baseUrl;
++(NSDictionary*)contentTypeDict;
+
++(NSDictionary*)getContentTypeDictionary;
++(NSString*)requestStringFromDictionary:(NSDictionary*)dict;
++(NSData*)dataFromJSONString:(NSString*)jsonString;
++(NSData*)dataFromDictionary:(NSDictionary*)dataDict;
+
 -(id)initWithBaseUrl:(NSURL*)baseUrl;
--(void)sendRequestForURL:(NSURL*)url;
+-(NSURL*)appendURLToBase:(NSString*)relURL;
+-(void)requestForURL:(NSURL*)url;
 -(void)postRequestToURL:(NSURL*)url withData:(NSData*)data withContentType:(NSString*)contentType;
--(void)postJSONToURL:(NSURL*)url withJson:(NSString*)jsonString;
+-(void)getRequestAtUrl:(NSURL*)url withGetData:(NSDictionary*)dict;
+
 -(void)connection:(NSURLConnection*)conn didReceiveData:(NSData *)data;
 -(void)connection:(NSURLConnection*)conn didReceiveResponse:(NSURLResponse *)response;
 -(void)connection:(NSURLConnection*)conn didFailWithError:(NSError *)error;

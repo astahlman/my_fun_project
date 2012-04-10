@@ -15,37 +15,55 @@
 #import "POIAnnotation.h"
 #import "MyCLController.h"
 #import "POILocationChooserViewController.h"
-#import "NetworkController.h"
+
+// Delegate Setup
+
 @protocol POICreationModalViewControllerDelegate <NSObject>
 
 @required
 -(void) didFinishEditing:(BOOL) finished;
 @end
 
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate, NetworkControllerDelegate>
+@class HTTPSynchPostOperationWithParse;
+
+
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate, POILocationChooserViewControllerDelegate>
 {
     NSManagedObjectContext *__managedObjectContext;
-    __weak IBOutlet UIImageView *tapeImage;
-    MYCLController *locationController;
     __weak IBOutlet UIView *mainInfoView;
     CLLocation *currentLocation;
-    __weak IBOutlet UIImageView *backgroundImageView;
-    BOOL publicPOI;
+    BOOL tweetPOI;
+    MyCLController *locationController;
  
 }
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
-@property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
-@property (nonatomic, retain) NSNumber *listNumber;
-
+@property (weak, nonatomic) IBOutlet UIButton *publicButton;
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
--(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
--(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic;
-- (void)locationUpdate:(CLLocation *)location;
-- (void)locationError:(NSError *)error;
+
+ // UIButton action methods
+
+- (IBAction)tweetButtonSelected:(id)sender;
 - (IBAction)infoButtonSelected:(id)sender;
--(void)connection:(NSURLConnection*)connection receivedResponse:(id)response;
+
+// Custome Initialization Method
+-(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
+
+// POILocationChooserViewController Delegate Method
+
+-(void) didSelectLocation: (CLLocation *) location WithAddress:(NSString*) address;
+
+- (NSString *)GetUUID;
+
+-(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation;
+//-(void)operation:(HTTPOperation*)operation didFailWithError:(NSString*)errorMsg;
+//-(void)operation:(HTTPPostOperation*)operation didPostAndReceivePrimaryKey:(id)primaryKey;
+
+-(void) locationUpdate:(CLLocation *)location;
+-(void) locationError:(NSError *)error;
+
 
 @end
