@@ -22,22 +22,20 @@
 
 #define METERS_PER_MILE 1609.344
 
-@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate, MyCLControllerDelegate>
+@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate, MyCLControllerDelegate, UISearchBarDelegate>
 {
-    BOOL nearby;
     BOOL centeredAtUserLocation;
     MKCoordinateRegion defaultRegion;
     MyCLController *locationController;
     CLLocation *currentLocation;
 }
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet MKMapView *poiMapView;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *poiArray;
 @property (nonatomic, retain) NSMutableArray *visiblePOI;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
-- (IBAction)segmentSelected:(id)sender;
 -(void)plotPOI;
 -(id)initWithContext:(NSManagedObjectContext *)context;
 -(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate;

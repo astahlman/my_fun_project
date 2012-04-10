@@ -9,11 +9,11 @@
 #import "POIMapViewController.h"
 
 @implementation POIMapViewController
+@synthesize searchBar;
 @synthesize poiMapView = __poiMapView;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize poiArray = __poiArray;
 @synthesize visiblePOI = __visiblePOI;
-@synthesize segmentedControl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,7 +37,6 @@
 }
 -(void) getPOIs {
     __visiblePOI =nil;
-    if (nearby) {
         //Search for public POI on server
         
         __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
@@ -45,14 +44,6 @@
         [__visiblePOI addObjectsFromArray:__poiArray];
         // [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
         
-        
-    }
-    else{
-        //Use user saved POI (this will be downloaded and stored in CoreData
-        __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
-        __visiblePOI = [[NSMutableArray alloc] init];
-        [__visiblePOI addObjectsFromArray:__poiArray];
-    }
     
 }
 
@@ -63,13 +54,7 @@
     __poiMapView.showsUserLocation = YES;
 }
 
--(void) zoomOutToLocation:(CLLocationCoordinate2D) location animated:(BOOL) animated{
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.5, 0.5);
-    MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
-    [__poiMapView setRegion:region animated:animated];
-    __poiMapView.showsUserLocation = NO;
-    
-}
+
 - (void) plotPOI {
     
     for (id<MKAnnotation> annotation in __poiMapView.annotations) {
@@ -134,16 +119,29 @@
     [self presentModalViewController:navCon animated:YES];
 }
 
+-(void) search{
+    
+    [UIView animateWithDuration:0.25 animations:^{
+     
+        CGRect frame = searchBar.frame;
+        frame.origin.y += 44;
+        searchBar.frame = frame;
+    }];
+    
+    [searchBar becomeFirstResponder];
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    nearby = !(segmentedControl.selectedSegmentIndex);
-    self.navigationItem.titleView = segmentedControl;
     [self resetView];
     
     // get pois for user testing
-
+    self.title = @"Nearby";
 
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
@@ -169,7 +167,7 @@
     [[NetworkAPI apiInstance] getPOIsForUser:user callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(search)];
     if (locationController==nil) {
         locationController = [[MyCLController alloc] init];
         locationController.delegate = self;
@@ -190,6 +188,7 @@
 
 - (void)viewDidUnload
 {
+    [self setSearchBar:nil];
     [self setPoiMapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -208,50 +207,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {  
     defaultRegion = __poiMapView.region;
-    
-    if (nearby) {
         [self zoomToLocation:currentLocation.coordinate animated:NO];
         
         [locationController.locationManager startUpdatingLocation];
-    }
-    
-    else{
-        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
-        
-    }
+
     
     [self resetView];
 }
-
--(IBAction)segmentSelected:(id)sender{
-    
-    switch (self.segmentedControl.selectedSegmentIndex) {
-        case 0:
-            centeredAtUserLocation = YES;
-            
-            nearby = YES;
-            [self zoomToLocation:currentLocation.coordinate animated:NO];
-            
-            break;
-        case 1:
-            nearby = NO;
-            
-            // TODO: Add nearby POIs on Server (i.e. friends POIs)
-            [self zoomOutToLocation:currentLocation.coordinate animated:NO];
-            
-            
-            break;
-        default:
-            
-            break;
-            
-    }
-    
-    [self resetView];
-    
-    
-}
-
 
 
 -(void) mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated{
@@ -325,15 +287,9 @@
 -(void) locationUpdate:(CLLocation *)location{
     
     currentLocation = location;
-    if (nearby) {
         [self zoomToLocation:currentLocation.coordinate animated:NO];
         
-    }
-    
-    else{
-        [self zoomOutToLocation:currentLocation.coordinate animated:NO];
-        
-    }
+
     
     
     [locationController.locationManager stopUpdatingLocation];
@@ -343,5 +299,21 @@
 
 -(void) locationError:(NSError *)error{
     
+} 
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        CGRect frame = self.searchBar.frame;
+        frame.origin.y -= 44;
+        self.searchBar.frame = frame;
+    }];
+    
+    [self.searchBar resignFirstResponder];
+    self.navigationItem.leftBarButtonItem.enabled = YES;
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+
+
 }
+
 @end
