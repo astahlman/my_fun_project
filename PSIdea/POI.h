@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSDate * creationDate;
 @property (nonatomic, retain) NSString * details;
-@property (nonatomic, retain) NSString * idNumber;
+@property (nonatomic, retain) NSString * idString;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * rating;

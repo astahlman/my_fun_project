@@ -15,7 +15,7 @@
 
 @dynamic creationDate;
 @dynamic details;
-@dynamic idNumber;
+@dynamic idString;
 @dynamic latitude;
 @dynamic longitude;
 @dynamic rating;
@@ -34,7 +34,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     request.entity =[NSEntityDescription entityForName:@"POI" inManagedObjectContext:context];
-    request.predicate = [NSPredicate predicateWithFormat:@"idNumber = %@", idNumber];
+    request.predicate = [NSPredicate predicateWithFormat:@"idString = %@", idNumber];
     
     NSError *error = nil;
     
@@ -43,7 +43,7 @@
     
     if(!error && !poi){
         poi =[NSEntityDescription insertNewObjectForEntityForName:@"POI" inManagedObjectContext:context];
-        poi.idNumber = idNumber;
+        poi.idString = idNumber;
         poi.title = title;
         poi.details = details;
         poi.latitude = latitude;

@@ -84,7 +84,7 @@
             POI* thePoi = (POI*) (operation.postEntity);
             // TODO: Provide some sort of drop-down or something to let user's select account
             NSString* twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
-            NSString* urlExtension = [NSString stringWithFormat:@"/view_poi/%@/", thePoi.idNumber];
+            NSString* urlExtension = [NSString stringWithFormat:@"/view_poi/%@/", thePoi.idString];
             NSString* url = [[NetworkAPI getURLBase] stringByAppendingString:urlExtension];
             NSString* tweetBody = [NSString stringWithFormat:@"%@ %@", thePoi.details, url];
             [[TwitterAPI apiInstance] sendTweet:tweetBody forHandle:twitterHandle];
@@ -121,7 +121,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+        
     [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
     tweetPOI = YES;
        [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
