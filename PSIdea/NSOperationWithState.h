@@ -37,6 +37,7 @@ typedef enum OperationState {
 @property (nonatomic, readonly) OperationError operationError;
 @property (nonatomic, readonly, retain) NSNumber* operationID;
 
++(NSIndexSet*)defaultAcceptableStatusCodes;
 -(id)init;
 -(NSString*)messageForError:(OperationError)error;
 -(void)failWithError:(OperationError)error;

@@ -13,7 +13,7 @@
 #import "CoreDataManager.h"
 #import "Logging.h"
 
-const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
+const NSString* PSI_URL_BASE = @"http://freezing-sunrise-1739.herokuapp.com";
 
 @implementation NetworkAPI
 
@@ -28,6 +28,11 @@ const NSString* PSI_URL_BASE = @"http://127.0.0.1:8000";
         }
     }
     return api;
+}
+
++(const NSString*)getURLBase
+{
+    return PSI_URL_BASE;
 }
 
 -(id)init

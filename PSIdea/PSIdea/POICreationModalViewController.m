@@ -10,6 +10,7 @@
 #import "PSINetworkController.h"
 #import "NSManagedObject+PropertiesDict.h"
 #import "NetworkAPI.h"
+#import "TwitterAPI.h"
 #import "Logging.h"
 #import "CoreDataEntities.h"
 
@@ -56,7 +57,6 @@
     
     POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
-    
     /*
     // local poi testing
     [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
@@ -64,8 +64,7 @@
     [delegate didFinishEditing:YES];
 
 }
-
-
+     
 -(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation
 {
     if (operation.operationState != OperationStateFailed)
@@ -75,6 +74,16 @@
         if (saveErr != nil)
         {
             [[Logging logger] logMessage:@"Error: Post entity not saved in managedObjectContext"];
+        }
+        if (tweetPOI)
+        {
+            POI* thePoi = (POI*) (operation.postEntity);
+            // TODO: Provide some sort of drop-down or something to let user's select account
+            NSString* twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
+            NSString* urlExtension = [NSString stringWithFormat:@"/view_poi/%@/", thePoi.idNumber];
+            NSString* url = [[NetworkAPI getURLBase] stringByAppendingString:urlExtension];
+            NSString* tweetBody = [NSString stringWithFormat:@"%@ %@", thePoi.details, url];
+            [[TwitterAPI apiInstance] sendTweet:tweetBody forHandle:twitterHandle];
         }
     }
 }
@@ -91,7 +100,7 @@
     if (self)
     {
         __managedObjectContext = context;
-        tweetPOI = NO;
+        tweetPOI = YES;
     }
     
     return self;
@@ -144,8 +153,8 @@
     backgroundImageView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     backgroundImageView.layer.borderWidth = 1.2;
     backgroundImageView.layer.masksToBounds = YES;
-    [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
-    tweetPOI = NO;
+    [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
+    tweetPOI = YES;
     mainInfoView.layer.cornerRadius = 10.0;
     mainInfoView.layer.borderColor = [UIColor clearColor].CGColor;
     mainInfoView.layer.borderWidth = 1.2;

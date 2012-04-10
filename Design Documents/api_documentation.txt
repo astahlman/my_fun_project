@@ -1,0 +1,37 @@
+﻿API Methods
+-(void)postPOI:(POI*)poi;
+-(void)postUser:(User*)user;
+-(void)getPOIsWithinRadius:(NSUInteger*)radius ofLat:(NSNumber*)lat ofLon:(NSNumber*)lon;
+-(void)getPOIsForUser:(NSString*)twitterHandle;
+-(void)getUserForTwitterHandle:(NSString*)twitterHandle;
+-(void)sendTweet:(NSString*)tweetBody forUser:(NSString*)twitterHandle;
+-(void)doQuery:(NSString*)query onClasses:(NSArray*)classes;
+
+API Delegate Methods
+-(void)operation:(HTTPOperation*)operation didParseEntities:(NSArray*)results;
+-(void)operation:(HTTPOperation*)operation didFailWithError:(NSString*)errorMsg;
+
+JSON Format
+
+Example: Results for a query on all classes for “PSI”
+
+[{“id” : 1, “latitude” : 37.000, “longitude” : 38.000, “title” : “PSI's Example POI #1”, “details” : “Here are some details. #iheartJSON”, “creationDate” : “1331231276”, “creator” : “@PSI_Tester”, “rating” : 1, “photoURL” : “http://www.flickr.com/<extension_to_photo_here>”}, {“twitterHandle” : “@PSI_Tester”}]
+
+Model Objects
+
+POI:
+	id
+	latitude
+	longitude
+	title
+	details
+	creationDate
+	creator
+	rating
+	photoURL
+User:
+	twitterHandle
+	pois
+Photo:
+	poi
+	image (an actual NSImage object, so we can cache it in Core Data after pulling it from the network)

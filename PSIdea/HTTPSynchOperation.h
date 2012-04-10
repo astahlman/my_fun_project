@@ -24,7 +24,6 @@
 @property (nonatomic, retain) NSArray* acceptableContentTypes;
 //@property (nonatomic, retain) id<HTTPSynchOperationDelegate> delegate;
 
-+(NSIndexSet*)defaultAcceptableStatusCodes;
 
 -(id)initWithRequest:(NSURLRequest*)request;
 -(id)copyWithZone:(NSZone*)zone;

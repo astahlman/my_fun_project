@@ -143,17 +143,26 @@
     [self resetView];
 
     // get pois for user testing
-    
-     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
-     User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
-     [user setTwitterHandle:@"PSI_Tester"];
-     NSError* err;
-     [__managedObjectContext save:&err];
+
      
-    
-   NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
+    // TESTING
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
-    [[NetworkAPI apiInstance] getPOIsForUser:[userResults objectAtIndex:0] callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
+    User* user;
+    if ([userResults count] == 0)
+    {
+        NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
+        user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
+        [user setTwitterHandle:@"PSI_Tester"];
+        NSError* err;
+        [__managedObjectContext save:&err]; 
+    }
+    else
+    {
+        assert([userResults count] == 1);
+        user = [userResults objectAtIndex:0];
+    }
+    [[NetworkAPI apiInstance] getPOIsForUser:user callbackTarget:self action:@selector(operationDidGetPOIsForUser:) managedObjectContext:__managedObjectContext];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
     

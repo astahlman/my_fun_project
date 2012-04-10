@@ -28,7 +28,7 @@ extern const NSString* PSI_URL_BASE;
 
 // singleton
 +(NetworkAPI*)apiInstance;
-
++(const NSString*)getURLBase;
 +(NSData*)dataFromDictionary:(NSDictionary*)dataDict;
 +(NSData*)dataFromJSONString:(NSString*)jsonString;
 +(NSString*)requestStringFromDictionary:(NSDictionary*)dict;

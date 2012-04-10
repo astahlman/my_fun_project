@@ -18,10 +18,7 @@
 @synthesize acceptableContentTypes = _acceptableContentTypes;
 //@synthesize delegate;
 
-+(NSIndexSet*)defaultAcceptableStatusCodes
-{
-    return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 99)];
-}
+
 
 #pragma operation methods
 

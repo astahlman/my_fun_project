@@ -89,6 +89,8 @@
 		66519A6A150EFDC800FA1FD0 /* HTTPSynchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A69150EFDC700FA1FD0 /* HTTPSynchOperation.m */; };
 		66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */; };
 		66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */; };
+		666B2A8F152DFD100046F820 /* TwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 666B2A8E152DFD100046F820 /* TwitterAPI.m */; };
+		666B2A92152E08E90046F820 /* TWRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 666B2A91152E08E90046F820 /* TWRequestOperation.m */; };
 		66C2B7871502AA79008B2FE1 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2B7861502AA79008B2FE1 /* TwitterController.m */; };
 		66C2B78A1502AB00008B2FE1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B7891502AB00008B2FE1 /* Twitter.framework */; };
 		66C2B78C1502AB3C008B2FE1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C2B78B1502AB3C008B2FE1 /* Accounts.framework */; };
@@ -228,6 +230,10 @@
 		66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSynchGetOperationWithParse.m; sourceTree = "<group>"; };
 		66519A6F150F901000FA1FD0 /* HTTPSynchPostOperationWithParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSynchPostOperationWithParse.h; sourceTree = "<group>"; };
 		66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSynchPostOperationWithParse.m; sourceTree = "<group>"; };
+		666B2A8D152DFD100046F820 /* TwitterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAPI.h; sourceTree = "<group>"; };
+		666B2A8E152DFD100046F820 /* TwitterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAPI.m; sourceTree = "<group>"; };
+		666B2A90152E08E80046F820 /* TWRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWRequestOperation.h; sourceTree = "<group>"; };
+		666B2A91152E08E90046F820 /* TWRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWRequestOperation.m; sourceTree = "<group>"; };
 		66C2B7851502AA79008B2FE1 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
 		66C2B7861502AA79008B2FE1 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		66C2B7891502AB00008B2FE1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -495,8 +501,6 @@
 				516E692414FF46D60026E273 /* PSIdea-Prefix.pch */,
 				516E692D14FF46D60026E273 /* PSINetworkController.h */,
 				516E692E14FF46D60026E273 /* PSINetworkController.m */,
-				66C2B7851502AA79008B2FE1 /* TwitterController.h */,
-				66C2B7861502AA79008B2FE1 /* TwitterController.m */,
 			);
 			name = "Supporting Classes";
 			sourceTree = "<group>";
@@ -504,6 +508,10 @@
 		66159F75150FAB6900A138F6 /* Old Networking */ = {
 			isa = PBXGroup;
 			children = (
+				66C2B7851502AA79008B2FE1 /* TwitterController.h */,
+				66C2B7861502AA79008B2FE1 /* TwitterController.m */,
+				666B2A90152E08E80046F820 /* TWRequestOperation.h */,
+				666B2A91152E08E90046F820 /* TWRequestOperation.m */,
 				66C2B79115066E40008B2FE1 /* HTTPOperation.h */,
 				66C2B79215066E40008B2FE1 /* HTTPOperation.m */,
 				66C2B7BF150C0596008B2FE1 /* HTTPGetOperationWithParse.h */,
@@ -532,6 +540,8 @@
 				66519A6D150F8A6800FA1FD0 /* HTTPSynchGetOperationWithParse.m */,
 				66519A6F150F901000FA1FD0 /* HTTPSynchPostOperationWithParse.h */,
 				66519A70150F901100FA1FD0 /* HTTPSynchPostOperationWithParse.m */,
+				666B2A8D152DFD100046F820 /* TwitterAPI.h */,
+				666B2A8E152DFD100046F820 /* TwitterAPI.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -680,6 +690,8 @@
 				66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */,
 				66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */,
 				51C8A1AE15237DC100671A32 /* ProfileViewController.m in Sources */,
+				666B2A8F152DFD100046F820 /* TwitterAPI.m in Sources */,
+				666B2A92152E08E90046F820 /* TWRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

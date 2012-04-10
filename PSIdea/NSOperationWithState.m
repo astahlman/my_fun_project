@@ -16,6 +16,11 @@
 @synthesize operationError = _operationError;
 @synthesize operationID = _operationID;
 
++(NSIndexSet*)defaultAcceptableStatusCodes
+{
+    return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 99)];
+}
+
 -(id)init
 {
     self = [super init];
