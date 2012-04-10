@@ -131,8 +131,7 @@
                                                            error:NULL];
                          
                          NSString *profileImageUrl = [user objectForKey:@"profile_image_url"];
-                         
-                         //  As an example we could set an image's content to the image
+                         [[NSUserDefaults standardUserDefaults] setValue:[user objectForKey:@"name"] forKey:@"name"];                         //  As an example we could set an image's content to the image
                          dispatch_async
                          (dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                              NSData *imageData =

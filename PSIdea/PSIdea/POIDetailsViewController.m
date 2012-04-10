@@ -68,6 +68,8 @@
         
         _userPhotoImageView.image = image;
         
+        self.creatorNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey: @"name"];
+        
     }
     
     /* Added for future use (if needed). Uncomment action sheet methods above  

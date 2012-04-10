@@ -61,7 +61,8 @@
         UIImage *image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"]];
         
         userPhoto.image = image;
-        
+        self.userNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey: @"name"];
+
     }
     
     containerView.layer.cornerRadius = 10.0;
@@ -122,7 +123,6 @@
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"ProfileTableViewCell" owner:self options:nil];
         cell = profileTableViewCell;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.profileTableViewCell = nil;
     }
     
@@ -159,7 +159,7 @@
     if(cellPOI.details == nil){
         [annotation updateAnnotationView:annotationLocation];
     }
-    [mapView addAnnotation:annotation];
+   // [mapView addAnnotation:annotation];
     
 #define LOCATIONDIFF 0.0003;
     

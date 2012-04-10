@@ -144,12 +144,15 @@
     
     // get pois for user testing
 
-     
 
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
     User* user = nil;
+    // TESTING
+    
+    
+  
     if ([userResults count] == 0)
     {
         NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
@@ -199,18 +202,17 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void) viewWillDisappear:(BOOL)animated{
+    __poiMapView.showsUserLocation = NO;
+}
 
 - (void)viewWillAppear:(BOOL)animated {  
     defaultRegion = __poiMapView.region;
     
     if (nearby) {
-        __poiMapView.showsUserLocation = YES;
-        
-    }
-    
-    if (nearby) {
         [self zoomToLocation:currentLocation.coordinate animated:NO];
         
+        [locationController.locationManager startUpdatingLocation];
     }
     
     else{
@@ -323,7 +325,6 @@
 -(void) locationUpdate:(CLLocation *)location{
     
     currentLocation = location;
-    
     if (nearby) {
         [self zoomToLocation:currentLocation.coordinate animated:NO];
         

@@ -70,68 +70,86 @@
 
 +(POI*)parsePOI:(NSDictionary*)poiDict managedObjectContext:(NSManagedObjectContext*)moc
 {    
-    NSEntityDescription* desc = [NSEntityDescription entityForName:@"POI" inManagedObjectContext:moc];
-    POI* poi = [[POI alloc] initWithEntity:desc insertIntoManagedObjectContext:moc];
-    NSMutableDictionary* properties = [[NSMutableDictionary alloc] initWithDictionary:poiDict];
     
-    // transfer the keys to the primary keys dictionary
-    NSMutableDictionary* primaryKeys = [[NSMutableDictionary alloc] init];
-    [primaryKeys setObject:[properties objectForKey:@"creator"] forKey:@"creator"];
-
-    [properties removeObjectForKey:@"creator"];
-    [properties removeObjectForKey:@"photo"];
     
-    // lat and long are serialized as strings - convert them back to decimal
-    NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    NSNumber* lat = [formatter numberFromString:[properties objectForKey:@"latitude"]];
-    NSNumber* lon = [formatter numberFromString:[properties objectForKey:@"longitude"]]; 
-    [properties setObject:lat forKey:@"latitude"];
-    [properties setObject:lon forKey:@"longitude"];
+    POI *poi = nil;
     
-    // convert date string to nsdate
-    NSDateFormatter* df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate* creationDate = [df dateFromString:[properties objectForKey:@"creationDate"]];
-    [properties setObject:creationDate forKey:@"creationDate"];
+    NSPredicate *poiPredicate = [NSPredicate predicateWithFormat:@"idString = %@",[poiDict objectForKey:@"idString"]];
     
-    // set the poi properties from the dictionary
-    for (NSString* key in properties)
-    {
-        [poi setValue:[properties valueForKey:key] forKey:key];
+    NSArray *results = [[self class] fetchEntity:@"POI" fromContext:moc withPredicate:poiPredicate withSortKey:nil ascending:YES];
+    
+    if (results.count > 0) {
+        poi = [results lastObject];
     }
-    
-    // fetch the creator
-    NSPredicate* creatorPredicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", [primaryKeys objectForKey:@"creator"]];
-    NSArray* creatorResults = [[self class] fetchEntity:@"User" fromContext:moc withPredicate:creatorPredicate withSortKey:nil ascending:YES];
-    assert([creatorResults count] <= 1);
-    if ([creatorResults count] == 1)
-    {
-        poi.creator = [creatorResults objectAtIndex:0];
-    }
-    else
-    {
-        // TODO: Queue for download from network?
-    }
-    
-    // fetch the photo, if the JSON gives us a URL
-    if ([primaryKeys objectForKey:@"photo"] != nil)
-    {
-        NSPredicate* photoPredicate = [NSPredicate predicateWithFormat:@"url like %@", [primaryKeys objectForKey:@"photo"]];
-        NSArray* photoResults = [[self class] fetchEntity:@"Photo" fromContext:moc withPredicate:photoPredicate withSortKey:nil ascending:YES];
-        assert([photoResults count] <= 1);
-        if ([photoResults count] == 1)
+    else {
+        
+        NSEntityDescription* desc = [NSEntityDescription entityForName:@"POI" inManagedObjectContext:moc];
+        poi = [[POI alloc] initWithEntity:desc insertIntoManagedObjectContext:moc];
+        NSMutableDictionary* properties = [[NSMutableDictionary alloc] initWithDictionary:poiDict];
+        
+        // transfer the keys to the primary keys dictionary
+        NSMutableDictionary* primaryKeys = [[NSMutableDictionary alloc] init];
+        [primaryKeys setObject:[properties objectForKey:@"creator"] forKey:@"creator"];
+        
+        [properties removeObjectForKey:@"creator"];
+        [properties removeObjectForKey:@"photo"];
+        
+        // lat and long are serialized as strings - convert them back to decimal
+        NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber* lat = [formatter numberFromString:[properties objectForKey:@"latitude"]];
+        NSNumber* lon = [formatter numberFromString:[properties objectForKey:@"longitude"]]; 
+        [properties setObject:lat forKey:@"latitude"];
+        [properties setObject:lon forKey:@"longitude"];
+        
+        // convert date string to nsdate
+        NSDateFormatter* df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSDate* creationDate = [df dateFromString:[properties objectForKey:@"creationDate"]];
+        [properties setObject:creationDate forKey:@"creationDate"];
+        
+        // set the poi properties from the dictionary
+        for (NSString* key in properties)
         {
-            poi.photo = [photoResults objectAtIndex:0];
+            [poi setValue:[properties valueForKey:key] forKey:key];
+        }
+        
+        // fetch the creator
+        NSPredicate* creatorPredicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", [primaryKeys objectForKey:@"creator"]];
+        NSArray* creatorResults = [[self class] fetchEntity:@"User" fromContext:moc withPredicate:creatorPredicate withSortKey:nil ascending:YES];
+        assert([creatorResults count] <= 1);
+        if ([creatorResults count] == 1)
+        {
+            poi.creator = [creatorResults objectAtIndex:0];
         }
         else
         {
             // TODO: Queue for download from network?
         }
+        
+        // fetch the photo, if the JSON gives us a URL
+        if ([primaryKeys objectForKey:@"photo"] != nil)
+        {
+            NSPredicate* photoPredicate = [NSPredicate predicateWithFormat:@"url like %@", [primaryKeys objectForKey:@"photo"]];
+            NSArray* photoResults = [[self class] fetchEntity:@"Photo" fromContext:moc withPredicate:photoPredicate withSortKey:nil ascending:YES];
+            assert([photoResults count] <= 1);
+            if ([photoResults count] == 1)
+            {
+                poi.photo = [photoResults objectAtIndex:0];
+            }
+            else
+            {
+                // TODO: Queue for download from network?
+            }
+        }
+        
+        
     }
     
+    [moc save:nil];  
     return poi;
 }
+
 
 +(User*)parseUser:(NSDictionary*)userDict managedObjectContext:(NSManagedObjectContext*)moc
 {
@@ -157,4 +175,6 @@
     
     return photo;
 }
+
+
 @end
