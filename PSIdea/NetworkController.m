@@ -15,13 +15,21 @@
 @synthesize jsonParser = _jsonParser;
 @synthesize jsonWriter = _jsonWriter;
 
-static NSDictionary* contentTypeDict = nil;
-
 -(void)setResponseData:(NSMutableData*)data
 {
     _responseData = data;
 }
 
++(NetworkController*)networkControllerWithBaseURL:(NSURL*)baseUrl
+{
+    NetworkController* controller = [[NetworkController alloc] init];
+    if (controller) {
+        [controller setResponseData:[NSMutableData data]];
+        [controller setJsonParser:[[SBJsonParser alloc] init]];
+        [controller setJsonWriter:[[SBJsonWriter alloc] init]];
+    }
+    return controller;
+}
 
 -(id)initWithBaseUrl:(NSURL*)baseUrl
 {
@@ -32,61 +40,14 @@ static NSDictionary* contentTypeDict = nil;
         _responseData = [NSMutableData data];
         self.jsonParser = [[SBJsonParser alloc] init];
         self.jsonWriter = [[SBJsonWriter alloc] init];
-        contentTypeDict = [NetworkController getContentTypeDictionary];
     }
     return self;
 }
 
--(NSURL*)appendURLToBase:(NSString *)relURL
-{
-    return [NSURL URLWithString:relURL relativeToURL:self.baseUrl];
-}
-
-+(NSDictionary*)contentTypeDict
-{
-    return contentTypeDict;
-}
-
-+(NSDictionary*)getContentTypeDictionary
-{
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/json", @"JSON", @"application/x-www-form-urlencoded", @"default", nil];
-    return dict;
-}
-
-+(NSString*)requestStringFromDictionary:(NSDictionary*)dict 
-{
-    NSString* queryString = @"?";
-    for (id key in dict)
-    {
-        NSString* append = [NSString stringWithFormat:@"%@=%@&", key, [dict objectForKey:key]];
-        queryString = [queryString stringByAppendingString:append];
-    }
-    queryString = [queryString substringToIndex:queryString.length - 1]; //remove the final '&'
-    return queryString;
-}
-
-+(NSData*)dataFromJSONString:(NSString*)jsonString
-{
-    return [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-}
-
-+(NSData*)dataFromDictionary:(NSDictionary*)dataDict 
-{
-    NSString* dataString = [NetworkController requestStringFromDictionary:dataDict];
-    return [dataString dataUsingEncoding:NSUTF8StringEncoding];
-}
-
--(void)requestForURL:(NSURL*)url 
+-(void)sendRequestForURL:(NSURL*)url 
 {
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
-}
-
--(void)getRequestAtUrl:(NSURL*)url withGetData:(NSDictionary*)dict
-{
-    NSString* queryString = [NetworkController requestStringFromDictionary:dict];
-    NSURL* queryURL = [url URLByAppendingPathExtension:queryString];
-    [self requestForURL:queryURL];
 }
 
 -(void)postRequestToURL:(NSURL*)url withData:(NSData*)data withContentType:(NSString*)contentType 
@@ -95,13 +56,19 @@ static NSDictionary* contentTypeDict = nil;
     [request setHTTPMethod:@"POST"];
     if (!contentType)
     {
-        contentType = [contentTypeDict valueForKey:@"default"];
+        contentType = @"application/x-www-form-urlencoded";
     }
     [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:data];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
+-(void)postJSONToURL:(NSURL*)url withJson:(NSString*)jsonString
+{
+    NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* contentType = @"application/json";
+    [self postRequestToURL:url withData:data withContentType:contentType];
+}
 
 -(void)connection:(NSConnection*)conn didReceiveData:(NSData*)data 
 {

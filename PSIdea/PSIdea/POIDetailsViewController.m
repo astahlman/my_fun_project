@@ -10,12 +10,8 @@
 
 @implementation POIDetailsViewController
 
-@synthesize creatorNameLabel = _creatorNameLabel;
-@synthesize creatorLabel = _creatorLabel;
-@synthesize userPhotoImageView = _userPhotoImageView;
 @synthesize titleLabel = __titleLabel;
 @synthesize detailsTextView = __detailsTextView;
-@synthesize disclosureButton = _disclosureButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,19 +22,14 @@
     return self;
 }
 
-
-
-- (id)initWithPOI: (POI*) poi {
+- (id)initWithDetails:(NSString *)details withTitle:(NSString *)title {
     self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
     if (self) {
-        __poi = poi;
-        __details = poi.details;
-        __title = poi.title;
-        pinLocation = [[CLLocation alloc] initWithLatitude: poi.latitude.floatValue longitude:poi.longitude.floatValue];
-        self.title =@"Details";
-        __creatorUserName = poi.creator.twitterHandle;
+       __details = details;
+        __title = title;
+        self.title = title;
     }
-    
+
     
     return self;
 }
@@ -53,6 +44,14 @@
 
 #pragma mark - View lifecycle
 
+/*
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
+{
+}
+*/
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -60,37 +59,18 @@
     
     self.detailsTextView.text = __details;
     self.titleLabel.text = __title;
-    self.creatorLabel.text = __creatorUserName;
-    NSString *twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
-    
-    if ([__creatorUserName isEqualToString:twitterHandle]) {
-        UIImage *image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"]];
-        
-        _userPhotoImageView.image = image;
-        
-    }
-    
-    /* Added for future use (if needed). Uncomment action sheet methods above  
-     
-     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleAction)];
-     */
-    
     
     containerView.layer.cornerRadius = 10.0;
-    containerView.layer.borderColor = [UIColor clearColor].CGColor;
+    containerView.layer.borderColor = [UIColor darkGrayColor].CGColor;
     containerView.layer.borderWidth = 1.2;
     containerView.layer.masksToBounds = YES;
-    
+
 }
 
 
 - (void)viewDidUnload
 {
     containerView = nil;
-    [self setCreatorLabel:nil];
-    [self setCreatorNameLabel:nil];
-    [self setUserPhotoImageView:nil];
-    [self setDisclosureButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -100,12 +80,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (IBAction)disclosureButtonSelected:(id)sender {
-    ProfileViewController *pvc = [[ProfileViewController alloc] initWithUser:__poi.creator];
-    [self.navigationController pushViewController:pvc animated:YES];
-    
 }
 
 @end

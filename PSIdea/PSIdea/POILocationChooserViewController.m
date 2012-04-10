@@ -27,15 +27,7 @@
         return;
     
     if(__mapView.annotations.count >1) {
-        
-        for (id<MKAnnotation> annotation in __mapView.annotations) {
-            if(annotation!=__mapView.userLocation){
-                [__mapView removeAnnotation:annotation];
-                
-            }
-            
-        }
-        
+        return;
     }
     CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];   
     CLLocationCoordinate2D touchMapCoordinate = 
@@ -47,7 +39,7 @@
     [annotation updateAnnotationView:location];
     [__mapView addAnnotation:annotation];
     userLocationButton.style = UIBarButtonItemStyleBordered;
-    locationAddress = annotation.details;
+
 }
 
 -(id) initWithCurrentLocation: (CLLocation*) location{
@@ -70,7 +62,7 @@
 #pragma mark - View lifecycle
 
 - (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.002, 0.002);
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
     MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
     [__mapView setRegion:region animated:animated];
 }
@@ -83,8 +75,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     locationController = [[MYCLController alloc] init];
     [locationController.locationManager startUpdatingLocation];
     locationController.delegate =self;
@@ -93,13 +83,11 @@
     [self zoomToLocation:pinLocation.coordinate animated:NO];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] 
                                           initWithTarget:self action:@selector(handleLongPress:)];
-    // UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+   // UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     lpgr.minimumPressDuration = 1.0; //user needs to press for 2 seconds
     [__mapView addGestureRecognizer:lpgr];
     //[__mapView addGestureRecognizer:pgr];
-    
-    self.navigationItem.rightBarButtonItem = userLocationButton;
-    
+
 }
 
 - (void)viewDidUnload
@@ -124,7 +112,7 @@
         return nil;
     }
     POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
-    
+
     CLLocation *location = [[CLLocation alloc] initWithLatitude:poiAnnotation.coordinate.latitude longitude:poiAnnotation.coordinate.longitude];
     [poiAnnotation updateAnnotationView:location];
     pinLocation = location;
@@ -137,7 +125,7 @@
     annotationView.pinColor = MKPinAnnotationColorRed;
     annotationView.canShowCallout = YES;
     annotationView.animatesDrop =YES;
-    
+
     return annotationView;
 }
 -(void) mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState{
@@ -146,7 +134,7 @@
         CLLocation *location = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
         [annotation updateAnnotationView:location];
         pinLocation = location;
-        
+     
     }
 }
 
@@ -154,28 +142,28 @@
     if(centerAtUserLocation){
         userLocationButton.style = UIBarButtonItemStyleBordered;
         centerAtUserLocation = NO;
-        
+
     }
 }
 
 -(void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [delegate didSelectLocation:pinLocation WithAddress:@"Current Location"];
-    
+    [delegate didSelectLocation:pinLocation WithPrivacy:makePublic];
+
 }
 
 -(void) locationUpdate:(CLLocation *)location{
-    
+     
     if (pinLocation.coordinate.latitude != location.coordinate.latitude &&
         pinLocation.coordinate.longitude != location.coordinate.longitude) {
         POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:@"Drag to drop pin" coordinate:pinLocation.coordinate title:@"Dropped Pin"];   
         [annotation updateAnnotationView:location];
         [__mapView addAnnotation:annotation];
     }
-    if(centerAtUserLocation){
+        if(centerAtUserLocation){
         [self zoomToLocation:location.coordinate animated:NO];
     }
-    
+
     [locationController.locationManager stopUpdatingLocation];
 }
 -(void) locationError:(NSError *)error{
@@ -189,22 +177,22 @@
         [self zoomToLocation:__mapView.userLocation.coordinate animated:YES];
         centerAtUserLocation = YES;
     }
-    
+
 }
 
 -(IBAction)pageCurlButtonSelected:(id)sender{
-    
+
     MapOptionsViewController *optionsView = [[MapOptionsViewController alloc] initWithPublicSwitchState:makePublic];
     optionsView.delegate = self;
-    [optionsView setModalPresentationStyle:UIModalPresentationCurrentContext];
+           [optionsView setModalPresentationStyle:UIModalPresentationCurrentContext];
     [optionsView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
     self.navigationController.hidesBottomBarWhenPushed = NO;
     [self presentModalViewController:optionsView animated:YES];
-    
+  
 }
 
 -(void) userDidDismissViewControllerWithResults:(NSArray *)results{
-    
+
     NSNumber *public = [results objectAtIndex:0];
     NSNumber *removePin = [results objectAtIndex:1];
     makePublic = NO;
@@ -215,13 +203,13 @@
         for (id<MKAnnotation> annotation in __mapView.annotations) {
             if(annotation!=__mapView.userLocation){
                 [__mapView removeAnnotation:annotation];
-                
+
             }
         }
     }
     
-    
-    [self dismissModalViewControllerAnimated:YES];
+
+     [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

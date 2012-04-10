@@ -8,17 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
-// Delegate Setup
-
 @protocol MapOptionsViewControllerDelegate <NSObject>
 
 @required
-
 -(void) userDidDismissViewControllerWithResults: (NSArray*) results;
 
 @end
-
 @interface MapOptionsViewController : UIViewController{
     
     __weak IBOutlet UITableViewCell *customPublicCell;
@@ -32,14 +27,9 @@
 @property (nonatomic, retain) id <MapOptionsViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundButtonImage;
 
-// UIButton action methods
 
 -(IBAction)userDidTouchDownOnButton:(id)sender;
 -(IBAction)userDidCancelPress:(id)sender;
 -(IBAction)removePinButtonSelected:(id)sender;
-
-// Iniitialization Method
-
 -(id)initWithPublicSwitchState:(BOOL) isOn;
-
 @end

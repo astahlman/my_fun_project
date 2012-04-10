@@ -179,11 +179,6 @@
 */
 - (BOOL)writeString:(NSString*)s;
 
-/** Added by Andrew Stahlman - write a date to the stream
- @return YES if successful. or NO on failure
- */
--(BOOL)writeDate:(NSDate*)date;
-
 @end
 
 @interface SBJsonStreamWriter (Private)

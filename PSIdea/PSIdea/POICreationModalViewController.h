@@ -15,55 +15,37 @@
 #import "POIAnnotation.h"
 #import "MyCLController.h"
 #import "POILocationChooserViewController.h"
-
-// Delegate Setup
-
+#import "NetworkController.h"
 @protocol POICreationModalViewControllerDelegate <NSObject>
 
 @required
 -(void) didFinishEditing:(BOOL) finished;
 @end
 
-@class HTTPSynchPostOperationWithParse;
-
-
-@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate, POILocationChooserViewControllerDelegate>
+@interface POICreationModalViewController : UIViewController <UITextViewDelegate, MyCLControllerDelegate,POILocationChooserViewControllerDelegate, NetworkControllerDelegate>
 {
     NSManagedObjectContext *__managedObjectContext;
+    __weak IBOutlet UIImageView *tapeImage;
+    MYCLController *locationController;
     __weak IBOutlet UIView *mainInfoView;
     CLLocation *currentLocation;
-    BOOL tweetPOI;
-    MyCLController *locationController;
+    __weak IBOutlet UIImageView *backgroundImageView;
+    BOOL publicPOI;
  
 }
-@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsField;
-@property (weak, nonatomic) IBOutlet UIButton *publicButton;
+@property (weak, nonatomic) IBOutlet MKMapView *miniMapView;
+@property (nonatomic, retain) NSNumber *listNumber;
+
 @property (nonatomic, retain) id <POICreationModalViewControllerDelegate> delegate;
 
-
- // UIButton action methods
-
-- (IBAction)tweetButtonSelected:(id)sender;
-- (IBAction)infoButtonSelected:(id)sender;
-
-// Custome Initialization Method
 -(id)initWithManagedObjectContext:(NSManagedObjectContext*) context;
-
-// POILocationChooserViewController Delegate Method
-
--(void) didSelectLocation: (CLLocation *) location WithAddress:(NSString*) address;
-
-- (NSString *)GetUUID;
-
--(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation;
-//-(void)operation:(HTTPOperation*)operation didFailWithError:(NSString*)errorMsg;
-//-(void)operation:(HTTPPostOperation*)operation didPostAndReceivePrimaryKey:(id)primaryKey;
-
--(void) locationUpdate:(CLLocation *)location;
--(void) locationError:(NSError *)error;
-
+-(void) didSelectLocation: (CLLocation*) location WithPrivacy:(BOOL)makePublic;
+- (void)locationUpdate:(CLLocation *)location;
+- (void)locationError:(NSError *)error;
+- (IBAction)infoButtonSelected:(id)sender;
+-(void)connection:(NSURLConnection*)connection receivedResponse:(id)response;
 
 @end

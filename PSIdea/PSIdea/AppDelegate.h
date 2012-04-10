@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "POITableViewController.h"
 #import "POIMapViewController.h"
-#import "MWFSlideNavigationViewController.h"
-#import "TwitterAPI.h"
+#import "ListsScrollViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     
+    POITableViewController *__poiTableViewController;
     POIMapViewController *__poiMapViewController;
     UITabBarController *__tabBarController;
 }
@@ -26,7 +28,5 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
-
 
 @end

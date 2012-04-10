@@ -21,38 +21,21 @@
     
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
-    [TwitterAPI getCurrentUser];
-    
     
     //Allocate TabBarController and Views
     
-    /* List View Controller Code (NO in use) */
-    
-    // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
-    //  UINavigationController *firstNavCon = [[UINavigationController alloc] init];
-    //  MWFSlideNavigationViewController *slideNavCon = [[MWFSlideNavigationViewController alloc] initWithRootViewController:lvc];
-    //  slideNavCon.title = @"Lists";
-    //  slideNavCon.delegate = lvc;
-    // [firstNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];  
-    // firstNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    // [firstNavCon pushViewController:slideNavCon animated:NO];
-    //slideNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Places" image:[UIImage imageNamed:@"marker"] tag:0];
-
+   ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
     __tabBarController = [[UITabBarController alloc] init];
-    
+    __poiTableViewController = [[POITableViewController alloc] initWithContext:__managedObjectContext];
     __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
-   
-    
-    UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
-       UINavigationController *secondNavCon = [[UINavigationController alloc] init];
+    UINavigationController *firstNavCon = [[UINavigationController alloc] init];
+    [firstNavCon pushViewController:__poiTableViewController animated:NO];
+    UINavigationController *secondNavCon = [[UINavigationController alloc] init];
     [secondNavCon pushViewController:__poiMapViewController animated:NO];
-
-    secondNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"map"] tag:1];
-    [secondNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];    
-    secondNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
-    
+    thirdNavCon = [[UINavigationController alloc] init];
+    [thirdNavCon pushViewController:lvc animated:NO];
     //Array of ViewControllers (tabs on the view controller)
-    NSArray *viewControllers = [NSArray arrayWithObjects:secondNavCon,nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:firstNavCon,secondNavCon,thirdNavCon,nil];
     __tabBarController.viewControllers = viewControllers;
     [window addSubview: [__tabBarController view]];
     [self.window makeKeyAndVisible];
@@ -167,7 +150,6 @@
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-        
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
     {
         /*

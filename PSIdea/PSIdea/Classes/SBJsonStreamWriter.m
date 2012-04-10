@@ -224,8 +224,7 @@ static NSNumber *kNegativeInfinity;
 
 	} else if ([o isKindOfClass:[NSNull class]]) {
 		return [self writeNull];
-    } else if ([o isKindOfClass:[NSDate class]]) {
-        return [self writeDate:o];
+
 	} else if ([o respondsToSelector:@selector(proxyForJson)]) {
 		return [self writeValue:[o proxyForJson]];
 
@@ -362,13 +361,6 @@ static const char *strForChar(int c) {
 	[delegate writer:self appendBytes:num length: len];
 	[state transitionState:self];
 	return YES;
-}
-
--(BOOL)writeDate:(NSDate*)date
-{
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
-    NSString* dateString = [NSString stringWithFormat:@"%d/%d/%d %d:%d:%d", [components day], [components month], [components year], [components hour], [components minute], [components second]]; 
-    return [self writeString:dateString];
 }
 
 @end

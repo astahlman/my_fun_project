@@ -15,7 +15,7 @@
 @protocol POILocationChooserViewControllerDelegate <NSObject>
 
 @required
--(void) didSelectLocation: (CLLocation *) location WithAddress:(NSString*) address;
+-(void) didSelectLocation: (CLLocation *) location WithPrivacy: (BOOL) makePublic;
 
 @end
 
@@ -23,7 +23,6 @@
 {
     MYCLController *locationController;
     CLLocation *pinLocation;
-    NSString *locationAddress;
     BOOL centerAtUserLocation;
     BOOL makePublic;
 
