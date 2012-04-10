@@ -104,7 +104,8 @@ static NSDictionary* poiMappingDict = nil;
 {
     POI* poi = [[POI alloc] init];
     NSString* pkString = [poiDict valueForKey:@"pk"];
-    poi.idString = [NSNumber numberWithInteger:[pkString integerValue]];
+    poi.idString = pkString;
+    return poi;
 }
 
 -(void)connection:(NSURLConnection*)connection receivedResponse:(id)response
