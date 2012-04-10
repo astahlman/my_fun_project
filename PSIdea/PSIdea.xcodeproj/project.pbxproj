@@ -690,12 +690,10 @@
 				66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */,
 				66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */,
 				51C8A1AE15237DC100671A32 /* ProfileViewController.m in Sources */,
-<<<<<<< HEAD
 				666B2A8F152DFD100046F820 /* TwitterAPI.m in Sources */,
 				666B2A92152E08E90046F820 /* TWRequestOperation.m in Sources */,
 =======
 				516E455F15335BF000ED4F3C /* POI.m in Sources */,
->>>>>>> Added UUID for POIs
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
