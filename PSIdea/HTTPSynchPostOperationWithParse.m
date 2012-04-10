@@ -69,10 +69,10 @@
             NSString* handle = [responseDict valueForKey:@"twitterHandle"];
             [_postEntity setValue:handle forKey:@"twitterHandle"];
         }
-        else if ([responseDict valueForKey:@"idNumber"] != nil)
+        else if ([responseDict valueForKey:@"idString"] != nil)
         {
-            NSNumber* idNum = [responseDict valueForKey:@"idNumber"];
-            [_postEntity setValue:idNum forKey:@"idNumber"];
+            NSNumber* idNum = [responseDict valueForKey:@"idString"];
+            [_postEntity setValue:idNum forKey:@"idString"];
         }
         else if ([responseDict valueForKey:@"url"] != nil)
         {

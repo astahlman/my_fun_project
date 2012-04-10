@@ -145,18 +145,11 @@
     // get pois for user testing
 
      
-    // TESTING
-    
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
-    User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
-    [user setTwitterHandle:@"PSI_Tester"];
-    NSError* err;
-    [__managedObjectContext save:&err];
-    
+
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
-    user = nil;
+    User* user = nil;
     if ([userResults count] == 0)
     {
         NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];

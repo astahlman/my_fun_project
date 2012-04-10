@@ -27,14 +27,14 @@
 
 // Class method that creates new POI for a particular creator (user)
 
-+(POI*) createPOIWithID: (NSString*) idNumber andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andRating:(NSNumber*) rating andCreator:(NSString*)creator inManagedObjectContext:(NSManagedObjectContext*) context{
++(POI*) createPOIWithID: (NSString*) idString andTitle:(NSString*)title andDetails:(NSString*) details andLatitude: (NSNumber*) latitude andLongitude: (NSNumber*) longitude andPhoto:(NSNumber*)photo andRating:(NSNumber*) rating andCreator:(NSString*)creator inManagedObjectContext:(NSManagedObjectContext*) context{
     
     POI *poi = nil;
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     request.entity =[NSEntityDescription entityForName:@"POI" inManagedObjectContext:context];
-    request.predicate = [NSPredicate predicateWithFormat:@"idString = %@", idNumber];
+    request.predicate = [NSPredicate predicateWithFormat:@"idString = %@", idString];
     
     NSError *error = nil;
     
@@ -43,7 +43,7 @@
     
     if(!error && !poi){
         poi =[NSEntityDescription insertNewObjectForEntityForName:@"POI" inManagedObjectContext:context];
-        poi.idString = idNumber;
+        poi.idString = idString;
         poi.title = title;
         poi.details = details;
         poi.latitude = latitude;

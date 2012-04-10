@@ -167,16 +167,7 @@
         
         // set the POIs
         NSArray* idStrings = [dict valueForKey:@"pois"];
-        NSMutableArray* idNums = [[NSMutableArray alloc] init];
-        NSNumberFormatter* numFormatter = [[NSNumberFormatter alloc] init];
-        [numFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        for (NSString* numString in idStrings)
-        {
-            NSNumber* idNum = [numFormatter numberFromString:numString];
-            [idNums addObject:idNum];
-        }
-
-        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"idNumber IN %@", idNums]; 
+        NSPredicate* predicate = [NSPredicate predicateWithFormat:@"idString IN %@", idStrings]; 
         NSMutableArray* fetchResults = [CoreDataManager fetchEntity:@"POI" fromContext:_managedObjectContext withPredicate:predicate withSortKey:@"creationDate" ascending:YES];
         NSSet* thePOIs = [NSSet setWithArray:fetchResults];
         user.pois = thePOIs;

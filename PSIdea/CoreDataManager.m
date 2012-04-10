@@ -37,7 +37,7 @@
 {
     NSMutableDictionary* pk = [[NSMutableDictionary alloc] init];
     [pk setValue:@"twitterHandle" forKey:@"User"];
-    [pk setValue:@"idNumber" forKey:@"POI"];
+    [pk setValue:@"idString" forKey:@"POI"];
     [pk setValue:@"url" forKey:@"Photo"];
     return (NSDictionary*) pk;
 }

@@ -48,7 +48,7 @@
     
     //Use UDID as id 
     
-    NSString *idNumber = [self GetUUID];  
+    NSString *idString = [self GetUUID];  
     
    // NSLog(@"%@", idNumber);
     
@@ -59,7 +59,7 @@
         details = nil;
     }
     
-    POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
+    POI* poi = [POI createPOIWithID:idString andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
     /*
      // local poi testing
