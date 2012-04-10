@@ -29,6 +29,5 @@
 // Class Methods
 
 +(User*) createUserWithHandle:(NSString*) twitterHandle andPOIs: (NSArray*) pois inManagedObjectContext:(NSManagedObjectContext*) context;
-+(void) setUpCurrentUser;
 
 @end

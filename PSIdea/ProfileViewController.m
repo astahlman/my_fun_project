@@ -61,7 +61,8 @@
         UIImage *image = [UIImage imageWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userPhoto"]];
         
         userPhoto.image = image;
-        
+        self.userNameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey: @"name"];
+
     }
     
     containerView.layer.cornerRadius = 10.0;
@@ -74,7 +75,6 @@
     tableContainerView.layer.masksToBounds = YES;
     
     
-    __mapViewsArray = [[NSMutableArray alloc] init];
     
 }
 
@@ -138,40 +138,37 @@
     detailsLabel = (UILabel*) [cell viewWithTag:3];
     detailsLabel.text = cellPOI.details;
     
-    if (__mapViewsArray.count <= indexPath.row){
-        
-        
-        mapView = (MKMapView*)[cell viewWithTag:1];
-        mapView.userInteractionEnabled = NO;
-        
-        
-        for (id<MKAnnotation> annotation in mapView.annotations) {
-            [mapView removeAnnotation:annotation];
-        }
-        int tag = 0;
-        
-        
-        CLLocationCoordinate2D location;
-        location.latitude = cellPOI.latitude.doubleValue;
-        location.longitude = cellPOI.longitude.doubleValue;
-        POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:cellPOI.details coordinate:location title:cellPOI.title];
-        annotation.tag = tag;
-        CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
-        tag++;
-        
-#define LOCATIONDIFF 0.0003;
-        
-        CLLocationCoordinate2D modLocation;
-        modLocation.latitude = location.latitude + LOCATIONDIFF;
-        modLocation.longitude = location.longitude + 0.0001;
-        MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
-        MKCoordinateRegion region = MKCoordinateRegionMake(modLocation, span);
-        [mapView setRegion:region animated:NO];
-        //
-        [mapView addAnnotation:annotation];
-        
+    mapView = (MKMapView*)[cell viewWithTag:1];
+    mapView.userInteractionEnabled = NO;
+    
+    for (id<MKAnnotation> annotation in mapView.annotations) {
+        [mapView removeAnnotation:annotation];
     }
-  
+    int tag = 0;
+    
+    
+    CLLocationCoordinate2D location;
+    location.latitude = cellPOI.latitude.doubleValue;
+    location.longitude = cellPOI.longitude.doubleValue;
+    POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:cellPOI.details coordinate:location title:cellPOI.title];
+    annotation.tag = tag;
+    CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
+    tag++;
+    
+    //Sets details to the address if nil;
+    if(cellPOI.details == nil){
+        [annotation updateAnnotationView:annotationLocation];
+    }
+   // [mapView addAnnotation:annotation];
+    
+#define LOCATIONDIFF 0.0003;
+    
+    CLLocationCoordinate2D modLocation;
+    modLocation.latitude = location.latitude + LOCATIONDIFF;
+    modLocation.longitude = location.longitude + 0.0001;
+    MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
+    MKCoordinateRegion region = MKCoordinateRegionMake(modLocation, span);
+    [mapView setRegion:region animated:NO];
     
     return cell;
 }

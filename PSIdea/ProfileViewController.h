@@ -20,7 +20,6 @@
     NSArray *__userPOIs;
     __weak IBOutlet UIView *containerView;
     __weak IBOutlet UIView *tableContainerView;
-    NSMutableArray *__mapViewsArray;
 }
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *profileTableViewCell;

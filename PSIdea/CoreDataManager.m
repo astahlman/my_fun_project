@@ -70,6 +70,8 @@
 
 +(POI*)parsePOI:(NSDictionary*)poiDict managedObjectContext:(NSManagedObjectContext*)moc
 {    
+    
+    
     POI *poi = nil;
     
     NSPredicate *poiPredicate = [NSPredicate predicateWithFormat:@"idString = %@",[poiDict objectForKey:@"idString"]];
@@ -140,13 +142,14 @@
                 // TODO: Queue for download from network?
             }
         }
-
+        
         
     }
     
     [moc save:nil];  
     return poi;
 }
+
 
 +(User*)parseUser:(NSDictionary*)userDict managedObjectContext:(NSManagedObjectContext*)moc
 {
@@ -172,5 +175,6 @@
     
     return photo;
 }
+
 
 @end

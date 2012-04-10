@@ -13,10 +13,10 @@
 @synthesize title = __title;
 @synthesize details = __details;
 @synthesize coordinate = __coordinate;
-
+@synthesize tag;
 - (id)initWithDetails:(NSString*)details coordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title {
     if ((self = [super init])) {
-        __details = [details copy];
+        __details = nil;
         __coordinate = coordinate;
         __title = title;
 
@@ -32,6 +32,9 @@
     __coordinate = newCoordinate;
 }
 
+/**
+  * Method that uses Reverse geocode to get address of annotation marker
+  **/
 
 -(void) updateAnnotationView:(CLLocation *) location {
     
@@ -39,7 +42,7 @@
     
     [__coder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = [placemarks lastObject];
-        self.details = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+        self.details = [placemark.addressDictionary valueForKey:(NSString *)kABPersonAddressStreetKey];
     }];
 }
 

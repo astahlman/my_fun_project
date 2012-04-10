@@ -10,7 +10,6 @@
 		51171492151A88BC006B919C /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 51171491151A88BC006B919C /* triangle.png */; };
 		51171495151A9350006B919C /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 51171494151A9350006B919C /* arrow.png */; };
 		51171497151A9433006B919C /* arrow_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 51171496151A9433006B919C /* arrow_selected.png */; };
-		511FCD1A153413460057A23C /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511FCD19153413460057A23C /* POIDetailsViewController.m */; };
 		51342E9515237A100050AE5D /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51342E9415237A100050AE5D /* ProfileTableViewCell.xib */; };
 		5139F4EB151A9B050009F4A2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5139F4EA151A9B050009F4A2 /* placeholder.png */; };
 		5139F4EE151A9B600009F4A2 /* mapOptionsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5139F4ED151A9B5D0009F4A2 /* mapOptionsBackground.png */; };
@@ -55,6 +54,7 @@
 		516E696214FF46D60026E273 /* POICreationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691914FF46D60026E273 /* POICreationModalViewController.m */; };
 		516E696314FF46D60026E273 /* POICreationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E691A14FF46D60026E273 /* POICreationModalViewController.xib */; };
 		516E696414FF46D60026E273 /* POIDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E691B14FF46D60026E273 /* POIDetailsView.xib */; };
+		516E696514FF46D60026E273 /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691D14FF46D60026E273 /* POIDetailsViewController.m */; };
 		516E696614FF46D60026E273 /* POILocationChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E691F14FF46D60026E273 /* POILocationChooserViewController.m */; };
 		516E696714FF46D60026E273 /* POILocationChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 516E692014FF46D60026E273 /* POILocationChooserViewController.xib */; };
 		516E696814FF46D60026E273 /* POIMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E692214FF46D60026E273 /* POIMapViewController.m */; };
@@ -108,7 +108,6 @@
 		51171491151A88BC006B919C /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
 		51171494151A9350006B919C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		51171496151A9433006B919C /* arrow_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_selected.png; sourceTree = "<group>"; };
-		511FCD19153413460057A23C /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POIDetailsViewController.m; path = PSIdea/POIDetailsViewController.m; sourceTree = "<group>"; };
 		51342E9415237A100050AE5D /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		5139F4EA151A9B050009F4A2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		5139F4ED151A9B5D0009F4A2 /* mapOptionsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOptionsBackground.png; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		516E691A14FF46D60026E273 /* POICreationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POICreationModalViewController.xib; path = PSidea/POICreationModalViewController.xib; sourceTree = "<group>"; };
 		516E691B14FF46D60026E273 /* POIDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POIDetailsView.xib; path = PSidea/POIDetailsView.xib; sourceTree = "<group>"; };
 		516E691C14FF46D60026E273 /* POIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POIDetailsViewController.h; path = PSidea/POIDetailsViewController.h; sourceTree = "<group>"; };
+		516E691D14FF46D60026E273 /* POIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POIDetailsViewController.m; path = PSidea/POIDetailsViewController.m; sourceTree = "<group>"; };
 		516E691E14FF46D60026E273 /* POILocationChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POILocationChooserViewController.h; path = PSidea/POILocationChooserViewController.h; sourceTree = "<group>"; };
 		516E691F14FF46D60026E273 /* POILocationChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POILocationChooserViewController.m; path = PSidea/POILocationChooserViewController.m; sourceTree = "<group>"; };
 		516E692014FF46D60026E273 /* POILocationChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = POILocationChooserViewController.xib; path = PSidea/POILocationChooserViewController.xib; sourceTree = "<group>"; };
@@ -315,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				516E69A414FFD5B50026E273 /* Classes */,
+				516E69A114FFD53C0026E273 /* Resources */,
 			);
 			name = PSIdea;
 			sourceTree = "<group>";
@@ -433,8 +434,7 @@
 				516E691814FF46D60026E273 /* POICreationModalViewController.h */,
 				516E691914FF46D60026E273 /* POICreationModalViewController.m */,
 				516E691C14FF46D60026E273 /* POIDetailsViewController.h */,
-				511FCD19153413460057A23C /* POIDetailsViewController.m */,
-				516E69A114FFD53C0026E273 /* Resources */,
+				516E691D14FF46D60026E273 /* POIDetailsViewController.m */,
 				516E691E14FF46D60026E273 /* POILocationChooserViewController.h */,
 				516E691F14FF46D60026E273 /* POILocationChooserViewController.m */,
 				516E692114FF46D60026E273 /* POIMapViewController.h */,
@@ -670,6 +670,7 @@
 				516E695D14FF46D60026E273 /* MWFSlideNavigationViewController.m in Sources */,
 				516E696114FF46D60026E273 /* POIButton.m in Sources */,
 				516E696214FF46D60026E273 /* POICreationModalViewController.m in Sources */,
+				516E696514FF46D60026E273 /* POIDetailsViewController.m in Sources */,
 				516E696614FF46D60026E273 /* POILocationChooserViewController.m in Sources */,
 				516E696814FF46D60026E273 /* POIMapViewController.m in Sources */,
 				516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */,
@@ -692,7 +693,6 @@
 				516E455F15335BF000ED4F3C /* POI.m in Sources */,
 				51BF7F0E1533C79500AD1AB7 /* TwitterAPI.m in Sources */,
 				51BF7F0F1533C79500AD1AB7 /* TWRequestOperation.m in Sources */,
-				511FCD1A153413460057A23C /* POIDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
