@@ -25,6 +25,10 @@
 - (void)removePoisObject:(POI *)value;
 - (void)addPois:(NSSet *)values;
 - (void)removePois:(NSSet *)values;
+
+// Class Methods
+
 +(User*) createUserWithHandle:(NSString*) twitterHandle andPOIs: (NSArray*) pois inManagedObjectContext:(NSManagedObjectContext*) context;
 +(void) setUpCurrentUser;
+
 @end

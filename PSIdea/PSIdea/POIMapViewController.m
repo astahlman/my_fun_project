@@ -29,8 +29,8 @@
 {
     self = [super initWithNibName:@"POIMapView" bundle:[NSBundle mainBundle]];
     if (self) {
-    __managedObjectContext = context;
-    // set visiblePOI here...
+        __managedObjectContext = context;
+        // set visiblePOI here...
         self.title = @"Map View";
     }
     return self;
@@ -43,8 +43,8 @@
         __poiArray = [CoreDataManager fetchEntity:@"POI" fromContext:__managedObjectContext withPredicate:nil withSortKey:@"title" ascending:YES];
         __visiblePOI = [[NSMutableArray alloc] init];
         [__visiblePOI addObjectsFromArray:__poiArray];
-       // [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
-
+        // [self fetchNearbyPOIForCoordinate:currentLocation.coordinate];
+        
         
     }
     else{
@@ -53,7 +53,7 @@
         __visiblePOI = [[NSMutableArray alloc] init];
         [__visiblePOI addObjectsFromArray:__poiArray];
     }
-   
+    
 }
 
 - (void) zoomToLocation:(CLLocationCoordinate2D) location animated: (BOOL) animated {
@@ -68,7 +68,7 @@
     MKCoordinateRegion region = MKCoordinateRegionMake(location, span);
     [__poiMapView setRegion:region animated:animated];
     __poiMapView.showsUserLocation = NO;
-
+    
 }
 - (void) plotPOI {
     
@@ -106,17 +106,17 @@
 #pragma mark - View lifecycle
 
 /*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
+ // Implement loadView to create a view hierarchy programmatically, without using a nib.
+ - (void)loadView
+ {
+ }
+ */
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 
 -(void) resetView{
-
+    
     [self getPOIs];
     [self plotPOI];
     
@@ -137,15 +137,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     nearby = !(segmentedControl.selectedSegmentIndex);
     self.navigationItem.titleView = segmentedControl;
     [self resetView];
-
+    
     // get pois for user testing
+<<<<<<< HEAD
 
      
     // TESTING
+=======
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:__managedObjectContext];
+    User* user = [[User alloc] initWithEntity:entity insertIntoManagedObjectContext:__managedObjectContext];
+    [user setTwitterHandle:@"PSI_Tester"];
+    NSError* err;
+    [__managedObjectContext save:&err];
+    
+    
+>>>>>>> Added UUID for POIs
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"twitterHandle like %@", @"PSI_Tester"];
     NSArray* userResults = [CoreDataManager fetchEntity:@"User" fromContext:__managedObjectContext withPredicate:predicate withSortKey:nil ascending:YES];
     User* user;
@@ -201,10 +212,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {  
     defaultRegion = __poiMapView.region;
-        
+    
     if (nearby) {
         __poiMapView.showsUserLocation = YES;
-
+        
     }
     
     if (nearby) {
@@ -216,7 +227,7 @@
         [self zoomOutToLocation:currentLocation.coordinate animated:NO];
         
     }
-
+    
     [self resetView];
 }
 
@@ -225,17 +236,17 @@
     switch (self.segmentedControl.selectedSegmentIndex) {
         case 0:
             centeredAtUserLocation = YES;
-
+            
             nearby = YES;
             [self zoomToLocation:currentLocation.coordinate animated:NO];
-
+            
             break;
         case 1:
             nearby = NO;
             
             // TODO: Add nearby POIs on Server (i.e. friends POIs)
             [self zoomOutToLocation:currentLocation.coordinate animated:NO];
-
+            
             
             break;
         default:
@@ -245,8 +256,8 @@
     }
     
     [self resetView];
-
-
+    
+    
 }
 
 
@@ -260,13 +271,13 @@
 }
 
 -(void) didFinishEditing:(BOOL)finished {
-        if (YES) {
-            [__managedObjectContext save:nil];
-            [self resetView];
-            
-        }
+    if (YES) {
+        [__managedObjectContext save:nil];
+        [self resetView];
+        
+    }
     [self.modalViewController dismissModalViewControllerAnimated:YES];
-
+    
 }
 
 -(void)operationDidGetLocalPOIs:(HTTPSynchGetOperationWithParse*)operation
@@ -281,15 +292,15 @@
 }
 
 /*-(void) fetchNearbyPOIForCoordinate:(CLLocationCoordinate2D) coordinate{
-    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
-}*/
+ [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:[NSNumber numberWithDouble:coordinate.latitude] ofLon:[NSNumber numberWithDouble:coordinate.longitude] callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
+ }*/
 
 
 -(MKAnnotationView  *) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     if(annotation == mapView.userLocation){
         return nil;
     }
-
+    
     POIAnnotation *poiAnnotation = (POIAnnotation*)annotation;
     
     
@@ -316,7 +327,7 @@
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     currentLocation = userLocation.location;
-  
+    
 }
 
 -(void) locationUpdate:(CLLocation *)location{
@@ -332,7 +343,7 @@
         [self zoomOutToLocation:currentLocation.coordinate animated:NO];
         
     }
-
+    
     
     [locationController.locationManager stopUpdatingLocation];
     

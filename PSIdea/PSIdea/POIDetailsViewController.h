@@ -24,15 +24,19 @@
     POI *__poi;
     __weak IBOutlet UIView *containerView;
 }
+
+// Public Class Variables 
+
 @property (weak, nonatomic) IBOutlet UILabel *creatorNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creatorLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userPhotoImageView;
-
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UITextView* detailsTextView;
 @property (weak, nonatomic) IBOutlet UIButton *disclosureButton;
-- (IBAction)disclosureButtonSelected:(id)sender;
+
+// Class Methods
 
 - (id)initWithPOI:(POI*) poi;
+- (IBAction)disclosureButtonSelected:(id)sender;
 
 @end

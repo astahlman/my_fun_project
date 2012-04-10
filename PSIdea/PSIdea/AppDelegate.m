@@ -22,25 +22,31 @@
     CoreDataCreator *creator = [[CoreDataCreator alloc]init];
     [creator createCoreDataIn:[self managedObjectContext]];
     [User setUpCurrentUser];
+    
+    
     //Allocate TabBarController and Views
     
-    // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
-    __tabBarController = [[UITabBarController alloc] init];
+    /* List View Controller Code (NO in use) */
     
-    __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
+    // ListsScrollViewController *lvc = [[ListsScrollViewController alloc] initWithContext:__managedObjectContext];
     //  UINavigationController *firstNavCon = [[UINavigationController alloc] init];
     //  MWFSlideNavigationViewController *slideNavCon = [[MWFSlideNavigationViewController alloc] initWithRootViewController:lvc];
     //  slideNavCon.title = @"Lists";
     //  slideNavCon.delegate = lvc;
-    
-    UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
     // [firstNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];  
     // firstNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
     // [firstNavCon pushViewController:slideNavCon animated:NO];
-    UINavigationController *secondNavCon = [[UINavigationController alloc] init];
-    [secondNavCon pushViewController:__poiMapViewController animated:NO];
-    
     //slideNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Places" image:[UIImage imageNamed:@"marker"] tag:0];
+
+    __tabBarController = [[UITabBarController alloc] init];
+    
+    __poiMapViewController = [[POIMapViewController alloc] initWithContext:__managedObjectContext]; 
+   
+    
+    UIImage *image = [UIImage imageNamed:@"navigationBarBackground"];
+       UINavigationController *secondNavCon = [[UINavigationController alloc] init];
+    [secondNavCon pushViewController:__poiMapViewController animated:NO];
+
     secondNavCon.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map" image:[UIImage imageNamed:@"map"] tag:1];
     [secondNavCon.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];    
     secondNavCon.navigationBar.barStyle = UIBarStyleBlackOpaque;
@@ -161,6 +167,8 @@
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
     {

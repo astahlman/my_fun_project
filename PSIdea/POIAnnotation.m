@@ -32,6 +32,9 @@
     __coordinate = newCoordinate;
 }
 
+/**
+  * Method that uses Reverse geocode to get address of annotation marker
+  **/
 
 -(void) updateAnnotationView:(CLLocation *) location {
     

@@ -15,6 +15,10 @@
 @property (copy) NSString* details;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic) int tag;
+
+// Instance methods
+
 - (id)initWithDetails:(NSString*)details coordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title;
 -(void) updateAnnotationView:(CLLocation *) location;
+
 @end

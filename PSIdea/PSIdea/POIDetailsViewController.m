@@ -32,13 +32,13 @@
     self = [super initWithNibName:@"POIDetailsView" bundle:[NSBundle mainBundle]];
     if (self) {
         __poi = poi;
-       __details = poi.details;
+        __details = poi.details;
         __title = poi.title;
         pinLocation = [[CLLocation alloc] initWithLatitude: poi.latitude.floatValue longitude:poi.longitude.floatValue];
         self.title =@"Details";
         __creatorUserName = poi.creator.twitterHandle;
     }
-
+    
     
     return self;
 }
@@ -53,33 +53,6 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-
-/*-(void) handleAction{
-    UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Place?" otherButtonTitles: nil];
-    actionsheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionsheet dismissWithClickedButtonIndex:actionsheet.cancelButtonIndex animated:YES];
-    [actionsheet showInView:self.view];
-}
-
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == actionSheet.destructiveButtonIndex) {
-        //Delete From Server and CoreData
-        NSManagedObjectContext *context = __poi.managedObjectContext;
-        
-        [context deleteObject:__poi];
-        [context save:nil];
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    
-
-}*/
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -97,17 +70,17 @@
         
     }
     
-  /* Added for future use (if needed). Uncomment action sheet methods above  
+    /* Added for future use (if needed). Uncomment action sheet methods above  
+     
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleAction)];
+     */
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleAction)];
-    */
     
-    
-   containerView.layer.cornerRadius = 10.0;
+    containerView.layer.cornerRadius = 10.0;
     containerView.layer.borderColor = [UIColor clearColor].CGColor;
     containerView.layer.borderWidth = 1.2;
     containerView.layer.masksToBounds = YES;
-
+    
 }
 
 

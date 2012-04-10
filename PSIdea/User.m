@@ -17,6 +17,8 @@
 
 
 //creates new user managed object (if it doesn't already exist)
+
+
 +(User*) createUserWithHandle:(NSString*) twitterHandle andPOIs: (NSArray*) pois inManagedObjectContext:(NSManagedObjectContext*) context
 {
 
@@ -41,6 +43,8 @@
         user.twitterHandle = twitterHandle;  
         // TODO: You can't create POI's without a creator, so you can't assign existing POI's
         // to a new creator. Eliminate the andPOIs: argument.
+        // This is here becaue if we want to store user information in CoreData. Those users do
+        // have POI. -will
         for(int i=0; i<pois.count; i++)
         {
             [POI createPOIWithID:[pois objectAtIndex:i] andTitle:nil andDetails:nil andLatitude:nil andLongitude:nil andPhoto:nil  andRating:nil andCreator:twitterHandle inManagedObjectContext:context];       
@@ -50,6 +54,12 @@
 
     return user;
 }
+
+
+/* 
+ * Method for getting user's twitter username and profile picture
+ */
+
 
 +(void) setUpCurrentUser {
     

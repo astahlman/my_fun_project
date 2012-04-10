@@ -14,6 +14,7 @@
 		5139F4EB151A9B050009F4A2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5139F4EA151A9B050009F4A2 /* placeholder.png */; };
 		5139F4EE151A9B600009F4A2 /* mapOptionsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5139F4ED151A9B5D0009F4A2 /* mapOptionsBackground.png */; };
 		5152DAA015013AFC0069F28E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5152DA9F15013AFC0069F28E /* background.png */; };
+		516E455F15335BF000ED4F3C /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 516E455E15335BF000ED4F3C /* POI.m */; };
 		516E67BA14FF456C0026E273 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516E67B914FF456C0026E273 /* UIKit.framework */; };
 		516E67BC14FF456C0026E273 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516E67BB14FF456C0026E273 /* Foundation.framework */; };
 		516E67BE14FF456C0026E273 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516E67BD14FF456C0026E273 /* CoreGraphics.framework */; };
@@ -74,7 +75,6 @@
 		516E699314FF5D750026E273 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699114FF5D740026E273 /* list@2x.png */; };
 		516E699614FF5DFF0026E273 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699414FF5DFE0026E273 /* marker.png */; };
 		516E699714FF5DFF0026E273 /* marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 516E699514FF5DFE0026E273 /* marker@2x.png */; };
-		517E6E5F150A71B6003B7849 /* POI.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E5E150A71B6003B7849 /* POI.m */; };
 		517E6E62150A71B6003B7849 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E61150A71B6003B7849 /* User.m */; };
 		517E6E68150AEE28003B7849 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E6E67150AEE28003B7849 /* Photo.m */; };
 		518259AB152BF18A00A4516F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 518259AA152BF18900A4516F /* AddressBook.framework */; };
@@ -112,6 +112,9 @@
 		5139F4EA151A9B050009F4A2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		5139F4ED151A9B5D0009F4A2 /* mapOptionsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapOptionsBackground.png; sourceTree = "<group>"; };
 		5152DA9F15013AFC0069F28E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		516E455B15335B5200ED4F3C /* PSIdea_1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PSIdea_1.2.xcdatamodel; sourceTree = "<group>"; };
+		516E455D15335BF000ED4F3C /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
+		516E455E15335BF000ED4F3C /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
 		516E67B514FF456C0026E273 /* PSIdea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSIdea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		516E67B914FF456C0026E273 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		516E67BB14FF456C0026E273 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -208,8 +211,6 @@
 		516E699114FF5D740026E273 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 		516E699414FF5DFE0026E273 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		516E699514FF5DFE0026E273 /* marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "marker@2x.png"; sourceTree = "<group>"; };
-		517E6E5D150A71B6003B7849 /* POI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POI.h; sourceTree = "<group>"; };
-		517E6E5E150A71B6003B7849 /* POI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POI.m; sourceTree = "<group>"; };
 		517E6E60150A71B6003B7849 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		517E6E61150A71B6003B7849 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		517E6E66150AEE28003B7849 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -456,12 +457,12 @@
 			isa = PBXGroup;
 			children = (
 				51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */,
+				516E455D15335BF000ED4F3C /* POI.h */,
+				516E455E15335BF000ED4F3C /* POI.m */,
 				517E6E66150AEE28003B7849 /* Photo.h */,
 				517E6E67150AEE28003B7849 /* Photo.m */,
 				517E6E60150A71B6003B7849 /* User.h */,
 				517E6E61150A71B6003B7849 /* User.m */,
-				517E6E5D150A71B6003B7849 /* POI.h */,
-				517E6E5E150A71B6003B7849 /* POI.m */,
 				516E692714FF46D60026E273 /* SampleData.plist */,
 				66C2B7BC150BF254008B2FE1 /* CoreDataEntities.h */,
 				66C2B7BD150BF254008B2FE1 /* CoreDataEntities.m */,
@@ -673,7 +674,6 @@
 				516E696614FF46D60026E273 /* POILocationChooserViewController.m in Sources */,
 				516E696814FF46D60026E273 /* POIMapViewController.m in Sources */,
 				516E696F14FF46D60026E273 /* PSINetworkController.m in Sources */,
-				517E6E5F150A71B6003B7849 /* POI.m in Sources */,
 				517E6E62150A71B6003B7849 /* User.m in Sources */,
 				517E6E68150AEE28003B7849 /* Photo.m in Sources */,
 				51A2DA6D150AF49B00A87A0E /* PSIdea.xcdatamodeld in Sources */,
@@ -690,8 +690,12 @@
 				66519A6E150F8A6900FA1FD0 /* HTTPSynchGetOperationWithParse.m in Sources */,
 				66519A71150F901200FA1FD0 /* HTTPSynchPostOperationWithParse.m in Sources */,
 				51C8A1AE15237DC100671A32 /* ProfileViewController.m in Sources */,
+<<<<<<< HEAD
 				666B2A8F152DFD100046F820 /* TwitterAPI.m in Sources */,
 				666B2A92152E08E90046F820 /* TWRequestOperation.m in Sources */,
+=======
+				516E455F15335BF000ED4F3C /* POI.m in Sources */,
+>>>>>>> Added UUID for POIs
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,9 +808,10 @@
 		51A2DA6B150AF49B00A87A0E /* PSIdea.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				516E455B15335B5200ED4F3C /* PSIdea_1.2.xcdatamodel */,
 				51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */,
 			);
-			currentVersion = 51A2DA6C150AF49B00A87A0E /* PSIdea.xcdatamodel */;
+			currentVersion = 516E455B15335B5200ED4F3C /* PSIdea_1.2.xcdatamodel */;
 			path = PSIdea.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -20,7 +20,6 @@
 @synthesize infoButton;
 @synthesize titleField;
 @synthesize detailsField;
-@synthesize miniMapView;
 @synthesize publicButton;
 @synthesize delegate;
 
@@ -43,10 +42,15 @@
 
 -(void)done
 {
-    miniMapView.showsUserLocation=NO;
     // need to pass in user id for user logged in.
-    int number = arc4random() % 10000; // This will need to change. Could get same number multiple times
-    NSNumber *idNumber = [NSNumber numberWithInt:number];
+   // int number = arc4random() % 10000; // This will need to change. Could get same number multiple times
+//    NSNumber *idNumber = [NSNumber numberWithInt:number];
+    
+    //Use UDID as id 
+    
+    NSString *idNumber = [self GetUUID];  
+    
+   // NSLog(@"%@", idNumber);
     
     NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
     NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
@@ -58,11 +62,11 @@
     POI* poi = [POI createPOIWithID:idNumber andTitle:titleField.text andDetails:details andLatitude: latitude andLongitude:longitude andPhoto:nil andRating:nil andCreator:nil  inManagedObjectContext:__managedObjectContext];
     [[NetworkAPI apiInstance] postPOI:poi callbackTarget:self action:@selector(postOperationFinished:)];
     /*
-    // local poi testing
-    [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
+     // local poi testing
+     [[NetworkAPI apiInstance] getPOIsWithinRadius:1.0 ofLat:latitude ofLon:longitude callbackTarget:self action:@selector(operationDidGetLocalPOIs:) managedObjectContext:__managedObjectContext];
      */
     [delegate didFinishEditing:YES];
-
+    
 }
      
 -(void)postOperationFinished:(HTTPSynchPostOperationWithParse*)operation
@@ -87,11 +91,9 @@
         }
     }
 }
-     
+
 -(void)cancel
 {
-    miniMapView.showsUserLocation=NO;
-    [locationController.locationManager stopUpdatingLocation];
     [delegate didFinishEditing:NO];
 }
 
@@ -104,30 +106,6 @@
     }
     
     return self;
-}
-- (void) zoomToLocation:(CLLocation*) location {
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.01, 0.01);
-    MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate, span);
-    [miniMapView setRegion:region animated:NO];
-}
-
--(void) locationUpdate:(CLLocation *)location{
-    currentLocation =location;
-    [self zoomToLocation:location];
-    POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:currentLocation.coordinate title:nil];
-    for (id<MKAnnotation> annotation in miniMapView.annotations) {
-        [miniMapView removeAnnotation:annotation];
-    }
-    [miniMapView addAnnotation:annotation];
-    
-    [locationController.locationManager stopUpdatingLocation];
-}
-
--(void) locationError:(NSError *)error{
-    NSLog(@"ERROR: %@", error);
-    
-    [locationController.locationManager stopUpdatingLocation];
-    [locationController.locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,6 +121,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     miniMapView.showsUserLocation=NO;
     locationController = [[MYCLController alloc] init];
     locationController.delegate=self;
@@ -155,13 +134,21 @@
     backgroundImageView.layer.masksToBounds = YES;
     [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
     tweetPOI = YES;
+=======
+       [ publicButton setImage:[UIImage imageNamed:@"button_unselected"]forState:UIControlStateNormal];
+    
+   // View Setup (rounded Corners) 
+
+
+    tweetPOI = NO;
+>>>>>>> Added UUID for POIs
     mainInfoView.layer.cornerRadius = 10.0;
     mainInfoView.layer.borderColor = [UIColor clearColor].CGColor;
     mainInfoView.layer.borderWidth = 1.2;
     mainInfoView.layer.masksToBounds = YES;
     
     locationLabel.text = @"Current Location";
-
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -178,11 +165,8 @@
 {
     [self setTitleField:nil];
     [self setDetailsField:nil];
-    [self setMiniMapView:nil];
-    tapeImage = nil;
     mainInfoView = nil;
     [self setInfoButton:nil];
-    backgroundImageView = nil;
     [self setPublicButton:nil];
     [self setLocationLabel:nil];
     [super viewDidUnload];
@@ -201,6 +185,7 @@
     
     //Push a bigger map View that allows user to drop pin at location
     //expand off current map class?
+    
     POILocationChooserViewController *locationChooserVC = [[POILocationChooserViewController alloc] initWithCurrentLocation:currentLocation];
     locationChooserVC.delegate = self;
     [self.navigationController pushViewController:locationChooserVC animated:YES];
@@ -222,18 +207,12 @@
         CLPlacemark *placemark = [placemarks lastObject];
         locationLabel.text = [placemark.addressDictionary valueForKey:(NSString *)kABPersonAddressStreetKey];
     }];
-    //Add annotation to miniMapView
-
- /*   POIAnnotation *annotation = [[POIAnnotation alloc] initWithDetails:nil coordinate:location.coordinate title:nil];
-    for (id<MKAnnotation> annotation in miniMapView.annotations) {
-        [miniMapView removeAnnotation:annotation];
-    }
-    [miniMapView addAnnotation:annotation];
-    currentLocation = location;*/
 }
-- (IBAction)publicButtonSelected:(id)sender {
+
+
+-(IBAction)tweetButtonSelected:(id)sender{
     
-    //Need to update this to control Tweeting and Rename
+    //Need to update this to control Tweeting
     
     if (tweetPOI  == YES) {
         
@@ -245,5 +224,13 @@
         [ publicButton setImage:[UIImage imageNamed:@"button_selected"]forState:UIControlStateNormal];
         tweetPOI = YES;
     }
+}
+
+- (NSString *)GetUUID
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    CFStringRef string = CFUUIDCreateString(NULL, theUUID);
+    CFRelease(theUUID);
+    return (__bridge_transfer NSString *)string;
 }
 @end

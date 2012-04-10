@@ -11,7 +11,7 @@
 				<string>William Patty</string>
 				<key>pois</key>
 				<array>
-					<integer>1</integer>
+					<string>1</string>
 				</array>
 			</dict>
 			<dict>
@@ -19,7 +19,7 @@
 				<string>Andrew Stahlman</string>
 				<key>pois</key>
 				<array>
-					<integer>2</integer>
+					<string>2</string>
 				</array>
 			</dict>
 		</array>
@@ -27,7 +27,7 @@
 		<array>
 			<dict>
 				<key>id</key>
-				<integer>1</integer>
+				<string>1</string>
 				<key>title</key>
 				<string>POI #1</string>
 				<key>details</key>
@@ -45,7 +45,7 @@
 			</dict>
 			<dict>
 				<key>id</key>
-				<integer>2</integer>
+				<string>2</string>
 				<key>title</key>
 				<string>POI #2</string>
 				<key>details</key>
