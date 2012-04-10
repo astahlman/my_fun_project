@@ -27,7 +27,7 @@
     BOOL nearby;
     BOOL centeredAtUserLocation;
     MKCoordinateRegion defaultRegion;
-    MYCLController *locationController;
+    MyCLController *locationController;
     CLLocation *currentLocation;
 }
 

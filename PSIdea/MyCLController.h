@@ -17,7 +17,7 @@
 
 @end
 
-@interface MYCLController: NSObject <CLLocationManagerDelegate>{
+@interface MyCLController: NSObject <CLLocationManagerDelegate>{
     CLLocationManager *locationManager;
     id delegate;
 }

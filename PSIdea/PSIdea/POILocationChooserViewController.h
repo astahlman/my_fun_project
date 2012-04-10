@@ -21,7 +21,7 @@
 
 @interface POILocationChooserViewController : UIViewController  <MKMapViewDelegate, MyCLControllerDelegate,MapOptionsViewControllerDelegate>
 {
-    MYCLController *locationController;
+    MyCLController *locationController;
     CLLocation *pinLocation;
     NSString *locationAddress;
     BOOL centerAtUserLocation;

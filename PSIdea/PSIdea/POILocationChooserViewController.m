@@ -85,7 +85,7 @@
     [super viewDidLoad];
     
     
-    locationController = [[MYCLController alloc] init];
+    locationController = [[MyCLController alloc] init];
     [locationController.locationManager startUpdatingLocation];
     locationController.delegate =self;
     __mapView.showsUserLocation = YES;

@@ -136,7 +136,7 @@
     mainInfoView.layer.masksToBounds = YES;
     
     locationLabel.text = @"Current Location";
-    locationController = [[MYCLController alloc] init];
+    locationController = [[MyCLController alloc] init];
     [locationController.locationManager startUpdatingLocation];
     locationController.delegate =self;
     

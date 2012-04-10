@@ -168,7 +168,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewPOI)];
     
     if (locationController==nil) {
-        locationController = [[MYCLController alloc] init];
+        locationController = [[MyCLController alloc] init];
         locationController.delegate = self;
     }
     
