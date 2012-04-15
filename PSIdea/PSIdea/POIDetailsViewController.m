@@ -10,6 +10,7 @@
 
 @implementation POIDetailsViewController
 
+@synthesize dateLabel = _dateLabel;
 @synthesize creatorNameLabel = _creatorNameLabel;
 @synthesize creatorLabel = _creatorLabel;
 @synthesize userPhotoImageView = _userPhotoImageView;
@@ -72,6 +73,42 @@
         
     }
     
+    NSString *details;
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSDate *date = __poi.creationDate;
+    //Set the required date format
+    
+    [formatter setDateFormat:@"hh:mm a"];
+    
+    //Get the string date
+    NSString *timeString  = [formatter stringFromDate:date];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    // Your dates:
+    NSDate * today = [NSDate date];
+    NSDate * yesterday = [NSDate dateWithTimeIntervalSinceNow:-86400]; //86400 is the seconds in a day
+    NSDate * refDate = __poi.creationDate;
+    
+    // 10 first characters of description is the calendar date:
+    NSString * todayString = [[today description] substringToIndex:10];
+    NSString * yesterdayString = [[yesterday description] substringToIndex:10];
+    NSString * refDateString = [[refDate description] substringToIndex:10];
+    
+    if ([refDateString isEqualToString:todayString]) 
+    {
+        details = [NSString stringWithFormat:@"Today at %@",timeString];
+    } else if ([refDateString isEqualToString:yesterdayString]) 
+    {
+        details = [NSString stringWithFormat:@"Yesterday at %@",timeString];
+    } else 
+    {
+        details = [NSString stringWithFormat:@"%@ at %@",dateString, timeString];
+    }
+    
+    _dateLabel.text =details;
     /* Added for future use (if needed). Uncomment action sheet methods above  
      
      self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleAction)];
@@ -93,6 +130,7 @@
     [self setCreatorNameLabel:nil];
     [self setUserPhotoImageView:nil];
     [self setDisclosureButton:nil];
+    [self setDateLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

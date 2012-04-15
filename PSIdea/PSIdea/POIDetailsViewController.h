@@ -26,6 +26,7 @@
 }
 
 // Public Class Variables 
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *creatorNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *creatorLabel;

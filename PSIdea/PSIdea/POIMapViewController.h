@@ -22,13 +22,26 @@
 
 #define METERS_PER_MILE 1609.344
 
-@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate, MyCLControllerDelegate, UISearchBarDelegate>
+@interface POIMapViewController : UIViewController <MKMapViewDelegate, ViewWithCoreData, POICreationModalViewControllerDelegate, MyCLControllerDelegate, UISearchBarDelegate,UISearchDisplayDelegate,UITableViewDelegate, UITableViewDataSource>
 {
     BOOL centeredAtUserLocation;
     MKCoordinateRegion defaultRegion;
     MyCLController *locationController;
     CLLocation *currentLocation;
+    NSArray *searchResults;
+    UISearchDisplayController *searchController;
 }
+
+
+- (IBAction)addButtonSelected:(id)sender;
+- (IBAction)menuButtonSelected:(id)sender;
+- (IBAction)searchButtonSelected:(id)sender;
+- (IBAction)locationButtonSelected:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *addButton;
+
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (strong, nonatomic) IBOutlet UIButton *locationButton;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet MKMapView *poiMapView;
