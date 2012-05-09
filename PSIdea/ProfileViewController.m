@@ -34,11 +34,14 @@
     self = [self initWithNibName:@"ProfileViewController" bundle:[NSBundle mainBundle]];
     if (self) {
         __user = user;
-        NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:YES];
+        NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"creationDate" ascending:NO];
         NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortNameDescriptor, nil];
         __userPOIs = [[user.pois allObjects] sortedArrayUsingDescriptors:sortDescriptors];
         
         NSLog(@"User Pois: %@", __userPOIs);
+        
+        __coder = [[CLGeocoder alloc] init];
+
         
     }
     return self;
@@ -129,47 +132,107 @@
     POI *cellPOI = [__userPOIs objectAtIndex:indexPath.row];
     
     UILabel *titleLabel;
-    UILabel *detailsLabel;
-    MKMapView *mapView;
+    UILabel *dateLabel;
+  //  MKMapView *mapView;
+    UILabel *detailLabel;
     
     titleLabel = (UILabel*) [cell viewWithTag:2];
     titleLabel.text = cellPOI.title;
     
-    detailsLabel = (UILabel*) [cell viewWithTag:3];
-    detailsLabel.text = cellPOI.details;
+    dateLabel = (UILabel*) [cell viewWithTag:3];
+    detailLabel = (UILabel*)[cell viewWithTag:1];
     
-    mapView = (MKMapView*)[cell viewWithTag:1];
-    mapView.userInteractionEnabled = NO;
+
+    detailLabel.text = cellPOI.details;
     
-    for (id<MKAnnotation> annotation in mapView.annotations) {
-        [mapView removeAnnotation:annotation];
+    NSDate* date = cellPOI.creationDate;
+    
+    //Create the dateformatter object
+    
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    
+    //Set the required date format
+    
+    [formatter setDateFormat:@"hh:mm a"];
+    
+    //Get the string date
+    NSString *timeString  = [formatter stringFromDate:date];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    // Your dates:
+    NSDate * today = [NSDate date];
+    NSDate * yesterday = [NSDate dateWithTimeIntervalSinceNow:-86400]; //86400 is the seconds in a day
+    NSDate * refDate = cellPOI.creationDate;
+    
+    // 10 first characters of description is the calendar date:
+    NSString * todayString = [[today description] substringToIndex:10];
+    NSString * yesterdayString = [[yesterday description] substringToIndex:10];
+    NSString * refDateString = [[refDate description] substringToIndex:10];
+    
+    if ([refDateString isEqualToString:todayString]) 
+    {
+        dateLabel.text = [NSString stringWithFormat:@"Today at %@",timeString];
+    } else if ([refDateString isEqualToString:yesterdayString]) 
+    {
+        dateLabel.text = [NSString stringWithFormat:@"Yesterday at %@",timeString];
+    } else 
+    {
+        dateLabel.text = [NSString stringWithFormat:@"%@ at %@",dateString, timeString];
     }
-    int tag = 0;
+   /* mapView = (MKMapView*)[cell viewWithTag:1];
+
+    
+    MKMapView *cachedMapView = [mapCache objectForKey:[NSString stringWithFormat:@"%d", indexPath.row]];
     
     
-    CLLocationCoordinate2D location;
-    location.latitude = cellPOI.latitude.doubleValue;
-    location.longitude = cellPOI.longitude.doubleValue;
-    POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:cellPOI.details coordinate:location title:cellPOI.title];
-    annotation.tag = tag;
-    CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
-    tag++;
-    
-    //Sets details to the address if nil;
-    if(cellPOI.details == nil){
-        [annotation updateAnnotationView:annotationLocation];
-    }
-   // [mapView addAnnotation:annotation];
-    
+    if (cachedMapView == nil){
+        mapView.userInteractionEnabled = NO;
+        
+        for (id<MKAnnotation> annotation in mapView.annotations) {
+            [mapView removeAnnotation:annotation];
+        }
+        int tag = 0;
+        
+        
+        CLLocationCoordinate2D location;
+        location.latitude = cellPOI.latitude.doubleValue;
+        location.longitude = cellPOI.longitude.doubleValue;
+        POIAnnotation* annotation = [[POIAnnotation alloc] initWithDetails:cellPOI.details coordinate:location title:cellPOI.title];
+        annotation.tag = tag;
+        CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:location.latitude longitude:location.longitude];
+        tag++;
+        
+        //Sets details to the address if nil;
+        if(cellPOI.details == nil){
+            [annotation updateAnnotationView:annotationLocation];
+        }
+        // [mapView addAnnotation:annotation];
+        
 #define LOCATIONDIFF 0.0003;
+        
+        CLLocationCoordinate2D modLocation;
+        modLocation.latitude = location.latitude + LOCATIONDIFF;
+        modLocation.longitude = location.longitude + 0.0001;
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
+        MKCoordinateRegion region = MKCoordinateRegionMake(modLocation, span);
+        [mapView setRegion:region animated:NO];
+        
+        cachedMapView = mapView;
+        [mapCache setObject:cachedMapView forKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+        
+        
+
+    }
+    else {
+        mapView = cachedMapView;
+    }*/
     
-    CLLocationCoordinate2D modLocation;
-    modLocation.latitude = location.latitude + LOCATIONDIFF;
-    modLocation.longitude = location.longitude + 0.0001;
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.003, 0.003);
-    MKCoordinateRegion region = MKCoordinateRegionMake(modLocation, span);
-    [mapView setRegion:region animated:NO];
     
+    
+       
     return cell;
 }
 

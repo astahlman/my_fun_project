@@ -16,7 +16,7 @@
 @synthesize tag;
 - (id)initWithDetails:(NSString*)details coordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title {
     if ((self = [super init])) {
-        __details = nil;
+        __details = details;
         __coordinate = coordinate;
         __title = title;
 

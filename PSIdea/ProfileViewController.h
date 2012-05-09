@@ -18,6 +18,8 @@
 {
     User *__user;
     NSArray *__userPOIs;
+    CLGeocoder *__coder;
+    
     __weak IBOutlet UIView *containerView;
     __weak IBOutlet UIView *tableContainerView;
 }
