@@ -16,6 +16,7 @@ typedef enum OperationError {
     OperationErrorBadContentType,
     OperationErrorUnexpectedResponseSize,
     OperationErrorJSONParsingError,
+    OperationErrorOther,
 } OperationError;
 
 typedef enum OperationState {
@@ -41,5 +42,5 @@ typedef enum OperationState {
 -(id)init;
 -(NSString*)messageForError:(OperationError)error;
 -(void)failWithError:(OperationError)error;
-
+-(void)onOperationSuccess;
 @end

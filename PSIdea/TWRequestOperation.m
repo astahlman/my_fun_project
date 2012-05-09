@@ -8,17 +8,29 @@
 
 #import "TWRequestOperation.h"
 #import "Logging.h"
+#import "HTTPSynchOperation.h"
 
 @implementation TWRequestOperation
 
 @synthesize request = _request;
+@synthesize responseDict = _responseDict;
 
--(id)initWithRequest:(TWRequest *)request
+-(id)initWithHandle:(NSString *)twitterHandle twRequest:(TWRequest *)request
+{
+    if (self = [self initWithHandle:twitterHandle])
+    {
+         _request = request;
+    }
+           
+    return self;
+}
+
+-(id)initWithHandle:(NSString*)twitterHandle
 {
     self = [super init];
     if (self != nil)
     {
-        _request = request;
+        _handle = twitterHandle;
         _jsonParser = [[SBJsonParser alloc] init];
     }
     return self;
@@ -61,28 +73,92 @@
         [self willChangeValueForKey:@"isExecuting"];
         _operationState = OperationStateExecuting;
         [self didChangeValueForKey:@"isExecuting"];
-        
+    }
 
-        [_request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) 
+        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+        ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        __block ACAccount* twitterAccount = nil;
+        
+        // Request access from the user to use their Twitter accounts.
+        [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) 
          {
-             NSDictionary* tweetResponse = [_jsonParser objectWithData:responseData];
-             [[Logging logger] logMessage:[NSString stringWithFormat:@"Here is the tweet responseData: %@", tweetResponse]];
-             NSIndexSet* acceptableCodes = [NSOperationWithState defaultAcceptableStatusCodes];
-             if (![acceptableCodes containsIndex:[urlResponse statusCode]])
+             if(granted) 
              {
-                 [[Logging logger] logMessage:[NSString stringWithFormat:@"Failed to post tweet: response code %i", [urlResponse statusCode]]];
+                 // Get the list of Twitter accounts.
+                 NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+                 
+                 if ([accountsArray count] > 0) 
+                 {
+                     if (_handle != nil)
+                     {
+                         // Grab the initial Twitter account to tweet from.
+                         for (ACAccount* acct in accountsArray)
+                         {
+                             if ([[acct username] isEqualToString:_handle])
+                             {
+                                 twitterAccount = acct;
+                             }
+                         }
+                     }
+                 }
+             }
+             else
+             {
+                 [[Logging logger] logMessage:[NSString stringWithFormat:@"Error retrieving account: %@", [error description]]];
+
+
+                 [self willChangeValueForKey:@"isExecuting"];
+                 [self willChangeValueForKey:@"isFinished"];
+                 _operationState = OperationStateFailed;
+                 [self didChangeValueForKey:@"isExecuting"];
+                 [self didChangeValueForKey:@"isFinished"];
              }
              
-         }];
-        // else it must have failed or been cancelled, leave it as is
-        if (_operationState == OperationStateExecuting)
-        {
-            [self willChangeValueForKey:@"isExecuting"];
-            [self willChangeValueForKey:@"isFinished"];
-            _operationState = OperationStateSuccess;
-            [self didChangeValueForKey:@"isExecuting"];
-            [self didChangeValueForKey:@"isFinished"];
-        }
+             if (twitterAccount != nil)
+             {
+
+                 [_request setAccount:twitterAccount];
+                 
+                 [_request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) 
+                  {
+                      _responseDict = [_jsonParser objectWithData:responseData];
+                      [[Logging logger] logMessage:[NSString stringWithFormat:@"Here is the tweet responseData: %@", _responseDict]];
+                      NSIndexSet* acceptableCodes = [HTTPSynchOperation defaultAcceptableStatusCodes];
+                      if (![acceptableCodes containsIndex:[urlResponse statusCode]])
+                      {
+                          [[Logging logger] logMessage:[NSString stringWithFormat:@"Failed to post tweet: response code %i", [urlResponse statusCode]]];
+                          [self willChangeValueForKey:@"isExecuting"];
+                          [self willChangeValueForKey:@"isFinished"];
+                          _operationState = OperationStateFailed;
+                          [self didChangeValueForKey:@"isExecuting"];
+                          [self didChangeValueForKey:@"isFinished"];
+                      }
+                      else
+                      {
+                          [self willChangeValueForKey:@"isExecuting"];
+                          [self willChangeValueForKey:@"isFinished"];
+                          _operationState = OperationStateSuccess;
+                          [self didChangeValueForKey:@"isExecuting"];
+                          [self didChangeValueForKey:@"isFinished"];
+                      }
+                      
+                  }];
+             }
+             else 
+             {
+                 [[Logging logger] logMessage:[NSString stringWithFormat:@"Account %@ does not exist on this device.", _handle]];
+                 [self willChangeValueForKey:@"isExecuting"];
+                 [self willChangeValueForKey:@"isFinished"];
+                 _operationState = OperationStateFailed;
+                 [self didChangeValueForKey:@"isExecuting"];
+                 [self didChangeValueForKey:@"isFinished"];
+             }
+         }];  
+
+    while (_operationState == OperationStateExecuting)
+    {
+        // spin wait on our block methods to complete
+        // TODO: There must be a more efficient way to do this...
     }
 }
 

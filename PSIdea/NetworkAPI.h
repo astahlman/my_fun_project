@@ -25,6 +25,7 @@ extern const NSString* PSI_URL_BASE;
     SBJsonWriter* _jsonWriter;
 }
 
+@property (nonatomic, retain) NetworkManager* networkManager;
 
 // singleton
 +(NetworkAPI*)apiInstance;

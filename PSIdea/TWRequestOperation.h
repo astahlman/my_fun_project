@@ -8,17 +8,22 @@
 
 #import "NSOperationWithState.h"
 #import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 #import "SBJson.h"
 
 @interface TWRequestOperation : NSOperationWithState
 {
     TWRequest* _request;
+    NSString* _handle;
     SBJsonParser* _jsonParser;
+    __block NSDictionary* _responseDict;
 }
 
 @property (nonatomic, retain) TWRequest* request;
+@property (nonatomic, retain) NSDictionary* responseDict;
 
--(id)initWithRequest:(TWRequest*)request;
+-(id)initWithHandle:(NSString*)twitterHandle;
+-(id)initWithHandle:(NSString*)twitterHandle twRequest:(TWRequest*)request;
 
 -(void)cancel;
 -(BOOL)isExecuting;

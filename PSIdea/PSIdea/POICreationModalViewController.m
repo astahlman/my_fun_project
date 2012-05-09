@@ -13,6 +13,7 @@
 #import "TwitterAPI.h"
 #import "Logging.h"
 #import "CoreDataEntities.h"
+#import "TWRequestOperation.h"
 
 @implementation POICreationModalViewController
 
@@ -29,6 +30,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -38,6 +40,12 @@
     NSString* responseString = [[NSString alloc] initWithData:[operation responseBody] encoding:NSUTF8StringEncoding];
     [[Logging logger] logMessage:responseString];
     NSArray* parsedResults = [operation parsedResults];
+}
+
+-(void)operationDidGetFollowed:(TWRequestOperation*)operation
+{
+    NSArray* followed = [operation.responseDict valueForKey:@"screenNames"];
+    [[Logging logger] logMessage:[NSString stringWithFormat:@"Here are the followed screen names: %@", followed]];
 }
 
 -(void)done
@@ -87,8 +95,21 @@
             NSString* urlExtension = [NSString stringWithFormat:@"/view_poi/%@/", thePoi.idString];
             NSString* url = [[NetworkAPI getURLBase] stringByAppendingString:urlExtension];
             NSString* tweetBody = [NSString stringWithFormat:@"%@ %@", thePoi.details, url];
-            [[TwitterAPI apiInstance] sendTweet:tweetBody forHandle:twitterHandle];
+            [[TwitterAPI apiInstance] sendTweet:tweetBody forHandle:twitterHandle callbackTarget:self action:@selector(finishedTweet:)];
         }
+    }
+}
+
+
+-(void)finishedTweet:(TWRequestOperation*)operation
+{
+    if (operation.operationState == OperationStateSuccess)
+    {
+        [[Logging logger] logMessage:@"Tweet sent successfully"];
+    }
+    else
+    {
+        [[Logging logger] logMessage:@"Tweet not sent"];
     }
 }
 
@@ -103,6 +124,8 @@
     {
         __managedObjectContext = context;
         tweetPOI = YES;
+        NSString* twitterHandle = [[NSUserDefaults standardUserDefaults] objectForKey:@"twitterHandle"];
+        [[TwitterAPI apiInstance] getFollowed:twitterHandle callbackTarget:self action:@selector(operationDidGetFollowed:)];
     }
     
     return self;

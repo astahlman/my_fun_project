@@ -44,6 +44,9 @@
 {
     if (_operationState != OperationStateCancelled)
     {
+        [self willChangeValueForKey:@"isExecuting"];
+        _operationState = OperationStateExecuting;
+        [self didChangeValueForKey:@"isExecuting"];
         _responseBody = [self executeRequest:_request];
         [[Logging logger] logMessage:[[NSString alloc] initWithData:_responseBody encoding:NSUTF8StringEncoding]];
         if ([self parseResponse:_responseBody])

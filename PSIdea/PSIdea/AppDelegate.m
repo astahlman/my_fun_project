@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CoreDataCreator.h"
+#import "NetworkManager.h"
+
 @implementation AppDelegate
 
 @synthesize window;
@@ -23,6 +25,10 @@
     [creator createCoreDataIn:[self managedObjectContext]];
     [TwitterAPI getCurrentUser];
     
+    // create the API singletons and assign them the same network manager
+    NetworkManager* manager = [[NetworkManager alloc] init];
+    [[TwitterAPI apiInstance] setNetworkManager:manager];
+    [[NetworkAPI apiInstance] setNetworkManager:manager]; 
     
     //Allocate TabBarController and Views
     

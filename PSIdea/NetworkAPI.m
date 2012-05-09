@@ -17,6 +17,8 @@ const NSString* PSI_URL_BASE = @"http://freezing-sunrise-1739.herokuapp.com";
 
 @implementation NetworkAPI
 
+@synthesize networkManager = _networkManager;
+
 +(NetworkAPI*)apiInstance
 {
     static NetworkAPI* api;
@@ -38,7 +40,6 @@ const NSString* PSI_URL_BASE = @"http://freezing-sunrise-1739.herokuapp.com";
 -(id)init
 {
     self = [super init];
-    _networkManager = [[NetworkManager alloc] init];
     _jsonParser = [[SBJsonParser alloc] init];
     _jsonWriter = [[SBJsonWriter alloc] init];
     return self;
@@ -46,7 +47,7 @@ const NSString* PSI_URL_BASE = @"http://freezing-sunrise-1739.herokuapp.com";
 
 @class HTTPPostOperationDelegate;
 
--(void)postPOI:(POI *)poi callbackTarget:(id)target action:(SEL)action;   
+-(void)postPOI:(POI *)poi callbackTarget:(id)target action:(SEL)action   
 {
     NSMutableDictionary* poiDict = [[NSMutableDictionary alloc] initWithDictionary:[poi propertiesDict]];
     [poiDict addEntriesFromDictionary:[poi relationshipsDict]];

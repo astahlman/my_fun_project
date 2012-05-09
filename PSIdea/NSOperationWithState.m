@@ -70,4 +70,13 @@
     return msg;
 }
 
+-(void)onOperationSuccess
+{
+    [self willChangeValueForKey:@"isExecuting"];
+    [self willChangeValueForKey:@"isFinished"];
+    _operationState = OperationStateSuccess;
+    [self didChangeValueForKey:@"isExecuting"];
+    [self didChangeValueForKey:@"isFinished"];
+}
+
 @end
